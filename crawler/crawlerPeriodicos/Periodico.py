@@ -41,17 +41,25 @@ class Periodico():
                         url = self.dominio + rutaAnioMes + rutaDia + rutaElemento + self.archivo
                         listURLs.append(url)
 
-            strFile = self.directorio + self.anio + "_" + diccMeses[self.mes][1] + "_noticias.json"
+            strFile = "{}/{}_{}_noticias.json".format(  self.directorio,
+                                                        self.anio,
+                                                        diccMeses[self.mes][1])
 
 
         else:
 
             if int(self.dia) < 10:
                 rutaDia = self.anio + self.separadorFecha + diccMeses[self.mes][1] + self.separadorFecha + "0" + str(int(self.dia)) + "/"
-                strFile = directorio + self.anio + "_" + diccMeses[self.mes][1] + "_0" + str(int(self.dia)) + "_noticias.json"
+                strFile = "{}/{}_{}_0{}_noticias.json".format(  self.directorio,
+                                                                self.anio,
+                                                                diccMeses[self.mes][1],
+                                                                str(int(self.dia)))
             else:
                 rutaDia = self.anio + self.separadorFecha + diccMeses[self.mes][1] + self.separadorFecha + self.dia + "/"
-                strFile = self.directorio + self.anio + "_" + diccMeses[self.mes][1] + "_" + self.dia + "_noticias.json"
+                strFile = "{}/{}_{}_{}_noticias.json".format(   self.directorio,
+                                                                self.anio,
+                                                                diccMeses[self.mes][1],
+                                                                self.dia)
 
             if not self.listado: # Listado de periodos vacio
                 url = self.dominio + rutaDia + self.archivo
@@ -73,7 +81,7 @@ class Periodico():
         # URLS => https://elpais.com/hemeroteca/elpais/YYYY/MM/dd/[m,t,n]/portada.html
         if self.nombre == "EL_PAIS":
             
-            self.directorio = "datos_EL_PAIS/"
+            self.directorio = "datos_EL_PAIS"
             self.dominio = "https://elpais.com/hemeroteca/elpais/"
             self.archivo = "portada.html"
             self.separadorFecha = "/"
@@ -82,7 +90,7 @@ class Periodico():
         # URLS => https://www.elmundo.es/elmundo/hemeroteca/YYYY/MM/dd/[m,t,n]/index.html
         elif self.nombre == "EL_MUNDO":
             
-            self.directorio = "datos_EL_MUNDO/"
+            self.directorio = "datos_EL_MUNDO"
             self.dominio = "https://www.elmundo.es/elmundo/hemeroteca/"
             self.archivo = "index.html"
             self.separadorFecha = "/"
@@ -91,7 +99,7 @@ class Periodico():
         # URLS => https://www.20minutos.es/archivo/YYYY/MM/dd/
         elif self.nombre == "20_MINUTOS":
             
-            self.directorio = "datos_20_MINUTOS/"
+            self.directorio = "datos_20_MINUTOS"
             self.dominio = "https://www.20minutos.es/archivo/"
             self.archivo = ""
             self.separadorFecha = "/"
@@ -100,7 +108,7 @@ class Periodico():
         # URLS => https://www.elconfidencial.com/hemeroteca/YYYY-MM-dd/[1,2]/
         elif self.nombre == "EL_CONFIDENCIAL":
             
-            self.directorio = "datos_EL_CONFIDENCIAL/"
+            self.directorio = "datos_EL_CONFIDENCIAL"
             self.dominio = "https://www.elconfidencial.com/hemeroteca/"
             self.archivo = ""
             self.separadorFecha = "-"
