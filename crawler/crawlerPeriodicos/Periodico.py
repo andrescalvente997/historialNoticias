@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from os.path import abspath, dirname
+
 class Periodico():
 
     def __init__(self, periodico, anio, mes, dia = None):
@@ -31,14 +33,14 @@ class Periodico():
 
                 if not self.listado: # Listado de periodos vacio
                     if i+1 < 10:
-                        url = "{1}/{2}{3}{4}{3}0{5}/{6}".format(    self.dominio,
+                        url = "{0}/{1}{2}{3}{2}0{4}/{5}".format(    self.dominio,
                                                                     self.anio,
                                                                     self.separadorFecha,
                                                                     diccMeses[self.mes][1],
                                                                     str(i+1),
                                                                     self.archivo)
                     else:
-                        url = "{1}/{2}{3}{4}{3}{5}/{6}".format( self.dominio,
+                        url = "{0}/{1}{2}{3}{2}{4}/{5}".format( self.dominio,
                                                                 self.anio,
                                                                 self.separadorFecha,
                                                                 diccMeses[self.mes][1],
@@ -49,7 +51,7 @@ class Periodico():
                 else:
                     if i+1 < 10:
                         for elemento in self.listado:
-                            url = "{1}/{2}{3}{4}{3}0{5}/{6}/{7}".format(    self.dominio,
+                            url = "{0}/{1}{2}{3}{2}0{4}/{5}/{6}".format(    self.dominio,
                                                                             self.anio,
                                                                             self.separadorFecha,
                                                                             diccMeses[self.mes][1],
@@ -59,7 +61,7 @@ class Periodico():
                             listURLs.append(url)
                     else:
                         for elemento in self.listado:
-                            url = "{1}/{2}{3}{4}{3}{5}/{6}/{7}".format( self.dominio,
+                            url = "{0}/{1}{2}{3}{2}{4}/{5}/{6}".format( self.dominio,
                                                                         self.anio,
                                                                         self.separadorFecha,
                                                                         diccMeses[self.mes][1],
@@ -81,7 +83,7 @@ class Periodico():
                                                                 diccMeses[self.mes][1],
                                                                 str(int(self.dia)))
                 if not self.listado: # Listado de periodos vacio
-                    url = "{1}/{2}{3}{4}{3}0{5}/{6}".format(    self.dominio,
+                    url = "{0}/{1}{2}{3}{2}0{4}/{5}".format(    self.dominio,
                                                                 self.anio,
                                                                 self.separadorFecha,
                                                                 diccMeses[self.mes][1],
@@ -90,7 +92,7 @@ class Periodico():
                     listURLs.append(url)
                 else:
                     for elemento in self.listado:
-                        url = "{1}/{2}{3}{4}{3}0{5}/{6}/{7}".format(    self.dominio,
+                        url = "{0}/{1}{2}{3}{2}0{4}/{5}/{6}".format(    self.dominio,
                                                                         self.anio,
                                                                         self.separadorFecha,
                                                                         diccMeses[self.mes][1],
@@ -105,7 +107,7 @@ class Periodico():
                                                                 diccMeses[self.mes][1],
                                                                 self.dia)
                 if not self.listado: # Listado de periodos vacio
-                    url = "{1}/{2}{3}{4}{3}{5}/{6}".format(    self.dominio,
+                    url = "{0}/{1}{2}{3}{2}{4}/{5}".format(    self.dominio,
                                                                 self.anio,
                                                                 self.separadorFecha,
                                                                 diccMeses[self.mes][1],
@@ -114,7 +116,7 @@ class Periodico():
                     listURLs.append(url)
                 else:
                     for elemento in self.listado:
-                        url = "{1}/{2}{3}{4}{3}{5}/{6}/{7}".format(    self.dominio,
+                        url = "{0}/{1}{2}{3}{2}{4}/{5}/{6}".format(    self.dominio,
                                                                         self.anio,
                                                                         self.separadorFecha,
                                                                         diccMeses[self.mes][1],
@@ -122,6 +124,8 @@ class Periodico():
                                                                         elemento,
                                                                         self.archivo)
                         listURLs.append(url)
+
+        strFile = dirname(abspath(__file__)) + "/" + strFile
 
         return listURLs, strFile
 

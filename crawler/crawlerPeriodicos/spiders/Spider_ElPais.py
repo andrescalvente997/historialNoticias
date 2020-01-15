@@ -34,7 +34,8 @@ class Spider_ElPais(CrawlSpider):
                                 deny_domains = ['motor.elpais.com', 'verne.elpais.com', 'colecciones.elpais.com', 
                                                 'aprendemosjuntos.elpais.com', 'librotea.elpais.com', 'descuentos.elpais.com',
                                                 'elcomidista.elpais.com', 'smoda.elpais.com', 'suscripciones.elpais.com',
-                                                'elfuturoesapasionante.elpais.com', 'escuela.elpais.com', 'cat.elpais.com'],
+                                                'elfuturoesapasionante.elpais.com', 'escuela.elpais.com', 'cat.elpais.com',
+                                                'plus.elpais.com'],
                                 deny = ["especiales", "tematicos"]), 
                 callback='parse_item', 
                 follow = False),
@@ -119,8 +120,8 @@ class Spider_ElPais(CrawlSpider):
         for tag in tagsNoticia:
             item['tagsNoticia'].append(tag)
 
-        #self.newsCount+=1
-        if self.newsCount > 10:
+        self.newsCount+=1
+        if self.newsCount > 1:
             raise CloseSpider("Noticias de test recogidas")
 
         yield item

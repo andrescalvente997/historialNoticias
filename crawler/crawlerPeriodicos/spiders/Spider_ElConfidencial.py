@@ -52,9 +52,6 @@ class Spider_ElMundo(CrawlSpider):
         else:
             self.start_urls, _ = self.periodico.crea_StartUrl()
             self.strFile = strFile
-
-        print("\n\n")
-        print(self.start_urls)
     
     
     def parse_item(self, response):

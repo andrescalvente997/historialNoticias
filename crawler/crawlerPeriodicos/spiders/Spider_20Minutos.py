@@ -52,10 +52,6 @@ class Spider_20Minutos(CrawlSpider):
         else:
             self.start_urls, _ = self.periodico.crea_StartUrl()
             self.strFile = strFile
-
-        print("\n")
-        print(self.start_urls)
-        print("\n")
     
     
     def parse_item(self, response):
