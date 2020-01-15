@@ -11,7 +11,7 @@ class item_Noticia(scrapy.Item):
     
     titularNotica = scrapy.Field()
     linkNoticia = scrapy.Field()
-    categoriaNoticia = scrapy.Field()
+    keywordsNoticia = scrapy.Field()
     resumenNoticia = scrapy.Field()
     autorNoticia = scrapy.Field()
     localizacionNoticia = scrapy.Field()

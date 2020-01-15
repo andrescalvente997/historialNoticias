@@ -10,13 +10,12 @@ import re
 
 TAG_RE = re.compile(r'<[^>]+>')
 
-XPATH_NOTICIA_TITULO = '//h1[contains(@class,"articulo-titulo")]/text()'
-XPATH_NOTICIA_CATEGORIA_TIER1 = '//a[@class="enlace"]/text()'
-XPATH_NOTICIA_CATEGORIA_TIER2 = '//span/a/span[@itemprop="title"]/text()'
-XPATH_NOTICIA_RESUMEN = '//h2[@class="articulo-subtitulo"]/text()' 
-XPATH_NOTICIA_AUTORES = '//span[@class="autor-nombre"]/a/text()'
+XPATH_NOTICIA_TITULO = '//head/meta[@property="og:title"]/@content'
+XPATH_NOTICIA_KEYWORDS = '//head/meta[@name="og:keywords"]/@content'
+XPATH_NOTICIA_RESUMEN = '//head/meta[@property="og:description"]/@content' 
+XPATH_NOTICIA_AUTORES = '//head/meta[@name="author"]/@content' 
 XPATH_NOTICIA_LOCALIZACIONES = '//span[@class="articulo-localizaciones"]/span[@class="articulo-localizacion"]/text()'
-XPATH_NOTICIA_FECHA_PUBLICACION = '//time/meta[@itemprop="datePublished"]/@content'
+XPATH_NOTICIA_FECHA_PUBLICACION = '//head/meta[@name="date"]/@content'
 XPATH_NOTICIA_FOTO_PIE = '//span[@class="foto-texto"]/text()'
 XPATH_NOTICIA_FOTO_FIRMA = '//span[@class="foto-firma"]/span[@itemprop="author"][@class="foto-autor"]/text()'
 XPATH_NOTICIA_CUERPO = '//div[@class="articulo-cuerpo"]/p'
@@ -65,29 +64,31 @@ class Spider_ElPais(CrawlSpider):
 
         print(response.xpath(XPATH_NOTICIA_TITULO).extract())
 
+        # TITULAR
         item['titularNotica'] = response.xpath(XPATH_NOTICIA_TITULO).extract()[0]
 
+        # LINK
         item['linkNoticia'] = response.url
 
-        item['categoriaNoticia'] = []
-        categoriasTier1 = response.xpath(XPATH_NOTICIA_CATEGORIA_TIER1).extract()
-        categoriasTier2 = response.xpath(XPATH_NOTICIA_CATEGORIA_TIER2).extract()
-        for categoria in categoriasTier1:
-            if categoria != "\n" and categoria != "\t\n":
-                item['categoriaNoticia'].append(categoria)
-        for categoria in categoriasTier2:
-            item['categoriaNoticia'].append(categoria)
+        # KEYWORDS
+        # Las keywords se ponen con el formato "A, B, C"
+        item['keywordsNoticia'] = []
+        keywords = response.xpath(XPATH_NOTICIA_KEYWORDS).extract()[0].split(", ")
+        for keyword in keywords:
+            item['keywordsNoticia'].append(keywords)
 
-        try:
-            item['resumenNoticia'] = response.xpath(XPATH_NOTICIA_RESUMEN).extract()[0]
-        except:
-            item['resumenNoticia'] = ""
+        # DESCRIPCIÓN
+        item['resumenNoticia'] = response.xpath(XPATH_NOTICIA_RESUMEN).extract()[0]
 
+        # AUTORES
+        # Los autores se muestran como "A, B, C"
         item['autorNoticia'] = []
-        autores = response.xpath(XPATH_NOTICIA_AUTORES).extract()
+        autores = response.xpath(XPATH_NOTICIA_AUTORES).extract()[0].split(", ")
         for autor in autores:
             item['autorNoticia'].append(autor)
 
+        # LOCALIZACIONES
+        # Se muestran en el formato "Madrid\n/ \nFrancia"
         try:
             strLocalizacion = response.xpath(XPATH_NOTICIA_LOCALIZACIONES).extract()[0]
             strLocalizacion = strLocalizacion.replace("\n", "")
@@ -98,30 +99,35 @@ class Spider_ElPais(CrawlSpider):
         except:
             item['localizacionNoticia'] = []
 
+        # FECHA
         item['fechaPublicacionNoticia'] = response.xpath(XPATH_NOTICIA_FECHA_PUBLICACION).extract()[0]
 
+        # PIE DE FOTO
         try:
             item['pieDeFotoNoticia'] = response.xpath(XPATH_NOTICIA_FOTO_PIE).extract()[0]
         except:
             item['pieDeFotoNoticia'] = ""
 
+        # FIRMA DE LA FOTO
         try:    
             item['firmaDeFotoNoticia'] = response.xpath(XPATH_NOTICIA_FOTO_FIRMA).extract()[0]
         except:
             item['firmaDeFotoNoticia'] = ""
 
+        # CUERPO
         listPartesCuerpo = response.xpath(XPATH_NOTICIA_CUERPO).extract()
         cuerpoNoticia = "".join(listPartesCuerpo)
         cuerpoNoticia = TAG_RE.sub('', cuerpoNoticia)
         item['cuerpoNoticia'] = cuerpoNoticia
 
+        # TAGS
         item['tagsNoticia'] = []
         tagsNoticia = response.xpath(XPATH_NOTICIA_TAGS).extract()
         for tag in tagsNoticia:
             item['tagsNoticia'].append(tag)
 
         self.newsCount+=1
-        if self.newsCount > 1:
+        if self.newsCount > 10:
             raise CloseSpider("Noticias de test recogidas")
 
         yield item
