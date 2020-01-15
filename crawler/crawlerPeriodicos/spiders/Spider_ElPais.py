@@ -81,9 +81,9 @@ class Spider_ElPais(CrawlSpider):
         # AUTORES
         # Los autores se muestran como "A, B, C"
         item['autorNoticia'] = []
-        autores = response.xpath(XPATH_NOTICIA_AUTORES).extract()[0].split(", ")
+        autores = response.xpath(XPATH_NOTICIA_AUTORES).extract()[0].split(",")
         for autor in autores:
-            item['autorNoticia'].append(autor)
+            item['autorNoticia'].append(autor.strip())
 
         # LOCALIZACIONES
         # Se muestran en el formato "Madrid\n/ \nFrancia"
