@@ -10,13 +10,12 @@ import re
 
 TAG_RE = re.compile(r'<[^>]+>')
 
-XPATH_NOTICIA_TITULO = '//h1[contains(@class,"js-headline")]/text()'
-XPATH_NOTICIA_CATEGORIA_TIER1 = '//div[@class="ue-c-article__kicker"]//text()'
-XPATH_NOTICIA_CATEGORIA_TIER2 = '//li[@itemprop="itemListElement"]//span[@itemprop="name"]/text()'
+XPATH_NOTICIA_TITULO = '//head/meta[@property="og:title"]/@content'
+XPATH_NOTICIA_KEYWORDS = '//head/meta[@name="keywords"]/@content'
 XPATH_NOTICIA_RESUMEN = '//p[@class="ue-c-article__standfirst"]/text()' 
 XPATH_NOTICIA_AUTORES = '//div[@class="ue-c-article__byline-name"]/text()'
 XPATH_NOTICIA_LOCALIZACIONES = '//div[@class="ue-c-article__byline-location"]/text()'
-XPATH_NOTICIA_FECHA_PUBLICACION = '//div//time/@datetime'
+XPATH_NOTICIA_FECHA_PUBLICACION = '//head/meta[@name="date"]/@content'
 XPATH_NOTICIA_FOTO_PIE = '//span[@class="ue-c-article__media-description"]/text()'
 XPATH_NOTICIA_FOTO_FIRMA = '//span[@class="ue-c-article__media-author"]/text()'
 XPATH_NOTICIA_CUERPO = '//div[@class="ue-l-article__body ue-c-article__body"]/p'
@@ -59,22 +58,28 @@ class Spider_ElMundo(CrawlSpider):
 
         item = item_Noticia()
 
+        # TITULAR
         item['titularNotica'] = response.xpath(XPATH_NOTICIA_TITULO).extract()[0]
 
+        # LINK
         item['linkNoticia'] = response.url
 
-        item['categoriaNoticia'] = []
-        categoriasTier1 = response.xpath(XPATH_NOTICIA_CATEGORIA_TIER1).extract()
-        for categoria in categoriasTier1:
-            item['categoriaNoticia'].append(categoria.strip())
-        categoriasTier2 = response.xpath(XPATH_NOTICIA_CATEGORIA_TIER2).extract()[1:]
-        for categoria in categoriasTier2:
-            item['categoriaNoticia'].append(categoria)        
+        # KEYWORDS
+        # Las keywords se ponen con el formato "A, B, C"
+        item['keywordsNoticia'] = []
+        keywords = response.xpath(XPATH_NOTICIA_KEYWORDS).extract()[0].split(",")
+        for keyword in keywords:
+            item['keywordsNoticia'].append(keyword.strip())       
         
+        # DESCRIPCIÓN
+        # Alguna noticia puede no tener resumen
         item['resumenNoticia'] = response.xpath(XPATH_NOTICIA_RESUMEN).extract()
         if not item['resumenNoticia']:
             item['resumenNoticia'] = ""
         
+        # AUTORES
+        # Lo obtenemos del <body> y si hay, está en tags separados
+        # Si no hay autor, ponemos EL_MUNDO como default
         item['autorNoticia'] = []
         autores = response.xpath(XPATH_NOTICIA_AUTORES).extract()
         if not autores:
@@ -83,13 +88,18 @@ class Spider_ElMundo(CrawlSpider):
             for autor in autores:
                 item['autorNoticia'].append(autor)
             
+        # LOCALIZACIONES
+        # Lo obtenemos del <body> y si hay, está en tags separados
         item['localizacionNoticia'] = []
         localizaciones = response.xpath(XPATH_NOTICIA_LOCALIZACIONES).extract()
         for localizacion in localizaciones:
             item['localizacionNoticia'].append(localizacion)
 
+        # FECHA
         item['fechaPublicacionNoticia'] = response.xpath(XPATH_NOTICIA_FECHA_PUBLICACION).extract()[0]
         
+        # PIE DE FOTO + FIRMA DE FOTO
+        # Algunas noticias no tienen foto
         try:
             item['pieDeFotoNoticia'] = response.xpath(XPATH_NOTICIA_FOTO_PIE).extract()[0].strip()
             item['firmaDeFotoNoticia'] = response.xpath(XPATH_NOTICIA_FOTO_FIRMA).extract()[0].strip()
@@ -97,17 +107,20 @@ class Spider_ElMundo(CrawlSpider):
             item['pieDeFotoNoticia'] = ""
             item['firmaDeFotoNoticia'] = ""
         
+        # CUERPO
         listPartesCuerpo = response.xpath(XPATH_NOTICIA_CUERPO).extract()
         cuerpoNoticia = "".join(listPartesCuerpo)
         cuerpoNoticia = TAG_RE.sub('', cuerpoNoticia)
         item['cuerpoNoticia'] = cuerpoNoticia
         
+        # TAGS
         item['tagsNoticia'] = []
         tagsNoticia = response.xpath(XPATH_NOTICIA_TAGS).extract()
         for tag in tagsNoticia:
             item['tagsNoticia'].append(tag)
-        
-        #self.newsCount+=1
+
+        # ZONA DE TEST
+        self.newsCount+=1
         if self.newsCount > 10:
             raise CloseSpider("Noticias de test recogidas")
 

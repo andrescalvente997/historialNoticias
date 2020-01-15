@@ -14,7 +14,8 @@
         "ejecutivo", 
         "aumentar", 
         "salario", 
-        "4,5 %", 
+        "4", 
+        "5 %", 
         "2019", 
         "2 %", 
         "trabajador"
@@ -347,6 +348,54 @@
     ]
 },
 {
+    "titularNotica": "Fotos: Así es el cerebro de un estadio inteligente ", 
+    "linkNoticia": "https://elpais.com/elpais/2019/10/23/album/1571831170_220352.html", 
+    "resumenNoticia": "El Wanda Metropolitano se ha erigido como un recinto a la vanguardia tecnológica gracias a la conectividad que inunda sus 90.000 metros cuadrados y que da vida a una novedosa sala de control donde se gestiona cada rincón del estadio", 
+    "keywordsNoticia": [
+        "Fotos", 
+        "ser", 
+        "cerebro", 
+        "estadio", 
+        "inteligente", 
+        "wanda metropolitano", 
+        "haber", 
+        "erigir", 
+        "recinto", 
+        "vanguardia", 
+        "tecnológica", 
+        "tecnológico", 
+        "conectividad", 
+        "inundar", 
+        "90.000 metros cuadrados", 
+        "dar", 
+        "vida", 
+        "novedosa", 
+        "novedoso", 
+        "sala", 
+        "control", 
+        "gestionar", 
+        "rincón"
+    ], 
+    "tagsNoticia": [
+        "Wanda Metropolitano", 
+        "Estadios fútbol", 
+        "Atlético Madrid", 
+        "Telefónica", 
+        "Instalaciones deportivas", 
+        "Fútbol", 
+        "Equipos", 
+        "Deportes"
+    ], 
+    "pieDeFotoNoticia": "El nuevo hogar del Atlético de Madrid fue inaugurado el 16 de septiembre de 2017 con una capacidad para 68.000 espectadores. Desde entonces no ha dejado de sorprender. \"Es 100% digital\", dice Enrique Canellada, director de la Oficina de Proyecto en Telefónica Empresas, socio tecnológico de los colchoneros. El recinto cuenta con una inteligente sala de control, un espacio al que pocos pueden acceder. Desde ese sitio, un reducido grupo de expertos de entre 15 y 17 personas gestiona un circuito cerrado de televisión, los sistemas de vigilancia y los contenidos emitidos en un millar de pantallas LED. La sala está conectada con dos centros de procesamiento de datos (CPD) instalados en sitios estratégicos del recinto. Este es el verdadero corazón tecnológico del Wanda Metropolitano, afirma René Abril, director de Tecnología y Desarrollo Digital del Atlético de Madrid.", 
+    "autorNoticia": [
+        "Ediciones El País"
+    ], 
+    "cuerpoNoticia": "", 
+    "fechaPublicacionNoticia": "2020-01-14T09:13:51+01:00", 
+    "firmaDeFotoNoticia": "CRUZ Y ORTÍZ ARQUITECTOS", 
+    "localizacionNoticia": []
+},
+{
     "titularNotica": "La Fiscalía de Líbano prohíbe a Carlos Ghosn salir del país", 
     "linkNoticia": "https://elpais.com/economia/2020/01/09/actualidad/1578600013_557354.html", 
     "resumenNoticia": "“Cooperaré plenamente con el sistema judicial libanés , asegura el magnate huido de la justicia japonesa", 
@@ -393,65 +442,5 @@
     "localizacionNoticia": [
         "Beirut"
     ]
-},
-{
-    "titularNotica": "La tecnología más puntera de las estaciones de esquí", 
-    "linkNoticia": "https://elpais.com/economia/2019/12/13/thinkbig_empresas/1576228203_334534.html", 
-    "resumenNoticia": "‘Big data’, drones, inteligencia artificial e internet de las cosas son algunas de las innovaciones que han revolucionando el deporte en la nieve", 
-    "keywordsNoticia": [
-        "tecnología", 
-        "puntera", 
-        "puntero", 
-        "estación", 
-        "esquí", 
-        "big", 
-        "datar", 
-        "drones", 
-        "inteligencia", 
-        "artificial", 
-        "internet", 
-        "cosa", 
-        "ser", 
-        "innovación", 
-        "haber", 
-        "revolucionar", 
-        "deporte", 
-        "nieve"
-    ], 
-    "tagsNoticia": [
-        "Big data", 
-        "Sierra Nevada", 
-        "Analítica datos", 
-        "Sistema Penibético", 
-        "Bases datos", 
-        "Montañas", 
-        "Tecnologías información", 
-        "Computación", 
-        "Estaciones esquí", 
-        "Cordilleras", 
-        "Telefónica", 
-        "Instalaciones deportivas", 
-        "Espacios naturales", 
-        "Esquí", 
-        "Deportes invierno", 
-        "Empresas", 
-        "Informática", 
-        "Deportes", 
-        "Economía", 
-        "Telecomunicaciones", 
-        "Tecnología", 
-        "Comunicaciones", 
-        "Industria", 
-        "Medio ambiente", 
-        "Ciencia"
-    ], 
-    "pieDeFotoNoticia": "", 
-    "autorNoticia": [
-        "J.P. / Ó.G."
-    ], 
-    "cuerpoNoticia": "Septiembre de 2019. Varios drones sobrevuelan Sierra Nevada dos meses antes de que la estación de esquí inaugure su temporada 2019-2020. ¿Su misión? Recabar datos sobre la orografía, cartografiar las pistas y analizar esa información para distribuir la cantidad óptima de nieve en cada punto de las instalaciones. Así se posibilita un pisado de pistas más preciso y una producción de nieve más eficaz en los lugares con menor espesor. Todo para una mejora continua de la experiencia de los esquiadores. “La tecnología nos permite optimizar recursos y tomar decisiones acertadas en tiempo récord, aunque para eso es necesario recabar la mayor cantidad de datos no solo de las infraestructuras, sino también de nuestros visitantes, siempre garantizando un uso anónimo y confidencial de la información”, señala Javier Sánchez, director de Innovación de Servicio al Cliente de Sierra Nevada.Con más de un millón de esquiadores por temporada, esta estación fue una de las pioneras de nuestro país en aplicar el big data, incluso cuando esta tecnología parecía exclusiva de grandes bancos y aseguradoras. “Hace años investigamos conjuntamente cómo aprovechar los datos de los visitantes para personalizar las ofertas a los distintos perfiles y mejorar la experiencia tanto de los que usaban las pistas de esquí como de los que pasaban más tiempo en otras zonas de las instalaciones”, apunta Carmen Alonso, gerente de big data e inteligencia artificial en LUCA, la unidad de negocio que desarrolla las soluciones de analítica de datos que comercializa Telefónica Empresas en España. Ahora, la operadora y Sierra Nevada vuelven a colaborar para profundizar en las posibilidades que la tecnología ofrece actualmente a cualquier estación de esquí. En concreto, la experta de LUCA destaca los siguientes casos de uso.Al instalar sensores de IoT (internet de las cosas) en las entradas y salidas de las instalaciones, es posible conocer en todo momento el nivel de ocupación de pistas, remontes, restaurantes y otros locales de la estación. Esa información, que puede ampliarse con la recogida mediante sensores adicionales sobre la temperatura exterior, la previsión meteorológica y el espesor de la nieve, se consulta en pantallas interactivas o desde dispositivos personales del usuario. “Entre otras ventajas, así aprovechas al máximo el tiempo que estás en la pista porque puedes elegir el remonte donde no hay cola, por ejemplo”, señala Carmen Alonso. Algunos proyectos ya en marcha incluyen cámaras con inteligencia artificial que diferencian entre personas, objetos y otros elementos de las imágenes que captan, de tal modo que miden el volumen de personas para facilitar y agilizar ese cálculo de la ocupación.Con la ayuda de wearables como pulseras o relojes inteligentes, los esquiadores consultan en tiempo real diversos datos: kilómetros recorridos, calorías quemadas, pulsaciones, tiempo de permanencia en la pista, máxima velocidad alcanzada, número de caídas… Según la experta de LUCA, con toda esa información podrían generarse motores de recomendaciones que ayuden al usuario a mejorar sus estadísticas, como cambiar a una pista de menor dificultad para seguir practicando ese movimiento donde se ha registrado un mayor número de caídas.A través de una app se pueden proponer misiones a lo largo de las pistas con una doble finalidad: potenciar el propio uso de la aplicación de la estación de esquí o bien redistribuir a los esquiadores para que no se concentren en las mismas zonas. “Si hay una pista con mucha ocupación, se puede proponer una misión, con el incentivo de un determinado premio, en otra donde la afluencia es menor”, apunta Carmen Alonso.Mediante apps y dispositivos personales se envían alarmas en caso de caídas u otra incidencia de los esquiadores, para que los socorristas acudan al rescate. Del mismo modo, si se prevé un cambio repentino de las condiciones meteorológicas o cualquier situación que pueda poner en riesgo la seguridad de los usuarios, desde la estación se enviarían alertas para evitar las zonas peligrosas.Al cruzar los datos de las propias instalaciones con los de fuentes externas (fabricantes de dispositivos, estaciones meteorológicas, afluencia de turistas…) es posible configurar modelos predictivos que ayudan a ser más eficientes en el día a día: desde adelantarse al fallo de un remonte porque se sustituye una pieza que está a punto de alcanzar su estimación de vida útil hasta conocer cuándo es mejor activar los cañones de nieve en función de las condiciones meteorológicas y la previsión de visitas.A partir del paso por diferentes remontes, se puede caracterizar a los esquiadores en grupos significativos y con la sensorización de los esquiadores y las pistas se crean perfiles completos para conocer patrones de comportamiento que otorgan la capacidad de ofrecer un mejor servicio, cada vez más y más personalizado.Algunas estaciones de esquí ya cuentan con un centro de control desde donde monitorizan en tiempo real todos los datos que miden, tanto de sus instalaciones como de sus visitantes. “Es mucho más cómodo para gestionar el negocio y tomar decisiones porque desde una única sala de control se consigue una visión integral de todo lo que ocurre, gracias a pantallas que además tienen indicadores de alarmas”, comenta Carmen Alonso.“La situación de una estación de esquí cambia radicalmente de un día para otro, sobre todo por las condiciones meteorológicas, pero gracias a la digitalización y al análisis de los datos en tiempo real podemos anticiparnos a lo que se prevé que ocurrirá y tomar las medidas oportunas”, remarca Sánchez, de Sierra Nevada.", 
-    "fechaPublicacionNoticia": "2019-12-17T01:11:56+01:00", 
-    "firmaDeFotoNoticia": "Sierra Nevada", 
-    "localizacionNoticia": []
 }
 ]

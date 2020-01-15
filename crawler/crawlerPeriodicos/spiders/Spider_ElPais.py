@@ -62,8 +62,6 @@ class Spider_ElPais(CrawlSpider):
 
         item = item_Noticia()
 
-        print(response.xpath(XPATH_NOTICIA_TITULO).extract())
-
         # TITULAR
         item['titularNotica'] = response.xpath(XPATH_NOTICIA_TITULO).extract()[0]
 
@@ -73,9 +71,9 @@ class Spider_ElPais(CrawlSpider):
         # KEYWORDS
         # Las keywords se ponen con el formato "A, B, C"
         item['keywordsNoticia'] = []
-        keywords = response.xpath(XPATH_NOTICIA_KEYWORDS).extract()[0].split(", ")
+        keywords = response.xpath(XPATH_NOTICIA_KEYWORDS).extract()[0].split(",")
         for keyword in keywords:
-            item['keywordsNoticia'].append(keyword)
+            item['keywordsNoticia'].append(keyword.strip())
 
         # DESCRIPCIÓN
         item['resumenNoticia'] = response.xpath(XPATH_NOTICIA_RESUMEN).extract()[0]
@@ -126,7 +124,8 @@ class Spider_ElPais(CrawlSpider):
         for tag in tagsNoticia:
             item['tagsNoticia'].append(tag)
 
-        self.newsCount+=1
+        # ZONA DE TEST
+        #self.newsCount+=1
         if self.newsCount > 10:
             raise CloseSpider("Noticias de test recogidas")
 
