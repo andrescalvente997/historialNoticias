@@ -1,0 +1,248 @@
+https://www.elmundo.es/andalucia/2019/01/10/5c36647421efa0270b8b46b2.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'El PP gobernar\xe1 Andaluc\xeda al pactar p...'>
+
+
+https://www.elmundo.es/deportes/futbol/2019/01/10/5c36899ffc6c83ab438b477c.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Sin incineraci\xf3n en la Copa'>
+
+
+https://www.elmundo.es/deportes/futbol/2019/01/10/5c368b5efc6c83112a8b4789.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Isco, suplente de suplentes'>
+
+
+https://www.elmundo.es/opinion/2019/01/10/5c364aeafc6c83770b8b475c.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'No toda agresi\xf3n es violencia de g\xe9nero'>
+
+
+https://www.elmundo.es/internacional/2019/01/10/5c36ffaa21efa0bb448b4575.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Hallan 20 cad\xe1veres en la frontera en...'>
+
+
+https://www.elmundo.es/internacional/2019/01/10/5c3718c0fc6c83d9298b477a.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Varios muertos en un ataque con un dr...'>
+
+
+https://www.elmundo.es/internacional/2019/01/09/5c364bdffc6c83112a8b4780.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'La (casi) soledad de Nicol\xe1s Maduro'>
+
+
+https://www.elmundo.es/economia/empresas/2019/01/10/5c35f7cdfdddff6d698b4784.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Google hace lobby ante los nuevos der...'>
+
+
+https://www.elmundo.es/deportes/futbol/2019/01/10/5c3682cc21efa03d6b8b46d6.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'El PSG, eliminado de la Copa de la Li...'>
+
+
+https://www.elmundo.es/deportes/futbol/2019/01/09/5c3679e521efa0f2248b470a.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Vinicius contagia al Madrid la eufori...'>
+
+
+https://www.elmundo.es/opinion/2019/01/10/5c363b06fc6c838a328b4749.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u"'So long, Marianne'">
+
+
+https://www.elmundo.es/espana/2019/01/10/5c3669dcfdddff45568b456f.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u"Pablo Casado vaticina el fin del 'mom...">
+
+
+https://www.elmundo.es/opinion/2019/01/10/5c35fcda21efa066348b468a.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Sand\xeda'>
+
+
+https://www.elmundo.es/opinion/2019/01/10/5c363aadfc6c8368758b4737.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'King Kong'>
+
+
+https://www.elmundo.es/pais-vasco/2019/01/10/5c372f7dfc6c831b068b4579.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Primer fichaje de Elizegi: Ibai deja ...'>
+
+
+https://www.elmundo.es/deportes/formula-1/2019/01/10/5c37810efdddff8f778b470b.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'McLaren ficha como jefe de F1 a Andre...'>
+
+
+https://www.elmundo.es/deportes/futbol/2019/01/10/5c374f3afdddffc6828b466a.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Mourinho cierra la puerta al Benfica:...'>
+
+
+https://www.elmundo.es/deportes/futbol/2019/01/10/5c37bcc3fdddfff4418b473c.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'El hambre de Nolito liquida al Athletic'>
+
+
+https://www.elmundo.es/deportes/futbol/2019/01/10/5c3766b8fdddff437f8b4628.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Sergio Ramos: "Debemos volver a fusio...'>
+
+
+https://www.elmundo.es/deportes/futbol/2019/01/10/5c375608fdddff515d8b4679.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Alemany sostiene a Marcelino: no hay ...'>
+
+
+https://www.elmundo.es/opinion/2019/01/10/5c35e7bc21efa0cd188b463c.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Venezuela: la hora de Am\xe9rica'>
+
+
+https://www.elmundo.es/opinion/2019/01/10/5c36359621efa039548b4684.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Promesas, mentiras y populismo'>
+
+
+https://www.elmundo.es/baleares/2019/01/10/5c37923bfdddffc6828b4692.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Un paciente agrede a tres m\xe9dicos al ...'>
+
+
+https://www.elmundo.es/deportes/futbol/2019/01/10/5c37ab47fc6c83bb198b45bb.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'La polic\xeda de Las Vegas pide a un jue...'>
+
+
+https://www.elmundo.es/espana/2019/01/10/5c37aa4e21efa0055b8b46e7.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Fomento promete subir un 41% de inver...'>
+
+
+https://www.elmundo.es/internacional/2019/01/10/5c37b346fdddffc1778b4756.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'El ex abogado de Trump testificar\xe1 an...'>
+
+
+https://www.elmundo.es/television/2019/01/10/5c377e98fdddff79728b4699.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Enric Hern\xe1ndez, posible relevo de El...'>
+
+
+https://www.elmundo.es/comunidad-valenciana/2019/01/10/5c379410fc6c83ff058b45b3.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Declaran culpable al marido de Pilar ...'>
+
+
+https://www.elmundo.es/internacional/2019/01/10/5c3792c9fdddffc6828b469a.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Donald Trump amenaza de nuevo con la ...'>
+
+
+https://www.elmundo.es/andalucia/2019/01/10/5c37b1cffdddff70798b46d7.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'El ex seleccionador de baloncesto Jav...'>
+
+
+https://www.elmundo.es/opinion/2019/01/10/5c363efbfc6c83fa108b4768.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u"'La Internacional', por buler\xedas">
+
+
+https://www.elmundo.es/opinion/2019/01/10/5c35e2a221efa0196a8b4646.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Deterioro del Estado en Espa\xf1a'>
+
+
+https://www.elmundo.es/motor/2019/01/10/5c37267221efa0c3358b457f.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Ford avanza un plan de despidos en Eu...'>
+
+
+https://www.elmundo.es/internacional/2019/01/10/5c3750be21efa0ac1d8b464f.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Muere apu\xf1alado un ni\xf1o de 14 a\xf1os en...'>
+
+
+https://www.elmundo.es/television/2019/01/10/5c37379ffdddffe96e8b46fc.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u"Los 'strippers' de Antena 3">
+
+
+https://www.elmundo.es/cultura/cine/2019/01/10/5c374b6021efa0bb448b45ea.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Los Oscar 2019 no tendr\xe1n presentador...'>
+
+
+https://www.elmundo.es/pais-vasco/2019/01/10/5c373497fc6c83727f8b4591.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Incidente racista en autob\xfas de Vitor...'>
+
+
+https://www.elmundo.es/internacional/2019/01/10/5c3741ce21efa07d018b45f5.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Una nepal\xed y sus hijos mueren por la ...'>
+
+
+https://www.elmundo.es/espana/2019/01/10/5c3730a4fdddffc66e8b45fc.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'El Supremo pide a Marlaska que garant...'>
+
+
+https://www.elmundo.es/internacional/2019/01/10/5c37278afdddffff688b45bc.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Mujeres en topless se manifiestan en ...'>
+
+
+https://www.elmundo.es/internacional/2019/01/10/5c374d9921efa0065b8b4618.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'El hijo de Trump compara a los inmigr...'>
+
+
+https://www.elmundo.es/internacional/2019/01/10/5c371e5bfc6c83ff058b456e.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Corbyn reclama elecciones anticipadas...'>
+
+
+https://www.elmundo.es/cataluna/2019/01/10/5c36b1cb21efa0fa078b46b6.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'La hija de 17 a\xf1os de la mujer asesin...'>
+
+
+https://www.elmundo.es/cronica/2019/01/10/5c364057fc6c8368758b4747.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Una oreja para o\xedrte mejor, un ojo pa...'>
+
+
+https://www.elmundo.es/espana/2019/01/10/5c376b8cfc6c83b82b8b45ab.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Hacienda y Podemos liman discrepancia...'>
+
+
+https://www.elmundo.es/cataluna/2019/01/10/5c364fc5fc6c83a1708b47dc.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Torra augura una "crisis de Govern" s...'>
+
+
+https://www.elmundo.es/internacional/2019/01/10/5c374e3e21efa0d0688b4650.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Nicol\xe1s Maduro jura su nuevo mandato ...'>
+
+
+https://www.elmundo.es/deportes/futbol/2019/01/10/5c3691f3fc6c83ad0d8b4721.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Todibo, uno m\xe1s en un Bar\xe7a a la fran...'>
+
+
+https://www.elmundo.es/television/2019/01/10/5c37119bfdddff3b3f8b4767.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Matadero, la nueva serie de Antena 3 ...'>
+
+
+https://www.elmundo.es/comunidad-valenciana/alicante/2019/01/10/5c36316321efa0ee598b4689.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Un juzgado alicantino falla que ning\xfa...'>
+
+
+https://www.elmundo.es/madrid/2019/01/10/5c365092fc6c83ab438b4769.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Los rottweiler que mataron a un ancia...'>
+
+
+https://www.elmundo.es/cataluna/2019/01/10/5c368deb21efa05e038b46a7.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Buscan a una menor de 17 a\xf1os por la ...'>
+
+
+https://www.elmundo.es/espana/2019/01/10/5c3723e1fdddff6f778b4578.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'El abogado de Puigdemont, en el Congr...'>
+
+
+https://www.elmundo.es/economia/2019/01/10/5c37190efdddff0c718b456e.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Incertidumbre en la banca espa\xf1ola an...'>
+
+
+https://www.elmundo.es/television/2019/01/10/5c370c6921efa0be3a8b4581.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'La Fiscal\xeda de Barcelona abre diligen...'>
+
+
+https://www.elmundo.es/economia/empresas/2019/01/10/5c371794fdddffd1748b4803.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Vodafone anuncia el despido de hasta ...'>
+
+
+https://www.elmundo.es/cultura/2019/01/10/5c364253fc6c83112a8b4777.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'Las polic\xedas pol\xedticas de la Europa d...'>
+
+
+https://www.elmundo.es/comunidad-valenciana/alicante/2019/01/10/5c362a3921efa00e098b469a.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u"Joffre, l\xedder de 'la manada' de Alica...">
+
+
+https://www.elmundo.es/espana/2019/01/10/5c3649f8fdddffd0608b4767.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'M\xe1s de 200 mandos policiales tienen u...'>
+
+
+https://www.elmundo.es/madrid/2019/01/10/5c3659b1fc6c83ad0d8b4718.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'La Polic\xeda Nacional detiene a 15 meno...'>
+
+
+https://www.elmundo.es/espana/2019/01/10/5c36671efdddff967c8b47f1.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'El programa de Vox: ideas inspiradas ...'>
+
+
+https://www.elmundo.es/andalucia/2019/01/10/5c3715c121efa04e018b457d.html
+<Selector xpath='//h1[contains(@class,"js-headline")]/text()' data=u'El PSOE renuncia a presentar la candi...'>
+
+
