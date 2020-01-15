@@ -11,7 +11,7 @@ import re
 TAG_RE = re.compile(r'<[^>]+>')
 
 XPATH_NOTICIA_TITULO = '//head/meta[@property="og:title"]/@content'
-XPATH_NOTICIA_KEYWORDS = '//head/meta[@name="og:keywords"]/@content'
+XPATH_NOTICIA_KEYWORDS = '//head/meta[@name="keywords"]/@content'
 XPATH_NOTICIA_RESUMEN = '//head/meta[@property="og:description"]/@content' 
 XPATH_NOTICIA_AUTORES = '//head/meta[@name="author"]/@content' 
 XPATH_NOTICIA_LOCALIZACIONES = '//span[@class="articulo-localizaciones"]/span[@class="articulo-localizacion"]/text()'
@@ -75,7 +75,7 @@ class Spider_ElPais(CrawlSpider):
         item['keywordsNoticia'] = []
         keywords = response.xpath(XPATH_NOTICIA_KEYWORDS).extract()[0].split(", ")
         for keyword in keywords:
-            item['keywordsNoticia'].append(keywords)
+            item['keywordsNoticia'].append(keyword)
 
         # DESCRIPCIÓN
         item['resumenNoticia'] = response.xpath(XPATH_NOTICIA_RESUMEN).extract()[0]
