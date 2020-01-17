@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import random
+
 # Scrapy settings for crawlerPeriodicos project
 #
 # For simplicity, this file contains only settings considered important or
@@ -31,7 +33,7 @@ ROBOTSTXT_OBEY = False
 
 # Ponemos 3 segundos de delay entre peticiones para que diarios como "El Confidencial" no detecten que
 # somos un bot
-DOWNLOAD_DELAY = 1
+DOWNLOAD_DELAY = round(random.uniform(0.5,0.95))
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16

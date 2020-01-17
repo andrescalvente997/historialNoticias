@@ -16,8 +16,8 @@ XPATH_NOTICIA_RESUMEN = '//p[@class="ue-c-article__standfirst"]/text()'
 XPATH_NOTICIA_AUTORES = '//div[@class="ue-c-article__byline-name"]/text()'
 XPATH_NOTICIA_LOCALIZACIONES = '//div[@class="ue-c-article__byline-location"]/text()'
 XPATH_NOTICIA_FECHA_PUBLICACION = '//head/meta[@name="date"]/@content'
-XPATH_NOTICIA_FOTO_PIE = '//span[@class="ue-c-article__media-description"]/text()'
-XPATH_NOTICIA_FOTO_FIRMA = '//span[@class="ue-c-article__media-author"]/text()'
+XPATH_NOTICIA_FOTO_PIE = '//span[@class="ue-c-article__media-description"]'
+XPATH_NOTICIA_FOTO_FIRMA = '//span[@class="ue-c-article__media-source"]//text()'
 XPATH_NOTICIA_CUERPO = '//div[@class="ue-l-article__body ue-c-article__body"]/p'
 XPATH_NOTICIA_TAGS = '//li[@class="ue-c-article__tags-item"]//text()'
 
@@ -66,10 +66,27 @@ class Spider_ElMundo(CrawlSpider):
 
         # KEYWORDS
         # Las keywords se ponen con el formato "A, B, C"
+        # Keywords del tipo "A/B" -> ["A", "B"]
+        # Keywords del tipo "A - B" -> ["A", "B"]
+        # Keywords del tipo "A y B" -> ["A", "B"]
         item['keywordsNoticia'] = []
         keywords = response.xpath(XPATH_NOTICIA_KEYWORDS).extract()[0].split(",")
         for keyword in keywords:
-            item['keywordsNoticia'].append(keyword.strip())       
+            if keyword == "":
+                continue
+            elif "/" not in keyword and " - " not in keyword and " y " not in keyword:
+                item['keywordsNoticia'].append(keyword.strip())
+            else:
+                print("n\n\n\n"+keyword)
+                if "/" in keyword:
+                    lkeyword = keyword.split("/")
+                elif " - " in keyword:
+                    lkeyword = keyword.split(" - ")
+                elif " y " in keyword:
+                    lkeyword = keyword.split(" y ")
+                for k in lkeyword:
+                    item['keywordsNoticia'].append(k.strip())
+                   
         
         # DESCRIPCIÓN
         # Alguna noticia puede no tener resumen
@@ -98,13 +115,19 @@ class Spider_ElMundo(CrawlSpider):
         # FECHA
         item['fechaPublicacionNoticia'] = response.xpath(XPATH_NOTICIA_FECHA_PUBLICACION).extract()[0]
         
-        # PIE DE FOTO + FIRMA DE FOTO
+        # PIE DE FOTO
         # Algunas noticias no tienen foto
+        listPartesPie = response.xpath(XPATH_NOTICIA_FOTO_PIE).extract()
+        pieDeFoto = "".join(listPartesPie)
+        pieDeFoto = TAG_RE.sub('', pieDeFoto)
+        pieDeFoto = pieDeFoto.replace("\n", "")
+        item['pieDeFotoNoticia'] = pieDeFoto
+        
+        # FIRMA DE FOTO
+        # Algunas fotos no tienen firma 
         try:
-            item['pieDeFotoNoticia'] = response.xpath(XPATH_NOTICIA_FOTO_PIE).extract()[0].strip()
             item['firmaDeFotoNoticia'] = response.xpath(XPATH_NOTICIA_FOTO_FIRMA).extract()[0].strip()
         except:
-            item['pieDeFotoNoticia'] = ""
             item['firmaDeFotoNoticia'] = ""
         
         # CUERPO
@@ -120,7 +143,7 @@ class Spider_ElMundo(CrawlSpider):
             item['tagsNoticia'].append(tag)
 
         # ZONA DE TEST
-        self.newsCount+=1
+        #self.newsCount+=1
         if self.newsCount > 10:
             raise CloseSpider("Noticias de test recogidas")
 
