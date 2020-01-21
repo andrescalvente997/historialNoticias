@@ -10,15 +10,15 @@ import re
 
 TAG_RE = re.compile(r'<[^>]+>')
 
-XPATH_NOTICIA_TITULO = '//h1/text()'
-XPATH_NOTICIA_CATEGORIA = '//strong[@itemprop="title"]/text()'
-XPATH_NOTICIA_RESUMEN = '//h2[@class="news-header-opening-txt"]/text()' 
+XPATH_NOTICIA_TITULO = '//head/meta[@property="og:title"]/@content'
+XPATH_NOTICIA_KEYWORDS = '//head/meta[@name="keywords"]/@content'
+XPATH_NOTICIA_RESUMEN = '//head/meta[@property="og:description"]/@content'
 XPATH_NOTICIA_AUTORES = '//a[@class="news-def-author"]/text()'
-XPATH_NOTICIA_LOCALIZACIONES = '' # Este periódico no informa de donde procede la noticia
-XPATH_NOTICIA_FECHA_PUBLICACION = '//time[@class="news-def-date"]/span[@class="date-act"]/text()'
+XPATH_NOTICIA_LOCALIZACIONES = '' # Este periódico no informa de donde procede la noticia, suelen estar en el autor.
+XPATH_NOTICIA_FECHA_PUBLICACION = '//head/meta[@name="article:published_time"]/@content'
 XPATH_NOTICIA_FOTO_PIE = '//figcaption[@class="news-header-img-caption"]/text()' # Aqui puede haber varias fotos a parte de la principal
-XPATH_NOTICIA_FOTO_FIRMA = '' # En este periódico, la firma viene dentro del texto del pie de foto
-XPATH_NOTICIA_CUERPO = '//div[contains(@class, "news-body-center")]//p' # Pierdo algunos entre-títulos
+XPATH_NOTICIA_FOTO_FIRMA = '' # En este periódico, la firma suele venir dentro del texto del pie de foto. 
+XPATH_NOTICIA_CUERPO = '//div[contains(@class, "news-body-center")]//*[self::p or self::h4]'
 XPATH_NOTICIA_TAGS = '//h3[@class="news-def-tags"]/a/text()' # Se podrían sacar más tags de la URL
 
 class Spider_ElMundo(CrawlSpider):
@@ -58,49 +58,66 @@ class Spider_ElMundo(CrawlSpider):
 
         item = item_Noticia()
 
-        try:
-            item['titularNotica'] = response.xpath(XPATH_NOTICIA_TITULO).extract()[0]
-        except:
-            return
+        # TITULAR
+        item['titularNotica'] = response.xpath(XPATH_NOTICIA_TITULO).extract()[0]
 
+        # LINK
         item['linkNoticia'] = response.url
-        
-        item['categoriaNoticia'] = []
-        categoria = response.xpath(XPATH_NOTICIA_CATEGORIA).extract()
-        item['categoriaNoticia'] = categoria      
-        
+
+        # KEYWORDS
+        # Las keywords se ponen con el formato "A,B,C"
+        item['keywordsNoticia'] = []
+        keywords = response.xpath(XPATH_NOTICIA_KEYWORDS).extract()[0].split(",")
+        for keyword in keywords:
+            item['keywordsNoticia'].append(keyword.strip())   
+
+        # DESCRIPCIÓN
         item['resumenNoticia'] = response.xpath(XPATH_NOTICIA_RESUMEN).extract()
-        
+
+        # AUTORES
+        # Los autores, en el caso de haber más de uno, se posicionan en tags diferentes
         item['autorNoticia'] = []
         autores = response.xpath(XPATH_NOTICIA_AUTORES).extract()
         for autor in autores:
                 item['autorNoticia'].append(autor)
-            
+
+        # LOCALIZACIONES
+        # En este periódico no se muestra de donde procede la noticia
         item['localizacionNoticia'] = []
 
+        # FECHA
+        # Se encuentra en el interior de la noticia como "YYYY-MM-ddThh:mm:ssZ"
         item['fechaPublicacionNoticia'] = response.xpath(XPATH_NOTICIA_FECHA_PUBLICACION).extract()[0]
-        
+
+        # PIE DE FOTO
+        # 3 casos: 1) No foto.  2) Pie de foto pero NO firma.  3) Pie y firma de foto
         try:
             pieDeFoto = response.xpath(XPATH_NOTICIA_FOTO_PIE).extract()[0].strip()
             item['pieDeFotoNoticia'] = pieDeFoto.split(". (")[0] + "."
-            item['firmaDeFotoNoticia'] = pieDeFoto.split(". (")[1][:-1]
         except:
             item['pieDeFotoNoticia'] = ""
             item['firmaDeFotoNoticia'] = ""
-        
+
+        # FIRMA DE FOTO
+        try:            
+            item['firmaDeFotoNoticia'] = pieDeFoto.split(". (")[1][:-1]
+        except:
+            item['firmaDeFotoNoticia'] = ""
+
+        # CUERPO
         listPartesCuerpo = response.xpath(XPATH_NOTICIA_CUERPO).extract()
-        print("\n\n")
-        print(listPartesCuerpo)
         cuerpoNoticia = "".join(listPartesCuerpo)
         cuerpoNoticia = TAG_RE.sub('', cuerpoNoticia)
         item['cuerpoNoticia'] = cuerpoNoticia
-        
+
+        # TAGS
         item['tagsNoticia'] = []
         tagsNoticia = response.xpath(XPATH_NOTICIA_TAGS).extract()
         for tag in tagsNoticia:
             item['tagsNoticia'].append(tag)
-        
-        #self.newsCount+=1
+
+        # ZONA DE TEST
+        self.newsCount+=1
         if self.newsCount > 10:
             raise CloseSpider("Noticias de test recogidas")
 

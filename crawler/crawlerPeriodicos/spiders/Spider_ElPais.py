@@ -107,7 +107,7 @@ class Spider_ElPais(CrawlSpider):
         except:
             item['pieDeFotoNoticia'] = ""
 
-        # FIRMA DE LA FOTO
+        # FIRMA DE FOTO
         try:    
             item['firmaDeFotoNoticia'] = response.xpath(XPATH_NOTICIA_FOTO_FIRMA).extract()[0]
         except:
