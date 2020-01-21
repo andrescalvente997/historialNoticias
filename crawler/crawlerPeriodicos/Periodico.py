@@ -24,105 +24,163 @@ class Periodico():
                         6: (30, "06"), 7: (31, "07"), 8: (31, "08"), 9: (30, "09"), 10: (31, "10"), 
                         11: (30, "11"), 12: (31, "12")}
 
-        # [NOTICIAS DE UN MES]  Si no tenemos dia, tendremos que coger las noticias de todo un mes
-        if self.dia == None:                    
+        # Diferenciamos entre periódicos debido a que todos menos el MARCA tienen la edición
+        # o el periodo del día en la ruta de la URL y no en el nombre del .html como en el MARCA.
+        if self.nombre != "MARCA":  
+            # [NOTICIAS DE UN MES]  Si no tenemos dia, tendremos que coger las noticias de todo un mes
+            if self.dia == None:                    
 
-            rutaAnioMes = self.anio + self.separadorFecha + diccMeses[self.mes][1] + self.separadorFecha
+                for i in range(diccMeses[self.mes][0]):
 
-            for i in range(diccMeses[self.mes][0]):
-
-                if not self.listado: # Listado de periodos vacio
-                    if i+1 < 10:
-                        url = "{0}/{1}{2}{3}{2}0{4}/{5}".format(    self.dominio,
+                    if not self.listado: # Listado de periodos vacio
+                        if i+1 < 10:
+                            url = "{0}/{1}{2}{3}{2}0{4}/{5}".format(    self.dominio,
+                                                                        self.anio,
+                                                                        self.separadorFecha,
+                                                                        diccMeses[self.mes][1],
+                                                                        str(i+1),
+                                                                        self.archivo)
+                        else:
+                            url = "{0}/{1}{2}{3}{2}{4}/{5}".format( self.dominio,
                                                                     self.anio,
                                                                     self.separadorFecha,
                                                                     diccMeses[self.mes][1],
                                                                     str(i+1),
                                                                     self.archivo)
-                    else:
-                        url = "{0}/{1}{2}{3}{2}{4}/{5}".format( self.dominio,
-                                                                self.anio,
-                                                                self.separadorFecha,
-                                                                diccMeses[self.mes][1],
-                                                                str(i+1),
-                                                                self.archivo)
-                    listURLs.append(url)
+                        listURLs.append(url)
 
-                else:
-                    if i+1 < 10:
-                        for elemento in self.listado:
-                            url = "{0}/{1}{2}{3}{2}0{4}/{5}/{6}".format(    self.dominio,
+                    else:
+                        if i+1 < 10:
+                            for elemento in self.listado:
+                                url = "{0}/{1}{2}{3}{2}0{4}/{5}/{6}".format(    self.dominio,
+                                                                                self.anio,
+                                                                                self.separadorFecha,
+                                                                                diccMeses[self.mes][1],
+                                                                                str(i+1),
+                                                                                elemento,
+                                                                                self.archivo)
+                                listURLs.append(url)
+                        else:
+                            for elemento in self.listado:
+                                url = "{0}/{1}{2}{3}{2}{4}/{5}/{6}".format( self.dominio,
                                                                             self.anio,
                                                                             self.separadorFecha,
                                                                             diccMeses[self.mes][1],
                                                                             str(i+1),
                                                                             elemento,
                                                                             self.archivo)
+                                listURLs.append(url)
+
+                strFile = "{}/{}_{}_noticias.json".format(  self.directorio,
+                                                            self.anio,
+                                                            diccMeses[self.mes][1])
+
+            # [NOTICIAS DE UN DIA]  Si hemos especificado un dia en concreto, solo añadimos las URLs de ese dia
+            else:
+
+                if int(self.dia) < 10:
+                    strFile = "{}/{}_{}_0{}_noticias.json".format(  self.directorio,
+                                                                    self.anio,
+                                                                    diccMeses[self.mes][1],
+                                                                    str(int(self.dia)))
+                    if not self.listado: # Listado de periodos vacio
+                        url = "{0}/{1}{2}{3}{2}0{4}/{5}".format(    self.dominio,
+                                                                    self.anio,
+                                                                    self.separadorFecha,
+                                                                    diccMeses[self.mes][1],
+                                                                    str(int(self.dia)),
+                                                                    self.archivo)
+                        listURLs.append(url)
+                    else:
+                        for elemento in self.listado:
+                            url = "{0}/{1}{2}{3}{2}0{4}/{5}/{6}".format(    self.dominio,
+                                                                            self.anio,
+                                                                            self.separadorFecha,
+                                                                            diccMeses[self.mes][1],
+                                                                            str(int(self.dia)),
+                                                                            elemento,
+                                                                            self.archivo)
                             listURLs.append(url)
+                    
+                else:
+                    strFile = "{}/{}_{}_{}_noticias.json".format(   self.directorio,
+                                                                    self.anio,
+                                                                    diccMeses[self.mes][1],
+                                                                    self.dia)
+                    if not self.listado: # Listado de periodos vacio
+                        url = "{0}/{1}{2}{3}{2}{4}/{5}".format( self.dominio,
+                                                                self.anio,
+                                                                self.separadorFecha,
+                                                                diccMeses[self.mes][1],
+                                                                str(int(self.dia)),
+                                                                self.archivo)
+                        listURLs.append(url)
                     else:
                         for elemento in self.listado:
                             url = "{0}/{1}{2}{3}{2}{4}/{5}/{6}".format( self.dominio,
                                                                         self.anio,
                                                                         self.separadorFecha,
                                                                         diccMeses[self.mes][1],
-                                                                        str(i+1),
+                                                                        str(int(self.dia)),
                                                                         elemento,
                                                                         self.archivo)
                             listURLs.append(url)
-
-            strFile = "{}/{}_{}_noticias.json".format(  self.directorio,
-                                                        self.anio,
-                                                        diccMeses[self.mes][1])
-
-        # [NOTICIAS DE UN DIA]  Si hemos especificado un dia en concreto, solo añadimos las URLs de ese dia
+        # SOLO URLS DEL MARCA
         else:
+            # [NOTICIAS DE UN MES]  Si no tenemos dia, tendremos que coger las noticias de todo un mes
+            if self.dia == None:
 
-            if int(self.dia) < 10:
-                strFile = "{}/{}_{}_0{}_noticias.json".format(  self.directorio,
-                                                                self.anio,
-                                                                diccMeses[self.mes][1],
-                                                                str(int(self.dia)))
-                if not self.listado: # Listado de periodos vacio
-                    url = "{0}/{1}{2}{3}{2}0{4}/{5}".format(    self.dominio,
-                                                                self.anio,
-                                                                self.separadorFecha,
-                                                                diccMeses[self.mes][1],
-                                                                str(int(self.dia)),
-                                                                self.archivo)
-                    listURLs.append(url)
-                else:
+                strFile = "{}/{}_{}_noticias.json".format(  self.directorio,
+                                                            self.anio,
+                                                            diccMeses[self.mes][1])
+                for i in range(diccMeses[self.mes][0]):
                     for elemento in self.listado:
-                        url = "{0}/{1}{2}{3}{2}0{4}/{5}/{6}".format(    self.dominio,
-                                                                        self.anio,
-                                                                        self.separadorFecha,
-                                                                        diccMeses[self.mes][1],
-                                                                        str(int(self.dia)),
-                                                                        elemento,
-                                                                        self.archivo)
-                        listURLs.append(url)
-                
+                        if int(self.dia) < 10:
+                            url = "{0}/{1}{2}{3}{2}0{4}/index_{5}.html".format( self.dominio,
+                                                                                self.anio,
+                                                                                self.separadorFecha,
+                                                                                diccMeses[self.mes][1],
+                                                                                str(int(self.dia)),
+                                                                                elemento,
+                                                                                self.archivo)
+                        else:
+                            url = "{0}/{1}{2}{3}{2}{4}/index_{5}.html".format(  self.dominio,
+                                                                                self.anio,
+                                                                                self.separadorFecha,
+                                                                                diccMeses[self.mes][1],
+                                                                                str(int(self.dia)),
+                                                                                elemento,
+                                                                                self.archivo)
+                        listURLs.append(url)                  
+
             else:
-                strFile = "{}/{}_{}_{}_noticias.json".format(   self.directorio,
-                                                                self.anio,
-                                                                diccMeses[self.mes][1],
-                                                                self.dia)
-                if not self.listado: # Listado de periodos vacio
-                    url = "{0}/{1}{2}{3}{2}{4}/{5}".format(    self.dominio,
-                                                                self.anio,
-                                                                self.separadorFecha,
-                                                                diccMeses[self.mes][1],
-                                                                str(int(self.dia)),
-                                                                self.archivo)
-                    listURLs.append(url)
-                else:
+                if int(self.dia) < 10:
+                    strFile = "{}/{}_{}_0{}_noticias.json".format(  self.directorio,
+                                                                    self.anio,
+                                                                    diccMeses[self.mes][1],
+                                                                    str(int(self.dia)))
                     for elemento in self.listado:
-                        url = "{0}/{1}{2}{3}{2}{4}/{5}/{6}".format(    self.dominio,
-                                                                        self.anio,
-                                                                        self.separadorFecha,
-                                                                        diccMeses[self.mes][1],
-                                                                        str(int(self.dia)),
-                                                                        elemento,
-                                                                        self.archivo)
+                        url = "{0}/{1}{2}{3}{2}0{4}/index_{5}.html".format( self.dominio,
+                                                                    self.anio,
+                                                                    self.separadorFecha,
+                                                                    diccMeses[self.mes][1],
+                                                                    str(int(self.dia)),
+                                                                    elemento,
+                                                                    self.archivo)
+                        listURLs.append(url)
+                else:
+                    strFile = "{}/{}_{}_0{}_noticias.json".format(  self.directorio,
+                                                                    self.anio,
+                                                                    diccMeses[self.mes][1],
+                                                                    str(int(self.dia)))
+                    for elemento in self.listado:
+                        url = "{0}/{1}{2}{3}{2}{4}/index_{5}.html".format( self.dominio,
+                                                                    self.anio,
+                                                                    self.separadorFecha,
+                                                                    diccMeses[self.mes][1],
+                                                                    str(int(self.dia)),
+                                                                    elemento,
+                                                                    self.archivo)
                         listURLs.append(url)
 
         strFile = dirname(abspath(__file__)) + "/" + strFile
@@ -170,3 +228,12 @@ class Periodico():
             self.archivo = ""
             self.separadorFecha = "-"
             self.listado = ediciones
+
+        # URLS => https://www.marca.com/hemeroteca/YYYY/MM/dd/index_[m,t,n].html
+        elif self.nombre == "MARCA":
+            
+            self.directorio = "datos_MARCA"
+            self.dominio = "https://www.marca.com/hemeroteca"
+            self.archivo = ""
+            self.separadorFecha = "/"
+            self.listado = periodos
