@@ -123,7 +123,7 @@ class Spider_ElConfidencial(CrawlSpider):
             item['tagsNoticia'].append(tag)
 
         # ZONA DE TEST
-        self.newsCount+=1
+        #self.newsCount+=1
         if self.newsCount > 10:
             raise CloseSpider("\x1b[1;33m" + "Noticias de test recogidas" + "\033[0;m")
 
