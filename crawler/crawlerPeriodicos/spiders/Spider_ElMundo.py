@@ -113,6 +113,7 @@ class Spider_ElMundo(CrawlSpider):
             item['localizacionNoticia'].append(localizacion)
 
         # FECHA
+        # Se encuentra en el interior de la noticia como "YYYY-MM-ddThh:mm:ssZ"
         item['fechaPublicacionNoticia'] = response.xpath(XPATH_NOTICIA_FECHA_PUBLICACION).extract()[0]
         
         # PIE DE FOTO

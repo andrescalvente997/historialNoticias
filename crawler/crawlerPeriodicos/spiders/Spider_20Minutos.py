@@ -11,17 +11,15 @@ import re
 TAG_RE = re.compile(r'<[^>]+>')
 
 XPATH_NOTICIA_TITULO = '//h1[@class="article-title "]/text()'
-XPATH_NOTICIA_CATEGORIA_TIER1 = '//li[@class="selected"]/a/span/text()'
-XPATH_NOTICIA_CATEGORIA_TIER2 = '//li[contains(@class,"selected")]/h1/a/text()'
-XPATH_NOTICIA_RESUMEN = '//div[@class="article-intro "]/div/ul/li' 
+XPATH_NOTICIA_KEYWORDS = '//head/meta[@name="keywords"]/@content'
+XPATH_NOTICIA_RESUMEN = '//head/meta[@property="og:description"]/@content'
 XPATH_NOTICIA_AUTORES = '//span[@class="article-author"]//text()'
 XPATH_NOTICIA_LOCALIZACIONES = ''   # En este periódico no viene la localización de donde proviene la noticia
 XPATH_NOTICIA_FECHA_PUBLICACION = '//span[@class="article-date"]/a/text()'
 XPATH_NOTICIA_FOTO_PIE = '//figure[@class="image"]/div/figcaption/text()' 
 XPATH_NOTICIA_FOTO_FIRMA = '//figure[@class="image"]/div/span[@class="author "]/text()'
 XPATH_NOTICIA_CUERPO = '//div[@class="article-text"]/p'
-XPATH_NOTICIA_TAGS_TIER1 = '//ul[@class="section-menu section-menu-small"]/li[@itemprop="name"][not(@class="selected")]//text()'
-XPATH_NOTICIA_TAGS_TIER2 = '//li[@class="tag"]//text()'
+XPATH_NOTICIA_TAGS = '//head/meta[@property="article:tag"]/@content'
 
 class Spider_20Minutos(CrawlSpider):
 
@@ -56,60 +54,83 @@ class Spider_20Minutos(CrawlSpider):
     
     def parse_item(self, response):
 
+        # Ya que este periódico tiene noticias por cada autonomía, hemos restringi
+        XPATH_NOTICIA_RESTRICCION_TEMA = '//ul[contains(@class,"section-menu-small")]/li[@itemprop="name"]/h1/a/text()'
+        temasSeleccionados = ["Economía", "Internacional", "Nacional"]
+        try:
+            tema = response.xpath(XPATH_NOTICIA_RESTRICCION_TEMA).extract()[0].strip()
+            if tema not in temasSeleccionados:
+                return
+        except:
+            return
+
         item = item_Noticia()
 
+        # TITULAR
         item['titularNotica'] = response.xpath(XPATH_NOTICIA_TITULO).extract()[0]
 
+        # LINK
         item['linkNoticia'] = response.url
-        
-        item['categoriaNoticia'] = []
-        categoriasTier1 = response.xpath(XPATH_NOTICIA_CATEGORIA_TIER1).extract()
-        for categoria in categoriasTier1:
-            if categoria != "\n" and categoria != "\t\n":
-                item['categoriaNoticia'].append(categoria)
-        try:        
-            categoriasTier2 = response.xpath(XPATH_NOTICIA_CATEGORIA_TIER2).extract()
-            for categoria in categoriasTier2:
-                item['categoriaNoticia'].append(categoria)
-        except:
-            pass
-        
+
+        # KEYWORDS
+        # Las keywords se ponen con el formato "A,B,C, D, E,"
+        item['keywordsNoticia'] = []
+        keywords = response.xpath(XPATH_NOTICIA_KEYWORDS).extract()[0].split(",")
+        for keyword in keywords:
+            if keyword != "":
+                item['keywordsNoticia'].append(keyword.strip())
+
+        # DESCRIPCIÓN
         listPartesResumen = response.xpath(XPATH_NOTICIA_RESUMEN).extract()
         strResumen = "".join(listPartesResumen)
         strResumen = TAG_RE.sub('', strResumen)
         item['resumenNoticia'] = strResumen
-        
+
+        # AUTORES
+        # Los autores se muestran en tags diferentes
         item['autorNoticia'] = []
         autores = response.xpath(XPATH_NOTICIA_AUTORES).extract()
         for autor in autores:
-            item['autorNoticia'].append(autor)
-        
+            autor = autor.strip()
+            if autor != "" and autor != "\n":
+                item['autorNoticia'].append(autor)
+
+        # LOCALIZACIONES
+        # En este periódico no se muestra de donde procede la noticia
         item['localizacionNoticia'] = []
 
+        # FECHA
+        # Se encuentra en el interior de la noticia como "dd.MM.YYYY - hh:mmh"
         item['fechaPublicacionNoticia'] = response.xpath(XPATH_NOTICIA_FECHA_PUBLICACION).extract()[0]
         
+        # PIE DE FOTO
+        # Algunas noticias no tienen foto        
         try:
             item['pieDeFotoNoticia'] = response.xpath(XPATH_NOTICIA_FOTO_PIE).extract()[0]
-            item['firmaDeFotoNoticia'] = response.xpath(XPATH_NOTICIA_FOTO_FIRMA).extract()[0]
         except:
             item['pieDeFotoNoticia'] = ""
+        
+        # FIRMA DE FOTO
+        # Algunas fotos no tienen firma 
+        try:
+            item['firmaDeFotoNoticia'] = response.xpath(XPATH_NOTICIA_FOTO_FIRMA).extract()[0]
+        except:
             item['firmaDeFotoNoticia'] = ""
-
+        
+        # CUERPO
         listPartesCuerpo = response.xpath(XPATH_NOTICIA_CUERPO).extract()
         cuerpoNoticia = "\r\n".join(listPartesCuerpo)
         cuerpoNoticia = TAG_RE.sub('', cuerpoNoticia)
         item['cuerpoNoticia'] = cuerpoNoticia
 
+        # TAGS
+        # Los tags se separan en etiquetas diferentes
         item['tagsNoticia'] = []
-        tagsNoticia = response.xpath(XPATH_NOTICIA_TAGS_TIER1).extract()
+        tagsNoticia = response.xpath(XPATH_NOTICIA_TAGS).extract()
         for tag in tagsNoticia:
-            if "más" not in tag.encode('utf-8'):
-                item['tagsNoticia'].append(tag)
-
-        tagsRelativosNoticia = response.xpath(XPATH_NOTICIA_TAGS_TIER2).extract()
-        for tag in tagsRelativosNoticia:
             item['tagsNoticia'].append(tag.strip())
-        
+
+        # ZONA DE TEST
         #self.newsCount+=1
         if self.newsCount > 10:
             raise CloseSpider("Noticias de test recogidas")
