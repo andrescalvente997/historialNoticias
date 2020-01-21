@@ -37,9 +37,11 @@ class Spider_20Minutos(CrawlSpider):
     def __init__(self, anio=None, mes=None, dia=None, strFile=None, *args, **kwargs):
 
         if anio == None or mes == None:
-            self.logger.error(  "Error en los parámetros, pruebe: \n\t" + 
-                                "scrapy crawl testPeriodicos -a anio=YYYY -a mes=MM [dia=dd strFile=str]")
-            raise CloseSpider("Error de parámetros")
+            self.logger.error(  "\x1b[1;31m" +
+                                "\nError en los parámetros, pruebe: \n\t" + 
+                                "scrapy crawl <SPIDER> -a anio=YYYY -a mes=MM [dia=dd strFile=str]" +
+                                "\033[0;m")
+            raise CloseSpider("\x1b[1;31m" + "Error de parámetros" + "\033[0;m")
 
         super(Spider_20Minutos, self).__init__(*args, **kwargs)
 
@@ -133,7 +135,7 @@ class Spider_20Minutos(CrawlSpider):
         # ZONA DE TEST
         #self.newsCount+=1
         if self.newsCount > 10:
-            raise CloseSpider("Noticias de test recogidas")
+            raise CloseSpider("\x1b[1;33m" + "Noticias de test recogidas" + "\033[0;m")
 
         yield item
 

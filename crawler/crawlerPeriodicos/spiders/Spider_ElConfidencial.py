@@ -7,6 +7,7 @@ from crawlerPeriodicos.items import item_Noticia
 from scrapy.exceptions import CloseSpider
 from crawlerPeriodicos.Periodico import Periodico
 import re
+import sys
 
 TAG_RE = re.compile(r'<[^>]+>')
 
@@ -21,7 +22,7 @@ XPATH_NOTICIA_FOTO_FIRMA = '' # En este periódico, la firma suele venir dentro 
 XPATH_NOTICIA_CUERPO = '//div[contains(@class, "news-body-center")]//*[self::p or self::h4]'
 XPATH_NOTICIA_TAGS = '//h3[@class="news-def-tags"]/a/text()' # Se podrían sacar más tags de la URL
 
-class Spider_ElMundo(CrawlSpider):
+class Spider_ElConfidencial(CrawlSpider):
 
     name = 'Spider_ElConfidencial'
     newsCount = 0
@@ -37,13 +38,15 @@ class Spider_ElMundo(CrawlSpider):
 
 
     def __init__(self, anio=None, mes=None, dia=None, strFile=None, *args, **kwargs):
-
+        
         if anio == None or mes == None:
-            self.logger.error(  "Error en los parámetros, pruebe: \n\t" + 
-                                "scrapy crawl testPeriodicos -a anio=YYYY -a mes=MM [dia=dd strFile=str]")
-            raise CloseSpider("Error de parámetros")
-
-        super(Spider_ElMundo, self).__init__(*args, **kwargs)
+            self.logger.error(  "\x1b[1;31m" +
+                                "\nError en los parámetros, pruebe: \n\t" + 
+                                "scrapy crawl <SPIDER> -a anio=YYYY -a mes=MM [dia=dd strFile=str]" +
+                                "\033[0;m")
+            raise CloseSpider("\x1b[1;31m" + "Error de parámetros" + "\033[0;m")
+            
+        super(Spider_ElConfidencial, self).__init__(*args, **kwargs)
 
         self.periodico = Periodico("EL_CONFIDENCIAL", anio, int(mes), dia)
 
@@ -79,10 +82,13 @@ class Spider_ElMundo(CrawlSpider):
         item['autorNoticia'] = []
         autores = response.xpath(XPATH_NOTICIA_AUTORES).extract()
         for autor in autores:
-                item['autorNoticia'].append(autor)
+                item['autorNoticia'].append(autor.strip())
 
         # LOCALIZACIONES
-        # En este periódico no se muestra de donde procede la noticia
+        # No se muestran en la noticia. Hay veces que aparece con el autor, pero aparecen de esta manera:
+        # Juan Pérez. Barcelona
+        # Lo cuál interfiere con los nombres de autores los cuales firmán con las iniciales de su nombre y apellidos.
+        # Ejemplo: J. P.
         item['localizacionNoticia'] = []
 
         # FECHA
@@ -93,14 +99,14 @@ class Spider_ElMundo(CrawlSpider):
         # 3 casos: 1) No foto.  2) Pie de foto pero NO firma.  3) Pie y firma de foto
         try:
             pieDeFoto = response.xpath(XPATH_NOTICIA_FOTO_PIE).extract()[0].strip()
-            item['pieDeFotoNoticia'] = pieDeFoto.split(". (")[0] + "."
+            item['pieDeFotoNoticia'] = pieDeFoto.split("(")[0].strip()
         except:
             item['pieDeFotoNoticia'] = ""
             item['firmaDeFotoNoticia'] = ""
 
         # FIRMA DE FOTO
         try:            
-            item['firmaDeFotoNoticia'] = pieDeFoto.split(". (")[1][:-1]
+            item['firmaDeFotoNoticia'] = pieDeFoto.split("(")[1].split(")")[0].strip()
         except:
             item['firmaDeFotoNoticia'] = ""
 
@@ -119,7 +125,7 @@ class Spider_ElMundo(CrawlSpider):
         # ZONA DE TEST
         self.newsCount+=1
         if self.newsCount > 10:
-            raise CloseSpider("Noticias de test recogidas")
+            raise CloseSpider("\x1b[1;33m" + "Noticias de test recogidas" + "\033[0;m")
 
         yield item
 
