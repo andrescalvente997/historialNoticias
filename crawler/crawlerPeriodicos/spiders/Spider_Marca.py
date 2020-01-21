@@ -12,14 +12,14 @@ TAG_RE = re.compile(r'<[^>]+>')
 
 XPATH_NOTICIA_TITULO = '//head/meta[@property="og:title"]/@content'
 XPATH_NOTICIA_KEYWORDS = '//head/meta[@name="keywords"]/@content'
-XPATH_NOTICIA_RESUMEN = '//head/meta[@property="og:description"]/@content' 
-XPATH_NOTICIA_AUTORES = '//head/meta[@name="author"]/@content' 
-XPATH_NOTICIA_LOCALIZACIONES = '//span[@class="articulo-localizaciones"]/span[@class="articulo-localizacion"]/text()'
+XPATH_NOTICIA_RESUMEN = '//span[@class="subsection-type"]/text()' 
+XPATH_NOTICIA_AUTORES = '//ul[@class="author"]/li[@class="author-name" or @class="author-twitter"]//text()' 
+XPATH_NOTICIA_LOCALIZACIONES = '//ul[@class="author"]/li[@class="author-city"]/text()'
 XPATH_NOTICIA_FECHA_PUBLICACION = '//head/meta[@name="date"]/@content'
-XPATH_NOTICIA_FOTO_PIE = '//span[@class="foto-texto"]/text()'
-XPATH_NOTICIA_FOTO_FIRMA = '//span[@class="foto-firma"]/span[@itemprop="author"][@class="foto-autor"]/text()'
-XPATH_NOTICIA_CUERPO = '//div[@class="articulo-cuerpo"]/p'
-XPATH_NOTICIA_TAGS = '//div[@class="articulo-tags__interior"]/ul/li[@itemprop="keywords"]/a/text()'
+XPATH_NOTICIA_FOTO_PIE = '//figcaption/text()'
+XPATH_NOTICIA_FOTO_FIRMA = '//figcaption/span[@data-ue-author]/text()'
+XPATH_NOTICIA_CUERPO = '//article/div/p'
+XPATH_NOTICIA_TAGS = '//head/meta[@property="article:tag"]/@content'
 
 class Spider_Marca(CrawlSpider):
 
@@ -29,13 +29,9 @@ class Spider_Marca(CrawlSpider):
     rules = (
             Rule(
                 LinkExtractor(  allow = (), 
-                                restrict_xpaths = '//h2[@class="articulo-titulo"]/a',
-                                deny_domains = ['motor.elpais.com', 'verne.elpais.com', 'colecciones.elpais.com', 
-                                                'aprendemosjuntos.elpais.com', 'librotea.elpais.com', 'descuentos.elpais.com',
-                                                'elcomidista.elpais.com', 'smoda.elpais.com', 'suscripciones.elpais.com',
-                                                'elfuturoesapasionante.elpais.com', 'escuela.elpais.com', 'cat.elpais.com',
-                                                'plus.elpais.com'],
-                                deny = ["especiales", "tematicos"]), 
+                                restrict_xpaths = '//h2/a',
+                                deny_domains = ['videos.marca.com'],
+                                deny = []), 
                 callback='parse_item', 
                 follow = False),
         )  
@@ -69,38 +65,36 @@ class Spider_Marca(CrawlSpider):
 
         # LINK
         item['linkNoticia'] = response.url
-
+        
         # KEYWORDS
-        # Las keywords se ponen con el formato "A, B, C"
+        # Las keywords se ponen con el formato ",A,B,C"
         item['keywordsNoticia'] = []
         keywords = response.xpath(XPATH_NOTICIA_KEYWORDS).extract()[0].split(",")
         for keyword in keywords:
-            item['keywordsNoticia'].append(keyword.strip())
-
+            item['keywordsNoticia'].append(keyword.strip()) if keyword != "" else None
+        
         # DESCRIPCIÓN
         item['resumenNoticia'] = response.xpath(XPATH_NOTICIA_RESUMEN).extract()[0]
 
         # AUTORES
         # Los autores se muestran como "A, B, C"
         item['autorNoticia'] = []
-        autores = response.xpath(XPATH_NOTICIA_AUTORES).extract()[0].split(",")
-        for autor in autores:
-            item['autorNoticia'].append(autor.strip())
+        autores = response.xpath(XPATH_NOTICIA_AUTORES).extract()
+        if not autores:
+            item['autorNoticia'] = []
+        else:    
+            for autor in autores:
+                item['autorNoticia'].append(autor.strip())
 
         # LOCALIZACIONES
-        # Se muestran en el formato "Madrid\n/ \nFrancia"
+        # No siempre está la localización de la noticia
         try:
-            strLocalizacion = response.xpath(XPATH_NOTICIA_LOCALIZACIONES).extract()[0]
-            strLocalizacion = strLocalizacion.replace("\n", "")
-            localizaciones = strLocalizacion.split("/ ")
-            item['localizacionNoticia'] = []
-            for localizacion in localizaciones:
-                item['localizacionNoticia'].append(localizacion)
+            item['localizacionNoticia'] = response.xpath(XPATH_NOTICIA_LOCALIZACIONES).extract()[0]
         except:
-            item['localizacionNoticia'] = []
+            item['localizacionNoticia'] = ""
 
         # FECHA
-        # Se encuentra en el interior de la noticia como "YYYY-MM-ddThh:mm:ss+01:00"
+        # Se encuentra en el interior de la noticia como "YYYY-MM-ddThh:mm:ssZ"
         item['fechaPublicacionNoticia'] = response.xpath(XPATH_NOTICIA_FECHA_PUBLICACION).extract()[0]
 
         # PIE DE FOTO
@@ -126,9 +120,9 @@ class Spider_Marca(CrawlSpider):
         tagsNoticia = response.xpath(XPATH_NOTICIA_TAGS).extract()
         for tag in tagsNoticia:
             item['tagsNoticia'].append(tag)
-
+        
         # ZONA DE TEST
-        #self.newsCount+=1
+        self.newsCount+=1
         if self.newsCount > 10:
             raise CloseSpider("\x1b[1;33m" + "Noticias de test recogidas" + "\033[0;m")
 

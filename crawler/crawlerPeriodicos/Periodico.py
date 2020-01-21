@@ -125,6 +125,7 @@ class Periodico():
                                                                         elemento,
                                                                         self.archivo)
                             listURLs.append(url)
+        
         # SOLO URLS DEL MARCA
         else:
             # [NOTICIAS DE UN MES]  Si no tenemos dia, tendremos que coger las noticias de todo un mes
@@ -169,7 +170,7 @@ class Periodico():
                                                                     self.archivo)
                         listURLs.append(url)
                 else:
-                    strFile = "{}/{}_{}_0{}_noticias.json".format(  self.directorio,
+                    strFile = "{}/{}_{}_{}_noticias.json".format(  self.directorio,
                                                                     self.anio,
                                                                     diccMeses[self.mes][1],
                                                                     str(int(self.dia)))
