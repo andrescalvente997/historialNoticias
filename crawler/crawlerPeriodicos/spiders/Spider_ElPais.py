@@ -40,7 +40,7 @@ class Spider_ElPais(CrawlSpider):
                 follow = False),
         )  
 
-    def __init__(self, anio=None, mes=None, dia=None, strFile=None, *args, **kwargs):
+    def __init__(self, anio=None, mes=None, dia=None, strFile=None, fechaIni=None, fechaFin=None, *args, **kwargs):
 
         if anio == None or mes == None:
             self.logger.error(  "\x1b[1;31m" +
@@ -51,7 +51,9 @@ class Spider_ElPais(CrawlSpider):
 
         super(Spider_ElPais, self).__init__(*args, **kwargs)
 
-        self.periodico = Periodico("EL_PAIS", anio, int(mes), dia)
+        self.periodico = Periodico( periodico = "EL_PAIS", anio = anio, 
+                                    mes = mes, dia = dia,
+                                    fechaIni = fechaIni, fechaFin = fechaFin)
 
         if strFile == None:
             self.start_urls, self.strFile = self.periodico.crea_StartUrls()
