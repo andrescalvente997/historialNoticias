@@ -7,9 +7,9 @@ class Periodico():
     def __init__(self, periodico, anio, mes, dia, fechaIni, fechaFin):
         
         self.nombre = periodico
-        self.anio = anio
-        self.mes = int(mes) if mes != None else mes
-        self.dia = dia
+        self.anio = anio if isinstance(anio, int) else int(anio)
+        self.mes = mes if isinstance(mes, int) else int(mes)
+        self.dia = dia if isinstance(dia, int) else int(dia)
         self.fechaIni = fechaIni
         self.fechaFin = fechaFin
         
@@ -18,15 +18,38 @@ class Periodico():
 
     def crea_StartUrls(self):
 
-        if self.nombre != "MARCA":
-            if self.fechaIni != None and self.fechaFin != None:
-                listURLs, strFile = self.crea_StartUrls_dateRange()
-            elif self.dia != None:
-                listURLs, strFile = self.crea_StartUrls_oneDay()
+        diccMeses = {   1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 
+                        7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
+
+        # El rango de fechas NO ha sido introducido directamente
+        if self.fechaIni == None and self.fechaFin == None:
+            auxStr = "{0}{1}{2}{1}{3}"
+            self.fechaIni = auxStr.format(  str(self.dia),
+                                            "-",
+                                            str(self.mes)),
+                                            str(self.anio))
+
+            # Si el usuario ha intoducido el año, mes y dia a analizar,
+            # inicializaremos los rangos con la misma fecha
+            if self.dia != None:
+                self.fechaFin = self.fechaIni
+            # Si el usuario NO ha introducido el día, tenemos que coger
+            # todo el mes de noticias de año especificado
             else:
-                listURLs, strFile = self.crea_StartUrls_oneMonth()
-        else:
-            listURLs, strFile = self.crea_StartUrls_Marca()
+                auxDia, auxMes, auxAnio = self.dia, self.mes, self.anio
+                auxDia += 1
+                if auxDia > diccMeses[auxMes]:
+                    auxDia = 1
+                    auxMes += 1
+                    if mesActual > 12:
+                        auxMes = 1
+                        auxAnio += 1
+                self.fechaFin = auxStr.format(  str(auxDia),
+                                                "-",
+                                                str(auxMes)),
+                                                str(auxAnio))
+        
+        listURLs, strFile = self.crea_StartUrls_dateRange()                
 
         strFile = dirname(abspath(__file__)) + "/" + strFile
 
@@ -116,7 +139,7 @@ class Periodico():
                 
                 if mesActual > 12:
                     mesActual = 1
-                    anioActual +=1            
+                    anioActual += 1            
 
         return listURLs, strFile
 
