@@ -48,11 +48,6 @@ class Periodico():
 
         strFile = dirname(abspath(__file__)) + "/" + strFile
 
-        print("\n\n\n")
-        print(listURLs)
-        print(strFile)
-        print("\n\n\n")
-
         return listURLs, strFile
 
 
