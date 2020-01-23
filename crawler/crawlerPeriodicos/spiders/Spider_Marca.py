@@ -55,7 +55,9 @@ class Spider_Marca(CrawlSpider):
 
         super(Spider_Marca, self).__init__(*args, **kwargs)
 
-        self.periodico = Periodico("MARCA", anio, int(mes), dia)
+        self.periodico = Periodico( periodico = "MARCA", anio = anio, 
+                                    mes = mes, dia = dia,
+                                    fechaIni = fechaIni, fechaFin = fechaFin)
 
         if strFile == None:
             self.start_urls, self.strFile = self.periodico.crea_StartUrls()

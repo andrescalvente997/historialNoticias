@@ -52,7 +52,9 @@ class Spider_20Minutos(CrawlSpider):
 
         super(Spider_20Minutos, self).__init__(*args, **kwargs)
 
-        self.periodico = Periodico("20_MINUTOS", anio, int(mes), dia)
+        self.periodico = Periodico( periodico = "20_MINUTOS", anio = anio, 
+                                    mes = mes, dia = dia,
+                                    fechaIni = fechaIni, fechaFin = fechaFin)
 
         if strFile == None:
             self.start_urls, self.strFile = self.periodico.crea_StartUrls()

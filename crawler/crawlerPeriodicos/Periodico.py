@@ -101,8 +101,8 @@ class Periodico():
                 url = _auxStr.format(   self.dominio,
                                         str(anioActual),
                                         self.separadorFecha,
-                                        str(self.mesActual),
-                                        str(self.diaActual),
+                                        str(mesActual),
+                                        str(diaActual),
                                         self.archivo)
                 listURLs.append(url)
             else:
@@ -123,10 +123,10 @@ class Periodico():
                     for edicion in self.ediciones:
                         _auxStr = auxStr + "index_{5}.html"
                         url = _auxStr.format(   self.dominio,
-                                                str(self.anioActual),
+                                                str(anioActual),
                                                 self.separadorFecha,
-                                                str(self.mesActual),
-                                                str(self.diaActual),
+                                                str(mesActual),
+                                                str(diaActual),
                                                 edicion)
                         listURLs.append(url)
 

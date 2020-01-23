@@ -54,7 +54,9 @@ class Spider_ElMundo(CrawlSpider):
 
         super(Spider_ElMundo, self).__init__(*args, **kwargs)
 
-        self.periodico = Periodico("EL_MUNDO", anio, int(mes), dia)
+        self.periodico = Periodico( periodico = "EL_MUNDO", anio = anio, 
+                                    mes = mes, dia = dia,
+                                    fechaIni = fechaIni, fechaFin = fechaFin)
 
         if strFile == None:
             self.start_urls, self.strFile = self.periodico.crea_StartUrls()
