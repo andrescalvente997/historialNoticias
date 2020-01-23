@@ -24,30 +24,25 @@ class Periodico():
         # El rango de fechas NO ha sido introducido directamente
         if self.fechaIni == None and self.fechaFin == None:
             auxStr = "{0}{1}{2}{1}{3}"
-            self.fechaIni = auxStr.format(  str(self.dia),
-                                            "-",
-                                            str(self.mes)),
-                                            str(self.anio))
-
             # Si el usuario ha intoducido el año, mes y dia a analizar,
             # inicializaremos los rangos con la misma fecha
             if self.dia != None:
+                self.fechaIni = auxStr.format(  str(self.dia),
+                                                "-",
+                                                str(self.mes)),
+                                                str(self.anio))
                 self.fechaFin = self.fechaIni
             # Si el usuario NO ha introducido el día, tenemos que coger
             # todo el mes de noticias de año especificado
             else:
-                auxDia, auxMes, auxAnio = self.dia, self.mes, self.anio
-                auxDia += 1
-                if auxDia > diccMeses[auxMes]:
-                    auxDia = 1
-                    auxMes += 1
-                    if mesActual > 12:
-                        auxMes = 1
-                        auxAnio += 1
-                self.fechaFin = auxStr.format(  str(auxDia),
+                self.fechaIni = auxStr.format(  "01",
                                                 "-",
-                                                str(auxMes)),
-                                                str(auxAnio))
+                                                str(self.mes)),
+                                                str(self.anio))
+                self.fechaFin = auxStr.format(  str(diccMeses[self.mes]),
+                                                "-",
+                                                str(self.mes)),
+                                                str(self.anio))
         
         listURLs, strFile = self.crea_StartUrls_dateRange()                
 
@@ -130,6 +125,10 @@ class Periodico():
                         listURLs.append(url)
 
             # Paso 3: Avanzamos en un día 
+
+            # Así nos saltamos el último paso ya que no es necesario
+            if flgFin == True:
+                continue
 
             diaActual += 1
 
