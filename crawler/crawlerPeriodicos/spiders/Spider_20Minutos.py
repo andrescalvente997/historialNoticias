@@ -34,12 +34,19 @@ class Spider_20Minutos(CrawlSpider):
                 follow = False),
         )  
 
-    def __init__(self, anio=None, mes=None, dia=None, strFile=None, *args, **kwargs):
+    def __init__(self, anio=None, mes=None, dia=None, strFile=None, fechaIni=None, fechaFin=None, *args, **kwargs):
 
-        if anio == None or mes == None:
+        flgParametrosMal = True
+        # Con esto nos aseguramos que estamos metiendo bien los parámetros y no los mezclamos 
+        if ((anio!=None and mes!=None and fechaIni==None and fechaFin==None) or (anio==None and mes==None and dia==None and fechaIni!=None and fechaFin!=None)):
+            flgParametrosMal = False
+
+        if flgParametrosMal == True:
             self.logger.error(  "\x1b[1;31m" +
                                 "\nError en los parámetros, pruebe: \n\t" + 
-                                "scrapy crawl <SPIDER> -a anio=YYYY -a mes=MM [dia=dd strFile=str]" +
+                                "scrapy crawl <SPIDER> -a anio=YYYY -a mes=MM [dia=dd strFile=str]\n" +
+                                "o bien: \n\t" +
+                                'scrapy crawl <SPIDER> -a fechaIni="dd-MM-YYYY" -a fechaFin="dd-MM-YYYY"' +
                                 "\033[0;m")
             raise CloseSpider("\x1b[1;31m" + "Error de parámetros" + "\033[0;m")
 
