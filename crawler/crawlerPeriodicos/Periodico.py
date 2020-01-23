@@ -7,9 +7,9 @@ class Periodico():
     def __init__(self, periodico, anio, mes, dia, fechaIni, fechaFin):
         
         self.nombre = periodico
-        self.anio = anio if isinstance(anio, int) else int(anio)
-        self.mes = mes if isinstance(mes, int) else int(mes)
-        self.dia = dia if isinstance(dia, int) else int(dia)
+        self.anio = anio if isinstance(anio, int) or anio==None else int(anio)
+        self.mes = mes if isinstance(mes, int) or mes==None else int(mes)
+        self.dia = dia if isinstance(dia, int) or dia==None else int(dia)
         self.fechaIni = fechaIni
         self.fechaFin = fechaFin
         
@@ -29,7 +29,7 @@ class Periodico():
             if self.dia != None:
                 self.fechaIni = auxStr.format(  str(self.dia),
                                                 "-",
-                                                str(self.mes)),
+                                                str(self.mes),
                                                 str(self.anio))
                 self.fechaFin = self.fechaIni
             # Si el usuario NO ha introducido el día, tenemos que coger
@@ -37,16 +37,21 @@ class Periodico():
             else:
                 self.fechaIni = auxStr.format(  "01",
                                                 "-",
-                                                str(self.mes)),
+                                                str(self.mes),
                                                 str(self.anio))
                 self.fechaFin = auxStr.format(  str(diccMeses[self.mes]),
                                                 "-",
-                                                str(self.mes)),
+                                                str(self.mes),
                                                 str(self.anio))
         
         listURLs, strFile = self.crea_StartUrls_dateRange()                
 
         strFile = dirname(abspath(__file__)) + "/" + strFile
+
+        print("\n\n\n")
+        print(listURLs)
+        print(strFile)
+        print("\n\n\n")
 
         return listURLs, strFile
 
@@ -61,12 +66,13 @@ class Periodico():
         diaIni, mesIni, anioIni = self.fechaIni.split("-")
         diaFin, mesFin, anioFin = self.fechaFin.split("-")
 
-        auxStr = "{}0{}" if int(mesIni) < 10 else "{}{}"
+        auxStr = "{}/{}0{}" if int(mesIni) < 10 else "{}/{}{}"
         auxStr += "0{}_" if int(diaIni) < 10 else "{}_"
         auxStr += "{}0{}" if int(mesFin) < 10 else "{}{}"
         auxStr += "0{}_" if int(diaFin) < 10 else "{}_"
         auxStr += "noticias.json"
-        strFile = auxStr.format(    str(int(anioIni)),
+        strFile = auxStr.format(    self.directorio,
+                                    str(int(anioIni)),
                                     str(int(mesIni)),
                                     str(int(diaIni)),
                                     str(int(anioFin)),
@@ -88,11 +94,11 @@ class Periodico():
             # Paso 2: Creamos las URLs
             
             auxStr = "{0}/{1}{2}0{3}" if mesActual < 10 else "{0}/{1}{2}{3}"
-            auxStr += "{2}0{4}/" if diaActual < 10 else "{2}0{4}/"
+            auxStr += "{2}0{4}/" if diaActual < 10 else "{2}{4}/"
             # Sección unicamente para crear URLs del 20Minutos
-            if not self.listado:
+            if not self.ediciones:
                 auxStr += "{5}"
-                url = auxStr.format(    self.directorio,
+                url = auxStr.format(    self.dominio,
                                         str(anioActual),
                                         self.separadorFecha,
                                         str(self.mesActual),
@@ -104,7 +110,7 @@ class Periodico():
                 if self.nombre != "MARCA":  
                     for edicion in self.ediciones:
                         auxStr += "{5}/{6}"
-                        url = auxStr.format(    self.directorio,
+                        url = auxStr.format(    self.dominio,
                                                 str(anioActual),
                                                 self.separadorFecha,
                                                 str(mesActual),
@@ -116,7 +122,7 @@ class Periodico():
                 else:
                     for edicion in self.ediciones:
                         auxStr += "index_{5}.html"
-                        url = auxStr.format(    self.directorio,
+                        url = auxStr.format(    self.dominio,
                                                 str(self.anioActual),
                                                 self.separadorFecha,
                                                 str(self.mesActual),
