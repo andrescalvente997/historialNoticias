@@ -78,10 +78,13 @@ class Spider_Marca(CrawlSpider):
         
         # KEYWORDS
         # Las keywords se ponen con el formato ",A,B,C"
-        item['keywordsNoticia'] = []
-        keywords = response.xpath(XPATH_NOTICIA_KEYWORDS).extract()[0].split(",")
-        for keyword in keywords:
-            item['keywordsNoticia'].append(keyword.strip()) if keyword != "" else None
+        try:
+            keywords = response.xpath(XPATH_NOTICIA_KEYWORDS).extract()[0].split(",")
+            for keyword in keywords:
+                item['keywordsNoticia'].append(keyword.strip()) if keyword != "" else None
+        except:
+            item['keywordsNoticia'] = []
+        
         
         # DESCRIPCIÓN
         # Puede no haber un resumen de la noticia
