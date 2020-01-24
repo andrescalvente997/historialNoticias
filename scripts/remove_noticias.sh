@@ -24,6 +24,7 @@ then
     mkdir "$ruta_EL_CONFIDENCIAL/"
     rm -r "$ruta_MARCA/"
     mkdir "$ruta_MARCA/"
+    echo "Operación realizada con éxito."
 else
     echo "Abortando operación..."
 fi
