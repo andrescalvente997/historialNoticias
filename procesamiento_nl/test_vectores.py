@@ -23,8 +23,6 @@ def trataStrings(strr):
     return " ".join(lst)
 
 if __name__ == '__main__':
-    # Cargamos el modelo de palabras de Spacy en español
-    #nlp = spacy.load("es_core_news_md")
 
     # Definimos dos string de test
     strr1 = "Casi 20.000 euros al año. Esa el la cifra que el gobierno pide."
@@ -36,29 +34,13 @@ if __name__ == '__main__':
     strr1 = trataStrings(strr1)
     strr2 = trataStrings(strr2)
     strr3 = trataStrings(strr3)
-    strr3 = trataStrings(strr4)
-
-    print(strr1)
-    print(strr2)
-    print(strr3)
-    print(strr4)
-
-    # Tokenizamos los strings
-    '''
-    doc1 = nlp(strr1)
-    doc2 = nlp(strr2)
-    doc3 = nlp(strr3)
-
-    print(type(doc1))
-    print(type(doc1[0]))
-    print(doc1.text)
-    '''
-    
+    strr4 = trataStrings(strr4)
     corpus = []
     corpus.append(strr1)
     corpus.append(strr2)
     corpus.append(strr3)
     corpus.append(strr4)
+    
     print(corpus)
 
     vect = TfidfVectorizer(min_df=1)
@@ -72,12 +54,3 @@ if __name__ == '__main__':
         print("\nDocumento: '{}'".format(corpus[i]))
         mejor_doc = np.nanargmax(arr[i])
         print("Se parece al documento ({}): '{}'".format(mejor_doc, corpus[mejor_doc]))
-
-    '''
-    print("Vector Doc1")
-    print(doc1.vector)
-    print("Vector Doc2")
-    print(doc2.vector)
-    print("Similitud")
-    print(doc1.similarity(doc2))
-    '''
