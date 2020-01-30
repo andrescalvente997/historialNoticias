@@ -51,20 +51,22 @@ class Spider_ElConfidencial(CrawlSpider):
                                 "o bien: \n\t" +
                                 'scrapy crawl <SPIDER> -a fechaIni="dd-MM-YYYY" -a fechaFin="dd-MM-YYYY"' +
                                 "\033[0;m")
-            raise CloseSpider("\x1b[1;31m" + "Error de parámetros" + "\033[0;m")
-            
-        super(Spider_ElConfidencial, self).__init__(*args, **kwargs)
+            self.start_urls = []
+            self.strFile = ""
 
-        self.periodico = Periodico( periodico = "EL_CONFIDENCIAL", anio = anio, 
-                                    mes = mes, dia = dia,
-                                    fechaIni = fechaIni, fechaFin = fechaFin)
-
-        if strFile == None:
-            self.start_urls, self.strFile = self.periodico.crea_StartUrls()
         else:
-            self.start_urls, _ = self.periodico.crea_StartUrl()
-            self.strFile = strFile
-    
+            
+            self.periodico = Periodico( periodico = "EL_CONFIDENCIAL", anio = anio, 
+                                        mes = mes, dia = dia,
+                                        fechaIni = fechaIni, fechaFin = fechaFin)
+
+            if strFile == None:
+                self.start_urls, self.strFile = self.periodico.crea_StartUrls()
+            else:
+                self.start_urls, _ = self.periodico.crea_StartUrl()
+                self.strFile = strFile
+
+        super(Spider_ElConfidencial, self).__init__(*args, **kwargs)
     
     def parse_item(self, response):
 
