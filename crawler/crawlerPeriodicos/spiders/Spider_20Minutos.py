@@ -50,19 +50,21 @@ class Spider_20Minutos(CrawlSpider):
                                 "o bien: \n\t" +
                                 'scrapy crawl <SPIDER> -a fechaIni="dd-MM-YYYY" -a fechaFin="dd-MM-YYYY"' +
                                 "\033[0;m")
-            raise CloseSpider("\x1b[1;31m" + "Error de parámetros" + "\033[0;m")
+            self.start_urls = []
+            self.strFile = ""
+
+        else:
+            self.periodico = Periodico( periodico = "20_MINUTOS", anio = anio, 
+                                        mes = mes, dia = dia,
+                                        fechaIni = fechaIni, fechaFin = fechaFin)
+
+            if strFile == None:
+                self.start_urls, self.strFile = self.periodico.crea_StartUrls()
+            else:
+                self.start_urls, _ = self.periodico.crea_StartUrl()
+                self.strFile = strFile
 
         super(Spider_20Minutos, self).__init__(*args, **kwargs)
-
-        self.periodico = Periodico( periodico = "20_MINUTOS", anio = anio, 
-                                    mes = mes, dia = dia,
-                                    fechaIni = fechaIni, fechaFin = fechaFin)
-
-        if strFile == None:
-            self.start_urls, self.strFile = self.periodico.crea_StartUrls()
-        else:
-            self.start_urls, _ = self.periodico.crea_StartUrl()
-            self.strFile = strFile
     
     
     def parse_item(self, response):
@@ -80,7 +82,7 @@ class Spider_20Minutos(CrawlSpider):
         item = item_Noticia()
 
         # TITULAR
-        item['titularNotica'] = response.xpath(XPATH_NOTICIA_TITULO).extract()[0]
+        item['titularNoticia'] = response.xpath(XPATH_NOTICIA_TITULO).extract()[0]
 
         # LINK
         item['linkNoticia'] = response.url
