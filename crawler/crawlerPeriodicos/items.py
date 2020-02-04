@@ -9,7 +9,7 @@ import scrapy
 
 class item_Noticia(scrapy.Item):
     
-    titularNotica = scrapy.Field()
+    titularNoticia = scrapy.Field()
     linkNoticia = scrapy.Field()
     keywordsNoticia = scrapy.Field()
     resumenNoticia = scrapy.Field()

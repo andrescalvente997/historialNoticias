@@ -80,7 +80,7 @@ class Spider_20Minutos(CrawlSpider):
         item = item_Noticia()
 
         # TITULAR
-        item['titularNotica'] = response.xpath(XPATH_NOTICIA_TITULO).extract()[0]
+        item['titularNoticia'] = response.xpath(XPATH_NOTICIA_TITULO).extract()[0]
 
         # LINK
         item['linkNoticia'] = response.url

@@ -28,6 +28,16 @@ class Extractor():
         self.index = 0
 
         self.dataNoticiaMaster = self.searchNoticiaMaster(linkNoticia)
+    
+    #
+    # Busqueda de noticias
+    #
+
+    def searchNoticiaMaster(self, linkNoticia):
+
+        for noticia in self.dataNoticias:
+            if noticia['linkNoticia'] == linkNoticia:
+                return noticia
 
 
     def getNextNoticia(self):
@@ -49,7 +59,24 @@ class Extractor():
 
         self.index += 1
 
-        return dataNextNoticia   
+        return dataNextNoticia  
+    
+    #
+    # Procesamiento de textos
+    #
+
+    def rm_stopWords(self, doc):
+
+        return nlp(self.regex_stopwords.sub('\b', doc.text).strip())
+
+
+    def rm_punctuation(self, doc):
+
+        return nlp(REGEX_PUNCTUATION.sub('\b', doc.text).strip())
+    
+    #
+    # Manejo de ficheros
+    #
 
     def openFile(self, fileStr):
 
@@ -62,18 +89,3 @@ class Extractor():
         self.jsonFile.close()
 
     
-    def searchNoticiaMaster(self, linkNoticia):
-
-        for noticia in self.dataNoticias:
-            if noticia['linkNoticia'] == linkNoticia:
-                return noticia
-
-    
-    def rm_stopWords(self, doc):
-
-        return nlp(self.regex_stopwords.sub('\b', doc.text).strip())
-
-
-    def rm_punctuation(self, doc):
-
-        return nlp(REGEX_PUNCTUATION.sub('\b', doc.text).strip())
