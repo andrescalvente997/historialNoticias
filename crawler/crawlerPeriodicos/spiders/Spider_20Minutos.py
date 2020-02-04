@@ -7,6 +7,8 @@ from crawlerPeriodicos.items import item_Noticia
 from scrapy.exceptions import CloseSpider
 from crawlerPeriodicos.Periodico import Periodico
 import re
+import dateutil.parser
+import pytz
 
 TAG_RE = re.compile(r'<[^>]+>')
 
@@ -15,7 +17,7 @@ XPATH_NOTICIA_KEYWORDS = '//head/meta[@name="keywords"]/@content'
 XPATH_NOTICIA_RESUMEN = '//head/meta[@property="og:description"]/@content'
 XPATH_NOTICIA_AUTORES = '//span[@class="article-author"]//text()'
 XPATH_NOTICIA_LOCALIZACIONES = ''   # En este periódico no viene la localización de donde proviene la noticia
-XPATH_NOTICIA_FECHA_PUBLICACION = '//span[@class="article-date"]/a/text()'
+XPATH_NOTICIA_FECHA_PUBLICACION = '//head/meta[@property="article:published_time"]/@content'
 XPATH_NOTICIA_FOTO_PIE = '//figure[@class="image"]/div/figcaption/text()' 
 XPATH_NOTICIA_FOTO_FIRMA = '//figure[@class="image"]/div/span[@class="author "]/text()'
 XPATH_NOTICIA_CUERPO = '//div[@class="article-text"]/p'
@@ -111,8 +113,11 @@ class Spider_20Minutos(CrawlSpider):
         item['localizacionNoticia'] = []
 
         # FECHA
-        # Se encuentra en el interior de la noticia como "dd.MM.YYYY - hh:mmh"
-        item['fechaPublicacionNoticia'] = response.xpath(XPATH_NOTICIA_FECHA_PUBLICACION).extract()[0]
+        # Se encuentra en el interior de la noticia como "YYYY-MM-ddThh:mm:ss+01:00"
+        # Tenemos que pasar de la fecha en ISO 8601 a RFC 3339
+        strFecha = response.xpath(XPATH_NOTICIA_FECHA_PUBLICACION).extract()[0]
+        datetime = dateutil.parser.parse(strFecha).astimezone(pytz.timezone('UTC'))
+        item['fechaPublicacionNoticia'] = datetime.strftime("%Y-%m-%dT%H:%M:%SZ")
         
         # PIE DE FOTO
         # Algunas noticias no tienen foto        

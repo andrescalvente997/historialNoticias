@@ -7,6 +7,8 @@ from crawlerPeriodicos.items import item_Noticia
 from scrapy.exceptions import CloseSpider
 from crawlerPeriodicos.Periodico import Periodico
 import re
+import dateutil.parser
+import pytz
 
 TAG_RE = re.compile(r'<[^>]+>')
 
@@ -110,7 +112,10 @@ class Spider_ElPais(CrawlSpider):
 
         # FECHA
         # Se encuentra en el interior de la noticia como "YYYY-MM-ddThh:mm:ss+01:00"
-        item['fechaPublicacionNoticia'] = response.xpath(XPATH_NOTICIA_FECHA_PUBLICACION).extract()[0]
+        # Tenemos que pasar de la fecha en ISO 8601 a RFC 3339
+        strFecha = response.xpath(XPATH_NOTICIA_FECHA_PUBLICACION).extract()[0]
+        datetime = dateutil.parser.parse(strFecha).astimezone(pytz.timezone('UTC'))
+        item['fechaPublicacionNoticia'] = datetime.strftime("%Y-%m-%dT%H:%M:%SZ")
 
         # PIE DE FOTO
         try:
