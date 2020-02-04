@@ -11,6 +11,7 @@ import string
 import json
 
 REGEX_PUNCTUATION = re.compile('[%s]' % re.escape(string.punctuation))
+REGEX_STOPWORDS = re.compile('%s' % r'\b' + r'\b|\b'.join(STOP_WORDS) + r'\b')
 
 class Extractor():
 
@@ -19,11 +20,6 @@ class Extractor():
         self.nlp = spacy.load("es_core_news_md")
 
         self.jsonFile, self.dataNoticias = self.openFile()
-
-        aux_regex = r'\b'
-        aux_regex += r'\b|\b'.join(STOP_WORDS)
-        aux_regex += r'\b'
-        self.regex_stopwords = re.compile('%s' % aux_regex)
 
         self.index = 0
 
@@ -50,7 +46,7 @@ class Extractor():
         
         flgEnd = False
         while flgEnd != True:
-            # Comparamos la fecha de las noticias
+            # Comparamos la fecha de las noticias para solo coger las anteriores a la seleccionada
             if dataNextNoticia['fechaPublicacionNoticia'] > self.dataNoticiaMaster['fechaPublicacionNoticia'] 
                 self.index += 1
                 dataNextNoticia = self.dataNoticias[self.index]
@@ -67,7 +63,7 @@ class Extractor():
 
     def rm_stopWords(self, doc):
 
-        return nlp(self.regex_stopwords.sub('\b', doc.text).strip())
+        return nlp(REGEX_STOPWORDS.sub('\b', doc.text).strip())
 
 
     def rm_punctuation(self, doc):
@@ -87,5 +83,3 @@ class Extractor():
     def closeFile(self):
 
         self.jsonFile.close()
-
-    
