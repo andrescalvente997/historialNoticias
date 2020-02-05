@@ -17,8 +17,7 @@ dataNoticia_Master = extractor.getNoticiaMaster()
 
 
 cuerpoNoticia_Master = extractor.getAtributoNoticia(dataNoticia_Master, "cuerpoNoticia")
-print(cuerpoNoticia_Master)
-'''
+
 dataNoticia_Analizar = extractor.getNextNoticia()
 
 while dataNoticia_Analizar != -1:
@@ -35,8 +34,7 @@ while dataNoticia_Analizar != -1:
 
     dataNoticia_Analizar = extractor.getNextNoticia()
 
-print(diccResultados)
-'''
+diccResultados = {k: v for k, v in sorted(diccResultados.items(), key=lambda item: item[1], reverse=True)}
 
-
-
+for k, v in diccResultados.items():
+    print(k,"\t\t",v)

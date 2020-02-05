@@ -6,12 +6,15 @@
 
 import spacy
 from spacy.lang.es.stop_words import STOP_WORDS
+import nltk
+from nltk.corpus import stopwords
 import re
 import string
 import json
 
-REGEX_PUNCTUATIONS = re.compile('[%s]' % re.escape(string.punctuation))
-REGEX_STOPWORDS = re.compile('%s' % r'\b' + r'\b|\b'.join(STOP_WORDS) + r'\b')
+REGEX_PUNCTUATIONS = re.compile('[%s]' % re.escape(string.punctuation + "“”—"))
+REGEX_STOPWORDS = re.compile('%s' % r'\b' + r'\b|\b'.join(STOP_WORDS | set(stopwords.words('spanish'))) + r'\b')
+REGEX_BLANKS = re.compile('\s\s+')
 
 class Extractor():
 
@@ -89,6 +92,7 @@ class Extractor():
         atributoDoc = self.nlp(data[atributo])
         atributoDoc = self.rm_stopWords(atributoDoc)
         atributoDoc = self.rm_punctuations(atributoDoc)
+        atributoDoc = self.rm_blanks(atributoDoc)
 
         return atributoDoc
     
@@ -98,12 +102,17 @@ class Extractor():
 
     def rm_stopWords(self, doc):
 
-        return self.nlp(REGEX_STOPWORDS.sub('\b', doc.text).strip())
+        return self.nlp(REGEX_STOPWORDS.sub(' ', doc.text.lower()).strip())
 
 
     def rm_punctuations(self, doc):
 
-        return self.nlp(REGEX_PUNCTUATIONS.sub('\b', doc.text).strip())
+        return self.nlp(REGEX_PUNCTUATIONS.sub(' ', doc.text).strip())
+
+
+    def rm_blanks(self, doc):
+
+        return self.nlp(REGEX_BLANKS.sub(' ', doc.text).strip())
     
     #
     # Manejo de ficheros
