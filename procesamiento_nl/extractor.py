@@ -10,7 +10,7 @@ import re
 import string
 import json
 
-REGEX_PUNCTUATION = re.compile('[%s]' % re.escape(string.punctuation))
+REGEX_PUNCTUATIONS = re.compile('[%s]' % re.escape(string.punctuation))
 REGEX_STOPWORDS = re.compile('%s' % r'\b' + r'\b|\b'.join(STOP_WORDS) + r'\b')
 
 class Extractor():
@@ -19,9 +19,10 @@ class Extractor():
 
         self.nlp = spacy.load("es_core_news_md")
 
-        self.jsonFile, self.dataNoticias = self.openFile()
+        self.jsonFile, self.dataNoticias = self.openFile(fileStr)
 
         self.index = 0
+        self.numNoticias = len(self.dataNoticias)
 
         self.dataNoticiaMaster = self.searchNoticiaMaster(linkNoticia)
     
@@ -34,21 +35,38 @@ class Extractor():
         for noticia in self.dataNoticias:
             if noticia['linkNoticia'] == linkNoticia:
                 return noticia
+        return None
+
+
+    def getNoticiaMaster(self):
+
+        return self.dataNoticiaMaster
 
 
     def getNextNoticia(self):
 
+        if self.index == self.numNoticias:
+            return -1
+
         dataNextNoticia = self.dataNoticias[self.index]
 
-        if dataNextNoticia['linkNoticia'] == self.linkNoticia:
+        if dataNextNoticia['linkNoticia'] == self.dataNoticiaMaster['linkNoticia']:
             self.index += 1
+            if self.index == self.numNoticias:
+                return -1
+
             dataNextNoticia = self.dataNoticias[self.index]
         
         flgEnd = False
         while flgEnd != True:
+            
             # Comparamos la fecha de las noticias para solo coger las anteriores a la seleccionada
-            if dataNextNoticia['fechaPublicacionNoticia'] > self.dataNoticiaMaster['fechaPublicacionNoticia'] 
+            if dataNextNoticia['fechaPublicacionNoticia'] > self.dataNoticiaMaster['fechaPublicacionNoticia']:
+                
                 self.index += 1
+                if self.index == self.numNoticias:
+                    return -1
+
                 dataNextNoticia = self.dataNoticias[self.index]
             else:
                 flgEnd = True
@@ -56,6 +74,23 @@ class Extractor():
         self.index += 1
 
         return dataNextNoticia  
+
+
+    def getAtributoNoticia(self, data, atributo, flgTratar=True):
+
+        atributoNoticia = data[atributo]
+
+        if atributoNoticia == "":
+            return None
+        
+        if flgTratar == False:
+            return atributoNoticia
+
+        atributoDoc = self.nlp(data[atributo])
+        atributoDoc = self.rm_stopWords(atributoDoc)
+        atributoDoc = self.rm_punctuations(atributoDoc)
+
+        return atributoDoc
     
     #
     # Procesamiento de textos
@@ -63,12 +98,12 @@ class Extractor():
 
     def rm_stopWords(self, doc):
 
-        return nlp(REGEX_STOPWORDS.sub('\b', doc.text).strip())
+        return self.nlp(REGEX_STOPWORDS.sub('\b', doc.text).strip())
 
 
-    def rm_punctuation(self, doc):
+    def rm_punctuations(self, doc):
 
-        return nlp(REGEX_PUNCTUATION.sub('\b', doc.text).strip())
+        return self.nlp(REGEX_PUNCTUATIONS.sub('\b', doc.text).strip())
     
     #
     # Manejo de ficheros
@@ -77,7 +112,7 @@ class Extractor():
     def openFile(self, fileStr):
 
         file = open(fileStr, 'r')
-        return file, json.loads(file)
+        return file, json.load(file)
 
 
     def closeFile(self):
