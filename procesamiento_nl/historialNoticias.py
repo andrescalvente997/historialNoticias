@@ -14,9 +14,13 @@ extractor = extractor.Extractor(strFile, "https://elpais.com/sociedad/2020/02/01
 diccResultados = {}
 
 dataNoticia_Master = extractor.getNoticiaMaster()
-cuerpoNoticia_Master = extractor.getAtributoNoticia(dataNoticia_Master, "cuerpoNoticia")
 
+
+cuerpoNoticia_Master = extractor.getAtributoNoticia(dataNoticia_Master, "cuerpoNoticia")
+print(cuerpoNoticia_Master)
+'''
 dataNoticia_Analizar = extractor.getNextNoticia()
+
 while dataNoticia_Analizar != -1:
     
     urlNoticia_Analizar = extractor.getAtributoNoticia(dataNoticia_Analizar, "linkNoticia", flgTratar=False)
@@ -32,7 +36,7 @@ while dataNoticia_Analizar != -1:
     dataNoticia_Analizar = extractor.getNextNoticia()
 
 print(diccResultados)
-
+'''
 
 
 

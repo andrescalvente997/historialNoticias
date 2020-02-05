@@ -37,7 +37,7 @@
 'https://elpais.com/politica/2020/01/30/actualidad/1580383070_896508.html': 			0.984, 
 'https://elpais.com/politica/2020/01/30/actualidad/1580376734_169922.html': 			0.97757, 
 'https://elpais.com/politica/2020/01/30/actualidad/1580391677_928689.html': 			0.97935, 
-'https://elpais.com/internacional/2020/01/30/actualidad/1580390232_006173.html': 		0.99216, 
+'https://elpais.com/internacional/2020/01/30/actualidad/1580390232_006173.html': 		0.99216, * -
 'https://elpais.com/elpais/2020/01/29/opinion/1580310842_125388.html': 				0.94907, 
 'https://elpais.com/elpais/2020/01/29/opinion/1580303396_673357.html': 				0.98236, 
 'https://elpais.com/elpais/2020/01/29/opinion/1580304986_896755.html': 				0.98073, 
@@ -51,7 +51,7 @@
 'https://elpais.com/economia/2020/01/30/actualidad/1580372779_525775.html': 			0.97641, 
 'https://elpais.com/politica/2020/01/30/actualidad/1580387280_972418.html': 			0.98928, 
 'https://elpais.com/economia/2020/01/30/actualidad/1580392945_300052.html': 			0.97328, 
-'https://elpais.com/sociedad/2020/01/30/actualidad/1580371690_574775.html': 			0.99295, 
+'https://elpais.com/sociedad/2020/01/30/actualidad/1580371690_574775.html': 			0.99295, * +
 'https://elpais.com/politica/2020/01/30/actualidad/1580375028_771065.html': 			0.97312, 
 'https://elpais.com/politica/2020/01/30/actualidad/1580381392_670543.html': 			0.98032, 
 'https://elpais.com/elpais/2020/01/29/videos/1580317274_823413.html': 				0.96934, 
@@ -64,7 +64,7 @@
 'https://elpais.com/cultura/2020/01/28/television/1580233126_078306.html': 			0.97356, 
 'https://elpais.com/cultura/2020/01/29/television/1580303026_532286.html': 			0.97042, 
 'https://elpais.com/elpais/2020/01/24/ideas/1579862649_837380.html': 				0.97118, 
-'https://elpais.com/tecnologia/2020/01/29/actualidad/1580311645_771850.html': 			0.99069, 
+'https://elpais.com/tecnologia/2020/01/29/actualidad/1580311645_771850.html': 			0.99069, * -
 'https://elpais.com/deportes/2020/01/29/actualidad/1580324127_545668.html': 			0.95052, 
 'https://elpais.com/cultura/2020/01/29/actualidad/1580318390_082399.html': 			0.96948, 
 'https://elpais.com/cultura/2020/01/22/actualidad/1579703477_562079.html': 			0.95641, 
@@ -75,7 +75,7 @@
 'https://elpais.com/sociedad/2020/01/29/actualidad/1580293813_186924.html': 			0.96205, 
 'https://elpais.com/sociedad/2020/01/30/actualidad/1580368904_738737.html': 			0.97388, 
 'https://elpais.com/sociedad/2020/01/30/actualidad/1580347593_030310.html': 			0.98745, 
-'https://elpais.com/economia/2020/01/29/actualidad/1580318812_907792.html': 			0.99153, 
+'https://elpais.com/economia/2020/01/29/actualidad/1580318812_907792.html': 			0.99153, * -
 'https://elpais.com/politica/2020/01/29/actualidad/1580324525_980081.html': 			0.97055, 
 'https://elpais.com/internacional/2020/01/29/actualidad/1580323025_769684.html': 			0.98699, 
 'https://elpais.com/elpais/2020/01/29/opinion/1580310688_887244.html': 			0.94907, 
@@ -92,10 +92,10 @@
 'https://elpais.com/internacional/2020/01/29/america/1580332251_431554.html': 			0.98605, 
 'https://elpais.com/internacional/2020/01/29/estados_unidos/1580327690_043037.html': 			0.98441, 
 'https://elpais.com/internacional/2020/01/29/actualidad/1580327353_398040.html': 			0.98211, 
-'https://elpais.com/internacional/2020/01/29/actualidad/1580296410_222353.html': 			0.99299, 
+'https://elpais.com/internacional/2020/01/29/actualidad/1580296410_222353.html': 			0.99299, * - 
 'https://elpais.com/internacional/2020/01/29/actualidad/1580294347_578795.html': 			0.97395, 
-'https://elpais.com/sociedad/2020/01/29/actualidad/1580301336_320665.html': 			0.99172, 
-'https://elpais.com/sociedad/2020/01/30/actualidad/1580360187_316344.html': 			0.99262, 
+'https://elpais.com/sociedad/2020/01/29/actualidad/1580301336_320665.html': 			0.99172, * +
+'https://elpais.com/sociedad/2020/01/30/actualidad/1580360187_316344.html': 			0.99262, * +
 'https://elpais.com/ccaa/2020/01/29/catalunya/1580330515_889892.html': 			0.97976, 
 'https://elpais.com/politica/2020/01/29/actualidad/1580330582_196687.html': 			0.98192, 
 'https://elpais.com/elpais/2020/01/23/alterconsumismo/1579787560_754362.html': 			0.96991, 
@@ -134,10 +134,10 @@
 'https://elpais.com/deportes/2020/01/29/actualidad/1580317281_612119.html': 			0.96348, 
 'https://elpais.com/economia/2020/01/29/actualidad/1580304606_617919.html': 			0.9725, 
 'https://elpais.com/deportes/2020/01/29/actualidad/1580260777_367312.html': 			0.96858, 
-'https://elpais.com/politica/2020/01/29/actualidad/1580311293_969538.html': 			0.99175, 
+'https://elpais.com/politica/2020/01/29/actualidad/1580311293_969538.html': 			0.99175, * -
 'https://elpais.com/internacional/2020/01/29/actualidad/1580316198_276368.html': 			0.98414, 
 'https://elpais.com/ccaa/2020/01/29/catalunya/1580317730_596801.html': 			0.97408, 
-'https://elpais.com/sociedad/2020/01/29/actualidad/1580314682_915050.html': 			0.99333, 
+'https://elpais.com/sociedad/2020/01/29/actualidad/1580314682_915050.html': 			0.99333, * +
 'https://elpais.com/ccaa/2020/01/28/madrid/1580233034_124996.html': 			0.9625, 
 'https://retina.elpais.com/retina/2020/01/28/innovacion/1580219785_016129.html': 			0.97652, 
 'https://elpais.com/elpais/2020/01/27/mamas_papas/1580118173_379872.html': 			0.96391, 
@@ -174,8 +174,8 @@
 'https://retina.elpais.com/retina/2020/01/28/tendencias/1580204600_077584.html': 			0.98079, 
 'https://elpais.com/deportes/2020/01/29/actualidad/1580257574_759887.html': 			0.96597, 
 'https://elpais.com/politica/2020/01/29/actualidad/1580298384_866046.html': 			0.97502, 
-'https://elpais.com/sociedad/2020/01/29/actualidad/1580271109_510968.html': 			0.9932, 
-'https://elpais.com/sociedad/2020/01/29/actualidad/1580287223_797266.html': 			0.99476, 
+'https://elpais.com/sociedad/2020/01/29/actualidad/1580271109_510968.html': 			0.9932, * +
+'https://elpais.com/sociedad/2020/01/29/actualidad/1580287223_797266.html': 			0.99476, * +
 'https://elpais.com/politica/2020/01/28/actualidad/1580244474_051872.html': 			0.96605, 
 'https://elpais.com/ccaa/2020/01/29/catalunya/1580301836_979020.html': 			0.97188, 
 'https://elpais.com/elpais/2020/01/28/escaparate/1580224845_977768.html': 			0.95743, 
@@ -248,7 +248,7 @@
 'https://elpais.com/internacional/2020/01/28/actualidad/1580222033_502499.html': 			0.98769, 
 'https://elpais.com/politica/2020/01/28/actualidad/1580240298_289056.html': 			0.97407, 
 'https://elpais.com/internacional/2020/01/28/estados_unidos/1580244935_008013.html': 			0.98164, 
-'https://elpais.com/internacional/2020/01/28/estados_unidos/1580228530_493288.html': 			0.99177, 
+'https://elpais.com/internacional/2020/01/28/estados_unidos/1580228530_493288.html': 			0.99177, * -
 'https://elpais.com/ccaa/2020/01/28/catalunya/1580224515_333686.html': 			0.98271, 
 'https://elpais.com/ccaa/2020/01/27/madrid/1580142771_546170.html': 			0.96268, 
 'https://elpais.com/elpais/2020/01/28/mundo_animal/1580204975_272428.html': 			0.97623, 
@@ -290,7 +290,7 @@
 'https://elpais.com/politica/2020/01/28/actualidad/1580213336_290919.html': 			0.97753, 
 'https://elpais.com/politica/2020/01/28/actualidad/1580201850_891385.html': 			0.98057, 
 'https://elpais.com/sociedad/2020/01/28/actualidad/1580197062_495845.html': 			0.98884, 
-'https://elpais.com/sociedad/2020/01/28/actualidad/1580197540_867177.html': 			0.99402, 
+'https://elpais.com/sociedad/2020/01/28/actualidad/1580197540_867177.html': 			0.99402, * +
 'https://elpais.com/politica/2020/01/28/actualidad/1580213031_100415.html': 			0.95492, 
 'https://elpais.com/ccaa/2020/01/28/catalunya/1580198559_902216.html': 			0.98244, 
 'https://elpais.com/elpais/2020/01/27/escaparate/1580119450_242876.html': 			0.93952, 
@@ -328,7 +328,7 @@
 'https://elpais.com/elpais/2020/01/27/ciencia/1580138023_464807.html': 			0.96474, 
 'https://elpais.com/cultura/2020/01/27/television/1580142460_337030.html': 			0.98434, 
 'https://elpais.com/cultura/2020/01/27/actualidad/1580140347_589564.html': 			0.97785, 
-'https://elpais.com/sociedad/2020/01/28/actualidad/1580181034_970851.html': 			0.9957, 
+'https://elpais.com/sociedad/2020/01/28/actualidad/1580181034_970851.html': 			0.9957, * +
 'https://elpais.com/internacional/2020/01/27/actualidad/1580149569_210890.html': 			0.9841, 
 'https://elpais.com/economia/2020/01/27/actualidad/1580157132_508475.html': 			0.98256, 
 'https://elpais.com/politica/2020/01/28/actualidad/1580199048_590617.html': 			0.9785, 
@@ -363,7 +363,7 @@
 'https://elpais.com/internacional/2020/01/27/actualidad/1580141933_308645.html': 			0.97855, 
 'https://elpais.com/economia/2020/01/27/actualidad/1580156787_923819.html': 			0.97069, 
 'https://elpais.com/internacional/2020/01/27/actualidad/1580116563_834218.html': 			0.97331, 
-'https://elpais.com/sociedad/2020/01/27/actualidad/1580129884_316684.html': 			0.99288, 
+'https://elpais.com/sociedad/2020/01/27/actualidad/1580129884_316684.html': 			0.99288, * +
 'https://elpais.com/internacional/2020/01/27/actualidad/1580147418_370089.html': 			0.97847, 
 'https://elpais.com/elpais/2020/01/27/gente/1580122414_281193.html': 			0.9687, 
 'https://elpais.com/politica/2020/01/27/actualidad/1580153455_603063.html': 			0.97602, 
@@ -400,7 +400,7 @@
 'https://elpais.com/economia/2020/01/27/actualidad/1580128901_924117.html': 			0.96402, 
 'https://elpais.com/deportes/2020/01/27/actualidad/1580102398_864853.html': 			0.96565, 
 'https://elpais.com/sociedad/2020/01/27/actualidad/1580132754_504708.html': 			0.97083, 
-'https://elpais.com/sociedad/2020/01/27/actualidad/1580125164_352000.html': 			0.99492, 
+'https://elpais.com/sociedad/2020/01/27/actualidad/1580125164_352000.html': 			0.99492, * +
 'https://elpais.com/economia/2020/01/27/actualidad/1580116904_473583.html': 			0.97849, 
 'https://cincodias.elpais.com/cincodias/2020/01/24/companias/1579880438_695445.html': 			0.97108, 
 'https://elpais.com/politica/2020/01/27/actualidad/1580133877_123893.html': 			0.98241, 
@@ -447,7 +447,7 @@
 'https://elpais.com/cultura/2020/01/24/actualidad/1579885307_426400.html': 			0.98089, 
 'https://elpais.com/deportes/2020/01/27/actualidad/1580102089_793230.html': 			0.97828, 
 'https://elpais.com/ccaa/2020/01/27/catalunya/1580113725_484068.html': 			0.97138, 
-'https://elpais.com/politica/2020/01/26/actualidad/1580062575_149498.html': 			0.99078, 
+'https://elpais.com/politica/2020/01/26/actualidad/1580062575_149498.html': 			0.99078, * -
 'https://elpais.com/cultura/2020/01/26/actualidad/1579993271_632168.html': 			0.93902, 
 'https://elpais.com/economia/2020/01/24/actualidad/1579899503_016784.html': 			0.98238, 
 'https://elpais.com/internacional/2020/01/13/argentina/1578938581_333703.html': 			0.9818, 
@@ -483,7 +483,7 @@
 'https://elpais.com/deportes/2020/01/26/actualidad/1580046857_293952.html': 			0.94795, 
 'https://elpais.com/deportes/2020/01/26/actualidad/1580034784_948933.html': 			0.9688, 
 'https://elpais.com/internacional/2020/01/25/actualidad/1579987816_562533.html': 			0.98084, 
-'https://elpais.com/sociedad/2020/01/26/actualidad/1580040757_358740.html': 			0.99585, 
+'https://elpais.com/sociedad/2020/01/26/actualidad/1580040757_358740.html': 			0.99585, * +
 'https://elpais.com/politica/2020/01/25/actualidad/1579971523_731465.html': 			0.97223, 
 'https://elpais.com/politica/2020/01/25/actualidad/1579974686_537480.html': 			0.98033, 
 'https://elpais.com/elpais/2020/01/21/mamas_papas/1579620336_365197.html': 			0.96241, 
@@ -572,8 +572,8 @@
 'https://elpais.com/elpais/2020/01/24/mujeres/1579888150_519589.html': 			0.9705, 
 'https://elpais.com/deportes/2020/01/21/actualidad/1579605024_893772.html': 			0.94262, 
 'https://elpais.com/deportes/2020/01/25/actualidad/1579957866_818765.html': 			0.95317, 
-'https://elpais.com/sociedad/2020/01/25/actualidad/1579954665_551234.html': 			0.99524, 
-'https://elpais.com/sociedad/2020/01/25/actualidad/1579928257_278133.html': 			0.99204, 
+'https://elpais.com/sociedad/2020/01/25/actualidad/1579954665_551234.html': 			0.99524, * +
+'https://elpais.com/sociedad/2020/01/25/actualidad/1579928257_278133.html': 			0.99204, * +
 'https://elpais.com/politica/2020/01/25/actualidad/1579956855_132788.html': 			0.98257, 
 'https://elpais.com/politica/2020/01/25/actualidad/1579953643_629569.html': 			0.98394, 
 'https://elpais.com/elpais/2020/01/23/buenavida/1579775031_232992.html': 			0.97022, 
@@ -664,7 +664,7 @@
 'https://elpais.com/internacional/2020/01/24/actualidad/1579891933_650452.html': 			0.98461, 
 'https://elpais.com/internacional/2020/01/24/estados_unidos/1579901585_621434.html': 			0.98187, 
 'https://elpais.com/sociedad/2020/01/24/actualidad/1579894128_598473.html': 			0.98727, 
-'https://elpais.com/sociedad/2020/01/24/actualidad/1579885326_284290.html': 			0.99341, 
+'https://elpais.com/sociedad/2020/01/24/actualidad/1579885326_284290.html': 			0.99341, * +
 'https://elpais.com/politica/2020/01/24/actualidad/1579872928_536062.html': 			0.9877, 
 'https://elpais.com/politica/2020/01/24/actualidad/1579897148_446733.html': 			0.98618, 
 'https://cincodias.elpais.com/cincodias/2020/01/30/companias/1580408546_249952.html': 			0.96291, 
@@ -700,7 +700,7 @@
 'https://retina.elpais.com/retina/2020/01/22/innovacion/1579693307_555687.html': 			0.95317, 
 'https://elpais.com/elpais/2020/02/01/opinion/1580571880_560209.html': 			0.96236, 
 'https://elpais.com/elpais/2020/02/01/opinion/1580576857_530428.html': 			0.97047, 
-'https://elpais.com/internacional/2020/02/02/actualidad/1580648768_253079.html': 			0.99503, 
+'https://elpais.com/internacional/2020/02/02/actualidad/1580648768_253079.html': 			0.99503, * -
 'https://elpais.com/elpais/2020/01/30/escaparate/1580380466_568237.html': 			0.94506, 
 'https://elpais.com/cultura/2020/01/31/el_toro_por_los_cuernos/1580452784_963880.html': 			0.96238, 
 'https://elpais.com/elpais/2020/01/31/gente/1580473344_806139.html': 			0.96663, 
@@ -754,7 +754,7 @@
 'https://elpais.com/elpais/2020/01/31/opinion/1580491171_721034.html': 			0.9811, 
 'https://cincodias.elpais.com/cincodias/2020/01/30/mercados/1580397389_273291.html': 			0.97732, 
 'https://elpais.com/ccaa/2020/01/31/madrid/1580473764_549612.html': 			0.95935, 
-'https://elpais.com/internacional/2020/02/01/actualidad/1580571998_684729.html': 			0.99005, 
+'https://elpais.com/internacional/2020/02/01/actualidad/1580571998_684729.html': 			0.99005, * -
 'https://elpais.com/internacional/2020/02/01/estados_unidos/1580583807_415684.html': 			0.97838, 
 'https://elpais.com/elpais/2020/01/30/opinion/1580406890_073888.html': 			0.97802, 
 'https://elpais.com/elpais/2020/01/30/eps/1580387661_117134.html': 			0.96315, 
@@ -771,14 +771,14 @@
 'https://elpais.com/cultura/2020/01/31/television/1580494786_010240.html': 			0.97112, 
 'https://elpais.com/deportes/2020/02/01/actualidad/1580522483_100804.html': 			0.96432, 
 'https://elpais.com/politica/2020/02/01/actualidad/1580560470_822032.html': 			0.97847, 
-'https://elpais.com/internacional/2020/01/31/actualidad/1580494832_099752.html': 			0.9901, 
+'https://elpais.com/internacional/2020/01/31/actualidad/1580494832_099752.html': 			0.9901, * -
 'https://elviajero.elpais.com/elviajero/2020/01/30/actualidad/1580377075_022995.html': 			0.96344, 
 'https://elpais.com/internacional/2020/02/01/actualidad/1580549230_186570.html': 			0.97981, 
 'https://elpais.com/cultura/2020/01/31/actualidad/1580496178_758763.html': 			0.97008, 
 'https://retina.elpais.com/retina/2020/01/31/innovacion/1580464609_908770.html': 			0.9686, 
 'https://elpais.com/elpais/2020/01/28/eps/1580212910_212654.html': 			0.98091, 
 'https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html': 			0.97926, 
-'https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html': 			0.99254, 
+'https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html': 			0.99254, * +
 'https://elpais.com/cultura/2020/01/30/babelia/1580392002_823868.html': 			0.96467, 
 'https://elpais.com/elpais/2020/01/28/escaparate/1580217617_183406.html': 			0.96335, 
 'https://elpais.com/elpais/2020/01/31/escaparate/1580471129_133113.html': 			0.95484, 
@@ -803,7 +803,7 @@
 'https://elpais.com/politica/2020/01/31/actualidad/1580502671_556888.html': 			0.98337, 
 'https://elpais.com/internacional/2020/01/31/america/1580491598_557089.html': 			0.98687, 
 'https://elpais.com/cultura/2020/01/31/actualidad/1580499703_650692.html': 			0.97904, 
-'https://elpais.com/internacional/2020/02/01/actualidad/1580513526_185940.html': 			0.99163, 
+'https://elpais.com/internacional/2020/02/01/actualidad/1580513526_185940.html': 			0.99163, * -
 'https://elpais.com/deportes/2020/01/31/actualidad/1580491834_270661.html': 			0.97428, 
 'https://elpais.com/deportes/2020/01/31/actualidad/1580468520_321617.html': 			0.96951, 
 'https://elpais.com/deportes/2020/02/01/actualidad/1580511638_373661.html': 			0.9641, 
@@ -825,7 +825,7 @@
 'https://elpais.com/internacional/2020/01/31/actualidad/1580510616_336817.html': 			0.98276, 
 'https://elpais.com/deportes/2020/02/01/actualidad/1580542743_454094.html': 			0.96942, 
 'https://elpais.com/internacional/2020/01/31/actualidad/1580490282_534967.html': 			0.98546, 
-'https://elpais.com/internacional/2020/01/31/actualidad/1580493745_169747.html': 			0.99037, 
+'https://elpais.com/internacional/2020/01/31/actualidad/1580493745_169747.html': 			0.99037, * -
 'https://elpais.com/sociedad/2020/01/31/actualidad/1580470866_896210.html': 			0.98024, 
 'https://elpais.com/sociedad/2020/01/31/actualidad/1580503401_058714.html': 			0.98388, 
 'https://elpais.com/sociedad/2020/01/31/actualidad/1580509404_469734.html': 			0.98561, 
@@ -873,8 +873,8 @@
 'https://elpais.com/ccaa/2020/01/31/catalunya/1580465814_192384.html': 			0.97089, 
 'https://elpais.com/politica/2020/01/31/actualidad/1580470748_409471.html': 			0.98616, 
 'https://retina.elpais.com/retina/2020/01/30/tendencias/1580384914_505485.html': 			0.97114, 
-'https://elpais.com/sociedad/2020/01/31/actualidad/1580446218_765096.html': 			0.99666, 
-'https://elpais.com/sociedad/2020/01/31/actualidad/1580472680_606851.html': 			0.99172, 
+'https://elpais.com/sociedad/2020/01/31/actualidad/1580446218_765096.html': 			0.99666, * +
+'https://elpais.com/sociedad/2020/01/31/actualidad/1580472680_606851.html': 			0.99172, * +
 'https://elpais.com/elpais/2020/01/31/opinion/1580468566_941705.html': 			0.97971, 
 'https://elpais.com/internacional/2020/01/31/actualidad/1580451966_983972.html': 			0.9836, 
 'https://elpais.com/elpais/2020/01/30/gente/1580397916_026650.html': 			0.95842, 
@@ -904,7 +904,7 @@
 'https://elpais.com/politica/2020/01/14/actualidad/1578992164_065899.html': 			0.98226, 
 'https://elpais.com/politica/2020/01/30/actualidad/1580412017_778559.html': 			0.97258, 
 'https://elpais.com/politica/2020/01/30/actualidad/1580413284_732126.html': 			0.97934, 
-'https://elpais.com/internacional/2020/01/30/mexico/1580407751_743777.html': 			0.995, 
+'https://elpais.com/internacional/2020/01/30/mexico/1580407751_743777.html': 			0.995, * -
 'https://elpais.com/cultura/2020/01/30/babelia/1580392401_909524.html': 			0.97763, 
 'https://elpais.com/cultura/2020/01/30/babelia/1580382153_222452.html': 			0.96435, 
 'https://elpais.com/cultura/2020/01/30/babelia/1580403527_707808.html': 			0.96428, 
@@ -930,7 +930,7 @@
 'https://elpais.com/elpais/2020/01/30/buenavida/1580395724_497501.html': 			0.97053, 
 'https://elpais.com/elpais/2020/01/20/tu_lisboa_y_la_mia/1579533944_148549.html': 			0.95788, 
 'https://elpais.com/elpais/2020/01/28/africa_no_es_un_pais/1580214204_275468.html': 			0.97997, 
-'https://elpais.com/elpais/2020/01/28/somos_antartida/1580241118_896499.html': 			0.9919, 
+'https://elpais.com/elpais/2020/01/28/somos_antartida/1580241118_896499.html': 			0.9919, * +
 'https://retina.elpais.com/retina/2020/01/30/talento/1580382197_448234.html': 			0.97847, 
 'https://elpais.com/politica/2020/01/30/diario_de_espana/1580383502_714370.html': 			0.97925, 
 'https://elpais.com/elpais/2020/01/30/gente/1580403653_083485.html': 			0.97525, 
@@ -952,6 +952,6 @@
 'https://elpais.com/internacional/2020/01/29/actualidad/1580300076_646224.html': 			0.98675, 
 'https://elpais.com/internacional/2020/01/30/actualidad/1580394929_560740.html': 			0.98797, 
 'https://elpais.com/internacional/2020/01/30/actualidad/1580383243_008624.html': 			0.9693, 
-'https://elpais.com/internacional/2020/01/24/actualidad/1579876574_750781.html': 			0.99249, 
+'https://elpais.com/internacional/2020/01/24/actualidad/1579876574_750781.html': 			0.99249, * -
 'https://elpais.com/politica/2020/01/30/actualidad/1580398439_365072.html': 			0.98324, 
 'https://elpais.com/sociedad/2020/01/30/actualidad/1580397557_622969.html': 			0.98432}

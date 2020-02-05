@@ -36,7 +36,7 @@ class Spider_ElPais(CrawlSpider):
                                                 'aprendemosjuntos.elpais.com', 'librotea.elpais.com', 'descuentos.elpais.com',
                                                 'elcomidista.elpais.com', 'smoda.elpais.com', 'suscripciones.elpais.com',
                                                 'elfuturoesapasionante.elpais.com', 'escuela.elpais.com', 'cat.elpais.com',
-                                                'plus.elpais.com'],
+                                                'plus.elpais.com', 'elviajero.elpais.com', 'retina.elpais.com', 'cincodias.elpais.com'],
                                 deny = ["especiales", "tematicos"]), 
                 callback='parse_item', 
                 follow = False),
