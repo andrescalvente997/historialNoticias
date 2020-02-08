@@ -14,9 +14,13 @@ procesador = procesador.Procesador()
 
 similitud = similitud.Similitud()
 
+strAtributo = "keywordsNoticia"
+
 dataNoticia_Master = extractor.getNoticiaMaster()
 
-cuerpoNoticia_Master = extractor.getAtributoNoticia(dataNoticia_Master, "cuerpoNoticia")
+atributoNoticia_Master = extractor.getAtributoNoticia(dataNoticia_Master, strAtributo)
+
+print(atributoNoticia_Master)
 
 dataNoticia_Analizar = extractor.getNextNoticia()
 
@@ -25,14 +29,14 @@ n=0
 while dataNoticia_Analizar != -1:
     
     linkNoticia = extractor.getAtributoNoticia(dataNoticia_Analizar, "linkNoticia", flgTratar=False)
-    cuerpoNoticia_Analizar = extractor.getAtributoNoticia(dataNoticia_Analizar, "cuerpoNoticia")
+    atributoNoticia_Analizar = extractor.getAtributoNoticia(dataNoticia_Analizar, strAtributo)
 
-    if cuerpoNoticia_Analizar == None:
-        print(">> Noticia Vacia: ", linkNoticia)
+    if atributoNoticia_Analizar == None:
+        print(">> Noticia sin Atributo - " + strAtributo + ": " + linkNoticia)
         dataNoticia_Analizar = extractor.getNextNoticia()
         continue
 
-    score = similitud.similitud_spacy(cuerpoNoticia_Master, cuerpoNoticia_Analizar)
+    score = similitud.similitud_spacy(atributoNoticia_Master, atributoNoticia_Analizar)
     procesador.addResultado(linkNoticia, score)
 
     dataNoticia_Analizar = extractor.getNextNoticia()

@@ -83,16 +83,19 @@ class Extractor():
 
         atributoNoticia = data[atributo]
 
-        if atributoNoticia == "":
-            return None
+        if type(atributoNoticia) is list:
+            atributoNoticia = " ".join(atributoNoticia)
         
         if flgTratar == False:
             return atributoNoticia
 
-        atributoDoc = self.nlp(data[atributo])
+        atributoDoc = self.nlp(atributoNoticia)
         atributoDoc = self.rm_stopWords(atributoDoc)
         atributoDoc = self.rm_punctuations(atributoDoc)
         atributoDoc = self.rm_blanks(atributoDoc)
+
+        if atributoDoc.text == "":
+            return None
 
         return atributoDoc
     
