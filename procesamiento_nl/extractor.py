@@ -90,6 +90,7 @@ class Extractor():
             return atributoNoticia
 
         atributoDoc = self.nlp(atributoNoticia)
+        atributoDoc = self.do_lemmatize(atributoDoc)
         atributoDoc = self.rm_stopWords(atributoDoc)
         atributoDoc = self.rm_punctuations(atributoDoc)
         atributoDoc = self.rm_blanks(atributoDoc)
@@ -102,6 +103,10 @@ class Extractor():
     #
     # Procesamiento de textos
     #
+
+    def do_lemmatize(self, doc):
+
+        return self.nlp(" ".join(list(map(lambda token: token.lemma_, doc))))
 
     def rm_stopWords(self, doc):
 
