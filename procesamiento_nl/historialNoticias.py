@@ -14,7 +14,7 @@ procesador = procesador.Procesador()
 
 similitud = similitud.Similitud()
 
-strAtributo = "keywordsNoticia"
+strAtributo = "cuerpoNoticia"
 
 dataNoticia_Master = extractor.getNoticiaMaster()
 

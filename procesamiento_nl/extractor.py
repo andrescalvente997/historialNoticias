@@ -14,7 +14,7 @@ import json
 
 REGEX_PUNCTUATIONS = re.compile('[%s]' % re.escape(string.punctuation + "“”—"))
 REGEX_STOPWORDS = re.compile('%s' % r'\b' + r'\b|\b'.join(STOP_WORDS | set(stopwords.words('spanish'))) + r'\b')
-REGEX_BLANKS = re.compile('\s\s+')
+REGEX_BLANKS = re.compile(r'\s\s+')
 
 class Extractor():
 

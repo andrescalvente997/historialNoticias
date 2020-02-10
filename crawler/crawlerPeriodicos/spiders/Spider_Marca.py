@@ -63,7 +63,7 @@ class Spider_Marca(CrawlSpider):
             if strFile == None:
                 self.start_urls, self.strFile = self.periodico.crea_StartUrls()
             else:
-                self.start_urls, _ = self.periodico.crea_StartUrl()
+                self.start_urls, _ = self.periodico.crea_StartUrls()
                 self.strFile = strFile
 
         super(Spider_Marca, self).__init__(*args, **kwargs)
