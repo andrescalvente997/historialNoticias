@@ -36,7 +36,8 @@ while dataNoticia_Analizar != -1:
         dataNoticia_Analizar = extractor.getNextNoticia()
         continue
 
-    score = similitud.similitud_spacy(atributoNoticia_Master, atributoNoticia_Analizar)
+    #score = similitud.similitud_spacy(atributoNoticia_Master, atributoNoticia_Analizar)
+    score = similitud.similitud_jaccard(atributoNoticia_Master, atributoNoticia_Analizar)
     procesador.addResultado(linkNoticia, score)
 
     dataNoticia_Analizar = extractor.getNextNoticia()
