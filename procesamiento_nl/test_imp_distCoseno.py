@@ -11,7 +11,7 @@ def trataStrings(strr):
     stopwords = stopW.words('spanish')
 
     regex_pun = re.compile('[%s]' % re.escape(string.punctuation))
-    regex_espacios = re.compile('\s\s+')
+    regex_espacios = re.compile(r'\s\s+')
 
     strr = regex_pun.sub(' ', strr).strip()
     strr = regex_espacios.sub(' ', strr).strip()

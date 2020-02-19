@@ -6,10 +6,11 @@
 
 class Procesador():
 
-    def __init__(self):
+    def __init__(self, nombreSimilitud):
         
         self.diccResultados = {}
         self.scoreAcum = 0
+        self.nombreSimilitud = nombreSimilitud
 
 
     def addResultado(self, linkNoticia, score):
@@ -27,9 +28,9 @@ class Procesador():
 
         listRes = []
         strPrint = ""
-        numTop = 1
 
         if flgAllRes == True:
+            numTop = 1
             for k, v in self.diccResultados.items():
                 if flgPrintTop == True:
                     strPrint += "Top " + str(numTop) + ": " + k + "\t" + str(v) + "\n"
@@ -38,10 +39,9 @@ class Procesador():
                     listRes.append((k,v))
 
         else:
-            for item, _ in zip(self.diccResultados.items(), range(top)):
+            for item, numTop in zip(self.diccResultados.items(), range(top)):
                 if flgPrintTop == True:
-                    strPrint += "Top " + str(numTop) + ": " + k + "\t" + str(v) + "\n"
-                    numTop += 1
+                    strPrint += "Top " + str(numTop+1) + ": " + item[0] + "\t" + str(item[1]) + "\n"
                 else:
                     listRes.append(item)
 
@@ -50,6 +50,7 @@ class Procesador():
 
     def __str__(self):
 
-        strPrint = "Noticias evaluadas hasta el momento: " + str(len(self.diccResultados)) + "\n"
-        strPrint += "Score medio de las noticias es de: " + str(self.scoreAcum / len(self.diccResultados))
+        strPrint = "Para la similitud: " + self.nombreSimilitud + "\n"
+        strPrint += "Noticias evaluadas hasta el momento: " + str(len(self.diccResultados)) + "\n"
+        strPrint += "Score medio de las noticias es de: " + str(self.scoreAcum / len(self.diccResultados)) + "\n"
         return strPrint
