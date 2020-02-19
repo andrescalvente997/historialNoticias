@@ -2,6 +2,7 @@
 
 from os.path import abspath, dirname
 import time
+import math
 import extractor
 import similitud
 import procesador
@@ -35,13 +36,15 @@ def do_similitud(extractor, funct_similitud, nombreSimilitud):
 
     time_end = time.time()
     
-    printResult(procesador_obj, time_end - time_start)
+    printResult(procesador_obj, round(time_end - time_start))
 
 
 def printResult(procesador_obj, executionTime):
 
     procesador_obj.sortResultados()
     _, strResultTop = procesador_obj.getTopResultados(top=TOP_RESULTS, flgPrintTop=True)
+    mins = math.floor(executionTime / 60)
+    segs = round((executionTime / 60 - mins) * 60)
 
     print("#########################################################\n")
     print(">> Resumen:")
@@ -49,7 +52,7 @@ def printResult(procesador_obj, executionTime):
     print(">> Top:")
     print(strResultTop)
     print(">> Tiempo de ejecución:")
-    print(str(executionTime) + " segundos.\n")
+    print("{} minutos y {} segundos.\n".format(str(mins), str(segs)))
 
 
 if __name__ == '__main__':
