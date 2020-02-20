@@ -26,22 +26,25 @@ class Similitud():
         self.nombreSimilitud = nombreSimilitud
 
         if self.nombreSimilitud == STR_SIMILITUD_COSENO_SPACY:
-            self.funcionSimilitud = self.similitud_spacy
+            self.funcionSimilitud = self.similitud_coseno_spacy
         
         elif self.nombreSimilitud == STR_SIMILITUD_JACCARD:
             self.funcionSimilitud = self.similitud_jaccard
 
         elif self.nombreSimilitud == STR_SIMILITUD_COSENO_TFIFD:
-            self.funcionSimilitud = self.similitud_tfidf
+            self.funcionSimilitud = self.similitud_coseno_tfidf
             self.dicc_doc_wFrec = {}    # Diccionario => Documento: { Palabra_n: frecuencia en documento }
             self.dicc_w_docsConW = {}   # Diccionario => Palabra: frecuencia en el dataset 
             self.dicc_doc_tfidf = {}    # Diccionario => Documento: Matriz Numpy
 
+    # Sección de calculo de similitud coseno con representación vectorial de Spacy (Word2Vec)
 
-    def similitud_spacy(self, doc1, doc2, redondeo=5):
+    def similitud_coseno_spacy(self, doc1, doc2, redondeo=5):
 
         return round(doc1.similarity(doc2), redondeo)
 
+
+    # Sección de calculo de similitud Jaccard
 
     def similitud_jaccard(self, doc1, doc2, redondeo=5):
         
@@ -54,8 +57,27 @@ class Similitud():
         return elemsInterseccion / elemsUnion
 
 
-    def similitud_tfidf(self, doc1, doc2, redondeo=5):
-        pass
+    # Sección de calculo de similitud coseno con representación vectorial de tf-idf
+
+    def similitud_coseno_tfidf(self, linkMaster, linkAnalizar, redondeo=5):
+        
+        matriz_tfidf_Master = self.dicc_doc_tfidf[linkMaster]
+        matriz_tfidf_Analizar = self.dicc_doc_tfidf[linkAnalizar]
+        numerador = 0
+        denomidador_vMaster = 0
+        denomidador_vAnalizar = 0
+
+        for coordM, coordA in zip(matriz_tfidf_Master, matriz_tfidf_Analizar):
+            
+            numerador += coordM * coordA
+            denomidador_vMaster += coordM ** 2
+            denomidador_vAnalizar += coordA ** 2
+
+        denomidador_vMaster = math.sqrt(denomidador_vMaster)
+        denomidador_vAnalizar = math.sqrt(denomidador_vAnalizar)
+        denominador = denomidador_vMaster * denomidador_vAnalizar
+
+        return round(numerador / denominador, redondeo)
 
 
     def add_doc_wFrec_entry(self, linkNoticia, doc):
@@ -86,6 +108,7 @@ class Similitud():
         for linkNoticia in self.dicc_doc_wFrec:     # Creo un array con todos los valores y luego lo paso a np.array
 
             self.dicc_doc_tfidf[linkNoticia] = []
+            #self.dicc_doc_tfidf[linkNoticia] = {}
             for word in self.dicc_w_docsConW:
 
                 frecWordEnDoc = self.dicc_doc_wFrec[linkNoticia][word]
@@ -93,14 +116,18 @@ class Similitud():
 
                 if frecWordEnDoc == 0:
                     self.dicc_doc_tfidf[linkNoticia].append(0)
+                    #self.dicc_doc_tfidf[linkNoticia][word] = 0
                     continue
 
                 tf = 1 + math.log(frecWordEnDoc, 2)
                 idf = (numDocs + 1) / (frecWordEnDataset + 0.5) 
                 self.dicc_doc_tfidf[linkNoticia].append(tf * idf)
+                #self.dicc_doc_tfidf[linkNoticia][word] = tf * idf
 
             self.dicc_doc_tfidf[linkNoticia] = np.array(self.dicc_doc_tfidf[linkNoticia])
 
+
+    # Sección de acceso a variables de la clase
 
     def getNombreSimilitud(self):
 
