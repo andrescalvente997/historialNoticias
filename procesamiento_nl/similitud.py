@@ -5,6 +5,8 @@
 #
 
 import spacy
+import math
+import numpy as np
 
 
 STR_SIMILITUD_COSENO_SPACY = "SIMILITUD_COSENO_SPACY"
@@ -33,7 +35,7 @@ class Similitud():
             self.funcionSimilitud = self.similitud_tfidf
             self.dicc_doc_wFrec = {}    # Diccionario => Documento: { Palabra_n: frecuencia en documento }
             self.dicc_w_docsConW = {}   # Diccionario => Palabra: frecuencia en el dataset 
-            self.dicc_doc_tfidf = {}    # Diccionario => Documento: { Palabra_n: tf-idf }
+            self.dicc_doc_tfidf = {}    # Diccionario => Documento: Matriz Numpy
 
 
     def similitud_spacy(self, doc1, doc2, redondeo=5):
@@ -75,6 +77,29 @@ class Similitud():
             self.dicc_w_docsConW[word] = 0
         
         self.dicc_w_docsConW[word] += 1
+
+
+    def create_dicc_doc_tfidf(self):
+
+        numDocs = len(self.dicc_doc_wFrec)
+
+        for linkNoticia in self.dicc_doc_wFrec:     # Creo un array con todos los valores y luego lo paso a np.array
+
+            self.dicc_doc_tfidf[linkNoticia] = []
+            for word in self.dicc_w_docsConW:
+
+                frecWordEnDoc = self.dicc_doc_wFrec[linkNoticia][word]
+                frecWordEnDataset = self.dicc_w_docsConW[word]
+
+                if frecWordEnDoc == 0:
+                    self.dicc_doc_tfidf[linkNoticia].append(0)
+                    continue
+
+                tf = 1 + math.log(frecWordEnDoc, 2)
+                idf = (numDocs + 1) / (frecWordEnDataset + 0.5) 
+                self.dicc_doc_tfidf[linkNoticia].append(tf * idf)
+
+            self.dicc_doc_tfidf[linkNoticia] = np.array(self.dicc_doc_tfidf[linkNoticia])
 
 
     def getNombreSimilitud(self):
