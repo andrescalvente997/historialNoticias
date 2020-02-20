@@ -12,11 +12,13 @@ TOP_RESULTS = 100
 URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html"
 NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../crawler/crawlerPeriodicos/datos_EL_PAIS/20200125_20200202_noticias.json"
 
-def do_similitud(funct_similitud, nombreSimilitud):
+def do_similitud(similitud_obj):
 
     extractor_obj = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
 
-    procesador_obj = procesador.Procesador(nombreSimilitud)
+    procesador_obj = procesador.Procesador(similitud_obj.getNombreSimilitud())
+
+    funct_similitud = similitud_obj.getFuncionSimilitud()
 
     time_start = time.time()
 
@@ -66,8 +68,9 @@ def printResult(procesador_obj, executionTime):
 
 if __name__ == '__main__':
 
-    similitud_obj = similitud.Similitud()
+    similitud_obj = similitud.Similitud("SIMILITUD_COSENO_SPACY")
+    do_similitud(similitud_obj)
 
-    do_similitud(similitud_obj.similitud_spacy, "Similitud_Coseno_Spacy")
-    do_similitud(similitud_obj.similitud_jaccard, "Similitud_Jaccard")
+    similitud_obj = similitud.Similitud("SIMILITUD_JACCARD")
+    do_similitud(similitud_obj)
 
