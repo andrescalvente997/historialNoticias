@@ -65,7 +65,6 @@ def do_similitud_tfidf(similitud_obj):
     while dataNoticia_Analizar != -1:
         
         linkNoticia_Analizar = extractor_obj.getAtributoNoticia(dataNoticia_Analizar, "linkNoticia", flgTratar=False)
-        list_linksNoticiasAnalizar.append(linkNoticia_Analizar)
         atributoNoticia_Analizar = extractor_obj.getAtributoNoticia(dataNoticia_Analizar, ATRIBUTO_ESTUDIO_1)
 
         if atributoNoticia_Analizar == None:
@@ -73,7 +72,9 @@ def do_similitud_tfidf(similitud_obj):
             dataNoticia_Analizar = extractor_obj.getNextNoticia()
             continue
 
-        similitud_obj.add_doc_wFrec_entry(linkNoticia_Analizar, dataNoticia_Analizar)
+        similitud_obj.add_doc_wFrec_entry(linkNoticia_Analizar, atributoNoticia_Analizar)
+        list_linksNoticiasAnalizar.append(linkNoticia_Analizar)
+        dataNoticia_Analizar = extractor_obj.getNextNoticia()
 
     similitud_obj.create_dicc_doc_tfidf()
 
@@ -109,13 +110,13 @@ def printResult(procesador_obj, executionTime):
 
 
 if __name__ == '__main__':
-
+    
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_SPACY")
     do_similitud(similitud_obj)
 
     similitud_obj = similitud.Similitud("SIMILITUD_JACCARD")
     do_similitud(similitud_obj)
-
+    
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_TF-IDF")
     do_similitud_tfidf(similitud_obj)
 

@@ -86,11 +86,11 @@ class Similitud():
 
         for word in doc:
 
-            if word not in self.dicc_doc_wFrec[linkNoticia]:
-                self.dicc_doc_wFrec[linkNoticia][word] = 0
-                self.add_w_docsConW_entry(word)
+            if word.text not in self.dicc_doc_wFrec[linkNoticia]:
+                self.dicc_doc_wFrec[linkNoticia][word.text] = 0
+                self.add_w_docsConW_entry(word.text)
 
-            self.dicc_doc_wFrec[linkNoticia][word] += 1
+            self.dicc_doc_wFrec[linkNoticia][word.text] += 1
 
 
     def add_w_docsConW_entry(self, word):
@@ -111,13 +111,13 @@ class Similitud():
             #self.dicc_doc_tfidf[linkNoticia] = {}
             for word in self.dicc_w_docsConW:
 
-                frecWordEnDoc = self.dicc_doc_wFrec[linkNoticia][word]
-                frecWordEnDataset = self.dicc_w_docsConW[word]
-
-                if frecWordEnDoc == 0:
+                if word not in self.dicc_doc_wFrec[linkNoticia]:
                     self.dicc_doc_tfidf[linkNoticia].append(0)
                     #self.dicc_doc_tfidf[linkNoticia][word] = 0
                     continue
+
+                frecWordEnDoc = self.dicc_doc_wFrec[linkNoticia][word]
+                frecWordEnDataset = self.dicc_w_docsConW[word]
 
                 tf = 1 + math.log(frecWordEnDoc, 2)
                 idf = (numDocs + 1) / (frecWordEnDataset + 0.5) 
