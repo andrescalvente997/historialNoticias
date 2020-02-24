@@ -101,7 +101,7 @@ def do_similitud_BoW(similitud_obj):
     dataNoticia_Master = extractor_obj.getNoticiaMaster()
     atributoNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, ATRIBUTO_ESTUDIO_1)
     linkNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, "linkNoticia", flgTratar=False)
-    similitud_obj.add_doc_wFrec_entry(linkNoticia_Master, atributoNoticia_Master)
+    similitud_obj.add_doc_wFrec_entry_BoW(linkNoticia_Master, atributoNoticia_Master)
 
     dataNoticia_Analizar = extractor_obj.getNextNoticia()
 
@@ -154,7 +154,7 @@ def printResult(procesador_obj, executionTime):
 
 
 if __name__ == '__main__':
-    
+    '''
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_SPACY")
     do_similitud(similitud_obj)
 
@@ -163,7 +163,7 @@ if __name__ == '__main__':
     
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_TF-IDF")
     do_similitud_tfidf(similitud_obj)
-    
+    '''
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_BOW")
     do_similitud_BoW(similitud_obj)
 
