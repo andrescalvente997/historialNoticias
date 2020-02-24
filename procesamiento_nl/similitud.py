@@ -7,14 +7,17 @@
 import spacy
 import math
 import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
 
 
 STR_SIMILITUD_COSENO_SPACY = "SIMILITUD_COSENO_SPACY"
 STR_SIMILITUD_JACCARD = "SIMILITUD_JACCARD"
 STR_SIMILITUD_COSENO_TFIFD = "SIMILITUD_COSENO_TF-IDF"
+STR_SIMILITUD_COSENO_BOW = "SIMILITUD_COSENO_BOW"
 LIST_SIMILITUDES_ACEPTADAS = [  STR_SIMILITUD_COSENO_SPACY,
                                 STR_SIMILITUD_JACCARD,
-                                STR_SIMILITUD_COSENO_TFIFD]
+                                STR_SIMILITUD_COSENO_TFIFD,
+                                STR_SIMILITUD_COSENO_BOW]
 
 class Similitud():
 
@@ -36,6 +39,12 @@ class Similitud():
             self.dicc_doc_wFrec = {}    # Diccionario => Documento: { Palabra_n: frecuencia en documento }
             self.dicc_w_docsConW = {}   # Diccionario => Palabra: frecuencia en el dataset 
             self.dicc_doc_tfidf = {}    # Diccionario => Documento: Matriz Numpy
+
+        elif self.nombreSimilitud == STR_SIMILITUD_COSENO_BOW:
+            self.funcionSimilitud = self.similitud_coseno_BagOfWords
+            self.dicc_doc_wFrec = {}
+            self.list_words = []
+            self.dicc_doc_BoW = {}
 
     # Sección de calculo de similitud coseno con representación vectorial de Spacy (Word2Vec)
 
@@ -125,6 +134,47 @@ class Similitud():
                 #self.dicc_doc_tfidf[linkNoticia][word] = tf * idf
 
             self.dicc_doc_tfidf[linkNoticia] = np.array(self.dicc_doc_tfidf[linkNoticia])
+
+
+    # Sección de calculo de similitud coseno con representación vectorial creada por Bag of Words (BoW)
+
+    def similitud_coseno_BagOfWords(self, linkMaster, linkAnalizar, redondeo=5):
+        
+        matriz_tfidf_Master = self.dicc_doc_tfidf[linkMaster]
+        matriz_tfidf_Analizar = self.dicc_doc_tfidf[linkAnalizar]
+
+        return cosine_similarity(matriz_tfidf_Master, matriz_tfidf_Analizar)
+
+
+    # Función igual que "add_doc_wFrec_entry" pero sin la llamada a "add_w_docsConW_entry"
+    # para evitar perder tiempo innecesario con condiciones a la hora de hacer las pruebas 
+    # de velocidad
+    def add_doc_wFrec_entry_BoW(self, linkNoticia, doc):
+
+        self.dicc_doc_wFrec[linkNoticia] = {}
+
+        for word in doc:
+
+            if word.text not in self.list_words:
+                self.list_words.append(word.text)
+
+            if word.text not in self.dicc_doc_wFrec[linkNoticia]:
+                self.dicc_doc_wFrec[linkNoticia][word.text] = 0
+
+            self.dicc_doc_wFrec[linkNoticia][word.text] += 1
+
+
+    def create_vec_doc_BoW(self):
+
+        for linkNoticia in self.dicc_doc_wFrec:
+
+            self.dicc_doc_BoW[linkNoticia] = []
+            for word in self.list_words:
+
+                if word not in self.dicc_doc_wFrec[linkNoticia]:
+                    self.dicc_doc_BoW[linkNoticia].append(0)
+                else:
+                    self.dicc_doc_BoW[linkNoticia].append(self.dicc_doc_wFrec[linkNoticia][word])
 
 
     # Sección de acceso a variables de la clase
