@@ -44,16 +44,16 @@ class Similitud():
             self.funcionSimilitud = self.similitud_coseno_BagOfWords
             self.dicc_doc_wFrec = {}
             self.list_words = []
-            self.dicc_doc_BoW = {}
+            self.vec_doc_BoW = {}
 
-    # Sección de calculo de similitud coseno con representación vectorial de Spacy (Word2Vec)
+    # Sección de cálculo de similitud coseno con representación vectorial de Spacy (Word2Vec)
 
     def similitud_coseno_spacy(self, doc1, doc2, redondeo=5):
 
         return round(doc1.similarity(doc2), redondeo)
 
 
-    # Sección de calculo de similitud Jaccard
+    # Sección de cálculo de similitud Jaccard
 
     def similitud_jaccard(self, doc1, doc2, redondeo=5):
         
@@ -66,7 +66,7 @@ class Similitud():
         return elemsInterseccion / elemsUnion
 
 
-    # Sección de calculo de similitud coseno con representación vectorial de tf-idf
+    # Sección de cálculo de similitud coseno con representación vectorial de tf-idf
 
     def similitud_coseno_tfidf(self, linkMaster, linkAnalizar, redondeo=5):
         
@@ -136,18 +136,18 @@ class Similitud():
             self.dicc_doc_tfidf[linkNoticia] = np.array(self.dicc_doc_tfidf[linkNoticia])
 
 
-    # Sección de calculo de similitud coseno con representación vectorial creada por Bag of Words (BoW)
+    # Sección de cálculo de similitud coseno con representación vectorial creada por Bag of Words (BoW)
 
     def similitud_coseno_BagOfWords(self, linkMaster, linkAnalizar, redondeo=5):
         
-        matriz_tfidf_Master = self.dicc_doc_tfidf[linkMaster]
-        matriz_tfidf_Analizar = self.dicc_doc_tfidf[linkAnalizar]
+        matriz_tfidf_Master = self.vec_doc_BoW[linkMaster]
+        matriz_tfidf_Analizar = self.vec_doc_BoW[linkAnalizar]
 
         return cosine_similarity(matriz_tfidf_Master, matriz_tfidf_Analizar)
 
 
     # Función igual que "add_doc_wFrec_entry" pero sin la llamada a "add_w_docsConW_entry"
-    # para evitar perder tiempo innecesario con condiciones a la hora de hacer las pruebas 
+    # para evitar perder tiempo con condiciones a la hora de hacer las pruebas 
     # de velocidad
     def add_doc_wFrec_entry_BoW(self, linkNoticia, doc):
 
@@ -168,13 +168,15 @@ class Similitud():
 
         for linkNoticia in self.dicc_doc_wFrec:
 
-            self.dicc_doc_BoW[linkNoticia] = []
+            self.vec_doc_BoW[linkNoticia] = []
             for word in self.list_words:
 
                 if word not in self.dicc_doc_wFrec[linkNoticia]:
-                    self.dicc_doc_BoW[linkNoticia].append(0)
+                    self.vec_doc_BoW[linkNoticia].append(0)
                 else:
-                    self.dicc_doc_BoW[linkNoticia].append(self.dicc_doc_wFrec[linkNoticia][word])
+                    self.vec_doc_BoW[linkNoticia].append(self.dicc_doc_wFrec[linkNoticia][word])
+
+            self.vec_doc_BoW[linkNoticia] = np.array(self.vec_doc_BoW[linkNoticia])
 
 
     # Sección de acceso a variables de la clase
@@ -192,3 +194,8 @@ class Similitud():
     def getSetPalabras(self, doc):
 
         return set(map(lambda token: token.text, doc))
+
+
+    def getLinksNoticias(self):
+
+        return self.dicc_doc_wFrec.keys()

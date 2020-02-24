@@ -1,0 +1,11 @@
+pip3 install nltk
+
+python3
+
+import nltk
+
+nltk.download('stopwords')
+
+sudo pip3 install spacy
+
+python3 -m spacy download es_core_news_md
