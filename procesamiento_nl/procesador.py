@@ -33,7 +33,9 @@ class Procesador():
             numTop = 1
             for k, v in self.diccResultados.items():
                 if flgPrintTop == True:
-                    strPrint += "Top " + str(numTop) + ": " + k + "\t" + str(v) + "\n"
+                    strPrint += "Top {}: {} \t{} \n".format(str(numTop),
+                                                            k,
+                                                            str(v))
                     numTop += 1
                 else:
                     listRes.append((k,v))
@@ -41,7 +43,9 @@ class Procesador():
         else:
             for item, numTop in zip(self.diccResultados.items(), range(top)):
                 if flgPrintTop == True:
-                    strPrint += "Top " + str(numTop+1) + ": " + item[0] + "\t" + str(item[1]) + "\n"
+                    strPrint += "Top {}: {} \t{} \n".format(str(numTop+1),
+                                                            item[0],
+                                                            str(item[1]))
                 else:
                     listRes.append(item)
 
@@ -50,7 +54,10 @@ class Procesador():
 
     def __str__(self):
 
-        strPrint = "Para la similitud: " + self.nombreSimilitud + "\n"
-        strPrint += "Noticias evaluadas hasta el momento: " + str(len(self.diccResultados)) + "\n"
-        strPrint += "Score medio de las noticias es de: " + str(self.scoreAcum / len(self.diccResultados)) + "\n"
+        strPrint = "Para la similitud: {}\n"
+        strPrint += "Noticias evaluadas hasta el momento: {}\n"
+        strPrint += "Score medio de las noticias es de: {}\n"
+        strPrint = strPrint.format( self.nombreSimilitud,
+                                    str(len(self.diccResultados)),
+                                    str(self.scoreAcum / len(self.diccResultados)))
         return strPrint

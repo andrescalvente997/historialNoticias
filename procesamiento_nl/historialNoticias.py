@@ -80,6 +80,9 @@ def do_similitud_tfidf(similitud_obj):
 
     for linkNoticia_Analizar in list_linksNoticiasAnalizar:
 
+        if linkNoticia_Master == linkNoticia_Analizar:
+            continue
+
         score = funct_similitud(linkNoticia_Master, linkNoticia_Analizar)
         procesador_obj.addResultado(linkNoticia_Analizar, score)
 
@@ -124,6 +127,9 @@ def do_similitud_BoW(similitud_obj):
 
     for linkNoticia_Analizar in list_linksNoticiasAnalizar:
 
+        if linkNoticia_Master == linkNoticia_Analizar:
+            continue
+
         score = funct_similitud(linkNoticia_Master, linkNoticia_Analizar)
         procesador_obj.addResultado(linkNoticia_Analizar, score)
 
@@ -141,14 +147,20 @@ def printResult(procesador_obj, executionTime):
     mins = math.floor(executionTime / 60)
     segs = round((executionTime / 60 - mins) * 60)
 
-    print("#########################################################\n")
-    print(">> Resumen:")
-    print("Estudiando el atributo '{}'".format(ATRIBUTO_ESTUDIO_1))
-    print(procesador_obj)
-    print(">> Top:")
-    print(strResultTop)
-    print(">> Tiempo de ejecución:")
-    print("{} minutos y {} segundos.\n".format(str(mins), str(segs)))
+    strPrint = "#########################################################\n"
+    strPrint += ">> Resumen: \n"
+    strPrint += "Estudiando el atributo '{}' \n"
+    strPrint += "{} \n"
+    strPrint += ">> Top: \n"
+    strPrint += "{} \n"
+    strPrint += ">> Tiempo de ejecución: \n"
+    strPrint += "{} minutos y {} segundos.\n"
+    strPrint = strPrint.format( ATRIBUTO_ESTUDIO_1,
+                                procesador_obj,
+                                strResultTop,
+                                str(mins),
+                                str(segs))
+    print(strPrint)
 
     return
 

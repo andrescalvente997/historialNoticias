@@ -69,9 +69,6 @@ class Similitud():
     # Sección de cálculo de similitud coseno con representación vectorial de tf-idf
 
     def similitud_coseno_tfidf(self, linkMaster, linkAnalizar, redondeo=5):
-
-        if linkMaster == linkAnalizar:
-            return 0
         
         matriz_tfidf_Master = self.dicc_doc_tfidf[linkMaster]
         matriz_tfidf_Analizar = self.dicc_doc_tfidf[linkAnalizar]
@@ -142,9 +139,6 @@ class Similitud():
     # Sección de cálculo de similitud coseno con representación vectorial creada por Bag of Words (BoW)
 
     def similitud_coseno_BagOfWords(self, linkMaster, linkAnalizar, redondeo=5):
-
-        if linkMaster == linkAnalizar:
-            return 0
         
         matriz_BoW_Master = self.vec_doc_BoW[linkMaster].reshape(1, -1)
         matriz_BoW_Analizar = self.vec_doc_BoW[linkAnalizar].reshape(1, -1)
