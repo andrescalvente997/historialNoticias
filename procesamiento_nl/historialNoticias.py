@@ -154,7 +154,7 @@ def printResult(procesador_obj, executionTime):
 
 
 if __name__ == '__main__':
-    '''
+
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_SPACY")
     do_similitud(similitud_obj)
 
@@ -163,7 +163,7 @@ if __name__ == '__main__':
     
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_TF-IDF")
     do_similitud_tfidf(similitud_obj)
-    '''
+
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_BOW")
     do_similitud_BoW(similitud_obj)
 
