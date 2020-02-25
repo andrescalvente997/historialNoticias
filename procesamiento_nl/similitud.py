@@ -140,10 +140,10 @@ class Similitud():
 
     def similitud_coseno_BagOfWords(self, linkMaster, linkAnalizar, redondeo=5):
         
-        matriz_tfidf_Master = self.vec_doc_BoW[linkMaster]
-        matriz_tfidf_Analizar = self.vec_doc_BoW[linkAnalizar]
+        matriz_tfidf_Master = self.vec_doc_BoW[linkMaster].reshape(1, -1)
+        matriz_tfidf_Analizar = self.vec_doc_BoW[linkAnalizar].reshape(1, -1)
 
-        return cosine_similarity(matriz_tfidf_Master, matriz_tfidf_Analizar)
+        return round(cosine_similarity(matriz_tfidf_Master, matriz_tfidf_Analizar), redondeo)
 
 
     # Función igual que "add_doc_wFrec_entry" pero sin la llamada a "add_w_docsConW_entry"
