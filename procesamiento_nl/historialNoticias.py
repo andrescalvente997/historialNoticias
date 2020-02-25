@@ -12,6 +12,7 @@ TOP_RESULTS = 100
 URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html"
 NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../crawler/crawlerPeriodicos/datos_EL_PAIS/20200125_20200202_noticias.json"
 
+
 def do_similitud(similitud_obj):
 
     extractor_obj = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
@@ -46,7 +47,7 @@ def do_similitud(similitud_obj):
     return
 
 
-def do_similitud_tfidf(similitud_obj):
+def do_similitud_creacionVectores(similitud_obj, funct_addEntry, funct_createVecs):
 
     extractor_obj = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
     procesador_obj = procesador.Procesador(similitud_obj.getNombreSimilitud())
@@ -57,7 +58,7 @@ def do_similitud_tfidf(similitud_obj):
     dataNoticia_Master = extractor_obj.getNoticiaMaster()
     atributoNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, ATRIBUTO_ESTUDIO_1)
     linkNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, "linkNoticia", flgTratar=False)
-    similitud_obj.add_doc_wFrec_entry(linkNoticia_Master, atributoNoticia_Master)
+    funct_addEntry(linkNoticia_Master, atributoNoticia_Master)
 
     dataNoticia_Analizar = extractor_obj.getNextNoticia()
 
@@ -71,57 +72,10 @@ def do_similitud_tfidf(similitud_obj):
             dataNoticia_Analizar = extractor_obj.getNextNoticia()
             continue
 
-        similitud_obj.add_doc_wFrec_entry(linkNoticia_Analizar, atributoNoticia_Analizar)
+        funct_addEntry(linkNoticia_Analizar, atributoNoticia_Analizar)
         dataNoticia_Analizar = extractor_obj.getNextNoticia()
 
-    similitud_obj.create_dicc_doc_tfidf()
-
-    list_linksNoticiasAnalizar = similitud_obj.getLinksNoticias()
-
-    for linkNoticia_Analizar in list_linksNoticiasAnalizar:
-
-        if linkNoticia_Master == linkNoticia_Analizar:
-            continue
-
-        score = funct_similitud(linkNoticia_Master, linkNoticia_Analizar)
-        procesador_obj.addResultado(linkNoticia_Analizar, score)
-
-    time_end = time.time()
-    
-    printResult(procesador_obj, round(time_end - time_start))
-
-    return
-
-
-def do_similitud_BoW(similitud_obj):
-
-    extractor_obj = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
-    procesador_obj = procesador.Procesador(similitud_obj.getNombreSimilitud())
-    funct_similitud = similitud_obj.getFuncionSimilitud()
-
-    time_start = time.time()
-
-    dataNoticia_Master = extractor_obj.getNoticiaMaster()
-    atributoNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, ATRIBUTO_ESTUDIO_1)
-    linkNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, "linkNoticia", flgTratar=False)
-    similitud_obj.add_doc_wFrec_entry_BoW(linkNoticia_Master, atributoNoticia_Master)
-
-    dataNoticia_Analizar = extractor_obj.getNextNoticia()
-
-    while dataNoticia_Analizar != -1:
-        
-        linkNoticia_Analizar = extractor_obj.getAtributoNoticia(dataNoticia_Analizar, "linkNoticia", flgTratar=False)
-        atributoNoticia_Analizar = extractor_obj.getAtributoNoticia(dataNoticia_Analizar, ATRIBUTO_ESTUDIO_1)
-
-        if atributoNoticia_Analizar == None:
-            #print(">> Noticia sin Atributo - " + strAtributo + ": " + linkNoticia)
-            dataNoticia_Analizar = extractor_obj.getNextNoticia()
-            continue
-
-        similitud_obj.add_doc_wFrec_entry_BoW(linkNoticia_Analizar, atributoNoticia_Analizar)
-        dataNoticia_Analizar = extractor_obj.getNextNoticia()
-
-    similitud_obj.create_vec_doc_BoW()
+    funct_createVecs()
 
     list_linksNoticiasAnalizar = similitud_obj.getLinksNoticias()
 
@@ -174,8 +128,8 @@ if __name__ == '__main__':
     do_similitud(similitud_obj)
     
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_TF-IDF")
-    do_similitud_tfidf(similitud_obj)
+    do_similitud_creacionVectores(similitud_obj, similitud_obj.add_doc_wFrec_entry, similitud_obj.create_dicc_doc_tfidf)
 
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_BOW")
-    do_similitud_BoW(similitud_obj)
+    do_similitud_creacionVectores(similitud_obj, similitud_obj.add_doc_wFrec_entry_BoW, similitud_obj.create_vec_doc_BoW)
 
