@@ -38,6 +38,7 @@ class Extractor():
 
         self.dataNoticiaMaster = self.dd_Noticias[linkNoticiaMaster]
         del self.dd_Noticias[linkNoticiaMaster]
+        self.linkNoticiaMaster = linkNoticiaMaster
     
     #
     # Busqueda de noticias
@@ -60,6 +61,11 @@ class Extractor():
     def getDataNoticiaMaster(self):
 
         return self.dataNoticiaMaster
+
+
+    def getLinkNoticiaMaster(self):
+
+        return self.linkNoticiaMaster
 
 
     def getLinksNoticiasAnalizar(self):

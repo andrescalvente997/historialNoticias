@@ -24,8 +24,8 @@ def do_similitud(extractor_obj, similitud_obj):
 
     dataNoticia_Master = extractor_obj.getDataNoticiaMaster()
     atributoNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, ATRIBUTO_ESTUDIO_1)
-    listLinksNoticias = extractor_obj.getLinksNoticiasAnalizar()
 
+    listLinksNoticias = extractor_obj.getLinksNoticiasAnalizar()
     for linkNoticia in listLinksNoticias:
         
         dataNoticia_Analizar = extractor_obj.getDataNoticia(linkNoticia)
@@ -55,23 +55,21 @@ def do_similitud_creacionVectores(extractor_obj, similitud_obj, funct_addEntry, 
 
     dataNoticia_Master = extractor_obj.getDataNoticiaMaster()
     atributoNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, ATRIBUTO_ESTUDIO_1)
-    linkNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, "linkNoticia", flgTratar=False)
+    linkNoticia_Master = extractor_obj.getLinkNoticiaMaster()
     funct_addEntry(linkNoticia_Master, atributoNoticia_Master)
 
-    dataNoticia_Analizar = extractor_obj.getNextNoticia()
-
-    while dataNoticia_Analizar != -1:
+    listLinksNoticias = extractor_obj.getLinksNoticiasAnalizar()
+    for linkNoticia in listLinksNoticias:
         
-        linkNoticia_Analizar = extractor_obj.getAtributoNoticia(dataNoticia_Analizar, "linkNoticia", flgTratar=False)
-        atributoNoticia_Analizar = extractor_obj.getAtributoNoticia(dataNoticia_Analizar, ATRIBUTO_ESTUDIO_1)
-
-        if atributoNoticia_Analizar == None:
-            #print(">> Noticia sin Atributo - " + strAtributo + ": " + linkNoticia)
-            dataNoticia_Analizar = extractor_obj.getNextNoticia()
+        dataNoticia_Analizar = extractor_obj.getDataNoticia(linkNoticia)
+        if dataNoticia_Analizar == None:    # Noticia con fecha posterior a la Master
             continue
 
-        funct_addEntry(linkNoticia_Analizar, atributoNoticia_Analizar)
-        dataNoticia_Analizar = extractor_obj.getNextNoticia()
+        atributoNoticia_Analizar = extractor_obj.getAtributoNoticia(dataNoticia_Analizar, ATRIBUTO_ESTUDIO_1)
+        if atributoNoticia_Analizar == None:    # Atributo vacio
+            continue
+
+        funct_addEntry(linkNoticia, atributoNoticia_Analizar)
 
     funct_createVecs()
 
@@ -79,7 +77,7 @@ def do_similitud_creacionVectores(extractor_obj, similitud_obj, funct_addEntry, 
 
     for linkNoticia_Analizar in list_linksNoticiasAnalizar:
 
-        if linkNoticia_Master == linkNoticia_Analizar:
+        if linkNoticia_Master == linkNoticia_Analizar:  # Noticia a analizar es la noticia master
             continue
 
         score = funct_similitud(linkNoticia_Master, linkNoticia_Analizar)
