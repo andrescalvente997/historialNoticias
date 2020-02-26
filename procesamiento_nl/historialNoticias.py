@@ -15,7 +15,7 @@ URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2020/02/01/actualidad/158056
 NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../crawler/crawlerPeriodicos/datos_EL_PAIS/20200125_20200202_noticias.json"
 
 
-def do_similitud(extractor_obj, similitud_obj):
+def do_similitud(extractor_obj, similitud_obj, atributoEstudio, topResults, listLinksNoticias=None):
 
     procesador_obj = procesador.Procesador(similitud_obj.getNombreSimilitud())
     funct_similitud = similitud_obj.getFuncionSimilitud()
@@ -23,16 +23,17 @@ def do_similitud(extractor_obj, similitud_obj):
     time_start = time.time()
 
     dataNoticia_Master = extractor_obj.getDataNoticiaMaster()
-    atributoNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, ATRIBUTO_ESTUDIO_1)
+    atributoNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, atributoEstudio)
 
-    listLinksNoticias = extractor_obj.getLinksNoticiasAnalizar()
+    if listLinksNoticias == None:
+        listLinksNoticias = extractor_obj.getLinksNoticiasAnalizar()
     for linkNoticia in listLinksNoticias:
         
         dataNoticia_Analizar = extractor_obj.getDataNoticia(linkNoticia)
         if dataNoticia_Analizar == None:    # Noticia con fecha posterior a la Master
             continue
         
-        atributoNoticia_Analizar = extractor_obj.getAtributoNoticia(dataNoticia_Analizar, ATRIBUTO_ESTUDIO_1)
+        atributoNoticia_Analizar = extractor_obj.getAtributoNoticia(dataNoticia_Analizar, atributoEstudio)
         if atributoNoticia_Analizar == None:    # Atributo vacio
             continue
 
@@ -41,12 +42,18 @@ def do_similitud(extractor_obj, similitud_obj):
 
     time_end = time.time()
     
-    listSetResults = printResult(procesador_obj, round(time_end - time_start), ATRIBUTO_ESTUDIO_1, TOP_RESULTS_1)
+    diccResults = printResult(procesador_obj, round(time_end - time_start), atributoEstudio, topResults)
 
-    return listSetResults
+    return diccResults
 
 
-def do_similitud_creacionVectores(extractor_obj, similitud_obj, funct_addEntry, funct_createVecs):
+def do_similitud_creacionVectores(  extractor_obj, 
+                                    similitud_obj, 
+                                    atributoEstudio,
+                                    topResults, 
+                                    funct_addEntry, 
+                                    funct_createVecs, 
+                                    listLinksNoticias=None):
     
     procesador_obj = procesador.Procesador(similitud_obj.getNombreSimilitud())
     funct_similitud = similitud_obj.getFuncionSimilitud()
@@ -54,18 +61,19 @@ def do_similitud_creacionVectores(extractor_obj, similitud_obj, funct_addEntry, 
     time_start = time.time()
 
     dataNoticia_Master = extractor_obj.getDataNoticiaMaster()
-    atributoNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, ATRIBUTO_ESTUDIO_1)
+    atributoNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, atributoEstudio)
     linkNoticia_Master = extractor_obj.getLinkNoticiaMaster()
     funct_addEntry(linkNoticia_Master, atributoNoticia_Master)
 
-    listLinksNoticias = extractor_obj.getLinksNoticiasAnalizar()
+    if listLinksNoticias == None:
+        listLinksNoticias = extractor_obj.getLinksNoticiasAnalizar()
     for linkNoticia in listLinksNoticias:
         
         dataNoticia_Analizar = extractor_obj.getDataNoticia(linkNoticia)
         if dataNoticia_Analizar == None:    # Noticia con fecha posterior a la Master
             continue
 
-        atributoNoticia_Analizar = extractor_obj.getAtributoNoticia(dataNoticia_Analizar, ATRIBUTO_ESTUDIO_1)
+        atributoNoticia_Analizar = extractor_obj.getAtributoNoticia(dataNoticia_Analizar, atributoEstudio)
         if atributoNoticia_Analizar == None:    # Atributo vacio
             continue
 
@@ -85,15 +93,15 @@ def do_similitud_creacionVectores(extractor_obj, similitud_obj, funct_addEntry, 
 
     time_end = time.time()
     
-    listSetResults = printResult(procesador_obj, round(time_end - time_start), ATRIBUTO_ESTUDIO_1, TOP_RESULTS_1)
+    diccResults = printResult(procesador_obj, round(time_end - time_start), atributoEstudio, topResults)
 
-    return listSetResults
+    return diccResults
 
 
 def printResult(procesador_obj, executionTime, atributoUtilizado, topResults):
 
     procesador_obj.sortResultados()
-    listSetResults, strResultTop = procesador_obj.getTopResultados(top=topResults)
+    diccResults, strResultTop = procesador_obj.getTopResultados(top=topResults)
     mins = math.floor(executionTime / 60)
     segs = round((executionTime / 60 - mins) * 60)
 
@@ -112,12 +120,7 @@ def printResult(procesador_obj, executionTime, atributoUtilizado, topResults):
                                 str(segs))
     print(strPrint)
 
-    return listSetResults
-
-
-def do_similitud_2(similitud_obj, listSetTopResults):
-    
-    pass
+    return diccResults
 
 
 if __name__ == '__main__':
@@ -126,23 +129,31 @@ if __name__ == '__main__':
 
     # Realizamos al primer filtrado de resultados
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_SPACY")
-    listSetResults = do_similitud(  extractor_obj, 
-                                    similitud_obj)
+    diccResults = do_similitud( extractor_obj, 
+                                similitud_obj,
+                                ATRIBUTO_ESTUDIO_1,
+                                TOP_RESULTS_1)
 
     similitud_obj = similitud.Similitud("SIMILITUD_JACCARD")
-    do_similitud(   extractor_obj, 
-                    similitud_obj)
+    diccResults = do_similitud( extractor_obj, 
+                                similitud_obj,
+                                ATRIBUTO_ESTUDIO_1,
+                                TOP_RESULTS_1)
     
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_TF-IDF")
-    do_similitud_creacionVectores(  extractor_obj, 
-                                    similitud_obj, 
-                                    similitud_obj.add_doc_wFrec_entry, 
-                                    similitud_obj.create_dicc_doc_tfidf)
+    diccResults = do_similitud_creacionVectores(extractor_obj, 
+                                                similitud_obj, 
+                                                ATRIBUTO_ESTUDIO_1,
+                                                TOP_RESULTS_1,
+                                                similitud_obj.add_doc_wFrec_entry, 
+                                                similitud_obj.create_dicc_doc_tfidf)
 
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_BOW")
-    do_similitud_creacionVectores(  extractor_obj, 
-                                    similitud_obj, 
-                                    similitud_obj.add_doc_wFrec_entry_BoW, 
-                                    similitud_obj.create_vec_doc_BoW)
+    diccResults = do_similitud_creacionVectores(extractor_obj, 
+                                                similitud_obj,  
+                                                ATRIBUTO_ESTUDIO_1,
+                                                TOP_RESULTS_1,
+                                                similitud_obj.add_doc_wFrec_entry_BoW, 
+                                                similitud_obj.create_vec_doc_BoW)
 
     extractor_obj.closeFile()

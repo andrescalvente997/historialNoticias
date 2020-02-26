@@ -26,7 +26,7 @@ class Procesador():
     
     def getTopResultados(self, top=10, flgAllRes=False):
 
-        listRes = []
+        diccRes = {}
         strPrint = ""
 
         if flgAllRes == True:
@@ -36,7 +36,7 @@ class Procesador():
                                                         k,
                                                         str(v))
                 numTop += 1
-                listRes.append((k,v))
+                diccRes[k] = v
 
         else:
             for item, numTop in zip(self.diccResultados.items(), range(top)):
@@ -44,9 +44,9 @@ class Procesador():
                 strPrint += "Top {}: {} \t{} \n".format(str(numTop+1),
                                                         item[0],
                                                         str(item[1]))                    
-                listRes.append(item)
+                diccRes[item[0]] = item[1]
 
-        return listRes, strPrint
+        return diccRes, strPrint
 
 
     def __str__(self):
