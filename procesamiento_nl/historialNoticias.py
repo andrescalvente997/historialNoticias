@@ -129,9 +129,6 @@ if __name__ == '__main__':
     listSetResults = do_similitud(  extractor_obj, 
                                     similitud_obj)
 
-
-    # Con el top de resultados obtenido, aplicamos la similitud entre otro atributo
-
     similitud_obj = similitud.Similitud("SIMILITUD_JACCARD")
     do_similitud(   extractor_obj, 
                     similitud_obj)
