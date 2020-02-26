@@ -148,3 +148,4 @@ if __name__ == '__main__':
                                     similitud_obj.add_doc_wFrec_entry_BoW, 
                                     similitud_obj.create_vec_doc_BoW)
 
+    extractor_obj.closeFile()
