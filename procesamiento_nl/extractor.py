@@ -18,65 +18,66 @@ REGEX_BLANKS = re.compile(r'\s\s+')
 
 class Extractor():
 
-    def __init__(self, fileStr, linkNoticia):
+    def __init__(self, fileStr, linkNoticiaMaster):
 
         self.nlp = spacy.load("es_core_news_md")
 
-        self.jsonFile, self.dataNoticias = self.openFile(fileStr)
+        self.jsonFile, dataNoticias = self.openFile(fileStr)
 
-        self.index = 0
-        self.numNoticias = len(self.dataNoticias)
+        # Utilizaremos un diccionario de diccionarios con la estructura: 
+        #   {
+        #       linkNoticia: {
+        #           atributoNoticia_1: valorNoticia_1
+        #           atributoNoticia_2: valorNoticia_2
+        #           (...)
+        #       }
+        #   }
+        # De está manera la obtención de links será más optima
+        #
+        self.dd_Noticias = self.createDiccExtractor(dataNoticias)
 
-        self.dataNoticiaMaster = self.searchNoticiaMaster(linkNoticia)
+        self.dataNoticiaMaster = self.dd_Noticias[linkNoticiaMaster]
+        del self.dd_Noticias[linkNoticiaMaster]
     
     #
     # Busqueda de noticias
     #
 
-    def searchNoticiaMaster(self, linkNoticia):
+    # Función que creará el diccionario de diccionarios en la aplicación
+    def createDiccExtractor(self, dataNoticias):
 
-        for noticia in self.dataNoticias:
-            if noticia['linkNoticia'] == linkNoticia:
-                return noticia
-        return None
+        diccs_DiccsNoticias = {}
+
+        for noticia in dataNoticias:
+            linkNoticia = noticia['linkNoticia']
+            diccNoticia = noticia
+            del noticia['linkNoticia']
+            diccs_DiccsNoticias[linkNoticia] = diccNoticia
+
+        return diccs_DiccsNoticias
 
 
-    def getNoticiaMaster(self):
+    def getDataNoticiaMaster(self):
 
         return self.dataNoticiaMaster
 
 
-    def getNextNoticia(self):
+    def getLinksNoticiasAnalizar(self):
 
-        if self.index == self.numNoticias:
-            return -1
+        return self.dd_Noticias.keys()
 
-        dataNextNoticia = self.dataNoticias[self.index]
 
-        if dataNextNoticia['linkNoticia'] == self.dataNoticiaMaster['linkNoticia']:
-            self.index += 1
-            if self.index == self.numNoticias:
-                return -1
+    def getNumNoticiasAnalizar(self):
 
-            dataNextNoticia = self.dataNoticias[self.index]
-        
-        flgEnd = False
-        while flgEnd != True:
-            
-            # Comparamos la fecha de las noticias para solo coger las anteriores a la seleccionada
-            if dataNextNoticia['fechaPublicacionNoticia'] > self.dataNoticiaMaster['fechaPublicacionNoticia']:
-                
-                self.index += 1
-                if self.index == self.numNoticias:
-                    return -1
+        return len(self.dd_Noticias)
 
-                dataNextNoticia = self.dataNoticias[self.index]
-            else:
-                flgEnd = True
 
-        self.index += 1
+    def getDataNoticia(self, linkNoticia):
 
-        return dataNextNoticia  
+        if self.dd_Noticias[linkNoticia]['fechaPublicacionNoticia'] > self.dataNoticiaMaster['fechaPublicacionNoticia']:
+            return None
+        else:
+            return self.dd_Noticias[linkNoticia]  
 
 
     def getAtributoNoticia(self, data, atributo, flgTratar=True):

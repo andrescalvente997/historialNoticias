@@ -24,7 +24,7 @@ class Procesador():
         self.diccResultados = {k: v for k, v in sorted(self.diccResultados.items(), key=lambda item: item[1], reverse=True)}
 
     
-    def getTopResultados(self, top=10, flgAllRes=False, flgPrintTop=False):
+    def getTopResultados(self, top=10, flgAllRes=False):
 
         listRes = []
         strPrint = ""
@@ -32,22 +32,19 @@ class Procesador():
         if flgAllRes == True:
             numTop = 1
             for k, v in self.diccResultados.items():
-                if flgPrintTop == True:
-                    strPrint += "Top {}: {} \t{} \n".format(str(numTop),
-                                                            k,
-                                                            str(v))
-                    numTop += 1
-                else:
-                    listRes.append((k,v))
+                strPrint += "Top {}: {} \t{} \n".format(str(numTop),
+                                                        k,
+                                                        str(v))
+                numTop += 1
+                listRes.append((k,v))
 
         else:
             for item, numTop in zip(self.diccResultados.items(), range(top)):
-                if flgPrintTop == True:
-                    strPrint += "Top {}: {} \t{} \n".format(str(numTop+1),
-                                                            item[0],
-                                                            str(item[1]))
-                else:
-                    listRes.append(item)
+
+                strPrint += "Top {}: {} \t{} \n".format(str(numTop+1),
+                                                        item[0],
+                                                        str(item[1]))                    
+                listRes.append(item)
 
         return listRes, strPrint
 

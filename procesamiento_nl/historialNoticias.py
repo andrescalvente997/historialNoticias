@@ -8,7 +8,9 @@ import similitud
 import procesador
 
 ATRIBUTO_ESTUDIO_1 = "cuerpoNoticia"
-TOP_RESULTS = 100
+ATRIBUTO_ESTUDIO_2 = "keywordsNoticia"
+TOP_RESULTS_1 = 100
+TOP_RESULTS_2 = 50
 URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html"
 NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../crawler/crawlerPeriodicos/datos_EL_PAIS/20200125_20200202_noticias.json"
 
@@ -42,9 +44,9 @@ def do_similitud(similitud_obj):
 
     time_end = time.time()
     
-    printResult(procesador_obj, round(time_end - time_start))
+    listSetResults = printResult(procesador_obj, round(time_end - time_start), ATRIBUTO_ESTUDIO_1, TOP_RESULTS_1)
 
-    return
+    return listSetResults
 
 
 def do_similitud_creacionVectores(similitud_obj, funct_addEntry, funct_createVecs):
@@ -89,15 +91,15 @@ def do_similitud_creacionVectores(similitud_obj, funct_addEntry, funct_createVec
 
     time_end = time.time()
     
-    printResult(procesador_obj, round(time_end - time_start))
+    listSetResults = printResult(procesador_obj, round(time_end - time_start), ATRIBUTO_ESTUDIO_1, TOP_RESULTS_1)
 
-    return
+    return listSetResults
 
 
-def printResult(procesador_obj, executionTime):
+def printResult(procesador_obj, executionTime, atributoUtilizado, topResults):
 
     procesador_obj.sortResultados()
-    _, strResultTop = procesador_obj.getTopResultados(top=TOP_RESULTS, flgPrintTop=True)
+    listSetResults, strResultTop = procesador_obj.getTopResultados(top=topResults)
     mins = math.floor(executionTime / 60)
     segs = round((executionTime / 60 - mins) * 60)
 
@@ -109,20 +111,24 @@ def printResult(procesador_obj, executionTime):
     strPrint += "{} \n"
     strPrint += ">> Tiempo de ejecución: \n"
     strPrint += "{} minutos y {} segundos.\n"
-    strPrint = strPrint.format( ATRIBUTO_ESTUDIO_1,
+    strPrint = strPrint.format( atributoUtilizado,
                                 procesador_obj,
                                 strResultTop,
                                 str(mins),
                                 str(segs))
     print(strPrint)
 
-    return
+    return listSetResults
 
 
 if __name__ == '__main__':
 
+    # Realizamos al primer filtrado de resultados
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_SPACY")
-    do_similitud(similitud_obj)
+    listSetResults = do_similitud(similitud_obj)
+    
+
+    # Con el top de resultados obtenido, aplicamos la similitud entre otro atributo
 
     similitud_obj = similitud.Similitud("SIMILITUD_JACCARD")
     do_similitud(similitud_obj)
