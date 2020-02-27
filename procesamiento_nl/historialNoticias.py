@@ -12,7 +12,7 @@ ATRIBUTO_ESTUDIO_2 = "keywordsNoticia"
 TOP_RESULTS_1 = 100
 TOP_RESULTS_2 = 50
 URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html"
-NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../crawler/crawlerPeriodicos/datos_EL_PAIS/20200125_20200202_noticias.json"
+NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../crawler/crawlerPeriodicos/datos_EL_PAIS/20200125_20200202_noticias_etiquetadas.json"
 
 
 def do_similitud(extractor_obj, similitud_obj, atributoEstudio, topResults, listLinksNoticias=None):

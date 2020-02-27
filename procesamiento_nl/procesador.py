@@ -44,7 +44,7 @@ class Procesador():
         else:
             for item, numTop in zip(self.diccResultados.items(), range(top)):
 
-                strPrint += "Top {}: {} \t{} \n".format(str(numTop+1),
+                strPrint += "Top {}: {} \t{} ".format(str(numTop+1),
                                                         item[0],
                                                         str(item[1])) 
                 if item[0] in noticiasEtiquetadas:
