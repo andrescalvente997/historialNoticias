@@ -24,6 +24,8 @@ class Extractor():
 
         self.jsonFile, dataNoticias = self.openFile(fileStr)
 
+        self.diccNoticiaEtiq = {}   # {link: etiqueta}
+
         # Utilizaremos un diccionario de diccionarios con la estructura: 
         #   {
         #       linkNoticia: {
@@ -54,6 +56,9 @@ class Extractor():
             diccNoticia = noticia
             del noticia['linkNoticia']
             diccs_DiccsNoticias[linkNoticia] = diccNoticia
+            
+            if "temaNoticia" in noticia:
+                self.diccNoticiaEtiq[linkNoticia] = noticia["temaNoticia"]
 
         return diccs_DiccsNoticias
 
@@ -66,6 +71,11 @@ class Extractor():
     def getLinkNoticiaMaster(self):
 
         return self.linkNoticiaMaster
+
+
+    def getDiccNoticiaEtiqueta(self):
+
+        return self.diccNoticiaEtiq
 
 
     def getLinksNoticiasAnalizar(self):

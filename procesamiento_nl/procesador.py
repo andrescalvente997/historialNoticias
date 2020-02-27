@@ -24,7 +24,7 @@ class Procesador():
         self.diccResultados = {k: v for k, v in sorted(self.diccResultados.items(), key=lambda item: item[1], reverse=True)}
 
     
-    def getTopResultados(self, top=10, flgAllRes=False):
+    def getTopResultados(self, noticiasEtiquetadas, top=10, flgAllRes=False):
 
         diccRes = {}
         strPrint = ""
@@ -32,9 +32,12 @@ class Procesador():
         if flgAllRes == True:
             numTop = 1
             for k, v in self.diccResultados.items():
-                strPrint += "Top {}: {} \t{} \n".format(str(numTop),
+                strPrint += "Top {}: {} \t{} ".format(  str(numTop),
                                                         k,
                                                         str(v))
+                if k in noticiasEtiquetadas:
+                    strPrint += "\t{} ".format( noticiasEtiquetadas[k])
+                strPrint += "\n"
                 numTop += 1
                 diccRes[k] = v
 
@@ -43,7 +46,10 @@ class Procesador():
 
                 strPrint += "Top {}: {} \t{} \n".format(str(numTop+1),
                                                         item[0],
-                                                        str(item[1]))                    
+                                                        str(item[1])) 
+                if item[0] in noticiasEtiquetadas:
+                    strPrint += "\t{} ".format( noticiasEtiquetadas[item[0]])
+                strPrint += "\n"                   
                 diccRes[item[0]] = item[1]
 
         return diccRes, strPrint

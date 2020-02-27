@@ -41,8 +41,10 @@ def do_similitud(extractor_obj, similitud_obj, atributoEstudio, topResults, list
         procesador_obj.addResultado(linkNoticia, score)
 
     time_end = time.time()
+
+    noticiasEtiquetadas = extractor_obj.getDiccNoticiaEtiqueta()
     
-    diccResults = printResult(procesador_obj, round(time_end - time_start), atributoEstudio, topResults)
+    diccResults = printResult(procesador_obj, round(time_end - time_start), atributoEstudio, topResults, noticiasEtiquetadas)
 
     return diccResults
 
@@ -92,16 +94,18 @@ def do_similitud_creacionVectores(  extractor_obj,
         procesador_obj.addResultado(linkNoticia_Analizar, score)
 
     time_end = time.time()
+
+    noticiasEtiquetadas = extractor_obj.getDiccNoticiaEtiqueta()
     
-    diccResults = printResult(procesador_obj, round(time_end - time_start), atributoEstudio, topResults)
+    diccResults = printResult(procesador_obj, round(time_end - time_start), atributoEstudio, topResults, noticiasEtiquetadas)
 
     return diccResults
 
 
-def printResult(procesador_obj, executionTime, atributoUtilizado, topResults):
+def printResult(procesador_obj, executionTime, atributoUtilizado, topResults, noticiasEtiquetadas):
 
     procesador_obj.sortResultados()
-    diccResults, strResultTop = procesador_obj.getTopResultados(top=topResults)
+    diccResults, strResultTop = procesador_obj.getTopResultados(noticiasEtiquetadas, top=topResults)
     mins = math.floor(executionTime / 60)
     segs = round((executionTime / 60 - mins) * 60)
 
@@ -143,7 +147,7 @@ if __name__ == '__main__':
                                 TOP_RESULTS_1,
                                 listLinksNoticias=linksTopAnalizar)
 
-    '''
+
     similitud_obj = similitud.Similitud("SIMILITUD_JACCARD")
     diccResults = do_similitud( extractor_obj, 
                                 similitud_obj,
@@ -165,5 +169,5 @@ if __name__ == '__main__':
                                                 TOP_RESULTS_1,
                                                 similitud_obj.add_doc_wFrec_entry_BoW, 
                                                 similitud_obj.create_vec_doc_BoW)
-    '''
+
     extractor_obj.closeFile()
