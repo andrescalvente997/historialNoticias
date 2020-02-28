@@ -153,6 +153,14 @@ if __name__ == '__main__':
                                 similitud_obj,
                                 ATRIBUTO_ESTUDIO_1,
                                 TOP_RESULTS_1)
+
+
+    similitud_obj = similitud.Similitud("SIMILITUD_JACCARD")
+    diccResults = do_similitud( extractor_obj, 
+                                similitud_obj,
+                                ATRIBUTO_ESTUDIO_2,
+                                TOP_RESULTS_1,
+                                listLinksNoticias=linksTopAnalizar)
     
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_TF-IDF")
     diccResults = do_similitud_creacionVectores(extractor_obj, 
@@ -161,6 +169,15 @@ if __name__ == '__main__':
                                                 TOP_RESULTS_1,
                                                 similitud_obj.add_doc_wFrec_entry, 
                                                 similitud_obj.create_dicc_doc_tfidf)
+    
+    similitud_obj = similitud.Similitud("SIMILITUD_COSENO_TF-IDF")
+    diccResults = do_similitud_creacionVectores(extractor_obj, 
+                                                similitud_obj, 
+                                                ATRIBUTO_ESTUDIO_2,
+                                                TOP_RESULTS_1,
+                                                similitud_obj.add_doc_wFrec_entry, 
+                                                similitud_obj.create_dicc_doc_tfidf,
+                                                listLinksNoticias=linksTopAnalizar)
 
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_BOW")
     diccResults = do_similitud_creacionVectores(extractor_obj, 
@@ -169,5 +186,14 @@ if __name__ == '__main__':
                                                 TOP_RESULTS_1,
                                                 similitud_obj.add_doc_wFrec_entry_BoW, 
                                                 similitud_obj.create_vec_doc_BoW)
+
+    similitud_obj = similitud.Similitud("SIMILITUD_COSENO_BOW")
+    diccResults = do_similitud_creacionVectores(extractor_obj, 
+                                                similitud_obj,  
+                                                ATRIBUTO_ESTUDIO_2,
+                                                TOP_RESULTS_1,
+                                                similitud_obj.add_doc_wFrec_entry_BoW, 
+                                                similitud_obj.create_vec_doc_BoW,
+                                                listLinksNoticias=linksTopAnalizar)
 
     extractor_obj.closeFile()
