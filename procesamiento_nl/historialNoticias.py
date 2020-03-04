@@ -9,6 +9,15 @@ import procesador
 
 ATRIBUTO_ESTUDIO_1 = "cuerpoNoticia"
 ATRIBUTO_ESTUDIO_2 = "keywordsNoticia"
+LISTA_ATRIBUTOS = [ "titularNoticia",
+                    "keywordsNoticia",
+                    "resumenNoticia",
+                    "autorNoticia",
+                    "localizacionNoticia",
+                    "pieDeFotoNoticia",
+                    "firmaDeFotoNoticia",
+                    "cuerpoNoticia",
+                    "tagsNoticia"]
 TOP_RESULTS_1 = 100
 TOP_RESULTS_2 = 50
 URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html"
@@ -129,8 +138,8 @@ def printResult(procesador_obj, executionTime, atributoUtilizado, topResults, no
 
 if __name__ == '__main__':
 
-    extractor_obj = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
 
+    extractor_obj = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
     # Realizamos al primer filtrado de resultados
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_SPACY")
     diccResults = do_similitud( extractor_obj, 
@@ -196,4 +205,26 @@ if __name__ == '__main__':
                                                 similitud_obj.create_vec_doc_BoW,
                                                 listLinksNoticias=linksTopAnalizar)
 
+    '''
+    extractor_obj = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
+    for atri1 in LISTA_ATRIBUTOS:
+        similitud_obj = similitud.Similitud("SIMILITUD_COSENO_SPACY")
+        diccResults = do_similitud( extractor_obj, 
+                                    similitud_obj,
+                                    atri1,
+                                    TOP_RESULTS_1)
+        
+        linksTopAnalizar = diccResults.keys()
+        for atri2 in LISTA_ATRIBUTOS:
+            if atri1 == atri2:
+                continue
+            else:
+                similitud_obj = similitud.Similitud("SIMILITUD_COSENO_SPACY")
+                diccResults = do_similitud( extractor_obj, 
+                                            similitud_obj,
+                                            atri2,
+                                            TOP_RESULTS_1,
+                                            listLinksNoticias=linksTopAnalizar)
+    '''
+                            
     extractor_obj.closeFile()
