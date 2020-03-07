@@ -13,11 +13,16 @@ LISTA_ATRIBUTOS = [ "titularNoticia",
                     "keywordsNoticia",
                     "resumenNoticia",
                     "autorNoticia",
-                    "localizacionNoticia",
-                    "pieDeFotoNoticia",
-                    "firmaDeFotoNoticia",
-                    "cuerpoNoticia",
-                    "tagsNoticia"]
+                    "tagsNoticia",
+                    "cuerpoNoticia"]
+LISTA_SIMILITUDES = [   "SIMILITUD_COSENO_SPACY",
+                        "SIMILITUD_JACCARD",
+                        "SIMILITUD_COSENO_TF-IDF",
+                        "SIMILITUD_COSENO_BOW"]
+LISTA_SIMILITUDES_t1 = ["SIMILITUD_COSENO_SPACY",
+                        "SIMILITUD_JACCARD"]
+LISTA_SIMILITUDES_t2 = ["SIMILITUD_COSENO_TF-IDF",
+                        "SIMILITUD_COSENO_BOW"]
 TOP_RESULTS_1 = 100
 TOP_RESULTS_2 = 50
 URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html"
@@ -138,7 +143,7 @@ def printResult(procesador_obj, executionTime, atributoUtilizado, topResults, no
 
 if __name__ == '__main__':
 
-
+    '''
     extractor_obj = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
     # Realizamos al primer filtrado de resultados
     similitud_obj = similitud.Similitud("SIMILITUD_COSENO_SPACY")
@@ -204,27 +209,35 @@ if __name__ == '__main__':
                                                 similitud_obj.add_doc_wFrec_entry_BoW, 
                                                 similitud_obj.create_vec_doc_BoW,
                                                 listLinksNoticias=linksTopAnalizar)
-
     '''
+    
     extractor_obj = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
-    for atri1 in LISTA_ATRIBUTOS:
-        similitud_obj = similitud.Similitud("SIMILITUD_COSENO_SPACY")
-        diccResults = do_similitud( extractor_obj, 
-                                    similitud_obj,
-                                    atri1,
-                                    TOP_RESULTS_1)
-        
-        linksTopAnalizar = diccResults.keys()
-        for atri2 in LISTA_ATRIBUTOS:
-            if atri1 == atri2:
-                continue
-            else:
-                similitud_obj = similitud.Similitud("SIMILITUD_COSENO_SPACY")
+
+    for sim1 in LISTA_SIMILITUDES:
+        similitud_obj = similitud.Similitud(sim1)
+
+        for atri1 in LISTA_ATRIBUTOS:
+
+            if sim1 in LISTA_SIMILITUDES_t1:
                 diccResults = do_similitud( extractor_obj, 
                                             similitud_obj,
-                                            atri2,
-                                            TOP_RESULTS_1,
-                                            listLinksNoticias=linksTopAnalizar)
-    '''
+                                            atri1,
+                                            TOP_RESULTS_1)
+            else:
+
+                if sim1 == "SIMILITUD_COSENO_TF-IDF":
+                    fuctAddEntry = similitud_obj.add_doc_wFrec_entry
+                    functCreateVecs = similitud_obj.create_dicc_doc_tfidf
+                elif sim1 == "SIMILITUD_COSENO_BOW":
+                    fuctAddEntry = similitud_obj.add_doc_wFrec_entry_BoW
+                    functCreateVecs = similitud_obj.create_vec_doc_BoW
+
+                diccResults = do_similitud_creacionVectores(extractor_obj, 
+                                                            similitud_obj,  
+                                                            atri1,
+                                                            TOP_RESULTS_1,
+                                                            fuctAddEntry, 
+                                                            functCreateVecs)
+
                             
     extractor_obj.closeFile()

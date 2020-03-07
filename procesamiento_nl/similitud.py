@@ -50,6 +50,11 @@ class Similitud():
 
     def similitud_coseno_spacy(self, doc1, doc2, redondeo=5):
 
+        if doc1.has_vector == False or doc2.has_vector == False:
+            return 0
+        elif doc1.vector_norm == 0 or doc2.vector_norm == 0:
+            return 0
+
         return round(doc1.similarity(doc2), redondeo)
 
 
