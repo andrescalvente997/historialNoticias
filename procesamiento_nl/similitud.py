@@ -38,18 +38,19 @@ class Similitud():
             self.funcionSimilitud = self.similitud_coseno_tfidf
             self.dicc_doc_wFrec = {}    # Diccionario => Documento: { Palabra_n: frecuencia en documento }
             self.dicc_w_docsConW = {}   # Diccionario => Palabra: frecuencia en el dataset 
-            self.dicc_doc_tfidf = {}    # Diccionario => Documento: Matriz Numpy
+            self.dicc_doc_vector = {}    # Diccionario => Documento: Matriz Numpy
 
         elif self.nombreSimilitud == STR_SIMILITUD_COSENO_BOW:
             self.funcionSimilitud = self.similitud_coseno_BagOfWords
             self.dicc_doc_wFrec = {}
             self.list_words = []
-            self.vec_doc_BoW = {}
+            self.dicc_doc_vector = {}
 
     # Sección de cálculo de similitud coseno con representación vectorial de Spacy (Word2Vec)
 
     def similitud_coseno_spacy(self, doc1, doc2, redondeo=5):
 
+        # Comprobamos que no haya vectores o estén a 0
         if doc1.has_vector == False or doc2.has_vector == False:
             return 0
         elif doc1.vector_norm == 0 or doc2.vector_norm == 0:
@@ -70,29 +71,23 @@ class Similitud():
 
         return elemsInterseccion / elemsUnion
 
+    
+    # Sección de calculo de similitud coseno, tanto para tf-df como para BoW
+
+    def similitud_coseno_links(self, linkMaster, linkAnalizar, redondeo=5):
+        
+        vector_Master = self.dicc_doc_vector[linkMaster].reshape(1, -1)
+        vector_Analizar = self.dicc_doc_vector[linkAnalizar].reshape(1, -1)
+
+        return round(cosine_similarity(vector_Master, vector_Analizar)[0][0], redondeo)
+
+
+    def similitud_coseno_vecs(self, vector_Master, vector_Analizar, redondeo=5):
+
+        return round(cosine_similarity(vector_Master, vector_Analizar)[0][0], redondeo)
+
 
     # Sección de cálculo de similitud coseno con representación vectorial de tf-idf
-
-    def similitud_coseno_tfidf(self, linkMaster, linkAnalizar, redondeo=5):
-        
-        matriz_tfidf_Master = self.dicc_doc_tfidf[linkMaster]
-        matriz_tfidf_Analizar = self.dicc_doc_tfidf[linkAnalizar]
-        numerador = 0
-        denomidador_vMaster = 0
-        denomidador_vAnalizar = 0
-
-        for coordM, coordA in zip(matriz_tfidf_Master, matriz_tfidf_Analizar):
-            
-            numerador += coordM * coordA
-            denomidador_vMaster += coordM ** 2
-            denomidador_vAnalizar += coordA ** 2
-
-        denomidador_vMaster = math.sqrt(denomidador_vMaster)
-        denomidador_vAnalizar = math.sqrt(denomidador_vAnalizar)
-        denominador = denomidador_vMaster * denomidador_vAnalizar
-
-        return round(numerador / denominador, redondeo)
-
 
     def add_doc_wFrec_entry(self, linkNoticia, doc):
 
@@ -119,15 +114,13 @@ class Similitud():
 
         numDocs = len(self.dicc_doc_wFrec)
 
-        for linkNoticia in self.dicc_doc_wFrec:     # Creo un array con todos los valores y luego lo paso a np.array
+        for linkNoticia in self.dicc_doc_wFrec:
 
-            self.dicc_doc_tfidf[linkNoticia] = []
-            #self.dicc_doc_tfidf[linkNoticia] = {}
+            self.dicc_doc_vector[linkNoticia] = []
             for word in self.dicc_w_docsConW:
 
                 if word not in self.dicc_doc_wFrec[linkNoticia]:
-                    self.dicc_doc_tfidf[linkNoticia].append(0)
-                    #self.dicc_doc_tfidf[linkNoticia][word] = 0
+                    self.dicc_doc_vector[linkNoticia].append(0)
                     continue
 
                 frecWordEnDoc = self.dicc_doc_wFrec[linkNoticia][word]
@@ -135,21 +128,12 @@ class Similitud():
 
                 tf = 1 + math.log(frecWordEnDoc, 2)
                 idf = (numDocs + 1) / (frecWordEnDataset + 0.5) 
-                self.dicc_doc_tfidf[linkNoticia].append(tf * idf)
-                #self.dicc_doc_tfidf[linkNoticia][word] = tf * idf
+                self.dicc_doc_vector[linkNoticia].append(tf * idf)
 
-            self.dicc_doc_tfidf[linkNoticia] = np.array(self.dicc_doc_tfidf[linkNoticia])
+            self.dicc_doc_vector[linkNoticia] = np.array(self.dicc_doc_vector[linkNoticia])
 
 
     # Sección de cálculo de similitud coseno con representación vectorial creada por Bag of Words (BoW)
-
-    def similitud_coseno_BagOfWords(self, linkMaster, linkAnalizar, redondeo=5):
-        
-        matriz_BoW_Master = self.vec_doc_BoW[linkMaster].reshape(1, -1)
-        matriz_BoW_Analizar = self.vec_doc_BoW[linkAnalizar].reshape(1, -1)
-
-        return round(cosine_similarity(matriz_BoW_Master, matriz_BoW_Analizar)[0][0], redondeo)
-
 
     # Función igual que "add_doc_wFrec_entry" pero sin la llamada a "add_w_docsConW_entry"
     # para evitar perder tiempo con condiciones a la hora de hacer las pruebas 
@@ -173,15 +157,15 @@ class Similitud():
 
         for linkNoticia in self.dicc_doc_wFrec:
 
-            self.vec_doc_BoW[linkNoticia] = []
+            self.dicc_doc_vector[linkNoticia] = []
             for word in self.list_words:
 
                 if word not in self.dicc_doc_wFrec[linkNoticia]:
-                    self.vec_doc_BoW[linkNoticia].append(0)
+                    self.dicc_doc_vector[linkNoticia].append(0)
                 else:
-                    self.vec_doc_BoW[linkNoticia].append(self.dicc_doc_wFrec[linkNoticia][word])
+                    self.dicc_doc_vector[linkNoticia].append(self.dicc_doc_wFrec[linkNoticia][word])
 
-            self.vec_doc_BoW[linkNoticia] = np.array(self.vec_doc_BoW[linkNoticia])
+            self.dicc_doc_vector[linkNoticia] = np.array(self.dicc_doc_vector[linkNoticia])
 
 
     # Sección de acceso a variables de la clase
@@ -204,3 +188,8 @@ class Similitud():
     def getLinksNoticias(self):
 
         return self.dicc_doc_wFrec.keys()
+
+
+    def getDocVector(self, linkNoticia):
+
+        return self.dicc_doc_vector[linkNoticia]

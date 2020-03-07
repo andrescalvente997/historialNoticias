@@ -6,11 +6,10 @@
 
 class Procesador():
 
-    def __init__(self, nombreSimilitud):
+    def __init__(self):
         
         self.diccResultados = {}
         self.scoreAcum = 0
-        self.nombreSimilitud = nombreSimilitud
 
 
     def addResultado(self, linkNoticia, score):
@@ -57,10 +56,8 @@ class Procesador():
 
     def __str__(self):
 
-        strPrint = "Para la similitud: {}\n"
-        strPrint += "Noticias evaluadas hasta el momento: {}\n"
+        strPrint = "Noticias evaluadas hasta el momento: {}\n"
         strPrint += "Score medio de las noticias es de: {}\n"
-        strPrint = strPrint.format( self.nombreSimilitud,
-                                    str(len(self.diccResultados)),
+        strPrint = strPrint.format( str(len(self.diccResultados)),
                                     str(self.scoreAcum / len(self.diccResultados)))
         return strPrint

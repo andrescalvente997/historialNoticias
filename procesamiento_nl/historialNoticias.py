@@ -31,7 +31,7 @@ NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../crawler/crawlerPeriodi
 
 def do_similitud(extractor_obj, similitud_obj, atributoEstudio, topResults, listLinksNoticias=None):
 
-    procesador_obj = procesador.Procesador(similitud_obj.getNombreSimilitud())
+    procesador_obj = procesador.Procesador()
     funct_similitud = similitud_obj.getFuncionSimilitud()
 
     time_start = time.time()
@@ -71,7 +71,7 @@ def do_similitud_creacionVectores(  extractor_obj,
                                     funct_createVecs, 
                                     listLinksNoticias=None):
     
-    procesador_obj = procesador.Procesador(similitud_obj.getNombreSimilitud())
+    procesador_obj = procesador.Procesador()
     funct_similitud = similitud_obj.getFuncionSimilitud()
 
     time_start = time.time()
@@ -116,7 +116,159 @@ def do_similitud_creacionVectores(  extractor_obj,
     return diccResults
 
 
-def printResult(procesador_obj, executionTime, atributoUtilizado, topResults, noticiasEtiquetadas):
+# Función que obtiene los vectores de los algoritmos de similitud (T1)
+# Aquellos algoritmos de similitud donde los vectores son de características de documento
+# y ya vienen previamente definidos
+def get_vectores_algs_T1(   extractor_obj, 
+                            similitud_obj, 
+                            atributoEstudio, 
+                            listLinksNoticias=None):
+    
+    dicc_noticiaVector = {}
+
+    time_start = time.time()
+
+    data_noticiaMaster = extractor_obj.getDataNoticiaMaster()
+    vector_noticiaMaster = extractor_obj.getVectorAtributo(data_noticiaMaster, atributoEstudio)
+
+    if listLinksNoticias == None:
+        listLinksNoticias = extractor_obj.getLinksNoticiasAnalizar()
+
+    for linkNoticia in listLinksNoticias:
+        
+        data_noticiaAnalizar = extractor_obj.getDataNoticia(linkNoticia)
+        if data_noticiaAnalizar == None:    # Noticia con fecha posterior a la Master
+            continue
+        vector_noticiaAnalizar = extractor_obj.getVectorAtributo(data_noticiaAnalizar, atributoEstudio)
+
+        dicc_noticiaVector[linkNoticia] = vector_noticiaAnalizar
+
+    time_end = time.time()
+
+    print_creacionVectores(similitud_obj.getNombreSimilitud(), len(dicc_noticiaVector), round(time_end - time_start))
+
+    return vector_noticiaMaster, dicc_noticiaVector
+
+
+# Función que obtiene los vectores de los algoritmos de similitud (T2)
+# Aquellos algoritmos de similitud donde los vectores tienen que ser creados,
+# ya sea calculando frecuencias u otras características
+def get_vectores_algs_T2(   extractor_obj, 
+                            similitud_obj, 
+                            atributoEstudio, 
+                            funct_addEntry, 
+                            funct_createVecs, 
+                            listLinksNoticias=None):
+    
+    dicc_noticiaVector = {}
+
+    time_start = time.time()
+
+    dataNoticia_Master = extractor_obj.getDataNoticiaMaster()
+    atributoNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, atributoEstudio)
+    linkNoticia_Master = extractor_obj.getLinkNoticiaMaster()
+    funct_addEntry(linkNoticia_Master, atributoNoticia_Master)
+
+    if listLinksNoticias == None:
+        listLinksNoticias = extractor_obj.getLinksNoticiasAnalizar()
+    for linkNoticia in listLinksNoticias:
+        
+        dataNoticia_Analizar = extractor_obj.getDataNoticia(linkNoticia)
+        if dataNoticia_Analizar == None:    # Noticia con fecha posterior a la Master
+            continue
+
+        atributoNoticia_Analizar = extractor_obj.getAtributoNoticia(dataNoticia_Analizar, atributoEstudio)
+        if atributoNoticia_Analizar == None:    # Atributo vacio
+            continue
+
+        funct_addEntry(linkNoticia, atributoNoticia_Analizar)
+
+    funct_createVecs()
+
+    list_linksNoticiasAnalizar = similitud_obj.getLinksNoticias()
+
+    vector_noticiaMaster = similitud_obj.getDocVector(linkNoticia_Master)
+    for linkNoticia_Analizar in list_linksNoticiasAnalizar:
+
+        if linkNoticia_Master == linkNoticia_Analizar:  # Noticia a analizar es la noticia master
+            continue
+
+        dicc_noticiaVector[linkNoticia_Analizar] = similitud_obj.getDocVector(linkNoticia_Analizar)
+
+    time_end = time.time()
+
+    print_creacionVectores(similitud_obj.getNombreSimilitud(), len(dicc_noticiaVector), round(time_end - time_start))
+
+    return vector_noticiaMaster, dicc_noticiaVector
+
+
+# Función que obtiene los resultados de los algoritmos de similitud (T3)
+# Aquellos algoritmos de similitud donde No utilizamos vectores, en este caso Jaccard,
+# y podemos obtener resultados directamente.
+def get_scores_T3(  extractor_obj, 
+                    similitud_obj, 
+                    atributoEstudio, 
+                    topResults, 
+                    listLinksNoticias=None):
+
+    procesador_obj = procesador.Procesador()
+    funct_similitud = similitud_obj.getFuncionSimilitud()
+
+    time_start = time.time()
+
+    dataNoticia_Master = extractor_obj.getDataNoticiaMaster()
+    atributoNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, atributoEstudio)
+
+    if listLinksNoticias == None:
+        listLinksNoticias = extractor_obj.getLinksNoticiasAnalizar()
+    for linkNoticia in listLinksNoticias:
+        
+        dataNoticia_Analizar = extractor_obj.getDataNoticia(linkNoticia)
+        if dataNoticia_Analizar == None:    # Noticia con fecha posterior a la Master
+            continue
+        
+        atributoNoticia_Analizar = extractor_obj.getAtributoNoticia(dataNoticia_Analizar, atributoEstudio)
+        if atributoNoticia_Analizar == None:    # Atributo vacio
+            continue
+
+        score = funct_similitud(atributoNoticia_Master, atributoNoticia_Analizar)
+        procesador_obj.addResultado(linkNoticia, score)
+
+    time_end = time.time()
+
+    noticiasEtiquetadas = extractor_obj.getDiccNoticiaEtiqueta()
+    
+    diccResults = print_resultsJaccard(procesador_obj, noticiasEtiquetadas, topResults, atributoEstudio, round(time_end - time_start))
+
+    return diccResults
+
+
+def print_creacionVectores( algoritmoSimilitud, 
+                            noticiasAnalizadas, 
+                            tiempoEmpleado):
+    
+    mins = math.floor(tiempoEmpleado / 60)
+    segs = round((tiempoEmpleado / 60 - mins) * 60)
+
+    strPrint = "#########################################################\n"
+    strPrint += ">> Creación de vectores: \n"
+    strPrint += "Algoritmo: '{}'\n"
+    strPrint += "Atributo: '{}'\n"
+    strPrint += "Tiempo empleado: {} minutos y {} segundos\n"
+    strPrint = strPrint.format( algoritmoSimilitud,
+                                str(noticiasAnalizadas),
+                                str(mins),
+                                str(segs))
+    print(strPrint)
+
+    return
+
+
+def print_resultsJaccard(   procesador_obj, 
+                            noticiasEtiquetadas,
+                            topResults,
+                            atributoUtilizado,
+                            executionTime):
 
     procesador_obj.sortResultados()
     diccResults, strResultTop = procesador_obj.getTopResultados(noticiasEtiquetadas, top=topResults)
@@ -124,13 +276,13 @@ def printResult(procesador_obj, executionTime, atributoUtilizado, topResults, no
     segs = round((executionTime / 60 - mins) * 60)
 
     strPrint = "#########################################################\n"
-    strPrint += ">> Resumen: \n"
+    strPrint += ">> Resultados: \n"
+    strPrint += "Algoritmo: 'SIMILITUD_JACCARD'\n"
     strPrint += "Estudiando el atributo '{}' \n"
     strPrint += "{} \n"
     strPrint += ">> Top: \n"
     strPrint += "{} \n"
-    strPrint += ">> Tiempo de ejecución: \n"
-    strPrint += "{} minutos y {} segundos.\n"
+    strPrint += "Tiempo empleado: {} minutos y {} segundos\n"
     strPrint = strPrint.format( atributoUtilizado,
                                 procesador_obj,
                                 strResultTop,
@@ -142,74 +294,6 @@ def printResult(procesador_obj, executionTime, atributoUtilizado, topResults, no
 
 
 if __name__ == '__main__':
-
-    '''
-    extractor_obj = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
-    # Realizamos al primer filtrado de resultados
-    similitud_obj = similitud.Similitud("SIMILITUD_COSENO_SPACY")
-    diccResults = do_similitud( extractor_obj, 
-                                similitud_obj,
-                                ATRIBUTO_ESTUDIO_1,
-                                TOP_RESULTS_1)
-                                
-    # Obtenemos los links que han quedado en el top, no nos importa su posición anterior
-    linksTopAnalizar = diccResults.keys()
-    similitud_obj = similitud.Similitud("SIMILITUD_COSENO_SPACY")
-    diccResults = do_similitud( extractor_obj, 
-                                similitud_obj,
-                                ATRIBUTO_ESTUDIO_2,
-                                TOP_RESULTS_1,
-                                listLinksNoticias=linksTopAnalizar)
-
-
-    similitud_obj = similitud.Similitud("SIMILITUD_JACCARD")
-    diccResults = do_similitud( extractor_obj, 
-                                similitud_obj,
-                                ATRIBUTO_ESTUDIO_1,
-                                TOP_RESULTS_1)
-
-
-    similitud_obj = similitud.Similitud("SIMILITUD_JACCARD")
-    diccResults = do_similitud( extractor_obj, 
-                                similitud_obj,
-                                ATRIBUTO_ESTUDIO_2,
-                                TOP_RESULTS_1,
-                                listLinksNoticias=linksTopAnalizar)
-    
-    similitud_obj = similitud.Similitud("SIMILITUD_COSENO_TF-IDF")
-    diccResults = do_similitud_creacionVectores(extractor_obj, 
-                                                similitud_obj, 
-                                                ATRIBUTO_ESTUDIO_1,
-                                                TOP_RESULTS_1,
-                                                similitud_obj.add_doc_wFrec_entry, 
-                                                similitud_obj.create_dicc_doc_tfidf)
-    
-    similitud_obj = similitud.Similitud("SIMILITUD_COSENO_TF-IDF")
-    diccResults = do_similitud_creacionVectores(extractor_obj, 
-                                                similitud_obj, 
-                                                ATRIBUTO_ESTUDIO_2,
-                                                TOP_RESULTS_1,
-                                                similitud_obj.add_doc_wFrec_entry, 
-                                                similitud_obj.create_dicc_doc_tfidf,
-                                                listLinksNoticias=linksTopAnalizar)
-
-    similitud_obj = similitud.Similitud("SIMILITUD_COSENO_BOW")
-    diccResults = do_similitud_creacionVectores(extractor_obj, 
-                                                similitud_obj,  
-                                                ATRIBUTO_ESTUDIO_1,
-                                                TOP_RESULTS_1,
-                                                similitud_obj.add_doc_wFrec_entry_BoW, 
-                                                similitud_obj.create_vec_doc_BoW)
-
-    similitud_obj = similitud.Similitud("SIMILITUD_COSENO_BOW")
-    diccResults = do_similitud_creacionVectores(extractor_obj, 
-                                                similitud_obj,  
-                                                ATRIBUTO_ESTUDIO_2,
-                                                TOP_RESULTS_1,
-                                                similitud_obj.add_doc_wFrec_entry_BoW, 
-                                                similitud_obj.create_vec_doc_BoW,
-                                                listLinksNoticias=linksTopAnalizar)
-    '''
     
     extractor_obj = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
 

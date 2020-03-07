@@ -116,7 +116,17 @@ class Extractor():
             return None
 
         return atributoDoc
-    
+
+    # Función que pasado la data de una noticia y un atributo, nos devuelve 
+    # su vector de caracteristicas de Spacy
+    def getVectorAtributo(self, data, atributo, flgTratar=True):
+
+        atributoDoc = self.getAtributoNoticia(data, atributo)
+
+        if atributoDoc != None:
+            return atributoDoc.vector
+        else:
+            return self.nlp("")
     #
     # Procesamiento de textos
     #
