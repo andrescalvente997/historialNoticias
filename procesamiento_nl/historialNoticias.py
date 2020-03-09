@@ -29,93 +29,6 @@ URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2020/02/01/actualidad/158056
 NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../crawler/crawlerPeriodicos/datos_EL_PAIS/20200125_20200202_noticias_etiquetadas.json"
 
 
-def do_similitud(extractor_obj, similitud_obj, atributoEstudio, topResults, listLinksNoticias=None):
-
-    procesador_obj = procesador.Procesador()
-    funct_similitud = similitud_obj.getFuncionSimilitud()
-
-    time_start = time.time()
-
-    dataNoticia_Master = extractor_obj.getDataNoticiaMaster()
-    atributoNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, atributoEstudio)
-
-    if listLinksNoticias == None:
-        listLinksNoticias = extractor_obj.getLinksNoticiasAnalizar()
-    for linkNoticia in listLinksNoticias:
-        
-        dataNoticia_Analizar = extractor_obj.getDataNoticia(linkNoticia)
-        if dataNoticia_Analizar == None:    # Noticia con fecha posterior a la Master
-            continue
-        
-        atributoNoticia_Analizar = extractor_obj.getAtributoNoticia(dataNoticia_Analizar, atributoEstudio)
-        if atributoNoticia_Analizar == None:    # Atributo vacio
-            continue
-
-        score = funct_similitud(atributoNoticia_Master, atributoNoticia_Analizar)
-        procesador_obj.addResultado(linkNoticia, score)
-
-    time_end = time.time()
-
-    noticiasEtiquetadas = extractor_obj.getDiccNoticiaEtiqueta()
-    
-    diccResults = printResult(procesador_obj, round(time_end - time_start), atributoEstudio, topResults, noticiasEtiquetadas)
-
-    return diccResults
-
-
-def do_similitud_creacionVectores(  extractor_obj, 
-                                    similitud_obj, 
-                                    atributoEstudio,
-                                    topResults, 
-                                    funct_addEntry, 
-                                    funct_createVecs, 
-                                    listLinksNoticias=None):
-    
-    procesador_obj = procesador.Procesador()
-    funct_similitud = similitud_obj.getFuncionSimilitud()
-
-    time_start = time.time()
-
-    dataNoticia_Master = extractor_obj.getDataNoticiaMaster()
-    atributoNoticia_Master = extractor_obj.getAtributoNoticia(dataNoticia_Master, atributoEstudio)
-    linkNoticia_Master = extractor_obj.getLinkNoticiaMaster()
-    funct_addEntry(linkNoticia_Master, atributoNoticia_Master)
-
-    if listLinksNoticias == None:
-        listLinksNoticias = extractor_obj.getLinksNoticiasAnalizar()
-    for linkNoticia in listLinksNoticias:
-        
-        dataNoticia_Analizar = extractor_obj.getDataNoticia(linkNoticia)
-        if dataNoticia_Analizar == None:    # Noticia con fecha posterior a la Master
-            continue
-
-        atributoNoticia_Analizar = extractor_obj.getAtributoNoticia(dataNoticia_Analizar, atributoEstudio)
-        if atributoNoticia_Analizar == None:    # Atributo vacio
-            continue
-
-        funct_addEntry(linkNoticia, atributoNoticia_Analizar)
-
-    funct_createVecs()
-
-    list_linksNoticiasAnalizar = similitud_obj.getLinksNoticias()
-
-    for linkNoticia_Analizar in list_linksNoticiasAnalizar:
-
-        if linkNoticia_Master == linkNoticia_Analizar:  # Noticia a analizar es la noticia master
-            continue
-
-        score = similitud_obj.similitud_coseno_links(linkNoticia_Master, linkNoticia_Analizar)
-        procesador_obj.addResultado(linkNoticia_Analizar, score)
-
-    time_end = time.time()
-
-    noticiasEtiquetadas = extractor_obj.getDiccNoticiaEtiqueta()
-    
-    diccResults = printResult(procesador_obj, round(time_end - time_start), atributoEstudio, topResults, noticiasEtiquetadas)
-
-    return diccResults
-
-
 # Función que obtiene los vectores de los algoritmos de similitud (T1)
 # Aquellos algoritmos de similitud donde los vectores son de características de documento
 # y ya vienen previamente definidos
@@ -369,5 +282,5 @@ if __name__ == '__main__':
                                         TOP_RESULTS_1,
                                         [atri1],
                                         executionTime)
-                                        
+
     extractor_obj.closeFile()
