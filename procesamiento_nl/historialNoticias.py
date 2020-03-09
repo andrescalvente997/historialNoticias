@@ -19,10 +19,10 @@ LISTA_SIMILITUDES = [   "SIMILITUD_COSENO_SPACY",
                         "SIMILITUD_JACCARD",
                         "SIMILITUD_COSENO_TF-IDF",
                         "SIMILITUD_COSENO_BOW"]
-LISTA_SIMILITUDES_t1 = ["SIMILITUD_COSENO_SPACY",
-                        "SIMILITUD_JACCARD"]
-LISTA_SIMILITUDES_t2 = ["SIMILITUD_COSENO_TF-IDF",
+LISTA_SIMILITUDES_T1 = ["SIMILITUD_COSENO_SPACY"]
+LISTA_SIMILITUDES_T2 = ["SIMILITUD_COSENO_TF-IDF",
                         "SIMILITUD_COSENO_BOW"]
+LISTA_SIMILITUDES_T3 = ["SIMILITUD_JACCARD"]
 TOP_RESULTS_1 = 100
 TOP_RESULTS_2 = 50
 URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html"
@@ -104,7 +104,7 @@ def do_similitud_creacionVectores(  extractor_obj,
         if linkNoticia_Master == linkNoticia_Analizar:  # Noticia a analizar es la noticia master
             continue
 
-        score = funct_similitud(linkNoticia_Master, linkNoticia_Analizar)
+        score = similitud_obj.similitud_coseno_links(linkNoticia_Master, linkNoticia_Analizar)
         procesador_obj.addResultado(linkNoticia_Analizar, score)
 
     time_end = time.time()
@@ -207,8 +207,7 @@ def get_vectores_algs_T2(   extractor_obj,
 # y podemos obtener resultados directamente.
 def get_scores_T3(  extractor_obj, 
                     similitud_obj, 
-                    atributoEstudio, 
-                    topResults, 
+                    atributoEstudio,
                     listLinksNoticias=None):
 
     procesador_obj = procesador.Procesador()
@@ -236,11 +235,40 @@ def get_scores_T3(  extractor_obj,
 
     time_end = time.time()
 
-    noticiasEtiquetadas = extractor_obj.getDiccNoticiaEtiqueta()
-    
-    diccResults = print_resultsJaccard(procesador_obj, noticiasEtiquetadas, topResults, atributoEstudio, round(time_end - time_start))
+    return procesador_obj, round(time_end - time_start)
 
-    return diccResults
+
+def get_Results_T1_T2(  vectorNoticiaMaster, 
+                        dicc_noticiaVector_atributo1,
+                        dicc_noticiaVector_atributo2=None,
+                        peso_atributo1=1,
+                        peso_atributo2=1):
+
+    time_start = time.time()
+
+    procesador_obj = procesador.Procesador()
+
+    # Comprobamos si hay 1 o 2 atributos al principio para evitar comprobaciones en el bucle
+    # Caso de SOLO 1 atributo
+    if dicc_noticiaVector_atributo2 == None:
+
+        for linkNoticia in dicc_noticiaVector_atributo1.keys():
+            vectorNoticiaAnalizar = dicc_noticiaVector_atributo1[linkNoticia] * peso_atributo1
+            score = similitud_obj.similitud_coseno_vecs(vectorNoticiaMaster, vectorNoticiaAnalizar)
+            procesador_obj.addResultado(linkNoticia, score)
+    
+    else:
+
+        for linkNoticia in dicc_noticiaVector_atributo1.keys():
+            vectorNoticiaAnalizar_atributo1 = dicc_noticiaVector_atributo1[linkNoticia] * peso_atributo1
+            vectorNoticiaAnalizar_atributo2 = dicc_noticiaVector_atributo2[linkNoticia] * peso_atributo2
+            vectorNoticiaAnalizar = vectorNoticiaAnalizar_atributo1 + vectorNoticiaAnalizar_atributo2
+            score = similitud_obj.similitud_coseno_vecs(vectorNoticiaMaster, vectorNoticiaAnalizar)
+            procesador_obj.addResultado(linkNoticia, score)
+
+    time_end = time.time()
+
+    return procesador_obj, round(time_end - time_start)
 
 
 def print_creacionVectores( algoritmoSimilitud, 
@@ -264,11 +292,12 @@ def print_creacionVectores( algoritmoSimilitud,
     return
 
 
-def print_resultsJaccard(   procesador_obj, 
-                            noticiasEtiquetadas,
-                            topResults,
-                            atributoUtilizado,
-                            executionTime):
+def print_results(  procesador_obj, 
+                    list_simsUtilizadas,
+                    noticiasEtiquetadas,
+                    topResults,
+                    list_atrisUtilizados,
+                    executionTime):
 
     procesador_obj.sortResultados()
     diccResults, strResultTop = procesador_obj.getTopResultados(noticiasEtiquetadas, top=topResults)
@@ -277,13 +306,14 @@ def print_resultsJaccard(   procesador_obj,
 
     strPrint = "#########################################################\n"
     strPrint += ">> Resultados: \n"
-    strPrint += "Algoritmo: 'SIMILITUD_JACCARD'\n"
-    strPrint += "Estudiando el atributo '{}' \n"
+    strPrint += "Algoritmos: {}\n"
+    strPrint += "Estudiando los atributos: {}\n"
     strPrint += "{} \n"
     strPrint += ">> Top: \n"
     strPrint += "{} \n"
     strPrint += "Tiempo empleado: {} minutos y {} segundos\n"
-    strPrint = strPrint.format( atributoUtilizado,
+    strPrint = strPrint.format( " + ".join(list_simsUtilizadas),
+                                " + ".join(list_atrisUtilizados),
                                 procesador_obj,
                                 strResultTop,
                                 str(mins),
@@ -302,26 +332,42 @@ if __name__ == '__main__':
 
         for atri1 in LISTA_ATRIBUTOS:
 
-            if sim1 in LISTA_SIMILITUDES_t1:
-                diccResults = do_similitud( extractor_obj, 
-                                            similitud_obj,
-                                            atri1,
-                                            TOP_RESULTS_1)
-            else:
+            if sim1 in LISTA_SIMILITUDES_T1 or sim1 in LISTA_SIMILITUDES_T2:
 
-                if sim1 == "SIMILITUD_COSENO_TF-IDF":
-                    fuctAddEntry = similitud_obj.add_doc_wFrec_entry
-                    functCreateVecs = similitud_obj.create_dicc_doc_tfidf
-                elif sim1 == "SIMILITUD_COSENO_BOW":
-                    fuctAddEntry = similitud_obj.add_doc_wFrec_entry_BoW
-                    functCreateVecs = similitud_obj.create_vec_doc_BoW
+                if sim1 in LISTA_SIMILITUDES_T1:
+                    vector_noticiaMaster, dicc_noticiaVector = get_vectores_algs_T1(extractor_obj,
+                                                                                    similitud_obj,
+                                                                                    atri1)
 
-                diccResults = do_similitud_creacionVectores(extractor_obj, 
-                                                            similitud_obj,  
-                                                            atri1,
-                                                            TOP_RESULTS_1,
-                                                            fuctAddEntry, 
-                                                            functCreateVecs)
+                elif sim1 in LISTA_SIMILITUDES_T2:
 
-                            
+                    if sim1 == "SIMILITUD_COSENO_TF-IDF":
+                        fuctAddEntry = similitud_obj.add_doc_wFrec_entry
+                        functCreateVecs = similitud_obj.create_dicc_doc_tfidf
+                    elif sim1 == "SIMILITUD_COSENO_BOW":
+                        fuctAddEntry = similitud_obj.add_doc_wFrec_entry_BoW
+                        functCreateVecs = similitud_obj.create_vec_doc_BoW
+
+                    vector_noticiaMaster, dicc_noticiaVector = get_vectores_algs_T2(extractor_obj,
+                                                                                    similitud_obj,
+                                                                                    atri1,
+                                                                                    fuctAddEntry,
+                                                                                    functCreateVecs)
+
+                procesador_obj, executionTime = get_Results_T1_T2(  vector_noticiaMaster,
+                                                                    dicc_noticiaVector)
+                                                                                
+            elif sim1 in LISTA_SIMILITUDES_T3:
+                procesador_obj, executionTime = get_scores_T3(  extractor_obj, 
+                                                                similitud_obj,
+                                                                atri1)
+            
+            noticiasEtiquetadas = extractor_obj.getDiccNoticiaEtiqueta()                                              
+            diccResults = print_results(procesador_obj,
+                                        [sim1],
+                                        noticiasEtiquetadas,
+                                        TOP_RESULTS_1,
+                                        [atri1],
+                                        executionTime)
+                                        
     extractor_obj.closeFile()
