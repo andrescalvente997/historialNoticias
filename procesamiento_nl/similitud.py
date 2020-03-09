@@ -81,6 +81,9 @@ class Similitud():
 
 
     def similitud_coseno_vecs(self, vector_Master, vector_Analizar, redondeo=5):
+        
+        vector_Master = vector_Master.reshape(1, -1)
+        vector_Analizar = vector_Analizar.reshape(1, -1)
 
         return round(cosine_similarity(vector_Master, vector_Analizar)[0][0], redondeo)
 

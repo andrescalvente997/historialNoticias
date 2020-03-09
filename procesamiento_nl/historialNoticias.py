@@ -13,8 +13,7 @@ LISTA_ATRIBUTOS = [ "titularNoticia",
                     "keywordsNoticia",
                     "resumenNoticia",
                     "autorNoticia",
-                    "tagsNoticia",
-                    "cuerpoNoticia"]
+                    "tagsNoticia"]  #,"cuerpoNoticia"
 LISTA_SIMILITUDES = [   "SIMILITUD_COSENO_SPACY",
                         "SIMILITUD_JACCARD",
                         "SIMILITUD_COSENO_TF-IDF",
@@ -194,7 +193,7 @@ def print_creacionVectores( algoritmoSimilitud,
     strPrint = "#########################################################\n"
     strPrint += ">> Creación de vectores: \n"
     strPrint += "Algoritmo: '{}'\n"
-    strPrint += "Atributo: '{}'\n"
+    strPrint += "Vectores creados: {}\n"
     strPrint += "Tiempo empleado: {} minutos y {} segundos\n"
     strPrint = strPrint.format( algoritmoSimilitud,
                                 str(noticiasAnalizadas),
@@ -241,9 +240,9 @@ if __name__ == '__main__':
     extractor_obj = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
 
     for sim1 in LISTA_SIMILITUDES:
-        similitud_obj = similitud.Similitud(sim1)
 
         for atri1 in LISTA_ATRIBUTOS:
+            similitud_obj = similitud.Similitud(sim1)
 
             if sim1 in LISTA_SIMILITUDES_T1 or sim1 in LISTA_SIMILITUDES_T2:
 
@@ -267,6 +266,8 @@ if __name__ == '__main__':
                                                                                     fuctAddEntry,
                                                                                     functCreateVecs)
 
+                # Realizamos 3 segundos de espera para poder hacer bien las mediciones de tiempo
+                #time.sleep(3)
                 procesador_obj, executionTime = get_Results_T1_T2(  vector_noticiaMaster,
                                                                     dicc_noticiaVector)
                                                                                 
@@ -284,3 +285,11 @@ if __name__ == '__main__':
                                         executionTime)
 
     extractor_obj.closeFile()
+
+'''
+    COSAS QUE FALLAN:
+        · En get_vectores_algs_T1():
+            + No obtengo bien el vector de esta noticia: 
+                keyWords - https://elpais.com/ccaa/2020/02/01/madrid/1580574138_819521.html
+                autor - https://cincodias.elpais.com/cincodias/2020/01/24/mercados/1579868663_866345.html
+'''

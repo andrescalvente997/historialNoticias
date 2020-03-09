@@ -121,12 +121,12 @@ class Extractor():
     # su vector de caracteristicas de Spacy
     def getVectorAtributo(self, data, atributo, flgTratar=True):
 
-        atributoDoc = self.getAtributoNoticia(data, atributo)
+        atributoDoc = self.getAtributoNoticia(data, atributo, flgTratar=flgTratar)
 
         if atributoDoc != None:
             return atributoDoc.vector
         else:
-            return self.nlp("")
+            return self.nlp("").vector
     #
     # Procesamiento de textos
     #
