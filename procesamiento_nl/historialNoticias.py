@@ -13,10 +13,8 @@ LISTA_ATRIBUTOS = [ "titularNoticia",
                     "keywordsNoticia",
                     "resumenNoticia",
                     "autorNoticia",
-                    "tagsNoticia"]  #,"cuerpoNoticia"
-LISTA_SIMILITUDES = [   "SIMILITUD_COSENO_SPACY",
-                        "SIMILITUD_JACCARD",
-                        "SIMILITUD_COSENO_TF-IDF",
+                    "tagsNoticia"]  #,"cuerpoNoticia" "SIMILITUD_COSENO_SPACY", "SIMILITUD_JACCARD",
+LISTA_SIMILITUDES = [   "SIMILITUD_COSENO_TF-IDF",
                         "SIMILITUD_COSENO_BOW"]
 LISTA_SIMILITUDES_T1 = ["SIMILITUD_COSENO_SPACY"]
 LISTA_SIMILITUDES_T2 = ["SIMILITUD_COSENO_TF-IDF",
@@ -338,24 +336,28 @@ if __name__ == '__main__':
                     elif sim in LISTA_SIMILITUDES_T2:
 
                         if sim == "SIMILITUD_COSENO_TF-IDF":
-                            fuctAddEntry = similitud_obj_atri1.add_doc_wFrec_entry
-                            functCreateVecs = similitud_obj_atri1.create_dicc_doc_tfidf
+                            fuctAddEntry_atri1 = similitud_obj_atri1.add_doc_wFrec_entry
+                            fuctAddEntry_atri2 = similitud_obj_atri2.add_doc_wFrec_entry
+                            functCreateVecs_atri1 = similitud_obj_atri1.create_dicc_doc_tfidf
+                            functCreateVecs_atri2 = similitud_obj_atri2.create_dicc_doc_tfidf
                         elif sim == "SIMILITUD_COSENO_BOW":
-                            fuctAddEntry = similitud_obj_atri1.add_doc_wFrec_entry_BoW
-                            functCreateVecs = similitud_obj_atri1.create_vec_doc_BoW
+                            fuctAddEntry_atri1 = similitud_obj_atri1.add_doc_wFrec_entry_BoW
+                            fuctAddEntry_atri2 = similitud_obj_atri2.add_doc_wFrec_entry_BoW
+                            functCreateVecs_atri1 = similitud_obj_atri1.create_vec_doc_BoW
+                            functCreateVecs_atri2 = similitud_obj_atri2.create_vec_doc_BoW
 
                         if flg_vectoresCreados_atri1 == False:
                             vector_noticiaMaster_atri1, dicc_noticiaVector_atri1 = get_vectores_algs_T2(extractor_obj,
                                                                                                         similitud_obj_atri1,
                                                                                                         atri1,
-                                                                                                        fuctAddEntry,
-                                                                                                        functCreateVecs)
-
+                                                                                                        fuctAddEntry_atri1,
+                                                                                                        functCreateVecs_atri1)
+                        
                         vector_noticiaMaster_atri2, dicc_noticiaVector_atri2 = get_vectores_algs_T2(extractor_obj,
                                                                                                     similitud_obj_atri2,
                                                                                                     atri2,
-                                                                                                    fuctAddEntry,
-                                                                                                    functCreateVecs)
+                                                                                                    fuctAddEntry_atri2,
+                                                                                                    functCreateVecs_atri2)
 
                     if flg_vectoresCreados_atri1 == False:                                                                   
                         procesador_obj, executionTime = get_Results_T1_T2(  similitud_obj=similitud_obj_atri1,

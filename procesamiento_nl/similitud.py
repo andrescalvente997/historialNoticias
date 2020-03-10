@@ -37,7 +37,7 @@ class Similitud():
         elif self.nombreSimilitud == STR_SIMILITUD_COSENO_TFIFD:
             self.dicc_doc_wFrec = {}    # Diccionario => Documento: { Palabra_n: frecuencia en documento }
             self.dicc_w_docsConW = {}   # Diccionario => Palabra: frecuencia en el dataset 
-            self.dicc_doc_vector = {}    # Diccionario => Documento: Matriz Numpy
+            self.dicc_doc_vector = {}   # Diccionario => Documento: Matriz Numpy
 
         elif self.nombreSimilitud == STR_SIMILITUD_COSENO_BOW:
             self.dicc_doc_wFrec = {}
