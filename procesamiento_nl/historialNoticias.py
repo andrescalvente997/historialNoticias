@@ -27,6 +27,9 @@ TOP_RESULTS_2 = 50
 URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html"
 NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../crawler/crawlerPeriodicos/datos_EL_PAIS/20200125_20200202_noticias_etiquetadas.json"
 
+STR_FICHERO_OUT = "../res_historialNoticias_vectores_sumaSims.txt"
+FILE_OUT = open(STR_FICHERO_OUT, 'w')
+
 
 # Función que obtiene los vectores de los algoritmos de similitud (T1)
 # Aquellos algoritmos de similitud donde los vectores son de características de documento
@@ -57,7 +60,10 @@ def get_vectores_algs_T1(   extractor_obj,
 
     time_end = time.time()
 
-    print_creacionVectores(similitud_obj.getNombreSimilitud(), len(dicc_noticiaVector), round(time_end - time_start))
+    print_creacionVectores( similitud_obj.getNombreSimilitud(), 
+                            len(dicc_noticiaVector), 
+                            round(time_end - time_start), 
+                            atributoEstudio)
 
     return vector_noticiaMaster, dicc_noticiaVector
 
@@ -109,7 +115,10 @@ def get_vectores_algs_T2(   extractor_obj,
 
     time_end = time.time()
 
-    print_creacionVectores(similitud_obj.getNombreSimilitud(), len(dicc_noticiaVector), round(time_end - time_start))
+    print_creacionVectores( similitud_obj.getNombreSimilitud(), 
+                            len(dicc_noticiaVector), 
+                            round(time_end - time_start), 
+                            atributoEstudio)
 
     return vector_noticiaMaster, dicc_noticiaVector
 
@@ -150,8 +159,10 @@ def get_scores_T3(  extractor_obj,
     return procesador_obj, round(time_end - time_start)
 
 
-def get_Results_T1_T2(  vectorNoticiaMaster, 
+def get_Results_T1_T2(  similitud_obj,
+                        vectorNoticiaMaster_atributo1, 
                         dicc_noticiaVector_atributo1,
+                        vectorNoticiaMaster_atributo2=None,
                         dicc_noticiaVector_atributo2=None,
                         peso_atributo1=1,
                         peso_atributo2=1):
@@ -164,12 +175,19 @@ def get_Results_T1_T2(  vectorNoticiaMaster,
     # Caso de SOLO 1 atributo
     if dicc_noticiaVector_atributo2 == None:
 
+        vectorNoticiaMaster = vectorNoticiaMaster_atributo1 * peso_atributo1     # DEBERIA MULTIPLICARSE ?¿?¿?¿
+
         for linkNoticia in dicc_noticiaVector_atributo1.keys():
             vectorNoticiaAnalizar = dicc_noticiaVector_atributo1[linkNoticia] * peso_atributo1
             score = similitud_obj.similitud_coseno_vecs(vectorNoticiaMaster, vectorNoticiaAnalizar)
             procesador_obj.addResultado(linkNoticia, score)
     
+    # Caso de 2 atributos
     else:
+
+        vectorNoticiaMaster_atributo1 *= peso_atributo1
+        vectorNoticiaMaster_atributo2 *= peso_atributo2
+        vectorNoticiaMaster = vectorNoticiaMaster_atributo1 + vectorNoticiaMaster_atributo2
 
         for linkNoticia in dicc_noticiaVector_atributo1.keys():
             vectorNoticiaAnalizar_atributo1 = dicc_noticiaVector_atributo1[linkNoticia] * peso_atributo1
@@ -185,7 +203,8 @@ def get_Results_T1_T2(  vectorNoticiaMaster,
 
 def print_creacionVectores( algoritmoSimilitud, 
                             noticiasAnalizadas, 
-                            tiempoEmpleado):
+                            tiempoEmpleado,
+                            atributoEstudio):
     
     mins = math.floor(tiempoEmpleado / 60)
     segs = round((tiempoEmpleado / 60 - mins) * 60)
@@ -193,19 +212,21 @@ def print_creacionVectores( algoritmoSimilitud,
     strPrint = "#########################################################\n"
     strPrint += ">> Creación de vectores: \n"
     strPrint += "Algoritmo: '{}'\n"
+    strPrint += "Atributo: '{}'\n"
     strPrint += "Vectores creados: {}\n"
     strPrint += "Tiempo empleado: {} minutos y {} segundos\n"
     strPrint = strPrint.format( algoritmoSimilitud,
+                                atributoEstudio,
                                 str(noticiasAnalizadas),
                                 str(mins),
                                 str(segs))
-    print(strPrint)
+    FILE_OUT.write(strPrint)
 
     return
 
 
 def print_results(  procesador_obj, 
-                    list_simsUtilizadas,
+                    similitudUtilizada,
                     noticiasEtiquetadas,
                     topResults,
                     list_atrisUtilizados,
@@ -218,19 +239,19 @@ def print_results(  procesador_obj,
 
     strPrint = "#########################################################\n"
     strPrint += ">> Resultados: \n"
-    strPrint += "Algoritmos: {}\n"
+    strPrint += "Algoritmo: {}\n"
     strPrint += "Estudiando los atributos: {}\n"
     strPrint += "{} \n"
     strPrint += ">> Top: \n"
     strPrint += "{} \n"
     strPrint += "Tiempo empleado: {} minutos y {} segundos\n"
-    strPrint = strPrint.format( " + ".join(list_simsUtilizadas),
+    strPrint = strPrint.format( similitudUtilizada,
                                 " + ".join(list_atrisUtilizados),
                                 procesador_obj,
                                 strResultTop,
                                 str(mins),
                                 str(segs))
-    print(strPrint)
+    FILE_OUT.write(strPrint)
 
     return diccResults
 
@@ -238,7 +259,9 @@ def print_results(  procesador_obj,
 if __name__ == '__main__':
     
     extractor_obj = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
+    noticiasEtiquetadas = extractor_obj.getDiccNoticiaEtiqueta()
 
+    '''
     for sim1 in LISTA_SIMILITUDES:
 
         for atri1 in LISTA_ATRIBUTOS:
@@ -283,8 +306,112 @@ if __name__ == '__main__':
                                         TOP_RESULTS_1,
                                         [atri1],
                                         executionTime)
+    '''
+
+    for sim in LISTA_SIMILITUDES:
+
+        for atri1 in LISTA_ATRIBUTOS:
+            
+            similitud_obj_atri1 = similitud.Similitud(sim)
+            list_restAtris = []
+            for a in LISTA_ATRIBUTOS:
+                if a != atri1:
+                    list_restAtris.append(a)
+            flg_vectoresCreados_atri1 = False
+
+            for atri2 in list_restAtris:
+
+                similitud_obj_atri2 = similitud.Similitud(sim)
+
+                if sim in LISTA_SIMILITUDES_T1 or sim in LISTA_SIMILITUDES_T2:
+
+                    if sim in LISTA_SIMILITUDES_T1:
+                        if flg_vectoresCreados_atri1 == False:
+                            vector_noticiaMaster_atri1, dicc_noticiaVector_atri1 = get_vectores_algs_T1(extractor_obj,
+                                                                                                        similitud_obj_atri1,
+                                                                                                        atri1)
+
+                        vector_noticiaMaster_atri2, dicc_noticiaVector_atri2 = get_vectores_algs_T1(extractor_obj,
+                                                                                                    similitud_obj_atri2,
+                                                                                                    atri2)                        
+
+                    elif sim in LISTA_SIMILITUDES_T2:
+
+                        if sim == "SIMILITUD_COSENO_TF-IDF":
+                            fuctAddEntry = similitud_obj_atri1.add_doc_wFrec_entry
+                            functCreateVecs = similitud_obj_atri1.create_dicc_doc_tfidf
+                        elif sim == "SIMILITUD_COSENO_BOW":
+                            fuctAddEntry = similitud_obj_atri1.add_doc_wFrec_entry_BoW
+                            functCreateVecs = similitud_obj_atri1.create_vec_doc_BoW
+
+                        if flg_vectoresCreados_atri1 == False:
+                            vector_noticiaMaster_atri1, dicc_noticiaVector_atri1 = get_vectores_algs_T2(extractor_obj,
+                                                                                                        similitud_obj_atri1,
+                                                                                                        atri1,
+                                                                                                        fuctAddEntry,
+                                                                                                        functCreateVecs)
+
+                        vector_noticiaMaster_atri2, dicc_noticiaVector_atri2 = get_vectores_algs_T2(extractor_obj,
+                                                                                                    similitud_obj_atri2,
+                                                                                                    atri2,
+                                                                                                    fuctAddEntry,
+                                                                                                    functCreateVecs)
+
+                    if flg_vectoresCreados_atri1 == False:                                                                   
+                        procesador_obj, executionTime = get_Results_T1_T2(  similitud_obj=similitud_obj_atri1,
+                                                                            vectorNoticiaMaster_atributo1=vector_noticiaMaster_atri1,
+                                                                            dicc_noticiaVector_atributo1=dicc_noticiaVector_atri1)
+                        flg_vectoresCreados_atri1 = True
+
+                        noticiasEtiquetadas = extractor_obj.getDiccNoticiaEtiqueta()                                              
+                        diccResults = print_results(procesador_obj,
+                                                    sim,
+                                                    noticiasEtiquetadas,
+                                                    TOP_RESULTS_1,
+                                                    [atri1],
+                                                    executionTime)
+
+                    procesador_obj, executionTime = get_Results_T1_T2(  similitud_obj=similitud_obj_atri1,
+                                                                        vectorNoticiaMaster_atributo1=vector_noticiaMaster_atri1,
+                                                                        dicc_noticiaVector_atributo1=dicc_noticiaVector_atri1,
+                                                                        vectorNoticiaMaster_atributo2=vector_noticiaMaster_atri2,
+                                                                        dicc_noticiaVector_atributo2=dicc_noticiaVector_atri2)
+                                                                  
+                    diccResults = print_results(procesador_obj,
+                                                sim,
+                                                noticiasEtiquetadas,
+                                                TOP_RESULTS_1,
+                                                [atri1, atri2],
+                                                executionTime)
+                                                                                    
+                elif sim in LISTA_SIMILITUDES_T3:
+
+                    if flg_vectoresCreados_atri1 == False:
+                        procesador_obj, executionTime = get_scores_T3(  extractor_obj, 
+                                                                        similitud_obj_atri1,
+                                                                        atri1)
+                        flg_vectoresCreados_atri1 = True
+                        atri = atri1
+
+                    else:
+                        procesador_obj, executionTime = get_scores_T3(  extractor_obj, 
+                                                                        similitud_obj_atri2,
+                                                                        atri2)
+                        atri = atri2
+
+                    diccResults = print_results(procesador_obj,
+                                                sim,
+                                                noticiasEtiquetadas,
+                                                TOP_RESULTS_1,
+                                                [atri],
+                                                executionTime)
+
+                print("Terminados atributos: {}".format(" + ".join([atri1, atri2])))
+            print("Terminado atributo: {}".format(atri1))
+        print("Terminada similitud: {}".format(sim))  
 
     extractor_obj.closeFile()
+    FILE_OUT.close()
 
 '''
     COSAS QUE FALLAN:
