@@ -13,8 +13,10 @@ LISTA_ATRIBUTOS = [ "titularNoticia",
                     "keywordsNoticia",
                     "resumenNoticia",
                     "autorNoticia",
-                    "tagsNoticia"]  #,"cuerpoNoticia" "SIMILITUD_COSENO_SPACY", "SIMILITUD_JACCARD",
-LISTA_SIMILITUDES = [   "SIMILITUD_COSENO_TF-IDF",
+                    "tagsNoticia"]  #,"cuerpoNoticia" 
+LISTA_SIMILITUDES = [   "SIMILITUD_COSENO_SPACY", 
+                        "SIMILITUD_JACCARD",
+                        "SIMILITUD_COSENO_TF-IDF",
                         "SIMILITUD_COSENO_BOW"]
 LISTA_SIMILITUDES_T1 = ["SIMILITUD_COSENO_SPACY"]
 LISTA_SIMILITUDES_T2 = ["SIMILITUD_COSENO_TF-IDF",
