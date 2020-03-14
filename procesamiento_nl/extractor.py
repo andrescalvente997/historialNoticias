@@ -112,10 +112,7 @@ class Extractor():
         atributoDoc = self.rm_punctuations(atributoDoc)
         atributoDoc = self.rm_blanks(atributoDoc)
 
-        if atributoDoc.text == "":
-            return None
-
-        return atributoDoc
+        return atributoDoc.text
 
     # Función que pasado la data de una noticia y un atributo, nos devuelve 
     # su vector de caracteristicas de Spacy
@@ -123,7 +120,7 @@ class Extractor():
 
         atributoDoc = self.getAtributoNoticia(data, atributo, flgTratar=flgTratar)
 
-        if atributoDoc != None:
+        if atributoDoc != "":
             return atributoDoc.vector
         else:
             return self.nlp("").vector
@@ -131,9 +128,15 @@ class Extractor():
     # Procesamiento de textos
     #
 
+    def getDoc(self, text):
+
+        return self.nlp(text)
+
+
     def do_lemmatize(self, doc):
 
         return self.nlp(" ".join(list(map(lambda token: token.lemma_, doc))))
+
 
     def rm_stopWords(self, doc):
 

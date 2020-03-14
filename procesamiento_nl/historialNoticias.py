@@ -13,7 +13,11 @@ LISTA_ATRIBUTOS = [ "titularNoticia",
                     "keywordsNoticia",
                     "resumenNoticia",
                     "autorNoticia",
-                    "tagsNoticia"]  #,"cuerpoNoticia" 
+                    "tagsNoticia"]  
+'''
+
+,"cuerpoNoticia"
+''' 
 LISTA_SIMILITUDES = [   "SIMILITUD_COSENO_SPACY", 
                         "SIMILITUD_JACCARD",
                         "SIMILITUD_COSENO_TF-IDF",
@@ -31,16 +35,125 @@ STR_FICHERO_OUT = "../res_historialNoticias_vectores_sumaSims.txt"
 FILE_OUT = open(STR_FICHERO_OUT, 'w')
 
 
-def do_results_unAtributo(  obj_extractor,
-                            noticiasEtiquetadas):
+def do_similitud_noCreacionVecs(obj_extractor, 
+                                obj_similitud,  
+                                list_atributosEstudio,
+                                listLinksNoticias=None):
 
-    for sim in LISTA_SIMILITUDES:
+    obj_procesador = procesador.Procesador()
+    funct_similitud = obj_similitud.getFuncionSimilitud()
 
-        for atributo_1 in LISTA_ATRIBUTOS:
+    time_start = time.time()
 
-            obj_similitud_atri1 = similitud.Similitud(sim)
+    dataNoticia_Master = obj_extractor.getDataNoticiaMaster()
+    texto_Master = ""
+    for atributo in list_atributosEstudio:
+        texto_Master += obj_extractor.getAtributoNoticia(dataNoticia_Master, atributo)    
+    texto_Master = obj_extractor.getDoc(texto_Master) 
 
-            
+    if listLinksNoticias == None:
+        listLinksNoticias = obj_extractor.getLinksNoticiasAnalizar()
+    for linkNoticia in listLinksNoticias:
+        
+        dataNoticia_Analizar = obj_extractor.getDataNoticia(linkNoticia)
+        if dataNoticia_Analizar == None:    # Noticia con fecha posterior a la Master
+            continue
+        
+        texto_Analizar = ""
+        for atributo in list_atributosEstudio:
+            texto_Analizar += obj_extractor.getAtributoNoticia(dataNoticia_Analizar, atributo)
+        texto_Analizar = obj_extractor.getDoc(texto_Analizar)
+
+        score = funct_similitud(texto_Master, texto_Analizar)
+        obj_procesador.addResultado(linkNoticia, score)
+
+    time_end = time.time()
+
+    return obj_procesador, round(time_end - time_start)
+
+
+def do_similitud_creacionVectores(  obj_extractor, 
+                                    obj_similitud, 
+                                    list_atributosEstudio,
+                                    funct_addEntry, 
+                                    funct_createVecs, 
+                                    listLinksNoticias=None):
+    
+    obj_procesador = procesador.Procesador()
+    funct_similitud = obj_similitud.getFuncionSimilitud()
+
+    time_start = time.time()
+
+    dataNoticia_Master = obj_extractor.getDataNoticiaMaster()
+    texto_Master = ""
+    for atributo in list_atributosEstudio:
+        texto_Master += obj_extractor.getAtributoNoticia(dataNoticia_Master, atributo)    
+    texto_Master = obj_extractor.getDoc(texto_Master) 
+    linkNoticia_Master = obj_extractor.getLinkNoticiaMaster()
+    funct_addEntry(linkNoticia_Master, texto_Master)
+
+    if listLinksNoticias == None:
+        listLinksNoticias = obj_extractor.getLinksNoticiasAnalizar()
+    for linkNoticia in listLinksNoticias:
+        
+        dataNoticia_Analizar = obj_extractor.getDataNoticia(linkNoticia)
+        if dataNoticia_Analizar == None:    # Noticia con fecha posterior a la Master
+            continue
+
+        texto_Analizar = ""
+        for atributo in list_atributosEstudio:
+            texto_Analizar += obj_extractor.getAtributoNoticia(dataNoticia_Analizar, atributo)
+        texto_Analizar = obj_extractor.getDoc(texto_Analizar)
+
+        funct_addEntry(linkNoticia, texto_Analizar)
+
+    funct_createVecs()
+
+    list_linksNoticiasAnalizar = obj_similitud.getLinksNoticias()
+
+    for linkNoticia_Analizar in list_linksNoticiasAnalizar:
+
+        if linkNoticia_Master == linkNoticia_Analizar:  # Noticia a analizar es la noticia master
+            continue
+
+        score = funct_similitud(linkNoticia_Master, linkNoticia_Analizar)
+        obj_procesador.addResultado(linkNoticia_Analizar, score)
+
+    time_end = time.time()
+
+    return obj_procesador, round(time_end - time_start)
+
+def printResult(obj_procesador, 
+                similitudUtilizada,
+                noticiasEtiquetadas,
+                topResults,
+                list_atrisUtilizados,
+                executionTime):
+
+    obj_procesador.sortResultados()
+    diccResults, strResultTop = obj_procesador.getTopResultados(noticiasEtiquetadas, top=topResults)
+    mins = math.floor(executionTime / 60)
+    segs = round((executionTime / 60 - mins) * 60)
+
+    strPrint = "#########################################################\n"
+    strPrint += ">> Resultados: \n"
+    strPrint += "Algoritmo: {}\n"
+    strPrint += "Estudiando los atributos: {}\n"
+    strPrint += "{} \n"
+    strPrint += ">> Top: \n"
+    strPrint += "{} \n"
+    strPrint += "Tiempo empleado: {} minutos y {} segundos\n"
+    strPrint = strPrint.format( similitudUtilizada,
+                                " + ".join(list_atrisUtilizados),
+                                obj_procesador,
+                                strResultTop,
+                                str(mins),
+                                str(segs))
+    FILE_OUT.write(strPrint)
+    
+    print("Terminado: " + " + ".join(list_atrisUtilizados))
+
+    return diccResults            
     
 
 if __name__ == '__main__':
@@ -48,9 +161,48 @@ if __name__ == '__main__':
     obj_extractor = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
     noticiasEtiquetadas = obj_extractor.getDiccNoticiaEtiqueta()
 
-    do_results_unAtributo(  obj_extractor, 
-                            noticiasEtiquetadas)
+    for tipoSimilitud in LISTA_SIMILITUDES:
 
-    
+        for atributo_1 in LISTA_ATRIBUTOS:
 
+            list_atributosEstudio = [atributo_1]
+            obj_similitud = similitud.Similitud(tipoSimilitud)
+
+            for atributo_2 in LISTA_ATRIBUTOS:
+
+                if atributo_1 != atributo_2:
+                    list_atributosEstudio.append(atributo_2)
+
+                if tipoSimilitud in LISTA_SIMILITUDES_T1 or tipoSimilitud in LISTA_SIMILITUDES_T3:
+
+                    obj_procesador, tiempoEjecucion = do_similitud_noCreacionVecs(  obj_extractor,
+                                                                                    obj_similitud,
+                                                                                    list_atributosEstudio)
                 
+                elif tipoSimilitud in LISTA_SIMILITUDES_T2:
+
+                    if tipoSimilitud == "SIMILITUD_COSENO_TF-IDF":
+                        atributo_funct_addEntry = obj_similitud.add_doc_wFrec_entry
+                        atributo_funct_createVecs = obj_similitud.create_dicc_doc_tfidf
+
+                    elif tipoSimilitud == "SIMILITUD_COSENO_BOW":
+                        atributo_funct_addEntry = obj_similitud.add_doc_wFrec_entry_BoW
+                        atributo_funct_createVecs = obj_similitud.create_vec_doc_BoW
+
+                    obj_procesador, tiempoEjecucion = do_similitud_creacionVectores(obj_extractor,
+                                                                                    obj_similitud,
+                                                                                    list_atributosEstudio,
+                                                                                    atributo_funct_addEntry,
+                                                                                    atributo_funct_createVecs)
+                
+                printResult(obj_procesador,
+                            tipoSimilitud,
+                            noticiasEtiquetadas,
+                            TOP_RESULTS_1,
+                            list_atributosEstudio,
+                            tiempoEjecucion)
+
+                list_atributosEstudio.remove(atributo_2)
+
+    obj_extractor.closeFile()
+    FILE_OUT.close()
