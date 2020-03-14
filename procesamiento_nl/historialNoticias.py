@@ -18,10 +18,12 @@ LISTA_ATRIBUTOS = [ "titularNoticia",
 
 ,"cuerpoNoticia"
 ''' 
-LISTA_SIMILITUDES = [   "SIMILITUD_COSENO_SPACY", 
-                        "SIMILITUD_JACCARD",
-                        "SIMILITUD_COSENO_TF-IDF",
+LISTA_SIMILITUDES = [   "SIMILITUD_COSENO_TF-IDF",
                         "SIMILITUD_COSENO_BOW"]
+'''
+"SIMILITUD_COSENO_SPACY", 
+                        "SIMILITUD_JACCARD",
+'''
 LISTA_SIMILITUDES_T1 = ["SIMILITUD_COSENO_SPACY"]
 LISTA_SIMILITUDES_T2 = ["SIMILITUD_COSENO_TF-IDF",
                         "SIMILITUD_COSENO_BOW"]
@@ -48,8 +50,10 @@ def do_similitud_noCreacionVecs(obj_extractor,
     dataNoticia_Master = obj_extractor.getDataNoticiaMaster()
     texto_Master = ""
     for atributo in list_atributosEstudio:
-        texto_Master += obj_extractor.getAtributoNoticia(dataNoticia_Master, atributo)    
+        texto_Master += " " + obj_extractor.getAtributoNoticia(dataNoticia_Master, atributo)    
     texto_Master = obj_extractor.getDoc(texto_Master) 
+
+    print(texto_Master)
 
     if listLinksNoticias == None:
         listLinksNoticias = obj_extractor.getLinksNoticiasAnalizar()
@@ -61,7 +65,7 @@ def do_similitud_noCreacionVecs(obj_extractor,
         
         texto_Analizar = ""
         for atributo in list_atributosEstudio:
-            texto_Analizar += obj_extractor.getAtributoNoticia(dataNoticia_Analizar, atributo)
+            texto_Analizar += " " + obj_extractor.getAtributoNoticia(dataNoticia_Analizar, atributo)
         texto_Analizar = obj_extractor.getDoc(texto_Analizar)
 
         score = funct_similitud(texto_Master, texto_Analizar)
@@ -87,7 +91,7 @@ def do_similitud_creacionVectores(  obj_extractor,
     dataNoticia_Master = obj_extractor.getDataNoticiaMaster()
     texto_Master = ""
     for atributo in list_atributosEstudio:
-        texto_Master += obj_extractor.getAtributoNoticia(dataNoticia_Master, atributo)    
+        texto_Master += " " + obj_extractor.getAtributoNoticia(dataNoticia_Master, atributo)    
     texto_Master = obj_extractor.getDoc(texto_Master) 
     linkNoticia_Master = obj_extractor.getLinkNoticiaMaster()
     funct_addEntry(linkNoticia_Master, texto_Master)
@@ -102,7 +106,7 @@ def do_similitud_creacionVectores(  obj_extractor,
 
         texto_Analizar = ""
         for atributo in list_atributosEstudio:
-            texto_Analizar += obj_extractor.getAtributoNoticia(dataNoticia_Analizar, atributo)
+            texto_Analizar += " " + obj_extractor.getAtributoNoticia(dataNoticia_Analizar, atributo)
         texto_Analizar = obj_extractor.getDoc(texto_Analizar)
 
         funct_addEntry(linkNoticia, texto_Analizar)
@@ -151,7 +155,7 @@ def printResult(obj_procesador,
                                 str(segs))
     FILE_OUT.write(strPrint)
     
-    print("Terminado: " + " + ".join(list_atrisUtilizados))
+    print("Terminado Similitud: " + similitudUtilizada + "\t para atributo: " + " + ".join(list_atrisUtilizados))
 
     return diccResults            
     
@@ -163,6 +167,8 @@ if __name__ == '__main__':
 
     for tipoSimilitud in LISTA_SIMILITUDES:
 
+        atributosVistos = []
+
         for atributo_1 in LISTA_ATRIBUTOS:
 
             list_atributosEstudio = [atributo_1]
@@ -170,8 +176,13 @@ if __name__ == '__main__':
 
             for atributo_2 in LISTA_ATRIBUTOS:
 
+                if atributo_2 in atributosVistos:
+                    continue
+
                 if atributo_1 != atributo_2:
                     list_atributosEstudio.append(atributo_2)
+
+                print(list_atributosEstudio)
 
                 if tipoSimilitud in LISTA_SIMILITUDES_T1 or tipoSimilitud in LISTA_SIMILITUDES_T3:
 
@@ -202,7 +213,10 @@ if __name__ == '__main__':
                             list_atributosEstudio,
                             tiempoEjecucion)
 
-                list_atributosEstudio.remove(atributo_2)
+                if atributo_1 != atributo_2:
+                    list_atributosEstudio.remove(atributo_2)
+
+            atributosVistos.append(atributo_1)
 
     obj_extractor.closeFile()
     FILE_OUT.close()
