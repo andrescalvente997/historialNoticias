@@ -18,11 +18,12 @@ LISTA_ATRIBUTOS = [ "titularNoticia",
 
 ,"cuerpoNoticia"
 ''' 
-LISTA_SIMILITUDES = [   "SIMILITUD_COSENO_TF-IDF",
+LISTA_SIMILITUDES = [   "SIMILITUD_COSENO_SPACY", 
+                        "SIMILITUD_JACCARD",
+                        "SIMILITUD_COSENO_TF-IDF",
                         "SIMILITUD_COSENO_BOW"]
 '''
-"SIMILITUD_COSENO_SPACY", 
-                        "SIMILITUD_JACCARD",
+
 '''
 LISTA_SIMILITUDES_T1 = ["SIMILITUD_COSENO_SPACY"]
 LISTA_SIMILITUDES_T2 = ["SIMILITUD_COSENO_TF-IDF",
@@ -52,8 +53,6 @@ def do_similitud_noCreacionVecs(obj_extractor,
     for atributo in list_atributosEstudio:
         texto_Master += " " + obj_extractor.getAtributoNoticia(dataNoticia_Master, atributo)    
     texto_Master = obj_extractor.getDoc(texto_Master) 
-
-    print(texto_Master)
 
     if listLinksNoticias == None:
         listLinksNoticias = obj_extractor.getLinksNoticiasAnalizar()
@@ -181,8 +180,6 @@ if __name__ == '__main__':
 
                 if atributo_1 != atributo_2:
                     list_atributosEstudio.append(atributo_2)
-
-                print(list_atributosEstudio)
 
                 if tipoSimilitud in LISTA_SIMILITUDES_T1 or tipoSimilitud in LISTA_SIMILITUDES_T3:
 
