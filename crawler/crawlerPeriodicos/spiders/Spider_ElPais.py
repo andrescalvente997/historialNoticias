@@ -80,7 +80,7 @@ class Spider_ElPais(CrawlSpider):
 
         # Comprobamos que la noticia esté entera y no tengamos 
         # que estar registrados para verla completa
-        if len(response.xpath(XPATH_NOTICIAS_REGISTRO).extract()) != 0:
+        if len(response.xpath(XPATH_NOTICIAS_REGISTRO).extract()) == 1:
             return
 
         item = item_Noticia()

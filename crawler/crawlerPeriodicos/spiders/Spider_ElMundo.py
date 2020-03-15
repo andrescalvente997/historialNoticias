@@ -21,6 +21,8 @@ XPATH_NOTICIA_FOTO_FIRMA = '//span[@class="ue-c-article__media-source"]//text()'
 XPATH_NOTICIA_CUERPO = '//div[@class="ue-l-article__body ue-c-article__body"]/p'
 XPATH_NOTICIA_TAGS = '//li[@class="ue-c-article__tags-item"]//text()'
 
+XPATH_NOTICIAS_REGISTRO = '//div[contains(@class,"ue-c-article__premium-header")]'
+
 class Spider_ElMundo(CrawlSpider):
 
     name = 'Spider_ElMundo'
@@ -69,6 +71,11 @@ class Spider_ElMundo(CrawlSpider):
     
     
     def parse_item(self, response):
+
+        # Comprobamos que la noticia esté entera y no tengamos 
+        # que estar registrados para verla completa
+        if len(response.xpath(XPATH_NOTICIAS_REGISTRO).extract()) == 1:
+            return
 
         item = item_Noticia()
 
