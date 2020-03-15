@@ -145,7 +145,7 @@ def printResult(obj_procesador,
     strPrint += "{} \n"
     strPrint += ">> Top: \n"
     strPrint += "{} \n"
-    strPrint += "Tiempo empleado: {} minutos y {} segundos\n"
+    strPrint += "Tiempo empleado: {} minutos y {} segundos\n\n"
     strPrint = strPrint.format( similitudUtilizada,
                                 " + ".join(list_atrisUtilizados),
                                 obj_procesador,
