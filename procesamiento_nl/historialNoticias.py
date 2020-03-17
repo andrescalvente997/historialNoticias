@@ -35,10 +35,10 @@ TOP_RESULTS_2 = 50
 URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html"
 NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../crawler/crawlerPeriodicos/datos_EL_PAIS/20200125_20200202_noticias_etiquetadas.json"
 
-STR_FICHERO_OUT = "../scores_EL_PAIS_20200125_20200202.txt"
+STR_FICHERO_OUT = "../EL_PAIS_20200125_20200202_scores.txt"
 FILE_OUT_SCORES = open(STR_FICHERO_OUT, 'w')
 FILE_OUT_SCORES.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR)
-STR_FICHERO_OUT = "../histotorial_EL_PAIS_20200125_20200202.txt"
+STR_FICHERO_OUT = "../EL_PAIS_20200125_20200202_historial.txt"
 FILE_OUT_HIST = open(STR_FICHERO_OUT, 'w')
 FILE_OUT_HIST.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR)
 
@@ -164,7 +164,7 @@ def printResult(obj_procesador,
     for linkNoticia in diccResults.keys():
         dataNoticia = obj_extractor.getDataNoticia(linkNoticia)
         fechaNoticia = obj_extractor.getAtributoNoticia(dataNoticia, "fechaPublicacionNoticia", flgTratar=False)
-        diccFechas[dataNoticia] = fechaNoticia
+        diccFechas[linkNoticia] = fechaNoticia
     diccFechas = {k: v for k, v in sorted(diccFechas.items(), key=lambda item: datetime.strptime(item[1],"%Y-%m-%dT%H:%M:%SZ"), reverse=True)}
     
     for linkNoticia, fechaNoticia in diccFechas.items():
