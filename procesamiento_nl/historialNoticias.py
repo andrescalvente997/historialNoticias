@@ -6,6 +6,7 @@ import math
 import extractor
 import similitud
 import procesador
+from datetime import datetime
 
 ATRIBUTO_ESTUDIO_1 = "cuerpoNoticia"
 ATRIBUTO_ESTUDIO_2 = "keywordsNoticia"
@@ -34,8 +35,12 @@ TOP_RESULTS_2 = 50
 URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html"
 NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../crawler/crawlerPeriodicos/datos_EL_PAIS/20200125_20200202_noticias_etiquetadas.json"
 
-STR_FICHERO_OUT = "../res_historialNoticias_vectores_sumaSims.txt"
-FILE_OUT = open(STR_FICHERO_OUT, 'w')
+STR_FICHERO_OUT = "../scores_EL_PAIS_20200125_20200202.txt"
+FILE_OUT_SCORES = open(STR_FICHERO_OUT, 'w')
+FILE_OUT_SCORES.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR)
+STR_FICHERO_OUT = "../histotorial_EL_PAIS_20200125_20200202.txt"
+FILE_OUT_HIST = open(STR_FICHERO_OUT, 'w')
+FILE_OUT_HIST.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR)
 
 
 def do_similitud_noCreacionVecs(obj_extractor, 
@@ -127,6 +132,7 @@ def do_similitud_creacionVectores(  obj_extractor,
     return obj_procesador, round(time_end - time_start)
 
 def printResult(obj_procesador, 
+                obj_extractor,
                 similitudUtilizada,
                 noticiasEtiquetadas,
                 topResults,
@@ -152,11 +158,24 @@ def printResult(obj_procesador,
                                 strResultTop,
                                 str(mins),
                                 str(segs))
-    FILE_OUT.write(strPrint)
+    FILE_OUT_SCORES.write(strPrint)
+
+    diccFechas = {}
+    for linkNoticia in diccResults.keys():
+        dataNoticia = obj_extractor.getDataNoticia(linkNoticia)
+        fechaNoticia = obj_extractor.getAtributoNoticia(dataNoticia, "fechaPublicacionNoticia", flgTratar=False)
+        diccFechas[dataNoticia] = fechaNoticia
+    diccFechas = {k: v for k, v in sorted(diccFechas.items(), key=lambda item: datetime.strptime(item[1],"%Y-%m-%dT%H:%M:%SZ"), reverse=True)}
     
+    for linkNoticia, fechaNoticia in diccFechas.items():
+        strPrint = "{}\t{}\n"
+        strPrint = strPrint.format( fechaNoticia,
+                                    linkNoticia)
+        FILE_OUT_HIST.write(strPrint)
+
     print("Terminado Similitud: " + similitudUtilizada + "\t para atributo: " + " + ".join(list_atrisUtilizados))
 
-    return diccResults            
+    return diccResults          
     
 
 if __name__ == '__main__':
@@ -204,6 +223,7 @@ if __name__ == '__main__':
                                                                                     atributo_funct_createVecs)
                 
                 printResult(obj_procesador,
+                            obj_extractor,
                             tipoSimilitud,
                             noticiasEtiquetadas,
                             TOP_RESULTS_1,
@@ -216,4 +236,5 @@ if __name__ == '__main__':
             atributosVistos.append(atributo_1)
 
     obj_extractor.closeFile()
-    FILE_OUT.close()
+    FILE_OUT_SCORES.close()
+    FILE_OUT_HIST.close()
