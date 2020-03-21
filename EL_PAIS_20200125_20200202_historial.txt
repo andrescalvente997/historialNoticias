@@ -1,4 +1,6 @@
-NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html2020-02-02T17:18:42Z	https://elpais.com/elpais/2020/01/31/gente/1580473344_806139.html
+NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html
+Algoritmo: SIMILITUD_COSENO_SPACY	 Atributos: titularNoticia
+2020-02-02T17:18:42Z	https://elpais.com/elpais/2020/01/31/gente/1580473344_806139.html
 2020-02-02T14:36:14Z	https://elpais.com/deportes/2020/02/02/actualidad/1580610446_922892.html
 2020-02-02T08:56:44Z	https://elpais.com/cultura/2020/01/28/television/1580246683_411769.html
 2020-02-02T08:55:47Z	https://elpais.com/elpais/2020/01/31/ideas/1580485200_697662.html
@@ -98,6 +100,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2020-01-13T10:11:49Z	https://elpais.com/sociedad/2020/01/10/pienso_luego_actuo/1578651442_806079.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_SPACY	 Atributos: titularNoticia + keywordsNoticia
 2020-02-02T17:38:04Z	https://elpais.com/internacional/2020/02/02/actualidad/1580648768_253079.html
 2020-02-02T17:18:42Z	https://elpais.com/elpais/2020/01/31/gente/1580473344_806139.html
 2020-02-02T15:25:50Z	https://elpais.com/politica/2020/02/01/actualidad/1580571464_876394.html
@@ -198,6 +201,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-13T10:11:49Z	https://elpais.com/sociedad/2020/01/10/pienso_luego_actuo/1578651442_806079.html
 2019-12-27T20:30:22Z	https://elpais.com/politica/2019/12/27/actualidad/1577477305_120812.html
 2019-03-18T10:11:51Z	https://elpais.com/sociedad/2019/03/15/actualidad/1552647445_804771.html
+Algoritmo: SIMILITUD_COSENO_SPACY	 Atributos: titularNoticia + resumenNoticia
 2020-02-02T17:38:04Z	https://elpais.com/internacional/2020/02/02/actualidad/1580648768_253079.html
 2020-02-02T15:25:50Z	https://elpais.com/politica/2020/02/01/actualidad/1580571464_876394.html
 2020-02-02T08:56:47Z	https://elpais.com/elpais/2020/01/29/icon/1580317031_184672.html
@@ -298,6 +302,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2020-01-18T23:00:26Z	https://elpais.com/elpais/2020/01/17/ideas/1579264297_444892.html
 2019-12-27T20:30:22Z	https://elpais.com/politica/2019/12/27/actualidad/1577477305_120812.html
+Algoritmo: SIMILITUD_COSENO_SPACY	 Atributos: titularNoticia + autorNoticia
 2020-02-02T17:18:42Z	https://elpais.com/elpais/2020/01/31/gente/1580473344_806139.html
 2020-02-02T14:36:14Z	https://elpais.com/deportes/2020/02/02/actualidad/1580610446_922892.html
 2020-02-02T08:56:44Z	https://elpais.com/cultura/2020/01/28/television/1580246683_411769.html
@@ -398,6 +403,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-04T23:06:58Z	https://elpais.com/elpais/2020/01/03/escaparate/1578055541_303863.html
 2020-01-02T10:11:19Z	https://elpais.com/elpais/2019/12/27/escaparate/1577452247_702356.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_SPACY	 Atributos: titularNoticia + tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T11:18:22Z	https://elpais.com/elpais/2020/01/31/ciencia/1580473363_809511.html
@@ -498,6 +504,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2020-01-21T17:16:55Z	https://elpais.com/elpais/2020/01/21/ciencia/1579611579_875032.html
 2020-01-14T15:57:52Z	https://elpais.com/politica/2020/01/14/actualidad/1578992164_065899.html
+Algoritmo: SIMILITUD_COSENO_SPACY	 Atributos: keywordsNoticia
 2020-02-02T17:38:04Z	https://elpais.com/internacional/2020/02/02/actualidad/1580648768_253079.html
 2020-02-02T15:25:50Z	https://elpais.com/politica/2020/02/01/actualidad/1580571464_876394.html
 2020-02-02T08:56:47Z	https://elpais.com/elpais/2020/01/29/icon/1580317031_184672.html
@@ -598,6 +605,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-02T10:11:19Z	https://elpais.com/elpais/2019/12/27/escaparate/1577452247_702356.html
 2019-12-27T20:30:22Z	https://elpais.com/politica/2019/12/27/actualidad/1577477305_120812.html
 2019-03-18T10:11:51Z	https://elpais.com/sociedad/2019/03/15/actualidad/1552647445_804771.html
+Algoritmo: SIMILITUD_COSENO_SPACY	 Atributos: keywordsNoticia + resumenNoticia
 2020-02-02T17:38:04Z	https://elpais.com/internacional/2020/02/02/actualidad/1580648768_253079.html
 2020-02-02T15:25:50Z	https://elpais.com/politica/2020/02/01/actualidad/1580571464_876394.html
 2020-02-02T08:56:47Z	https://elpais.com/elpais/2020/01/29/icon/1580317031_184672.html
@@ -698,6 +706,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T14:17:30Z	https://elpais.com/elpais/2020/01/23/videos/1579801010_529836.html
 2020-01-14T15:57:52Z	https://elpais.com/politica/2020/01/14/actualidad/1578992164_065899.html
 2019-12-27T20:30:22Z	https://elpais.com/politica/2019/12/27/actualidad/1577477305_120812.html
+Algoritmo: SIMILITUD_COSENO_SPACY	 Atributos: keywordsNoticia + autorNoticia
 2020-02-02T17:38:04Z	https://elpais.com/internacional/2020/02/02/actualidad/1580648768_253079.html
 2020-02-02T15:25:50Z	https://elpais.com/politica/2020/02/01/actualidad/1580571464_876394.html
 2020-02-02T08:56:47Z	https://elpais.com/elpais/2020/01/29/icon/1580317031_184672.html
@@ -798,6 +807,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-02T10:11:19Z	https://elpais.com/elpais/2019/12/27/escaparate/1577452247_702356.html
 2019-12-27T20:30:22Z	https://elpais.com/politica/2019/12/27/actualidad/1577477305_120812.html
 2019-03-18T10:11:51Z	https://elpais.com/sociedad/2019/03/15/actualidad/1552647445_804771.html
+Algoritmo: SIMILITUD_COSENO_SPACY	 Atributos: keywordsNoticia + tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T11:18:22Z	https://elpais.com/elpais/2020/01/31/ciencia/1580473363_809511.html
@@ -898,6 +908,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2020-01-21T17:16:55Z	https://elpais.com/elpais/2020/01/21/ciencia/1579611579_875032.html
 2020-01-14T15:57:52Z	https://elpais.com/politica/2020/01/14/actualidad/1578992164_065899.html
+Algoritmo: SIMILITUD_COSENO_SPACY	 Atributos: resumenNoticia
 2020-02-01T23:00:00Z	https://elpais.com/elpais/2020/01/31/opinion/1580487788_326877.html
 2020-02-01T16:37:25Z	https://elpais.com/internacional/2020/01/31/actualidad/1580510616_336817.html
 2020-02-01T16:15:25Z	https://elpais.com/internacional/2020/01/31/actualidad/1580493745_169747.html
@@ -998,6 +1009,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-23T09:06:14Z	https://elpais.com/elpais/2020/01/22/ciencia/1579690682_461642.html
 2020-01-18T23:00:26Z	https://elpais.com/elpais/2020/01/17/ideas/1579264297_444892.html
 2020-01-14T15:57:52Z	https://elpais.com/politica/2020/01/14/actualidad/1578992164_065899.html
+Algoritmo: SIMILITUD_COSENO_SPACY	 Atributos: resumenNoticia + autorNoticia
 2020-02-02T15:25:50Z	https://elpais.com/politica/2020/02/01/actualidad/1580571464_876394.html
 2020-02-01T23:03:51Z	https://elpais.com/cultura/2020/02/01/actualidad/1580578596_173482.html
 2020-02-01T20:04:40Z	https://elpais.com/internacional/2020/02/01/actualidad/1580584773_285132.html
@@ -1098,6 +1110,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-23T09:06:14Z	https://elpais.com/elpais/2020/01/22/ciencia/1579690682_461642.html
 2020-01-18T23:00:26Z	https://elpais.com/elpais/2020/01/17/ideas/1579264297_444892.html
 2020-01-14T15:57:52Z	https://elpais.com/politica/2020/01/14/actualidad/1578992164_065899.html
+Algoritmo: SIMILITUD_COSENO_SPACY	 Atributos: resumenNoticia + tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
@@ -1198,6 +1211,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2020-01-21T17:16:55Z	https://elpais.com/elpais/2020/01/21/ciencia/1579611579_875032.html
 2020-01-14T15:57:52Z	https://elpais.com/politica/2020/01/14/actualidad/1578992164_065899.html
+Algoritmo: SIMILITUD_COSENO_SPACY	 Atributos: autorNoticia
 2020-02-02T10:26:18Z	https://elpais.com/economia/2020/02/01/actualidad/1580586437_958117.html
 2020-02-02T09:43:03Z	https://elpais.com/cultura/2020/01/30/babelia/1580392401_909524.html
 2020-02-02T08:56:44Z	https://elpais.com/cultura/2020/01/28/television/1580246683_411769.html
@@ -1298,6 +1312,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-07T08:55:29Z	https://elpais.com/elpais/2019/12/26/escaparate/1577370977_704157.html
 2019-12-27T20:30:22Z	https://elpais.com/politica/2019/12/27/actualidad/1577477305_120812.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_SPACY	 Atributos: autorNoticia + tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
@@ -1398,6 +1413,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-23T09:06:14Z	https://elpais.com/elpais/2020/01/22/ciencia/1579690682_461642.html
 2020-01-21T17:16:55Z	https://elpais.com/elpais/2020/01/21/ciencia/1579611579_875032.html
 2020-01-14T15:57:52Z	https://elpais.com/politica/2020/01/14/actualidad/1578992164_065899.html
+Algoritmo: SIMILITUD_COSENO_SPACY	 Atributos: tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
@@ -1498,6 +1514,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2020-01-21T17:16:55Z	https://elpais.com/elpais/2020/01/21/ciencia/1579611579_875032.html
 2020-01-14T15:57:52Z	https://elpais.com/politica/2020/01/14/actualidad/1578992164_065899.html
+Algoritmo: SIMILITUD_JACCARD	 Atributos: titularNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:51:19Z	https://elpais.com/politica/2020/02/01/actualidad/1580590785_583972.html
 2020-02-02T12:24:02Z	https://elpais.com/economia/2020/01/31/actualidad/1580471100_132319.html
@@ -1598,6 +1615,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T19:40:58Z	https://elpais.com/deportes/2020/01/24/actualidad/1579888893_274521.html
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_JACCARD	 Atributos: titularNoticia + keywordsNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T14:51:19Z	https://elpais.com/politica/2020/02/01/actualidad/1580590785_583972.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
@@ -1698,6 +1716,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2020-01-19T18:07:44Z	https://elpais.com/elpais/2020/01/13/eps/1578920839_882422.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_JACCARD	 Atributos: titularNoticia + resumenNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
@@ -1798,6 +1817,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
 2019-03-18T10:11:51Z	https://elpais.com/sociedad/2019/03/15/actualidad/1552647445_804771.html
+Algoritmo: SIMILITUD_JACCARD	 Atributos: titularNoticia + autorNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
 2020-02-02T10:26:18Z	https://elpais.com/economia/2020/02/01/actualidad/1580586437_958117.html
@@ -1898,6 +1918,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T20:09:38Z	https://elpais.com/cultura/2020/01/24/television/1579895543_405359.html
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_JACCARD	 Atributos: titularNoticia + tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T11:18:22Z	https://elpais.com/elpais/2020/01/31/ciencia/1580473363_809511.html
@@ -1998,6 +2019,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T10:56:26Z	https://elpais.com/internacional/2020/01/21/mundo_global/1579602412_137218.html
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_JACCARD	 Atributos: keywordsNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T14:51:19Z	https://elpais.com/politica/2020/02/01/actualidad/1580590785_583972.html
 2020-02-02T13:32:16Z	https://elpais.com/ccaa/2020/02/01/madrid/1580574138_819521.html
@@ -2098,6 +2120,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2020-01-19T18:07:44Z	https://elpais.com/elpais/2020/01/13/eps/1578920839_882422.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_JACCARD	 Atributos: keywordsNoticia + resumenNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
@@ -2198,6 +2221,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T15:38:13Z	https://elpais.com/economia/2020/01/24/actualidad/1579879911_304193.html
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_JACCARD	 Atributos: keywordsNoticia + autorNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
@@ -2298,6 +2322,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T15:38:13Z	https://elpais.com/economia/2020/01/24/actualidad/1579879911_304193.html
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_JACCARD	 Atributos: keywordsNoticia + tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T11:18:22Z	https://elpais.com/elpais/2020/01/31/ciencia/1580473363_809511.html
@@ -2398,6 +2423,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T11:01:48Z	https://elpais.com/elpais/2020/01/24/ciencia/1579862192_003711.html
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_JACCARD	 Atributos: resumenNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T15:27:48Z	https://elpais.com/sociedad/2020/02/02/actualidad/1580649488_754359.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
@@ -2498,6 +2524,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2020-01-24T06:32:35Z	https://elpais.com/elpais/2020/01/23/buenavida/1579775031_232992.html
 2020-01-23T19:55:30Z	https://elpais.com/elpais/2020/01/23/album/1579768894_958293.html
+Algoritmo: SIMILITUD_JACCARD	 Atributos: resumenNoticia + autorNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T15:27:48Z	https://elpais.com/sociedad/2020/02/02/actualidad/1580649488_754359.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
@@ -2598,6 +2625,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2020-01-24T06:32:35Z	https://elpais.com/elpais/2020/01/23/buenavida/1579775031_232992.html
 2020-01-23T19:55:30Z	https://elpais.com/elpais/2020/01/23/album/1579768894_958293.html
+Algoritmo: SIMILITUD_JACCARD	 Atributos: resumenNoticia + tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
@@ -2698,6 +2726,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T17:14:33Z	https://elpais.com/elpais/2020/01/22/ciencia/1579714580_913085.html
 2020-01-24T11:01:48Z	https://elpais.com/elpais/2020/01/24/ciencia/1579862192_003711.html
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
+Algoritmo: SIMILITUD_JACCARD	 Atributos: autorNoticia
 2020-02-02T10:26:18Z	https://elpais.com/economia/2020/02/01/actualidad/1580586437_958117.html
 2020-02-01T10:53:01Z	https://elpais.com/sociedad/2020/01/31/actualidad/1580446218_765096.html
 2020-01-31T06:02:53Z	https://elpais.com/sociedad/2020/01/30/actualidad/1580360187_316344.html
@@ -2798,6 +2827,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-25T12:51:08Z	https://elpais.com/sociedad/2020/01/24/actualidad/1579885326_284290.html
 2020-01-25T10:12:20Z	https://elpais.com/politica/2020/01/24/diario_de_espana/1579880185_559782.html
 2020-01-24T17:17:08Z	https://cincodias.elpais.com/cincodias/2020/01/24/mercados/1579868663_866345.html
+Algoritmo: SIMILITUD_JACCARD	 Atributos: autorNoticia + tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
@@ -2898,6 +2928,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T10:56:26Z	https://elpais.com/internacional/2020/01/21/mundo_global/1579602412_137218.html
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_JACCARD	 Atributos: tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
@@ -2998,6 +3029,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T10:56:26Z	https://elpais.com/internacional/2020/01/21/mundo_global/1579602412_137218.html
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_TF-IDF	 Atributos: titularNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T12:24:02Z	https://elpais.com/economia/2020/01/31/actualidad/1580471100_132319.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
@@ -3098,6 +3130,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T23:00:12Z	https://elpais.com/elpais/2020/01/24/opinion/1579871944_887071.html
 2020-01-24T17:17:08Z	https://cincodias.elpais.com/cincodias/2020/01/24/mercados/1579868663_866345.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_TF-IDF	 Atributos: titularNoticia + keywordsNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
@@ -3198,6 +3231,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T15:38:13Z	https://elpais.com/economia/2020/01/24/actualidad/1579879911_304193.html
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_TF-IDF	 Atributos: titularNoticia + resumenNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
@@ -3298,6 +3332,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T15:38:13Z	https://elpais.com/economia/2020/01/24/actualidad/1579879911_304193.html
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_TF-IDF	 Atributos: titularNoticia + autorNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
 2020-02-02T10:26:18Z	https://elpais.com/economia/2020/02/01/actualidad/1580586437_958117.html
@@ -3398,6 +3433,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T23:00:23Z	https://elpais.com/elpais/2020/01/24/opinion/1579887961_363674.html
 2020-01-24T17:17:08Z	https://cincodias.elpais.com/cincodias/2020/01/24/mercados/1579868663_866345.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_TF-IDF	 Atributos: titularNoticia + tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T11:18:22Z	https://elpais.com/elpais/2020/01/31/ciencia/1580473363_809511.html
@@ -3498,6 +3534,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T20:03:33Z	https://elpais.com/internacional/2020/01/24/actualidad/1579888708_296153.html
 2020-01-24T17:14:33Z	https://elpais.com/elpais/2020/01/22/ciencia/1579714580_913085.html
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
+Algoritmo: SIMILITUD_COSENO_TF-IDF	 Atributos: keywordsNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T13:32:16Z	https://elpais.com/ccaa/2020/02/01/madrid/1580574138_819521.html
@@ -3598,6 +3635,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T15:38:13Z	https://elpais.com/economia/2020/01/24/actualidad/1579879911_304193.html
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_TF-IDF	 Atributos: keywordsNoticia + resumenNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
@@ -3698,6 +3736,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T15:38:13Z	https://elpais.com/economia/2020/01/24/actualidad/1579879911_304193.html
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_TF-IDF	 Atributos: keywordsNoticia + autorNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
@@ -3798,6 +3837,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T17:11:53Z	https://elpais.com/economia/2020/01/24/actualidad/1579874353_105054.html
 2020-01-24T15:38:13Z	https://elpais.com/economia/2020/01/24/actualidad/1579879911_304193.html
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
+Algoritmo: SIMILITUD_COSENO_TF-IDF	 Atributos: keywordsNoticia + tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T11:18:22Z	https://elpais.com/elpais/2020/01/31/ciencia/1580473363_809511.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
@@ -3898,6 +3938,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T17:14:33Z	https://elpais.com/elpais/2020/01/22/ciencia/1579714580_913085.html
 2020-01-24T17:11:53Z	https://elpais.com/economia/2020/01/24/actualidad/1579874353_105054.html
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
+Algoritmo: SIMILITUD_COSENO_TF-IDF	 Atributos: resumenNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
 2020-02-01T23:24:53Z	https://elpais.com/elpais/2020/02/01/opinion/1580574479_442028.html
@@ -3998,6 +4039,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T17:17:08Z	https://cincodias.elpais.com/cincodias/2020/01/24/mercados/1579868663_866345.html
 2020-01-24T15:38:13Z	https://elpais.com/economia/2020/01/24/actualidad/1579879911_304193.html
 2020-01-23T19:55:30Z	https://elpais.com/elpais/2020/01/23/album/1579768894_958293.html
+Algoritmo: SIMILITUD_COSENO_TF-IDF	 Atributos: resumenNoticia + autorNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
 2020-02-02T10:26:18Z	https://elpais.com/economia/2020/02/01/actualidad/1580586437_958117.html
@@ -4098,6 +4140,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T20:09:38Z	https://elpais.com/cultura/2020/01/24/television/1579895543_405359.html
 2020-01-24T17:17:08Z	https://cincodias.elpais.com/cincodias/2020/01/24/mercados/1579868663_866345.html
 2020-01-24T15:38:13Z	https://elpais.com/economia/2020/01/24/actualidad/1579879911_304193.html
+Algoritmo: SIMILITUD_COSENO_TF-IDF	 Atributos: resumenNoticia + tagsNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
@@ -4198,6 +4241,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T20:03:33Z	https://elpais.com/internacional/2020/01/24/actualidad/1579888708_296153.html
 2020-01-24T17:14:33Z	https://elpais.com/elpais/2020/01/22/ciencia/1579714580_913085.html
 2020-01-24T15:38:13Z	https://elpais.com/economia/2020/01/24/actualidad/1579879911_304193.html
+Algoritmo: SIMILITUD_COSENO_TF-IDF	 Atributos: autorNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T14:36:14Z	https://elpais.com/deportes/2020/02/02/actualidad/1580610446_922892.html
 2020-02-02T10:26:18Z	https://elpais.com/economia/2020/02/01/actualidad/1580586437_958117.html
@@ -4298,6 +4342,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T17:17:08Z	https://cincodias.elpais.com/cincodias/2020/01/24/mercados/1579868663_866345.html
 2020-01-24T12:56:50Z	https://elpais.com/elpais/2020/01/23/el_pais_que_hacemos/1579785711_478630.html
 2020-01-23T19:55:30Z	https://elpais.com/elpais/2020/01/23/album/1579768894_958293.html
+Algoritmo: SIMILITUD_COSENO_TF-IDF	 Atributos: autorNoticia + tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
 2020-02-02T10:26:18Z	https://elpais.com/economia/2020/02/01/actualidad/1580586437_958117.html
@@ -4398,6 +4443,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T23:00:28Z	https://elpais.com/sociedad/2020/01/24/actualidad/1579894128_598473.html
 2020-01-24T20:03:33Z	https://elpais.com/internacional/2020/01/24/actualidad/1579888708_296153.html
 2020-01-24T17:14:33Z	https://elpais.com/elpais/2020/01/22/ciencia/1579714580_913085.html
+Algoritmo: SIMILITUD_COSENO_TF-IDF	 Atributos: tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
 2020-02-02T08:35:43Z	https://elpais.com/sociedad/2020/01/28/actualidad/1580227992_277269.html
@@ -4498,6 +4544,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T23:00:28Z	https://elpais.com/sociedad/2020/01/24/actualidad/1579894128_598473.html
 2020-01-24T17:17:08Z	https://cincodias.elpais.com/cincodias/2020/01/24/mercados/1579868663_866345.html
 2020-01-24T17:14:33Z	https://elpais.com/elpais/2020/01/22/ciencia/1579714580_913085.html
+Algoritmo: SIMILITUD_COSENO_BOW	 Atributos: titularNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:51:19Z	https://elpais.com/politica/2020/02/01/actualidad/1580590785_583972.html
 2020-02-02T12:24:02Z	https://elpais.com/economia/2020/01/31/actualidad/1580471100_132319.html
@@ -4598,6 +4645,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T19:40:58Z	https://elpais.com/deportes/2020/01/24/actualidad/1579888893_274521.html
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_BOW	 Atributos: titularNoticia + keywordsNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:51:19Z	https://elpais.com/politica/2020/02/01/actualidad/1580590785_583972.html
@@ -4698,6 +4746,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T15:38:13Z	https://elpais.com/economia/2020/01/24/actualidad/1579879911_304193.html
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_BOW	 Atributos: titularNoticia + resumenNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
@@ -4798,6 +4847,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
 2019-03-18T10:11:51Z	https://elpais.com/sociedad/2019/03/15/actualidad/1552647445_804771.html
+Algoritmo: SIMILITUD_COSENO_BOW	 Atributos: titularNoticia + autorNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
 2020-02-02T10:26:18Z	https://elpais.com/economia/2020/02/01/actualidad/1580586437_958117.html
@@ -4898,6 +4948,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T20:09:38Z	https://elpais.com/cultura/2020/01/24/television/1579895543_405359.html
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_BOW	 Atributos: titularNoticia + tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T11:18:22Z	https://elpais.com/elpais/2020/01/31/ciencia/1580473363_809511.html
@@ -4998,6 +5049,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T11:01:48Z	https://elpais.com/elpais/2020/01/24/ciencia/1579862192_003711.html
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_BOW	 Atributos: keywordsNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T14:51:19Z	https://elpais.com/politica/2020/02/01/actualidad/1580590785_583972.html
 2020-02-02T13:32:16Z	https://elpais.com/ccaa/2020/02/01/madrid/1580574138_819521.html
@@ -5098,6 +5150,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2020-01-19T18:07:44Z	https://elpais.com/elpais/2020/01/13/eps/1578920839_882422.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_BOW	 Atributos: keywordsNoticia + resumenNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
@@ -5198,6 +5251,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T15:38:13Z	https://elpais.com/economia/2020/01/24/actualidad/1579879911_304193.html
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_BOW	 Atributos: keywordsNoticia + autorNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
@@ -5298,6 +5352,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T15:38:13Z	https://elpais.com/economia/2020/01/24/actualidad/1579879911_304193.html
 2020-01-21T06:20:24Z	https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_BOW	 Atributos: keywordsNoticia + tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T11:18:22Z	https://elpais.com/elpais/2020/01/31/ciencia/1580473363_809511.html
@@ -5398,6 +5453,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T17:11:53Z	https://elpais.com/economia/2020/01/24/actualidad/1579874353_105054.html
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2019-12-09T13:05:10Z	https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
+Algoritmo: SIMILITUD_COSENO_BOW	 Atributos: resumenNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T15:27:48Z	https://elpais.com/sociedad/2020/02/02/actualidad/1580649488_754359.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
@@ -5498,6 +5554,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2020-01-24T06:32:35Z	https://elpais.com/elpais/2020/01/23/buenavida/1579775031_232992.html
 2020-01-23T19:55:30Z	https://elpais.com/elpais/2020/01/23/album/1579768894_958293.html
+Algoritmo: SIMILITUD_COSENO_BOW	 Atributos: resumenNoticia + autorNoticia
 2020-02-02T17:31:18Z	https://elpais.com/elpais/2020/02/02/videos/1580643911_867055.html
 2020-02-02T15:27:48Z	https://elpais.com/sociedad/2020/02/02/actualidad/1580649488_754359.html
 2020-02-02T10:47:40Z	https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580476712_928164.html
@@ -5598,6 +5655,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
 2020-01-24T06:32:35Z	https://elpais.com/elpais/2020/01/23/buenavida/1579775031_232992.html
 2020-01-23T19:55:30Z	https://elpais.com/elpais/2020/01/23/album/1579768894_958293.html
+Algoritmo: SIMILITUD_COSENO_BOW	 Atributos: resumenNoticia + tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html
@@ -5698,6 +5756,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T17:14:33Z	https://elpais.com/elpais/2020/01/22/ciencia/1579714580_913085.html
 2020-01-24T11:01:48Z	https://elpais.com/elpais/2020/01/24/ciencia/1579862192_003711.html
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
+Algoritmo: SIMILITUD_COSENO_BOW	 Atributos: autorNoticia
 2020-02-02T10:26:18Z	https://elpais.com/economia/2020/02/01/actualidad/1580586437_958117.html
 2020-02-01T10:53:01Z	https://elpais.com/sociedad/2020/01/31/actualidad/1580446218_765096.html
 2020-01-31T06:02:53Z	https://elpais.com/sociedad/2020/01/30/actualidad/1580360187_316344.html
@@ -5798,6 +5857,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-25T12:51:08Z	https://elpais.com/sociedad/2020/01/24/actualidad/1579885326_284290.html
 2020-01-25T10:12:20Z	https://elpais.com/politica/2020/01/24/diario_de_espana/1579880185_559782.html
 2020-01-24T17:17:08Z	https://cincodias.elpais.com/cincodias/2020/01/24/mercados/1579868663_866345.html
+Algoritmo: SIMILITUD_COSENO_BOW	 Atributos: autorNoticia + tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T11:18:22Z	https://elpais.com/elpais/2020/01/31/ciencia/1580473363_809511.html
@@ -5898,6 +5958,7 @@ NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569
 2020-01-24T17:14:33Z	https://elpais.com/elpais/2020/01/22/ciencia/1579714580_913085.html
 2020-01-24T11:01:48Z	https://elpais.com/elpais/2020/01/24/ciencia/1579862192_003711.html
 2020-01-24T10:38:21Z	https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_550223.html
+Algoritmo: SIMILITUD_COSENO_BOW	 Atributos: tagsNoticia
 2020-02-02T15:55:05Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 2020-02-02T14:41:29Z	https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html
 2020-02-02T10:45:06Z	https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html

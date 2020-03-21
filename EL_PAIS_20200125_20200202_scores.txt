@@ -1,4 +1,5 @@
-NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html#########################################################
+NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html
+#########################################################
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: titularNoticia
@@ -218,7 +219,7 @@ Top 98: https://elpais.com/deportes/2020/02/01/actualidad/1580522483_100804.html
 Top 99: https://elpais.com/cultura/2020/01/28/babelia/1580209155_043378.html 	0.89404 
 Top 100: https://elpais.com/cultura/2020/02/01/actualidad/1580558788_890085.html 	0.89389 
  
-Tiempo empleado: 1 minutos y 57 segundos
+Tiempo empleado: 1 minutos y 55 segundos
 
 #########################################################
 >> Resultados: 
@@ -329,7 +330,7 @@ Top 98: https://elpais.com/elpais/2020/01/31/opinion/1580477113_011520.html 	0.9
 Top 99: https://elpais.com/elpais/2020/01/26/opinion/1580057345_806740.html 	0.91544 
 Top 100: https://elpais.com/elpais/2020/01/31/icon/1580461095_160700.html 	0.9154 
  
-Tiempo empleado: 1 minutos y 56 segundos
+Tiempo empleado: 1 minutos y 58 segundos
 
 #########################################################
 >> Resultados: 
@@ -440,7 +441,7 @@ Top 98: https://elpais.com/tecnologia/2020/01/28/actualidad/1580218264_599357.ht
 Top 99: https://elpais.com/politica/2020/02/01/actualidad/1580571014_628041.html 	0.80593 
 Top 100: https://elpais.com/economia/2020/01/29/actualidad/1580318812_907792.html 	0.80591 
  
-Tiempo empleado: 1 minutos y 42 segundos
+Tiempo empleado: 1 minutos y 41 segundos
 
 #########################################################
 >> Resultados: 
@@ -551,7 +552,7 @@ Top 98: https://elpais.com/elpais/2020/01/31/ciencia/1580489094_751360.html 	0.8
 Top 99: https://elpais.com/internacional/2020/01/31/mundo_global/1580427256_661263.html 	0.86879 
 Top 100: https://elpais.com/elpais/2020/01/21/ciencia/1579611579_875032.html 	0.86861 
  
-Tiempo empleado: 1 minutos y 57 segundos
+Tiempo empleado: 1 minutos y 56 segundos
 
 #########################################################
 >> Resultados: 
@@ -662,7 +663,7 @@ Top 98: https://elpais.com/elpais/2020/01/30/gente/1580398764_180435.html 	0.896
 Top 99: https://elpais.com/elpais/2019/12/27/escaparate/1577452247_702356.html 	0.89636 
 Top 100: https://elpais.com/cultura/2020/01/28/babelia/1580209155_043378.html 	0.89617 
  
-Tiempo empleado: 1 minutos y 6 segundos
+Tiempo empleado: 1 minutos y 8 segundos
 
 #########################################################
 >> Resultados: 
@@ -773,7 +774,7 @@ Top 98: https://elpais.com/deportes/2020/01/25/actualidad/1579920518_323995.html
 Top 99: https://elpais.com/sociedad/2020/01/28/actualidad/1580252044_185423.html 	0.9044 
 Top 100: https://elpais.com/economia/2020/01/24/actualidad/1579874353_105054.html 	0.90434 
  
-Tiempo empleado: 2 minutos y 4 segundos
+Tiempo empleado: 2 minutos y 21 segundos
 
 #########################################################
 >> Resultados: 
@@ -884,7 +885,7 @@ Top 98: https://elpais.com/cultura/2020/01/29/television/1580303026_532286.html 
 Top 99: https://elpais.com/economia/2020/01/30/actualidad/1580393558_155959.html 	0.89417 
 Top 100: https://elpais.com/sociedad/2020/01/31/actualidad/1580446218_765096.html 	0.89405 	CORONAVIRUS 
  
-Tiempo empleado: 1 minutos y 49 segundos
+Tiempo empleado: 2 minutos y 5 segundos
 
 #########################################################
 >> Resultados: 
@@ -995,7 +996,7 @@ Top 98: https://elpais.com/sociedad/2020/02/01/actualidad/1580588680_306491.html
 Top 99: https://elpais.com/elpais/2020/01/31/ciencia/1580473363_809511.html 	0.89352 
 Top 100: https://elpais.com/internacional/2020/01/24/actualidad/1579888708_296153.html 	0.89329 
  
-Tiempo empleado: 2 minutos y 4 segundos
+Tiempo empleado: 2 minutos y 24 segundos
 
 #########################################################
 >> Resultados: 
@@ -1106,7 +1107,7 @@ Top 98: https://elpais.com/elpais/2020/01/23/videos/1579801010_529836.html 	0.87
 Top 99: https://elpais.com/elpais/2020/01/28/ciencia/1580222196_578189.html 	0.87781 
 Top 100: https://elpais.com/deportes/2020/01/25/actualidad/1579920518_323995.html 	0.87776 
  
-Tiempo empleado: 1 minutos y 6 segundos
+Tiempo empleado: 1 minutos y 19 segundos
 
 #########################################################
 >> Resultados: 
@@ -1217,7 +1218,7 @@ Top 98: https://elpais.com/deportes/2020/01/31/actualidad/1580491834_270661.html
 Top 99: https://elpais.com/sociedad/2020/01/27/actualidad/1580148458_763550.html 	0.86752 
 Top 100: https://elpais.com/sociedad/2020/01/31/actualidad/1580475130_358605.html 	0.86751 
  
-Tiempo empleado: 1 minutos y 49 segundos
+Tiempo empleado: 2 minutos y 10 segundos
 
 #########################################################
 >> Resultados: 
@@ -1328,7 +1329,7 @@ Top 98: https://elpais.com/economia/2020/01/24/actualidad/1579870950_561660.html
 Top 99: https://elpais.com/elpais/2020/01/28/mamas_papas/1580214275_728938.html 	0.89286 
 Top 100: https://elpais.com/elpais/2020/01/30/planeta_futuro/1580382400_246986.html 	0.89274 
  
-Tiempo empleado: 2 minutos y 4 segundos
+Tiempo empleado: 2 minutos y 34 segundos
 
 #########################################################
 >> Resultados: 
@@ -1439,7 +1440,7 @@ Top 98: https://elpais.com/elpais/2020/01/30/planeta_futuro/1580382400_246986.ht
 Top 99: https://elpais.com/economia/2020/01/30/actualidad/1580391244_707685.html 	0.34755 
 Top 100: https://elpais.com/elpais/2020/01/28/mamas_papas/1580214275_728938.html 	0.34357 
  
-Tiempo empleado: 0 minutos y 52 segundos
+Tiempo empleado: 1 minutos y 3 segundos
 
 #########################################################
 >> Resultados: 
@@ -1550,7 +1551,7 @@ Top 98: https://retina.elpais.com/retina/2020/01/24/tendencias/1579866200_058276
 Top 99: https://elpais.com/elpais/2020/01/29/escaparate/1580311043_113851.html 	0.8569 
 Top 100: https://elpais.com/elpais/2020/01/22/ciencia/1579714580_913085.html 	0.8568 
  
-Tiempo empleado: 1 minutos y 50 segundos
+Tiempo empleado: 2 minutos y 12 segundos
 
 #########################################################
 >> Resultados: 
@@ -1661,7 +1662,7 @@ Top 98: https://elpais.com/elpais/2020/01/31/buenavida/1580454608_698305.html 	0
 Top 99: https://elpais.com/elpais/2020/01/28/ciencia/1580205573_797953.html 	0.85225 
 Top 100: https://elpais.com/elpais/2020/01/24/icon_design/1579881771_525787.html 	0.85124 
  
-Tiempo empleado: 1 minutos y 7 segundos
+Tiempo empleado: 1 minutos y 19 segundos
 
 #########################################################
 >> Resultados: 
@@ -1772,7 +1773,7 @@ Top 98: https://elpais.com/elpais/2020/01/29/opinion/1580323063_442923.html 	0.1
 Top 99: https://elpais.com/deportes/2020/01/30/actualidad/1580365104_653652.html 	0.125 
 Top 100: https://elpais.com/internacional/2020/01/29/actualidad/1580327353_398040.html 	0.125 	BREXIT 
  
-Tiempo empleado: 0 minutos y 58 segundos
+Tiempo empleado: 1 minutos y 12 segundos
 
 #########################################################
 >> Resultados: 
@@ -1883,7 +1884,7 @@ Top 98: https://elpais.com/elpais/2020/01/30/opinion/1580390257_238888.html 	0.0
 Top 99: https://elpais.com/politica/2020/01/28/actualidad/1580204408_409484.html 	0.06060606060606061 
 Top 100: https://elpais.com/deportes/2020/01/21/actualidad/1579605024_893772.html 	0.06060606060606061 
  
-Tiempo empleado: 1 minutos y 55 segundos
+Tiempo empleado: 2 minutos y 19 segundos
 
 #########################################################
 >> Resultados: 
@@ -1994,7 +1995,7 @@ Top 98: https://elpais.com/sociedad/2019/03/15/actualidad/1552647445_804771.html
 Top 99: https://elpais.com/sociedad/2020/01/30/actualidad/1580397557_622969.html 	0.05714285714285714 	CORONAVIRUS 
 Top 100: https://elpais.com/elpais/2020/01/28/icon/1580213875_173230.html 	0.05555555555555555 
  
-Tiempo empleado: 1 minutos y 57 segundos
+Tiempo empleado: 1 minutos y 59 segundos
 
 #########################################################
 >> Resultados: 
@@ -2105,7 +2106,7 @@ Top 98: https://elpais.com/cultura/2020/01/31/television/1580496319_226817.html 
 Top 99: https://elpais.com/cultura/2020/01/30/babelia/1580385560_522857.html 	0.08333333333333333 
 Top 100: https://elpais.com/elpais/2020/01/30/opinion/1580405204_941467.html 	0.08333333333333333 
  
-Tiempo empleado: 1 minutos y 41 segundos
+Tiempo empleado: 1 minutos y 42 segundos
 
 #########################################################
 >> Resultados: 
@@ -2327,7 +2328,7 @@ Top 98: https://elpais.com/internacional/2020/01/30/estados_unidos/1580339751_82
 Top 99: https://elpais.com/tecnologia/2020/01/28/actualidad/1580218264_599357.html 	0.06666666666666667 
 Top 100: https://elpais.com/elpais/2019/12/29/planeta_futuro/1577618948_427102.html 	0.06666666666666667 
  
-Tiempo empleado: 1 minutos y 6 segundos
+Tiempo empleado: 1 minutos y 12 segundos
 
 #########################################################
 >> Resultados: 
@@ -2438,7 +2439,7 @@ Top 98: https://elpais.com/internacional/2020/01/26/estados_unidos/1579994623_77
 Top 99: https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html 	0.058823529411764705 	CORONAVIRUS 
 Top 100: https://elpais.com/elpais/2020/01/30/opinion/1580387762_415226.html 	0.058823529411764705 
  
-Tiempo empleado: 2 minutos y 3 segundos
+Tiempo empleado: 2 minutos y 18 segundos
 
 #########################################################
 >> Resultados: 
@@ -2549,7 +2550,7 @@ Top 98: https://elpais.com/elpais/2020/01/20/eps/1579519727_474935.html 	0.05555
 Top 99: https://elpais.com/sociedad/2020/01/27/actualidad/1580129884_316684.html 	0.05555555555555555 	CORONAVIRUS 
 Top 100: https://elpais.com/elpais/2019/12/29/planeta_futuro/1577618948_427102.html 	0.05555555555555555 
  
-Tiempo empleado: 1 minutos y 49 segundos
+Tiempo empleado: 2 minutos y 8 segundos
 
 #########################################################
 >> Resultados: 
@@ -2660,7 +2661,7 @@ Top 98: https://elpais.com/elpais/2020/01/31/buenavida/1580485087_782298.html 	0
 Top 99: https://elpais.com/economia/2020/01/29/actualidad/1580299876_635926.html 	0.06557377049180328 
 Top 100: https://elpais.com/elpais/2020/02/01/opinion/1580576857_530428.html 	0.06521739130434782 
  
-Tiempo empleado: 2 minutos y 4 segundos
+Tiempo empleado: 2 minutos y 32 segundos
 
 #########################################################
 >> Resultados: 
@@ -2771,7 +2772,7 @@ Top 98: https://elpais.com/economia/2020/01/28/actualidad/1580196369_361742.html
 Top 99: https://elpais.com/politica/2020/01/27/actualidad/1580137344_956534.html 	0.06666666666666667 
 Top 100: https://elpais.com/elpais/2020/01/27/gente/1580144886_930632.html 	0.06666666666666667 
  
-Tiempo empleado: 1 minutos y 6 segundos
+Tiempo empleado: 1 minutos y 19 segundos
 
 #########################################################
 >> Resultados: 
@@ -2882,7 +2883,7 @@ Top 98: https://elpais.com/cultura/2020/01/30/television/1580373927_275374.html 
 Top 99: https://elpais.com/economia/2020/01/30/actualidad/1580375164_522816.html 	0.05 
 Top 100: https://elpais.com/cultura/2020/01/29/actualidad/1580318390_082399.html 	0.05 
  
-Tiempo empleado: 1 minutos y 50 segundos
+Tiempo empleado: 2 minutos y 24 segundos
 
 #########################################################
 >> Resultados: 
@@ -2993,7 +2994,7 @@ Top 98: https://elpais.com/elpais/2020/01/31/ciencia/1580489094_751360.html 	0.0
 Top 99: https://elpais.com/internacional/2020/01/25/actualidad/1579958682_751147.html 	0.06666666666666667 
 Top 100: https://elpais.com/internacional/2020/02/01/actualidad/1580571998_684729.html 	0.06666666666666667 
  
-Tiempo empleado: 2 minutos y 4 segundos
+Tiempo empleado: 2 minutos y 46 segundos
 
 #########################################################
 >> Resultados: 
@@ -3104,7 +3105,7 @@ Top 98: https://elpais.com/deportes/2020/01/27/actualidad/1580111107_266705.html
 Top 99: https://elpais.com/cultura/2020/01/26/actualidad/1579993271_632168.html 	0.2 
 Top 100: https://elpais.com/deportes/2020/01/26/actualidad/1580059977_419229.html 	0.2 
  
-Tiempo empleado: 0 minutos y 52 segundos
+Tiempo empleado: 1 minutos y 10 segundos
 
 #########################################################
 >> Resultados: 
@@ -3215,7 +3216,7 @@ Top 98: https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html
 Top 99: https://elpais.com/elpais/2020/01/31/album/1580461582_108543.html 	0.08333333333333333 
 Top 100: https://elpais.com/elpais/2020/01/28/opinion/1580228872_679835.html 	0.08333333333333333 
  
-Tiempo empleado: 1 minutos y 50 segundos
+Tiempo empleado: 2 minutos y 28 segundos
 
 #########################################################
 >> Resultados: 
@@ -3326,7 +3327,7 @@ Top 98: https://elpais.com/internacional/2020/01/24/actualidad/1579891933_650452
 Top 99: https://elpais.com/elpais/2020/01/31/icon/1580461095_160700.html 	0.09375 
 Top 100: https://elpais.com/elpais/2020/01/31/album/1580461582_108543.html 	0.09375 
  
-Tiempo empleado: 1 minutos y 6 segundos
+Tiempo empleado: 1 minutos y 21 segundos
 
 #########################################################
 >> Resultados: 
@@ -3548,7 +3549,7 @@ Top 98: https://elpais.com/elpais/2020/01/31/ciencia/1580489094_751360.html 	0.0
 Top 99: https://elpais.com/elpais/2020/01/28/hechos/1580218680_434312.html 	0.00186 
 Top 100: https://elpais.com/elpais/2020/01/28/icon/1580213875_173230.html 	0.00166 
  
-Tiempo empleado: 1 minutos y 58 segundos
+Tiempo empleado: 1 minutos y 57 segundos
 
 #########################################################
 >> Resultados: 
@@ -3659,7 +3660,7 @@ Top 98: https://elpais.com/elpais/2020/01/31/opinion/1580510964_287091.html 	0.0
 Top 99: https://elpais.com/elpais/2020/01/31/ciencia/1580483603_951189.html 	0.00106 	CORONAVIRUS 
 Top 100: https://elpais.com/elpais/2020/01/28/icon/1580213875_173230.html 	0.00104 
  
-Tiempo empleado: 1 minutos y 59 segundos
+Tiempo empleado: 1 minutos y 57 segundos
 
 #########################################################
 >> Resultados: 
@@ -3881,7 +3882,7 @@ Top 98: https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_5502
 Top 99: https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html 	0.00692 
 Top 100: https://elpais.com/elpais/2020/02/01/opinion/1580576356_935269.html 	0.00687 
  
-Tiempo empleado: 2 minutos y 0 segundos
+Tiempo empleado: 1 minutos y 59 segundos
 
 #########################################################
 >> Resultados: 
@@ -4214,7 +4215,7 @@ Top 98: https://elpais.com/elpais/2020/01/15/icon/1579110609_324107.html 	0.0011
 Top 99: https://elpais.com/elpais/2020/01/27/mujeres/1580117445_597909.html 	0.0011 
 Top 100: https://elpais.com/elpais/2020/01/31/opinion/1580510964_287091.html 	0.00107 	CORONAVIRUS 
  
-Tiempo empleado: 1 minutos y 52 segundos
+Tiempo empleado: 1 minutos y 51 segundos
 
 #########################################################
 >> Resultados: 
@@ -4325,7 +4326,7 @@ Top 98: https://elpais.com/elpais/2020/01/23/mordiscos_y_tacones/1579790237_5502
 Top 99: https://elpais.com/economia/2020/01/24/actualidad/1579874353_105054.html 	0.00551 
 Top 100: https://elpais.com/elpais/2020/01/22/ciencia/1579699978_545319.html 	0.00549 
  
-Tiempo empleado: 2 minutos y 6 segundos
+Tiempo empleado: 2 minutos y 7 segundos
 
 #########################################################
 >> Resultados: 
@@ -4658,7 +4659,7 @@ Top 98: https://elpais.com/internacional/2020/01/24/actualidad/1579888708_296153
 Top 99: https://elpais.com/deportes/2020/01/25/actualidad/1579948067_949437.html 	0.0037 
 Top 100: https://elpais.com/elpais/2020/01/27/laboratorio_de_felicidad/1580113039_219356.html 	0.0036 
  
-Tiempo empleado: 2 minutos y 6 segundos
+Tiempo empleado: 2 minutos y 7 segundos
 
 #########################################################
 >> Resultados: 
@@ -4880,7 +4881,7 @@ Top 98: https://elpais.com/elpais/2020/01/29/album/1580288478_669036.html 	0.005
 Top 99: https://elpais.com/politica/2020/01/31/actualidad/1580502671_556888.html 	0.00546 	BREXIT 
 Top 100: https://elpais.com/internacional/2020/01/31/actualidad/1580486158_635913.html 	0.00543 	BREXIT 
  
-Tiempo empleado: 1 minutos y 51 segundos
+Tiempo empleado: 1 minutos y 50 segundos
 
 #########################################################
 >> Resultados: 
@@ -5324,7 +5325,7 @@ Top 98: https://elpais.com/economia/2020/01/31/mis_finanzas/1580468998_305134.ht
 Top 99: https://elpais.com/internacional/2020/01/30/estados_unidos/1580339751_826604.html 	0.10675 
 Top 100: https://elpais.com/sociedad/2020/01/30/actualidad/1580397557_622969.html 	0.10675 	CORONAVIRUS 
  
-Tiempo empleado: 1 minutos y 59 segundos
+Tiempo empleado: 1 minutos y 58 segundos
 
 #########################################################
 >> Resultados: 
@@ -5435,7 +5436,7 @@ Top 98: https://elpais.com/elpais/2020/01/30/opinion/1580392774_901121.html 	0.1
 Top 99: https://elpais.com/elpais/2020/01/30/opinion/1580404132_607239.html 	0.15811 
 Top 100: https://elpais.com/cultura/2020/01/30/babelia/1580393433_935281.html 	0.15811 
  
-Tiempo empleado: 1 minutos y 45 segundos
+Tiempo empleado: 1 minutos y 56 segundos
 
 #########################################################
 >> Resultados: 
@@ -5546,7 +5547,7 @@ Top 98: https://elpais.com/deportes/2020/01/30/actualidad/1580372961_057554.html
 Top 99: https://elpais.com/internacional/2020/01/29/actualidad/1580297938_818559.html 	0.11237 
 Top 100: https://elpais.com/elpais/2020/01/24/opinion/1579885733_059682.html 	0.11198 
  
-Tiempo empleado: 2 minutos y 1 segundos
+Tiempo empleado: 2 minutos y 0 segundos
 
 #########################################################
 >> Resultados: 
@@ -5657,7 +5658,7 @@ Top 98: https://elpais.com/elpais/2020/01/20/eps/1579532976_214748.html 	0.1291
 Top 99: https://elpais.com/elpais/2020/01/20/eps/1579523048_404695.html 	0.1291 
 Top 100: https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html 	0.1291 
  
-Tiempo empleado: 1 minutos y 9 segundos
+Tiempo empleado: 1 minutos y 8 segundos
 
 #########################################################
 >> Resultados: 
@@ -5768,7 +5769,7 @@ Top 98: https://elpais.com/elpais/2020/01/31/ciencia/1580483603_951189.html 	0.0
 Top 99: https://elpais.com/sociedad/2020/01/24/actualidad/1579894128_598473.html 	0.05357 	CORONAVIRUS 
 Top 100: https://elpais.com/deportes/2020/01/29/actualidad/1580328091_583904.html 	0.05293 	CORONAVIRUS 
  
-Tiempo empleado: 2 minutos y 7 segundos
+Tiempo empleado: 2 minutos y 6 segundos
 
 #########################################################
 >> Resultados: 
@@ -5879,7 +5880,7 @@ Top 98: https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html
 Top 99: https://elpais.com/elpais/2020/01/30/ciencia/1580343470_708918.html 	0.10768 
 Top 100: https://elpais.com/internacional/2020/01/29/actualidad/1580323025_769684.html 	0.10541 
  
-Tiempo empleado: 1 minutos y 54 segundos
+Tiempo empleado: 1 minutos y 52 segundos
 
 #########################################################
 >> Resultados: 
@@ -5990,7 +5991,7 @@ Top 98: https://elpais.com/elpais/2020/01/20/planeta_futuro/1579521358_461007.ht
 Top 99: https://elpais.com/sociedad/2019/12/06/actualidad/1575659924_224267.html 	0.09947 
 Top 100: https://elpais.com/internacional/2020/01/29/actualidad/1580297938_818559.html 	0.09905 
  
-Tiempo empleado: 2 minutos y 9 segundos
+Tiempo empleado: 2 minutos y 8 segundos
 
 #########################################################
 >> Resultados: 
@@ -6101,7 +6102,7 @@ Top 98: https://elpais.com/elpais/2020/01/27/gente/1580144886_930632.html 	0.125
 Top 99: https://elpais.com/ccaa/2020/01/26/madrid/1580041228_395692.html 	0.12599 
 Top 100: https://elpais.com/politica/2020/01/27/actualidad/1580133877_123893.html 	0.12599 
  
-Tiempo empleado: 1 minutos y 9 segundos
+Tiempo empleado: 1 minutos y 8 segundos
 
 #########################################################
 >> Resultados: 
@@ -6212,7 +6213,7 @@ Top 98: https://elpais.com/sociedad/2020/01/28/actualidad/1580197062_495845.html
 Top 99: https://elpais.com/elpais/2020/01/27/opinion/1580144423_754789.html 	0.09623 
 Top 100: https://elpais.com/elpais/2020/01/27/opinion/1580155864_031112.html 	0.09623 
  
-Tiempo empleado: 1 minutos y 53 segundos
+Tiempo empleado: 1 minutos y 52 segundos
 
 #########################################################
 >> Resultados: 
@@ -6323,7 +6324,7 @@ Top 98: https://elpais.com/internacional/2020/01/31/mundo_global/1580427256_6612
 Top 99: https://elpais.com/elpais/2020/01/28/opinion/1580228872_679835.html 	0.11085 
 Top 100: https://elpais.com/internacional/2020/01/27/actualidad/1580131071_176706.html 	0.10836 
  
-Tiempo empleado: 2 minutos y 10 segundos
+Tiempo empleado: 2 minutos y 7 segundos
 
 #########################################################
 >> Resultados: 
@@ -6434,7 +6435,7 @@ Top 98: https://elpais.com/deportes/2020/01/27/actualidad/1580111107_266705.html
 Top 99: https://elpais.com/cultura/2020/01/26/actualidad/1579993271_632168.html 	0.35355 
 Top 100: https://elpais.com/deportes/2020/01/26/actualidad/1580059977_419229.html 	0.35355 
  
-Tiempo empleado: 0 minutos y 53 segundos
+Tiempo empleado: 0 minutos y 52 segundos
 
 #########################################################
 >> Resultados: 
@@ -6545,7 +6546,7 @@ Top 98: https://elpais.com/elpais/2020/01/31/album/1580461582_108543.html 	0.140
 Top 99: https://elpais.com/elpais/2020/01/31/ciencia/1580473363_809511.html 	0.13894 
 Top 100: https://elpais.com/cultura/2020/01/28/actualidad/1580240547_599310.html 	0.13712 
  
-Tiempo empleado: 1 minutos y 52 segundos
+Tiempo empleado: 1 minutos y 51 segundos
 
 #########################################################
 >> Resultados: 
@@ -6656,5 +6657,5 @@ Top 98: https://cincodias.elpais.com/cincodias/2020/01/30/companias/1580408546_2
 Top 99: https://cincodias.elpais.com/cincodias/2020/01/30/companias/1580413066_736136.html 	0.1715 
 Top 100: https://cincodias.elpais.com/cincodias/2020/01/31/mercados/1580499563_519490.html 	0.1715 	BREXIT 
  
-Tiempo empleado: 1 minutos y 9 segundos
+Tiempo empleado: 1 minutos y 7 segundos
 

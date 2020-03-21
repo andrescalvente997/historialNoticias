@@ -37,10 +37,10 @@ NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../crawler/crawlerPeriodi
 
 STR_FICHERO_OUT = "../EL_PAIS_20200125_20200202_scores.txt"
 FILE_OUT_SCORES = open(STR_FICHERO_OUT, 'w')
-FILE_OUT_SCORES.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR)
+FILE_OUT_SCORES.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR + "\n")
 STR_FICHERO_OUT = "../EL_PAIS_20200125_20200202_historial.txt"
 FILE_OUT_HIST = open(STR_FICHERO_OUT, 'w')
-FILE_OUT_HIST.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR)
+FILE_OUT_HIST.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR + "\n")
 
 
 def do_similitud_noCreacionVecs(obj_extractor, 
@@ -160,6 +160,11 @@ def printResult(obj_procesador,
                                 str(segs))
     FILE_OUT_SCORES.write(strPrint)
 
+    strPrint = "Algoritmo: {}\t Atributos: {}\n"
+    strPrint = strPrint.format( similitudUtilizada,
+                                " + ".join(list_atrisUtilizados))
+    FILE_OUT_HIST.write(strPrint)
+    
     diccFechas = {}
     for linkNoticia in diccResults.keys():
         dataNoticia = obj_extractor.getDataNoticia(linkNoticia)
