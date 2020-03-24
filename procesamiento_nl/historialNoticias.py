@@ -7,6 +7,7 @@ import extractor
 import similitud
 import procesador
 from datetime import datetime
+from sklearn.metrics import classification_report
 
 ATRIBUTO_ESTUDIO_1 = "cuerpoNoticia"
 ATRIBUTO_ESTUDIO_2 = "keywordsNoticia"
@@ -33,6 +34,9 @@ LISTA_SIMILITUDES_T3 = ["SIMILITUD_JACCARD"]
 TOP_RESULTS_1 = 100
 TOP_RESULTS_2 = 50
 URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html"
+
+TEMA_NOTICIA = "CORONAVIRUS"
+
 NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../crawler/crawlerPeriodicos/datos_EL_PAIS/20200125_20200202_noticias_etiquetadas.json"
 
 STR_FICHERO_OUT = "../EL_PAIS_20200125_20200202_scores.txt"
@@ -134,13 +138,23 @@ def do_similitud_creacionVectores(  obj_extractor,
 def printResult(obj_procesador, 
                 obj_extractor,
                 similitudUtilizada,
-                noticiasEtiquetadas,
                 topResults,
                 list_atrisUtilizados,
                 executionTime):
 
     obj_procesador.sortResultados()
-    diccResults, strResultTop = obj_procesador.getTopResultados(noticiasEtiquetadas, top=topResults)
+
+    noticiasEtiquetadas = obj_extractor.getDiccNoticiaEtiqueta()
+    numNoticiasConEtiqueta_Esp = obj_extractor.getCountNoticiasConEtiqueta(TEMA_NOTICIA)
+
+    diccResults, strResultTop, arrayEtiquetasPred = obj_procesador.getTopResultados(noticiasEtiquetadas, top=topResults)
+
+    # Creacion de matriz de resultados por clases
+    target_names = obj_extractor.getEtiquetasTema()
+    target_names.append("OTRO")
+    m_true = [target_names.index(TEMA_NOTICIA)] * numNoticiasConEtiqueta_Esp
+    m_pred = list(map(lambda x: target_names.index(x), arrayEtiquetasPred))
+
     mins = math.floor(executionTime / 60)
     segs = round((executionTime / 60 - mins) * 60)
 
@@ -150,12 +164,14 @@ def printResult(obj_procesador,
     strPrint += "Estudiando los atributos: {}\n"
     strPrint += "{} \n"
     strPrint += ">> Top: \n"
-    strPrint += "{} \n"
+    strPrint += "{} \n\n"
+    strPrint += "{} \n\n"
     strPrint += "Tiempo empleado: {} minutos y {} segundos\n\n"
     strPrint = strPrint.format( similitudUtilizada,
                                 " + ".join(list_atrisUtilizados),
                                 obj_procesador,
                                 strResultTop,
+                                classification_report(m_true, m_pred, target_names=target_names),
                                 str(mins),
                                 str(segs))
     FILE_OUT_SCORES.write(strPrint)
@@ -186,7 +202,6 @@ def printResult(obj_procesador,
 if __name__ == '__main__':
     
     obj_extractor = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
-    noticiasEtiquetadas = obj_extractor.getDiccNoticiaEtiqueta()
 
     for tipoSimilitud in LISTA_SIMILITUDES:
 
@@ -230,7 +245,6 @@ if __name__ == '__main__':
                 printResult(obj_procesador,
                             obj_extractor,
                             tipoSimilitud,
-                            noticiasEtiquetadas,
                             TOP_RESULTS_1,
                             list_atributosEstudio,
                             tiempoEjecucion)

@@ -24,7 +24,14 @@ class Extractor():
 
         self.jsonFile, dataNoticias = self.openFile(fileStr)
 
-        self.diccNoticiaEtiq = {}   # {link: etiqueta}
+        #
+        # El diccionario de noticias etiquetadas tendrá la siguiente estructura
+        #
+        #   { 
+        #       "TEMA_1": [noticia_1, noticia_2, ...],
+        #       "TEMA_2": [noticia_4, noticia_7, ...]
+        #   } 
+        self.diccNoticiaEtiq = {}   
 
         # Utilizaremos un diccionario de diccionarios con la estructura: 
         #   {
@@ -58,7 +65,9 @@ class Extractor():
             diccs_DiccsNoticias[linkNoticia] = diccNoticia
             
             if "temaNoticia" in noticia:
-                self.diccNoticiaEtiq[linkNoticia] = noticia["temaNoticia"]
+                if noticia["temaNoticia"] not in self.diccNoticiaEtiq:
+                    self.diccNoticiaEtiq[noticia["temaNoticia"]] = []
+                self.diccNoticiaEtiq[noticia["temaNoticia"]].append(linkNoticia)
 
         return diccs_DiccsNoticias
 
@@ -76,6 +85,16 @@ class Extractor():
     def getDiccNoticiaEtiqueta(self):
 
         return self.diccNoticiaEtiq
+
+
+    def getEtiquetasTema(self):
+
+        return list(self.diccNoticiaEtiq.keys())
+
+
+    def getCountNoticiasConEtiqueta(self, tema):
+
+        return len(self.diccNoticiaEtiq[tema])
 
 
     def getLinksNoticiasAnalizar(self):

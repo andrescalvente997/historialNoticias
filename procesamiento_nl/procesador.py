@@ -27,6 +27,7 @@ class Procesador():
 
         diccRes = {}
         strPrint = ""
+        m_pred = [] # Array de predicciones
 
         if flgAllRes == True:
             numTop = 1
@@ -34,8 +35,17 @@ class Procesador():
                 strPrint += "Top {}: {} \t{} ".format(  str(numTop),
                                                         k,
                                                         str(v))
-                if k in noticiasEtiquetadas:
-                    strPrint += "\t{} ".format( noticiasEtiquetadas[k])
+
+                flg_noticiaEtiquetada = False
+                for etiqueta, noticiasEtiqueta in noticiasEtiquetadas.items():
+                    if k in noticiasEtiqueta:
+                        strPrint += "\t{} ".format(etiqueta)
+                        m_pred.append(etiqueta)
+                        flg_noticiaEtiquetada = True
+                        break
+                if flg_noticiaEtiquetada == False:
+                    m_pred.append("OTRO")
+
                 strPrint += "\n"
                 numTop += 1
                 diccRes[k] = v
@@ -46,12 +56,21 @@ class Procesador():
                 strPrint += "Top {}: {} \t{} ".format(str(numTop+1),
                                                         item[0],
                                                         str(item[1])) 
-                if item[0] in noticiasEtiquetadas:
-                    strPrint += "\t{} ".format( noticiasEtiquetadas[item[0]])
+                
+                flg_noticiaEtiquetada = False
+                for etiqueta, noticiasEtiqueta in noticiasEtiquetadas.items():
+                    if k in noticiasEtiqueta:
+                        strPrint += "\t{} ".format(etiqueta)
+                        m_pred.append(etiqueta)
+                        flg_noticiaEtiquetada = True
+                        break
+                if flg_noticiaEtiquetada == False:
+                    m_pred.append("OTRO")
+                    
                 strPrint += "\n"                   
                 diccRes[item[0]] = item[1]
 
-        return diccRes, strPrint
+        return diccRes, strPrint, m_pred
 
 
     def __str__(self):
