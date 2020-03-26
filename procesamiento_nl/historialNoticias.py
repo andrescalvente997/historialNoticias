@@ -153,7 +153,11 @@ def printResult(obj_procesador,
     target_names = obj_extractor.getEtiquetasTema()
     target_names.append("OTRO")
     m_true = [target_names.index(TEMA_NOTICIA)] * numNoticiasConEtiqueta_Esp
-    m_pred = list(map(lambda x: target_names.index(x), arrayEtiquetasPred))
+    m_pred = list(map(lambda x: target_names.index(x), arrayEtiquetasPred))[:numNoticiasConEtiqueta_Esp]
+
+    print(m_true)
+    print(m_pred)
+    print(target_names)
 
     mins = math.floor(executionTime / 60)
     segs = round((executionTime / 60 - mins) * 60)

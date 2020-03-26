@@ -59,14 +59,14 @@ class Procesador():
                 
                 flg_noticiaEtiquetada = False
                 for etiqueta, noticiasEtiqueta in noticiasEtiquetadas.items():
-                    if k in noticiasEtiqueta:
+                    if item[0] in noticiasEtiqueta:
                         strPrint += "\t{} ".format(etiqueta)
                         m_pred.append(etiqueta)
                         flg_noticiaEtiquetada = True
                         break
                 if flg_noticiaEtiquetada == False:
                     m_pred.append("OTRO")
-                    
+
                 strPrint += "\n"                   
                 diccRes[item[0]] = item[1]
 
