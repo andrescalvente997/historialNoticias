@@ -81,9 +81,12 @@ class Spider_ElConfidencial(CrawlSpider):
         # KEYWORDS
         # Las keywords se ponen con el formato "A,B,C"
         item['keywordsNoticia'] = []
-        keywords = response.xpath(XPATH_NOTICIA_KEYWORDS).extract()[0].split(",")
-        for keyword in keywords:
-            item['keywordsNoticia'].append(keyword.strip())   
+        try:
+            keywords = response.xpath(XPATH_NOTICIA_KEYWORDS).extract()[0].split(",")
+            for keyword in keywords:
+                item['keywordsNoticia'].append(keyword.strip())   
+        except:
+            item['keywordsNoticia'] = []
 
         # DESCRIPCIÓN
         item['resumenNoticia'] = response.xpath(XPATH_NOTICIA_RESUMEN).extract()

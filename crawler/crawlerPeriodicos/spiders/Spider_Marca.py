@@ -31,8 +31,8 @@ class Spider_Marca(CrawlSpider):
                 LinkExtractor(  allow = (), 
                                 restrict_xpaths = '//h2/a',
                                 deny_domains = ['videos.marca.com', 'plus.marca.com', 'noesfutboleslaliga.marca.com',
-                                                'cuidateplus.marca.com', 'haranhistoria.marca.com'],
-                                deny = ["directo", "marcador", "album"]), 
+                                                'cuidateplus.marca.com', 'haranhistoria.marca.com', 'youtube.com'],
+                                deny = ["directo", "marcador", "album", "blogs"]), 
                 callback='parse_item', 
                 follow = False),
         )  
