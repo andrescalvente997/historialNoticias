@@ -135,6 +135,18 @@ def do_similitud_creacionVectores(  obj_extractor,
 
     return obj_procesador, round(time_end - time_start)
 
+
+def do_similitud_Jaccard_franjasHorarias(   obj_extractor, 
+                                            list_atributosEstudio,
+                                            listLinksNoticias=None):
+
+    obj_procesador = procesador.Procesador()
+    obj_similitud = similitud.Similitud("SIMILITUD_JACCARD")
+    funct_similitud = obj_similitud.getFuncionSimilitud()
+
+    dicc_rangoFecha_noticias = obj_extractor.create_diccRangoFechaNoticas()
+
+
 def printResult(obj_procesador, 
                 obj_extractor,
                 similitudUtilizada,

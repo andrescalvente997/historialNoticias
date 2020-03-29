@@ -22,6 +22,9 @@ class Extractor():
 
         self.nlp = spacy.load("es_core_news_md")
 
+        self.fechaIni, self.fechaFin = fileStr.split("_")[0], fileStr.split("_")[1]
+        
+
         self.jsonFile, dataNoticias = self.openFile(fileStr)
 
         #
@@ -132,6 +135,13 @@ class Extractor():
         atributoDoc = self.rm_blanks(atributoDoc)
 
         return atributoDoc.text
+
+
+    def create_diccRangoFechaNoticas(self):
+
+        self.dicc_rangoFecha_Noticias = {}
+
+
 
     # Función que pasado la data de una noticia y un atributo, nos devuelve 
     # su vector de caracteristicas de Spacy
