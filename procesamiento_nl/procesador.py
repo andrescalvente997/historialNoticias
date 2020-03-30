@@ -23,52 +23,39 @@ class Procesador():
         self.diccResultados = {k: v for k, v in sorted(self.diccResultados.items(), key=lambda item: item[1], reverse=True)}
 
     
-    def getTopResultados(self, noticiasEtiquetadas, top=10, flgAllRes=False):
+    def getTopResultados(self, noticiasEtiquetadas, top=10):
 
         diccRes = {}
         strPrint = ""
         m_pred = [] # Array de predicciones
 
-        if flgAllRes == True:
-            numTop = 1
-            for k, v in self.diccResultados.items():
-                strPrint += "Top {}: {} \t{} ".format(  str(numTop),
+        numTop = 1
+        for k, v in self.diccResultados.items():
+            
+            if numTop <= top:
+                strPrint += "Top {}: {} \t{}\n".format(  str(numTop),
                                                         k,
                                                         str(v))
 
-                flg_noticiaEtiquetada = False
-                for etiqueta, noticiasEtiqueta in noticiasEtiquetadas.items():
-                    if k in noticiasEtiqueta:
-                        strPrint += "\t{} ".format(etiqueta)
-                        m_pred.append(etiqueta)
-                        flg_noticiaEtiquetada = True
-                        break
-                if flg_noticiaEtiquetada == False:
-                    m_pred.append("OTRO")
+            flg_noticiaEtiquetada = False
+            for etiqueta, noticiasEtiqueta in noticiasEtiquetadas.items():
 
-                strPrint += "\n"
-                numTop += 1
-                diccRes[k] = v
+                if k in noticiasEtiqueta:
 
-        else:
-            for item, numTop in zip(self.diccResultados.items(), range(top)):
+                    if numTop <= top:
+                        strPrint = strPrint[:-1] + "\t{}\n".format(etiqueta)
 
-                strPrint += "Top {}: {} \t{} ".format(str(numTop+1),
-                                                        item[0],
-                                                        str(item[1])) 
+                    m_pred.append(etiqueta)
+                    flg_noticiaEtiquetada = True
+
+                    break
+
+            if flg_noticiaEtiquetada == False:
+                m_pred.append("OTRO")
                 
-                flg_noticiaEtiquetada = False
-                for etiqueta, noticiasEtiqueta in noticiasEtiquetadas.items():
-                    if item[0] in noticiasEtiqueta:
-                        strPrint += "\t{} ".format(etiqueta)
-                        m_pred.append(etiqueta)
-                        flg_noticiaEtiquetada = True
-                        break
-                if flg_noticiaEtiquetada == False:
-                    m_pred.append("OTRO")
-
-                strPrint += "\n"                   
-                diccRes[item[0]] = item[1]
+            if numTop <= top:
+                diccRes[k] = v
+            numTop += 1
 
         return diccRes, strPrint, m_pred
 

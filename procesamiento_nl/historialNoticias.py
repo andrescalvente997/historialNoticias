@@ -164,12 +164,10 @@ def printResult(obj_procesador,
     # Creacion de matriz de resultados por clases
     target_names = obj_extractor.getEtiquetasTema()
     target_names.append("OTRO")
-    m_true = [target_names.index(TEMA_NOTICIA)] * numNoticiasConEtiqueta_Esp
-    m_pred = list(map(lambda x: target_names.index(x), arrayEtiquetasPred))[:numNoticiasConEtiqueta_Esp]
-
-    print(m_true)
-    print(m_pred)
-    print(target_names)
+    aux1_m_true = [target_names.index(TEMA_NOTICIA)] * numNoticiasConEtiqueta_Esp
+    aux2_m_true = [target_names.index("OTRO")] * (len(arrayEtiquetasPred) - numNoticiasConEtiqueta_Esp)
+    m_true = aux1_m_true + aux2_m_true
+    m_pred = list(map(lambda x: target_names.index(x), arrayEtiquetasPred))
 
     mins = math.floor(executionTime / 60)
     segs = round((executionTime / 60 - mins) * 60)
@@ -187,7 +185,7 @@ def printResult(obj_procesador,
                                 " + ".join(list_atrisUtilizados),
                                 obj_procesador,
                                 strResultTop,
-                                classification_report(m_true, m_pred, target_names=target_names),
+                                classification_report(m_true, m_pred, target_names=target_names, zero_division=0),
                                 str(mins),
                                 str(segs))
     FILE_OUT_SCORES.write(strPrint)
