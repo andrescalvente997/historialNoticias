@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from os.path import abspath, dirname
+import sys
 import time
 import math
 import extractor
@@ -145,6 +146,10 @@ def do_similitud_Jaccard_franjasHorarias(   obj_extractor,
     funct_similitud = obj_similitud.getFuncionSimilitud()
 
     dicc_rangoFecha_noticias = obj_extractor.create_diccRangoFechaNoticas()
+
+    print(dicc_rangoFecha_noticias)
+
+
 
 
 def printResult(obj_procesador, 

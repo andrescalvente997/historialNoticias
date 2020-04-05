@@ -6,6 +6,7 @@
 
 import spacy
 from spacy.lang.es.stop_words import STOP_WORDS
+from datetime import datetime, timedelta
 import nltk
 from nltk.corpus import stopwords
 import re
@@ -22,9 +23,12 @@ class Extractor():
 
         self.nlp = spacy.load("es_core_news_md")
 
-        self.fechaIni, self.fechaFin = fileStr.split("_")[0], fileStr.split("_")[1]
+        strFechaIni, strFechaFin = fileStr.split("_")[0], fileStr.split("_")[1]
+        strFechaIni = strFechaIni[0:4] + "-" + strFechaIni[4:6] + "-" + strFechaIni[6:] 
+        strFechaFin = strFechaFin[0:4] + "-" + strFechaFin[4:6] + "-" + strFechaFin[6:] 
+        self.fechaIni = datetime.strptime(strFechaIni, '%Y-%m-%d')
+        self.fechaFin = datetime.strptime(strFechaFin, '%Y-%m-%d')
         
-
         self.jsonFile, dataNoticias = self.openFile(fileStr)
 
         #
@@ -139,8 +143,25 @@ class Extractor():
 
     def create_diccRangoFechaNoticas(self):
 
-        self.dicc_rangoFecha_Noticias = {}
+        dicc_rangoFecha_Noticias = {}
 
+        acc_datetime = self.fechaIni
+        while acc_datetime < self.fechaFin:
+
+            dupFecha = (acc_datetime, acc_datetime + timedelta(hours=3, minutes=59, seconds=59))
+            dicc_rangoFecha_Noticias[dupFecha] = []
+            acc_datetime += timedelta(hours=4)
+
+        for linkNoticia in self.dd_Noticias.keys():
+
+            fechaNoticia = self.dd_Noticias[linkNoticia]['fechaPublicacionNoticia']
+            for franjaHoraria in dicc_rangoFecha_Noticias.keys():
+
+                if franjaHoraria[0] < fechaNoticia and fechaNoticia <= franjaHoraria[1]:
+                    
+                    dicc_rangoFecha_Noticias[franjaHoraria].append(linkNoticia)
+
+        return dicc_rangoFecha_Noticias
 
 
     # Función que pasado la data de una noticia y un atributo, nos devuelve 
