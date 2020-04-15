@@ -142,14 +142,51 @@ def do_similitud_Jaccard_franjasHorarias(   obj_extractor,
                                             listLinksNoticias=None):
 
     obj_procesador = procesador.Procesador()
-    obj_similitud = similitud.Similitud("SIMILITUD_JACCARD")
+    obj_similitud = similitud.Similitud("SIMILITUD_JACCARD_FH")
     funct_similitud = obj_similitud.getFuncionSimilitud()
+
+    time_start = time.time()
+
+    dataNoticia_Master = obj_extractor.getDataNoticiaMaster()
+    texto_Master = ""
+    for atributo in list_atributosEstudio:
+        texto_Master += " " + obj_extractor.getAtributoNoticia(dataNoticia_Master, atributo)    
+    texto_Master = obj_extractor.getDoc(texto_Master) 
+
+    if listLinksNoticias == None:
+        listLinksNoticias = obj_extractor.getLinksNoticiasAnalizar()
 
     dicc_rangoFecha_noticias = obj_extractor.create_diccRangoFechaNoticas()
 
-    print(dicc_rangoFecha_noticias)
+    for listLinksNoticias in dicc_rangoFecha_noticias.values():
+        tuple_mejorNoticia = ("", 0)
+        for linkNoticia in listLinksNoticias:
 
+            dataNoticia_Analizar = obj_extractor.getDataNoticia(linkNoticia)
+            if dataNoticia_Analizar == None:    # Noticia con fecha posterior a la Master
+                continue
+        
+            texto_Analizar = ""
+            for atributo in list_atributosEstudio:
+                texto_Analizar += " " + obj_extractor.getAtributoNoticia(dataNoticia_Analizar, atributo)
+            texto_Analizar = obj_extractor.getDoc(texto_Analizar)
 
+            score = funct_similitud(texto_Master, texto_Analizar)
+            if score > tuple_mejorNoticia[1]:
+                tuple_mejorNoticia = (linkNoticia, score)
+            
+            obj_procesador.addResultado(linkNoticia, score)
+
+        dataNoticia_Add = obj_extractor.getDataNoticia(tuple_mejorNoticia[0])
+        txtAdd = ""
+        for atributo in list_atributosEstudio:
+            txtAdd += " " + obj_extractor.getAtributoNoticia(dataNoticia_Add, atributo)
+        texto_Master = texto_Master.text + " " + txtAdd
+        texto_Master = obj_extractor.getDoc(texto_Master)
+
+    time_end = time.time()
+
+    return obj_procesador, round(time_end - time_start)
 
 
 def printResult(obj_procesador, 
@@ -221,6 +258,10 @@ def printResult(obj_procesador,
 if __name__ == '__main__':
     
     obj_extractor = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
+
+    do_similitud_Jaccard_franjasHorarias(obj_extractor, ["tagsNoticia"])
+
+    sys.exit()
 
     for tipoSimilitud in LISTA_SIMILITUDES:
 

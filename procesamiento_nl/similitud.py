@@ -12,6 +12,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 STR_SIMILITUD_COSENO_SPACY = "SIMILITUD_COSENO_SPACY"
 STR_SIMILITUD_JACCARD = "SIMILITUD_JACCARD"
+STR_SIMILITUD_JACCARD_FRANJASHORARIAS = "SIMILITUD_JACCARD_FR"
 STR_SIMILITUD_COSENO_TFIFD = "SIMILITUD_COSENO_TF-IDF"
 STR_SIMILITUD_COSENO_BOW = "SIMILITUD_COSENO_BOW"
 LIST_SIMILITUDES_ACEPTADAS = [  STR_SIMILITUD_COSENO_SPACY,
@@ -31,7 +32,7 @@ class Similitud():
         if self.nombreSimilitud == STR_SIMILITUD_COSENO_SPACY:
             self.funcionSimilitud = self.similitud_coseno_spacy
         
-        elif self.nombreSimilitud == STR_SIMILITUD_JACCARD:
+        elif self.nombreSimilitud == STR_SIMILITUD_JACCARD or self.nombreSimilitud == STR_SIMILITUD_JACCARD_FRANJASHORARIAS:
             self.funcionSimilitud = self.similitud_jaccard
 
         elif self.nombreSimilitud == STR_SIMILITUD_COSENO_TFIFD:

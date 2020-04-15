@@ -23,8 +23,10 @@ class Extractor():
 
         self.nlp = spacy.load("es_core_news_md")
 
-        strFechaIni, strFechaFin = fileStr.split("_")[0], fileStr.split("_")[1]
+        strFechas = fileStr.split("/")[-1]
+        strFechaIni, strFechaFin = strFechas.split("_")[0], strFechas.split("_")[1]
         strFechaIni = strFechaIni[0:4] + "-" + strFechaIni[4:6] + "-" + strFechaIni[6:] 
+        print(strFechaIni)
         strFechaFin = strFechaFin[0:4] + "-" + strFechaFin[4:6] + "-" + strFechaFin[6:] 
         self.fechaIni = datetime.strptime(strFechaIni, '%Y-%m-%d')
         self.fechaFin = datetime.strptime(strFechaFin, '%Y-%m-%d')
@@ -155,6 +157,7 @@ class Extractor():
         for linkNoticia in self.dd_Noticias.keys():
 
             fechaNoticia = self.dd_Noticias[linkNoticia]['fechaPublicacionNoticia']
+            fechaNoticia = datetime.strptime(fechaNoticia, '%Y-%m-%dT%H:%M:%SZ')
             for franjaHoraria in dicc_rangoFecha_Noticias.keys():
 
                 if franjaHoraria[0] < fechaNoticia and fechaNoticia <= franjaHoraria[1]:
