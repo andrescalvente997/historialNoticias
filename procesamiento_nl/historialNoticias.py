@@ -260,7 +260,13 @@ if __name__ == '__main__':
     
     obj_extractor = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
 
-    do_similitud_Jaccard_franjasHorarias(obj_extractor, ["tagsNoticia"])
+    obj_procesador, tiempoEjecucion = do_similitud_Jaccard_franjasHorarias(obj_extractor, ["tagsNoticia"])
+    printResult(obj_procesador,
+                obj_extractor,
+                "SIMILITUD_JACCARD_FH",
+                TOP_RESULTS_1,
+                ["tagsNoticia"],
+                tiempoEjecucion)
 
     sys.exit()
 
