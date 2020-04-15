@@ -25,8 +25,7 @@ class Extractor():
 
         strFechas = fileStr.split("/")[-1]
         strFechaIni, strFechaFin = strFechas.split("_")[0], strFechas.split("_")[1]
-        strFechaIni = strFechaIni[0:4] + "-" + strFechaIni[4:6] + "-" + strFechaIni[6:] 
-        print(strFechaIni)
+        strFechaIni = strFechaIni[0:4] + "-" + strFechaIni[4:6] + "-" + strFechaIni[6:]
         strFechaFin = strFechaFin[0:4] + "-" + strFechaFin[4:6] + "-" + strFechaFin[6:] 
         self.fechaIni = datetime.strptime(strFechaIni, '%Y-%m-%d')
         self.fechaFin = datetime.strptime(strFechaFin, '%Y-%m-%d')
@@ -147,12 +146,13 @@ class Extractor():
 
         dicc_rangoFecha_Noticias = {}
 
-        acc_datetime = self.fechaIni
-        while acc_datetime < self.fechaFin:
+        acc_datetime = self.fechaFin
+        acc_datetime = acc_datetime + timedelta(hours=23, minutes=59, seconds=59)
+        while self.fechaIni <= acc_datetime:
 
-            dupFecha = (acc_datetime, acc_datetime + timedelta(hours=3, minutes=59, seconds=59))
+            dupFecha = (acc_datetime - timedelta(hours=3, minutes=59, seconds=59), acc_datetime)
             dicc_rangoFecha_Noticias[dupFecha] = []
-            acc_datetime += timedelta(hours=4)
+            acc_datetime -= timedelta(hours=4)
 
         for linkNoticia in self.dd_Noticias.keys():
 
