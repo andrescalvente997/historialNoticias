@@ -177,12 +177,13 @@ def do_similitud_Jaccard_franjasHorarias(   obj_extractor,
             
             obj_procesador.addResultado(linkNoticia, score)
 
-        dataNoticia_Add = obj_extractor.getDataNoticia(tuple_mejorNoticia[0])
-        txtAdd = ""
-        for atributo in list_atributosEstudio:
-            txtAdd += " " + obj_extractor.getAtributoNoticia(dataNoticia_Add, atributo)
-        texto_Master = texto_Master.text + " " + txtAdd
-        texto_Master = obj_extractor.getDoc(texto_Master)
+        if tuple_mejorNoticia[0] != "":
+            dataNoticia_Add = obj_extractor.getDataNoticia(tuple_mejorNoticia[0])
+            txtAdd = ""
+            for atributo in list_atributosEstudio:
+                txtAdd += " " + obj_extractor.getAtributoNoticia(dataNoticia_Add, atributo)
+            texto_Master = texto_Master.text + " " + txtAdd
+            texto_Master = obj_extractor.getDoc(texto_Master)
 
     time_end = time.time()
 
