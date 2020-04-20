@@ -1,1 +1,124 @@
 NOTICIA DE REFERENCIA: https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html
+#########################################################
+>> Resultados: 
+Algoritmo: SIMILITUD_JACCARD_FH
+Estudiando los atributos: tagsNoticia
+Noticias evaluadas hasta el momento: 891
+Score medio de las noticias es de: 0.06066094950865497
+ 
+>> Top: 
+Top 1: https://elpais.com/sociedad/2020/01/31/actualidad/1580503401_058714.html 	0.9333333333333333	CORONAVIRUS
+Top 2: https://elpais.com/sociedad/2020/01/30/actualidad/1580397557_622969.html 	0.6666666666666666	CORONAVIRUS
+Top 3: https://elpais.com/sociedad/2020/02/01/actualidad/1580545476_617093.html 	0.6428571428571429	CORONAVIRUS
+Top 4: https://elpais.com/sociedad/2020/01/31/actualidad/1580470866_896210.html 	0.6428571428571429	CORONAVIRUS
+Top 5: https://elpais.com/sociedad/2020/01/31/actualidad/1580446218_765096.html 	0.6	CORONAVIRUS
+Top 6: https://elpais.com/sociedad/2020/01/31/actualidad/1580472680_606851.html 	0.5945945945945946	CORONAVIRUS
+Top 7: https://elpais.com/sociedad/2020/01/30/actualidad/1580399024_626205.html 	0.5476190476190477	CORONAVIRUS
+Top 8: https://elpais.com/sociedad/2020/01/30/actualidad/1580371690_574775.html 	0.5476190476190477	CORONAVIRUS
+Top 9: https://elpais.com/sociedad/2020/01/29/actualidad/1580287223_797266.html 	0.5238095238095238	CORONAVIRUS
+Top 10: https://elpais.com/sociedad/2020/01/27/actualidad/1580129884_316684.html 	0.5098039215686274	CORONAVIRUS
+Top 11: https://elpais.com/sociedad/2020/01/28/actualidad/1580222867_682945.html 	0.4782608695652174	CORONAVIRUS
+Top 12: https://elpais.com/elpais/2020/01/31/ciencia/1580483603_951189.html 	0.4722222222222222	CORONAVIRUS
+Top 13: https://elpais.com/elpais/2020/01/31/opinion/1580493145_691909.html 	0.47058823529411764	CORONAVIRUS
+Top 14: https://elpais.com/sociedad/2020/01/28/actualidad/1580197540_867177.html 	0.45098039215686275	CORONAVIRUS
+Top 15: https://elpais.com/elpais/2020/01/31/opinion/1580477343_720115.html 	0.42857142857142855	CORONAVIRUS
+Top 16: https://elpais.com/sociedad/2020/01/31/actualidad/1580509404_469734.html 	0.42857142857142855	CORONAVIRUS
+Top 17: https://elpais.com/elpais/2020/01/31/opinion/1580488133_722605.html 	0.42857142857142855	CORONAVIRUS
+Top 18: https://elpais.com/sociedad/2020/01/29/actualidad/1580271109_510968.html 	0.42857142857142855	CORONAVIRUS
+Top 19: https://elpais.com/sociedad/2020/01/28/actualidad/1580242254_881007.html 	0.42857142857142855	CORONAVIRUS
+Top 20: https://elpais.com/sociedad/2020/01/28/actualidad/1580181034_970851.html 	0.42857142857142855	CORONAVIRUS
+Top 21: https://elpais.com/elpais/2020/01/31/opinion/1580510964_287091.html 	0.41025641025641024	CORONAVIRUS
+Top 22: https://elpais.com/sociedad/2020/01/27/actualidad/1580125164_352000.html 	0.4067796610169492	CORONAVIRUS
+Top 23: https://elpais.com/sociedad/2020/02/01/actualidad/1580555885_053858.html 	0.40540540540540543	CORONAVIRUS
+Top 24: https://elpais.com/sociedad/2020/01/29/actualidad/1580301336_320665.html 	0.40476190476190477	CORONAVIRUS
+Top 25: https://elpais.com/sociedad/2020/01/25/actualidad/1579981637_210712.html 	0.39622641509433965	CORONAVIRUS
+Top 26: https://elpais.com/sociedad/2020/01/28/actualidad/1580197062_495845.html 	0.3888888888888889	CORONAVIRUS
+Top 27: https://elpais.com/sociedad/2020/01/25/actualidad/1579954665_551234.html 	0.3888888888888889	CORONAVIRUS
+Top 28: https://elpais.com/sociedad/2020/01/30/actualidad/1580360187_316344.html 	0.3829787234042553	CORONAVIRUS
+Top 29: https://elpais.com/sociedad/2020/01/29/actualidad/1580314682_915050.html 	0.3829787234042553	CORONAVIRUS
+Top 30: https://elpais.com/elpais/2020/01/30/album/1580373641_019734.html 	0.35555555555555557	CORONAVIRUS
+Top 31: https://elpais.com/sociedad/2020/01/26/actualidad/1580066955_089698.html 	0.35294117647058826	CORONAVIRUS
+Top 32: https://elpais.com/sociedad/2020/01/25/actualidad/1579977723_505791.html 	0.35294117647058826	CORONAVIRUS
+Top 33: https://elpais.com/sociedad/2020/01/26/actualidad/1580040757_358740.html 	0.35294117647058826	CORONAVIRUS
+Top 34: https://elpais.com/sociedad/2020/01/25/actualidad/1579928257_278133.html 	0.35294117647058826	CORONAVIRUS
+Top 35: https://elpais.com/sociedad/2020/01/24/actualidad/1579885326_284290.html 	0.35294117647058826	CORONAVIRUS
+Top 36: https://elpais.com/elpais/2020/01/30/opinion/1580392774_901121.html 	0.3409090909090909	CORONAVIRUS
+Top 37: https://elpais.com/elpais/2020/01/28/somos_antartida/1580241118_896499.html 	0.32	CORONAVIRUS
+Top 38: https://elpais.com/cultura/2020/01/29/babelia/1580308495_758005.html 	0.2857142857142857	CORONAVIRUS
+Top 39: https://elpais.com/sociedad/2020/01/28/actualidad/1580227992_277269.html 	0.25
+Top 40: https://elpais.com/deportes/2020/01/29/actualidad/1580328091_583904.html 	0.25	CORONAVIRUS
+Top 41: https://elpais.com/elpais/2020/01/28/opinion/1580241193_029373.html 	0.23076923076923078	CORONAVIRUS
+Top 42: https://elpais.com/sociedad/2020/01/26/actualidad/1580064143_717649.html 	0.1791044776119403
+Top 43: https://elpais.com/elpais/2020/01/30/ciencia/1580340536_340428.html 	0.17391304347826086
+Top 44: https://elpais.com/politica/2020/01/27/actualidad/1580133877_123893.html 	0.1724137931034483
+Top 45: https://elpais.com/elpais/2020/01/20/planeta_futuro/1579521358_461007.html 	0.171875
+Top 46: https://elpais.com/elpais/2020/01/24/planeta_futuro/1579868475_625404.html 	0.171875
+Top 47: https://elpais.com/sociedad/2020/01/31/actualidad/1580506371_343378.html 	0.16666666666666666
+Top 48: https://elpais.com/elpais/2020/01/27/eps/1580125134_005045.html 	0.1590909090909091
+Top 49: https://elpais.com/sociedad/2020/01/29/actualidad/1580284889_341760.html 	0.1568627450980392
+Top 50: https://elpais.com/politica/2020/01/28/actualidad/1580213506_643563.html 	0.15517241379310345
+Top 51: https://elpais.com/elpais/2020/01/30/ciencia/1580384675_479188.html 	0.15384615384615385
+Top 52: https://elpais.com/elpais/2020/01/14/planeta_futuro/1579004327_109161.html 	0.14634146341463414
+Top 53: https://elpais.com/ccaa/2020/01/31/madrid/1580496815_887845.html 	0.14285714285714285
+Top 54: https://elpais.com/politica/2020/01/29/actualidad/1580311293_969538.html 	0.12903225806451613	BREXIT
+Top 55: https://elpais.com/elpais/2020/01/28/planeta_futuro/1580229399_616896.html 	0.1276595744680851
+Top 56: https://elpais.com/elpais/2020/01/29/icon_design/1580287833_604871.html 	0.12727272727272726
+Top 57: https://elpais.com/elpais/2020/01/28/ciencia/1580211861_529651.html 	0.12698412698412698
+Top 58: https://elviajero.elpais.com/elviajero/2020/01/21/album/1579628779_166116.html 	0.125
+Top 59: https://elpais.com/elpais/2020/01/19/opinion/1579452402_749478.html 	0.125
+Top 60: https://elpais.com/elpais/2020/01/27/ciencia/1580127774_061342.html 	0.12307692307692308
+Top 61: https://elpais.com/internacional/2020/01/29/actualidad/1580327353_398040.html 	0.12244897959183673	BREXIT
+Top 62: https://elpais.com/politica/2020/01/28/actualidad/1580204408_409484.html 	0.12162162162162163
+Top 63: https://elpais.com/elpais/2020/01/28/planeta_futuro/1580247231_991237.html 	0.12
+Top 64: https://elpais.com/economia/2020/01/27/actualidad/1580157132_508475.html 	0.11940298507462686
+Top 65: https://elpais.com/sociedad/2020/01/31/actualidad/1580462490_913988.html 	0.11764705882352941
+Top 66: https://elpais.com/politica/2020/01/28/actualidad/1580199048_590617.html 	0.11475409836065574
+Top 67: https://elpais.com/internacional/2020/01/26/actualidad/1580064949_817930.html 	0.11475409836065574
+Top 68: https://elpais.com/politica/2020/01/24/actualidad/1579853378_597651.html 	0.11290322580645161
+Top 69: https://elpais.com/politica/2020/01/25/actualidad/1579986615_698194.html 	0.11267605633802817
+Top 70: https://elpais.com/elpais/2020/01/28/ciencia/1580240461_164875.html 	0.1111111111111111
+Top 71: https://elpais.com/ccaa/2020/01/27/madrid/1580134652_714497.html 	0.1111111111111111
+Top 72: https://elpais.com/sociedad/2020/01/26/actualidad/1580069572_052530.html 	0.109375
+Top 73: https://elpais.com/economia/2020/01/25/actualidad/1579952826_515616.html 	0.109375
+Top 74: https://elpais.com/politica/2020/01/29/actualidad/1580283041_425228.html 	0.10909090909090909
+Top 75: https://elpais.com/internacional/2020/01/30/actualidad/1580394929_560740.html 	0.10714285714285714
+Top 76: https://elpais.com/internacional/2020/01/29/actualidad/1580296410_222353.html 	0.10714285714285714	BREXIT
+Top 77: https://elpais.com/internacional/2020/01/29/actualidad/1580294347_578795.html 	0.10714285714285714
+Top 78: https://elpais.com/economia/2020/01/29/actualidad/1580299876_635926.html 	0.10714285714285714
+Top 79: https://elpais.com/internacional/2020/01/27/actualidad/1580134404_496639.html 	0.10714285714285714	BREXIT
+Top 80: https://elpais.com/elpais/2020/01/30/opinion/1580387867_048165.html 	0.10526315789473684	BREXIT
+Top 81: https://elpais.com/elpais/2020/01/30/opinion/1580400564_184770.html 	0.10526315789473684	BREXIT
+Top 82: https://elpais.com/elpais/2020/01/30/opinion/1580387662_814809.html 	0.10526315789473684	BREXIT
+Top 83: https://elpais.com/elpais/2020/01/30/opinion/1580404132_607239.html 	0.10526315789473684
+Top 84: https://elpais.com/internacional/2020/01/29/actualidad/1580316198_276368.html 	0.10526315789473684	BREXIT
+Top 85: https://elpais.com/elpais/2020/01/28/opinion/1580218690_802513.html 	0.10526315789473684	BREXIT
+Top 86: https://elpais.com/sociedad/2020/01/28/actualidad/1580213209_176225.html 	0.10526315789473684
+Top 87: https://elpais.com/internacional/2020/01/27/actualidad/1580123880_862500.html 	0.10526315789473684
+Top 88: https://elpais.com/elpais/2020/01/27/planeta_futuro/1580128971_893558.html 	0.10344827586206896
+Top 89: https://elpais.com/elpais/2020/01/27/laboratorio_de_felicidad/1580113039_219356.html 	0.10294117647058823
+Top 90: https://elpais.com/elpais/2020/01/24/mamas_papas/1579869982_422846.html 	0.10294117647058823
+Top 91: https://elpais.com/elpais/2020/01/22/sesenta_y_tantos/1579716394_467399.html 	0.1
+Top 92: https://elpais.com/elpais/2020/01/29/opinion/1580318838_006197.html 	0.09615384615384616
+Top 93: https://elpais.com/economia/2020/01/27/actualidad/1580114746_847789.html 	0.09523809523809523
+Top 94: https://elpais.com/elpais/2020/01/24/ideas/1579862649_837380.html 	0.09523809523809523
+Top 95: https://elpais.com/sociedad/2020/01/29/actualidad/1580316283_480704.html 	0.09375
+Top 96: https://elpais.com/internacional/2020/01/27/actualidad/1580116563_834218.html 	0.09333333333333334
+Top 97: https://elpais.com/politica/2020/01/25/actualidad/1579953643_629569.html 	0.09333333333333334
+Top 98: https://elpais.com/internacional/2020/01/26/actualidad/1580071438_382245.html 	0.09230769230769231	BREXIT
+Top 99: https://elpais.com/politica/2020/01/26/actualidad/1580060803_338074.html 	0.09230769230769231
+Top 100: https://elpais.com/elpais/2020/01/23/ideas/1579784679_453339.html 	0.09230769230769231
+ 
+
+              precision    recall  f1-score   support
+
+      BREXIT       0.00      0.00      0.00         0
+ CORONAVIRUS       0.98      0.87      0.92        46
+        OTRO       0.99      0.97      0.98       845
+
+    accuracy                           0.96       891
+   macro avg       0.66      0.61      0.63       891
+weighted avg       0.99      0.96      0.98       891
+ 
+
+Tiempo empleado: 1 minutos y 7 segundos
+

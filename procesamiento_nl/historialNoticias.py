@@ -10,36 +10,34 @@ import procesador
 from datetime import datetime
 from sklearn.metrics import classification_report
 
-ATRIBUTO_ESTUDIO_1 = "cuerpoNoticia"
-ATRIBUTO_ESTUDIO_2 = "keywordsNoticia"
 LISTA_ATRIBUTOS = [ "titularNoticia",
                     "keywordsNoticia",
                     "resumenNoticia",
                     "autorNoticia",
-                    "tagsNoticia"]  
-'''
-
-,"cuerpoNoticia"
-''' 
+                    "tagsNoticia",
+                    "cuerpoNoticia"]  
+TEMA_NOTICIA = "CORONAVIRUS"
+                    
 LISTA_SIMILITUDES = [   "SIMILITUD_COSENO_SPACY", 
                         "SIMILITUD_JACCARD",
                         "SIMILITUD_COSENO_TF-IDF",
-                        "SIMILITUD_COSENO_BOW"]
-'''
-
-'''
-LISTA_SIMILITUDES_T1 = ["SIMILITUD_COSENO_SPACY"]
+                        "SIMILITUD_COSENO_BOW",
+                        "SIMILITUD_COSENO_SPACY_FH",
+                        "SIMILITUD_JACCARD_FH"]
+                        
+LISTA_SIMILITUDES_T1 = ["SIMILITUD_COSENO_SPACY",
+                        "SIMILITUD_JACCARD"]
 LISTA_SIMILITUDES_T2 = ["SIMILITUD_COSENO_TF-IDF",
                         "SIMILITUD_COSENO_BOW"]
-LISTA_SIMILITUDES_T3 = ["SIMILITUD_JACCARD"]
+LISTA_SIMILITUDES_T3 = ["SIMILITUD_COSENO_SPACY_FH",
+                        "SIMILITUD_JACCARD_FH"]
+
 TOP_RESULTS_1 = 100
 TOP_RESULTS_2 = 50
+
 URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html"
 
-TEMA_NOTICIA = "CORONAVIRUS"
-
 NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../crawler/crawlerPeriodicos/datos_EL_PAIS/20200125_20200202_noticias_etiquetadas.json"
-
 STR_FICHERO_OUT = "../EL_PAIS_20200125_20200202_scores.txt"
 FILE_OUT_SCORES = open(STR_FICHERO_OUT, 'w')
 FILE_OUT_SCORES.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR + "\n")
@@ -137,12 +135,12 @@ def do_similitud_creacionVectores(  obj_extractor,
     return obj_procesador, round(time_end - time_start)
 
 
-def do_similitud_Jaccard_franjasHorarias(   obj_extractor, 
-                                            list_atributosEstudio,
-                                            listLinksNoticias=None):
+def do_similitud_noVecs_franjasHorarias(obj_extractor, 
+                                        obj_similitud,
+                                        list_atributosEstudio,
+                                        listLinksNoticias=None):
 
     obj_procesador = procesador.Procesador()
-    obj_similitud = similitud.Similitud("SIMILITUD_JACCARD_FH")
     funct_similitud = obj_similitud.getFuncionSimilitud()
 
     time_start = time.time()
@@ -177,7 +175,7 @@ def do_similitud_Jaccard_franjasHorarias(   obj_extractor,
             
             obj_procesador.addResultado(linkNoticia, score)
 
-        if tuple_mejorNoticia[0] != "":
+        if tuple_mejorNoticia[0] != "" and tuple_mejorNoticia[1] >= 0.45:
             dataNoticia_Add = obj_extractor.getDataNoticia(tuple_mejorNoticia[0])
             txtAdd = ""
             for atributo in list_atributosEstudio:
@@ -260,16 +258,6 @@ if __name__ == '__main__':
     
     obj_extractor = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
 
-    obj_procesador, tiempoEjecucion = do_similitud_Jaccard_franjasHorarias(obj_extractor, ["tagsNoticia"])
-    printResult(obj_procesador,
-                obj_extractor,
-                "SIMILITUD_JACCARD_FH",
-                TOP_RESULTS_1,
-                ["tagsNoticia"],
-                tiempoEjecucion)
-
-    sys.exit()
-
     for tipoSimilitud in LISTA_SIMILITUDES:
 
         atributosVistos = []
@@ -287,7 +275,7 @@ if __name__ == '__main__':
                 if atributo_1 != atributo_2:
                     list_atributosEstudio.append(atributo_2)
 
-                if tipoSimilitud in LISTA_SIMILITUDES_T1 or tipoSimilitud in LISTA_SIMILITUDES_T3:
+                if tipoSimilitud in LISTA_SIMILITUDES_T1:
 
                     obj_procesador, tiempoEjecucion = do_similitud_noCreacionVecs(  obj_extractor,
                                                                                     obj_similitud,
@@ -308,6 +296,12 @@ if __name__ == '__main__':
                                                                                     list_atributosEstudio,
                                                                                     atributo_funct_addEntry,
                                                                                     atributo_funct_createVecs)
+
+                elif tipoSimilitud in LISTA_SIMILITUDES_T3:
+
+                    obj_procesador, tiempoEjecucion = do_similitud_noVecs_franjasHorarias(  obj_extractor,
+                                                                                            obj_similitud,
+                                                                                            list_atributosEstudio)
                 
                 printResult(obj_procesador,
                             obj_extractor,

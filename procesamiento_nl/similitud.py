@@ -9,8 +9,8 @@ import math
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
-
 STR_SIMILITUD_COSENO_SPACY = "SIMILITUD_COSENO_SPACY"
+STR_SIMILITUD_COSENO_SPACY_FRANJASHORARIAS = "SIMILITUD_COSENO_SPACY_FH"
 STR_SIMILITUD_JACCARD = "SIMILITUD_JACCARD"
 STR_SIMILITUD_JACCARD_FRANJASHORARIAS = "SIMILITUD_JACCARD_FH"
 STR_SIMILITUD_COSENO_TFIFD = "SIMILITUD_COSENO_TF-IDF"
@@ -30,7 +30,7 @@ class Similitud():
 
         self.nombreSimilitud = nombreSimilitud
 
-        if self.nombreSimilitud == STR_SIMILITUD_COSENO_SPACY:
+        if self.nombreSimilitud == STR_SIMILITUD_COSENO_SPACY or self.nombreSimilitud == STR_SIMILITUD_COSENO_SPACY_FRANJASHORARIAS:
             self.funcionSimilitud = self.similitud_coseno_spacy
         
         elif self.nombreSimilitud == STR_SIMILITUD_JACCARD or self.nombreSimilitud == STR_SIMILITUD_JACCARD_FRANJASHORARIAS:
