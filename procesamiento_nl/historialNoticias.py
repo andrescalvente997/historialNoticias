@@ -257,7 +257,6 @@ def printResult(obj_procesador,
 if __name__ == '__main__':
     
     obj_extractor = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
-    LISTA_ATRIBUTOS = ["titularNoticia", "keywordsNoticia"]
 
     for tipoSimilitud in LISTA_SIMILITUDES:
 
