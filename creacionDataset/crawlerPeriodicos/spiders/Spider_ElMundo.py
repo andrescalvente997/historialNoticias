@@ -98,7 +98,6 @@ class Spider_ElMundo(CrawlSpider):
             elif "/" not in keyword and " - " not in keyword and " y " not in keyword:
                 item['keywordsNoticia'].append(keyword.strip())
             else:
-                print("n\n\n\n"+keyword)
                 if "/" in keyword:
                     lkeyword = keyword.split("/")
                 elif " - " in keyword:
