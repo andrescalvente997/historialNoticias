@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-ruta_CRAWLER="$DIR/../crawler"
+ruta_CRAWLER="$DIR/../creacionDataset"
 
 echo "¿Por cual fecha deberíamos empezar? (dd-MM-YYYY)"
 read fechaIni
