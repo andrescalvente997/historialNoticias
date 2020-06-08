@@ -107,7 +107,10 @@ class Spider_ElConfidencial(CrawlSpider):
 
         # FECHA
         # Se encuentra en el interior de la noticia como "YYYY-MM-ddThh:mm:ssZ"
-        item['fechaPublicacionNoticia'] = response.xpath(XPATH_NOTICIA_FECHA_PUBLICACION).extract()[0]
+        try:
+            item['fechaPublicacionNoticia'] = response.xpath(XPATH_NOTICIA_FECHA_PUBLICACION).extract()[0]
+        except:
+            return
 
         # PIE DE FOTO
         # 3 casos: 1) No foto.  2) Pie de foto pero NO firma.  3) Pie y firma de foto

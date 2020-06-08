@@ -31,7 +31,8 @@ class Spider_20Minutos(CrawlSpider):
     rules = (
             Rule(
                 LinkExtractor(  allow = (), 
-                                restrict_xpaths = '//header/h1/a'), 
+                                restrict_xpaths = '//header/h1/a', 
+                                deny=(["imagenes"])),
                 callback='parse_item', 
                 follow = False),
         )  
@@ -74,7 +75,7 @@ class Spider_20Minutos(CrawlSpider):
         temasSeleccionados = ["Economía", "Internacional", "Nacional"]
         try:
             tema = response.xpath(XPATH_NOTICIA_RESTRICCION_TEMA).extract()[0].strip()
-            if tema not in temasSeleccionados:
+            if tema.encode("UTF-8") not in temasSeleccionados:
                 return
         except:
             return
