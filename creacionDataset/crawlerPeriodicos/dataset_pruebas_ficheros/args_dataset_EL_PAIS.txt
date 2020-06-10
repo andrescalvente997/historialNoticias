@@ -1,0 +1,49 @@
+>> datos_EL_PAIS/20190130_20190220_noticias.json
+>> Juicio al Procés
+>> JUICIO_PROCÉS
+
+>> datos_EL_PAIS/20190314_20190325_noticias.json    
+>> Brexit
+>> BREXIT
+
+>> datos_EL_PAIS/20190415_20190430_noticias.json
+>> Incendio Nôtre Dame
+>> INCENDIO_NÔTRE_DAME
+
+>> datos_EL_PAIS/20191001_20191020_noticias.json
+>> Elecciones Generales 2019
+>> ELECCIONES_GENERALES_NOV2019
+
+>> datos_EL_PAIS/20191010_20191027_noticias.json
+>> Exhumación Franco
+>> EXHUMACIÓN_FRANCO
+
+>> datos_EL_PAIS/20191010_20191027_noticias.json
+>> Sentencia Procés
+>> SENTENCIA_PROCÉS
+
+>> datos_EL_PAIS/20191125_20191205_noticias.json
+>> Cumbre del clima
+>> CUMBRE_CLIMA
+
+---
+
+>> datos_EL_PAIS/20200120_20200210_noticias.json
+>> Coronavirus
+>> CORONAVIRUS
+
+>> datos_EL_PAIS/20200120_20200210_noticias.json
+>> Kobe Bryant
+>> KOBE_BRYANT
+
+>> datos_EL_PAIS/20200120_20200210_noticias.json
+>> Impeachment Donald Trump
+>> IMPEACHMENT
+
+>> datos_EL_PAIS/20200120_20200210_noticias.json
+>> Brexit
+>> BREXIT
+
+>> datos_EL_PAIS/20200305_20200320_noticias.json
+>> Coronavirus
+>> CORONAVIRUS
