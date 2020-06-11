@@ -16,7 +16,6 @@ LISTA_ATRIBUTOS = [ "titularNoticia",
                     "autorNoticia",
                     "tagsNoticia",
                     "cuerpoNoticia"]  
-TEMA_NOTICIA = "CORONAVIRUS"
                     
 LISTA_SIMILITUDES = [   "SIMILITUD_COSENO_SPACY", 
                         "SIMILITUD_JACCARD",
@@ -32,16 +31,16 @@ LISTA_SIMILITUDES_T2 = ["SIMILITUD_COSENO_TF-IDF",
 LISTA_SIMILITUDES_T3 = ["SIMILITUD_COSENO_SPACY_FH",
                         "SIMILITUD_JACCARD_FH"]
 
-TOP_RESULTS_1 = 100
-TOP_RESULTS_2 = 50
+URL_NOTICIA_ANALIZAR = "https://elpais.com/politica/2019/10/20/actualidad/1571575152_143333.html"
+TEMA_NOTICIA = "ELECCIONES_GENERALES_NOV2019"
+NUM_NOTICIAS_CON_TEMA = 41
+TOP_RESULTS_1 = 75
 
-URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2020/02/01/actualidad/1580569994_549942.html"
-
-NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../creacionDataset/crawlerPeriodicos/datos_EL_PAIS/20200125_20200202_noticias_etiquetadas.json"
-STR_FICHERO_OUT = "../EL_PAIS_20200125_20200202_scores.txt"
+NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../creacionDataset/crawlerPeriodicos/dataset_pruebas_ficheros/dataset_pruebas_EL_PAIS.json"
+STR_FICHERO_OUT = "../dataset_pruebas_EL_PAIS_scores.txt"
 FILE_OUT_SCORES = open(STR_FICHERO_OUT, 'w')
 FILE_OUT_SCORES.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR + "\n")
-STR_FICHERO_OUT = "../EL_PAIS_20200125_20200202_historial.txt"
+STR_FICHERO_OUT = "../dataset_pruebas_EL_PAIS_historial.txt"
 FILE_OUT_HIST = open(STR_FICHERO_OUT, 'w')
 FILE_OUT_HIST.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR + "\n")
 
@@ -264,16 +263,17 @@ if __name__ == '__main__':
 
         for atributo_1 in LISTA_ATRIBUTOS:
 
-            list_atributosEstudio = [atributo_1]
-            obj_similitud = similitud.Similitud(tipoSimilitud)
-
             for atributo_2 in LISTA_ATRIBUTOS:
 
                 if atributo_2 in atributosVistos:
                     continue
 
                 if atributo_1 != atributo_2:
-                    list_atributosEstudio.append(atributo_2)
+                    list_atributosEstudio = [atributo_1, atributo_2]
+                else:
+                    list_atributosEstudio = [atributo_1]
+
+                obj_similitud = similitud.Similitud(tipoSimilitud)
 
                 if tipoSimilitud in LISTA_SIMILITUDES_T1:
 
@@ -309,9 +309,6 @@ if __name__ == '__main__':
                             TOP_RESULTS_1,
                             list_atributosEstudio,
                             tiempoEjecucion)
-
-                if atributo_1 != atributo_2:
-                    list_atributosEstudio.remove(atributo_2)
 
             atributosVistos.append(atributo_1)
 
