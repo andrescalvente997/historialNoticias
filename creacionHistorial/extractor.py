@@ -23,13 +23,17 @@ class Extractor():
 
         self.nlp = spacy.load("es_core_news_md")
 
-        strFechas = fileStr.split("/")[-1]
-        strFechaIni, strFechaFin = strFechas.split("_")[0], strFechas.split("_")[1]
-        strFechaIni = strFechaIni[0:4] + "-" + strFechaIni[4:6] + "-" + strFechaIni[6:]
-        strFechaFin = strFechaFin[0:4] + "-" + strFechaFin[4:6] + "-" + strFechaFin[6:] 
-        self.fechaIni = datetime.strptime(strFechaIni, '%Y-%m-%d')
-        self.fechaFin = datetime.strptime(strFechaFin, '%Y-%m-%d')
-        
+        try:
+            strFechas = fileStr.split("/")[-1]
+            strFechaIni, strFechaFin = strFechas.split("_")[0], strFechas.split("_")[1]
+            strFechaIni = strFechaIni[0:4] + "-" + strFechaIni[4:6] + "-" + strFechaIni[6:]
+            strFechaFin = strFechaFin[0:4] + "-" + strFechaFin[4:6] + "-" + strFechaFin[6:] 
+            self.fechaIni = datetime.strptime(strFechaIni, '%Y-%m-%d')
+            self.fechaFin = datetime.strptime(strFechaFin, '%Y-%m-%d')
+        except:
+            self.fechaIni = datetime.strptime("2019-01-30", '%Y-%m-%d')
+            self.fechaFin = datetime.strptime("2020-03-20", '%Y-%m-%d')
+
         self.jsonFile, dataNoticias = self.openFile(fileStr)
 
         #

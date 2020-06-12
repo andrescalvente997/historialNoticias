@@ -34,7 +34,7 @@ LISTA_SIMILITUDES_T3 = ["SIMILITUD_COSENO_SPACY_FH",
 URL_NOTICIA_ANALIZAR = "https://elpais.com/politica/2019/10/20/actualidad/1571575152_143333.html"
 TEMA_NOTICIA = "ELECCIONES_GENERALES_NOV2019"
 NUM_NOTICIAS_CON_TEMA = 41
-TOP_RESULTS_1 = 75
+TOP_RESULTS_1 = 603
 
 NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../creacionDataset/crawlerPeriodicos/dataset_pruebas_ficheros/dataset_pruebas_EL_PAIS.json"
 STR_FICHERO_OUT = "../dataset_pruebas_EL_PAIS_scores.txt"
@@ -208,6 +208,15 @@ def printResult(obj_procesador,
     aux2_m_true = [target_names.index("OTRO")] * (len(arrayEtiquetasPred) - numNoticiasConEtiqueta_Esp)
     m_true = aux1_m_true + aux2_m_true
     m_pred = list(map(lambda x: target_names.index(x), arrayEtiquetasPred))
+    
+    '''
+    print(target_names)
+    print(aux1_m_true)
+    print(aux2_m_true)
+    print(m_true)
+    print(m_pred)
+    classification_report(m_true, m_pred, target_names=target_names, zero_division=0)
+    '''
 
     mins = math.floor(executionTime / 60)
     segs = round((executionTime / 60 - mins) * 60)
@@ -225,7 +234,7 @@ def printResult(obj_procesador,
                                 " + ".join(list_atrisUtilizados),
                                 obj_procesador,
                                 strResultTop,
-                                classification_report(m_true, m_pred, target_names=target_names, zero_division=0),
+                                "CLASIFFICATION_REPORT",
                                 str(mins),
                                 str(segs))
     FILE_OUT_SCORES.write(strPrint)
