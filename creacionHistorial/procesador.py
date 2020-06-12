@@ -23,13 +23,18 @@ class Procesador():
         self.diccResultados = {k: v for k, v in sorted(self.diccResultados.items(), key=lambda item: item[1], reverse=True)}
 
     
-    def getTopResultados(self, noticiasEtiquetadas, top=10):
+    def getTopResultados(self, noticiasEtiquetadas, top=None):
 
         diccRes = {}
         strPrint = ""
         m_pred = [] # Array de predicciones
 
         numTop = 1
+
+        # Así podemos imprimir todos los resultados si queremos
+        if top == None:
+            top = len(self.diccResultados)
+
         for k, v in self.diccResultados.items():
             
             if numTop <= top:

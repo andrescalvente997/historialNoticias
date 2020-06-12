@@ -34,7 +34,6 @@ LISTA_SIMILITUDES_T3 = ["SIMILITUD_COSENO_SPACY_FH",
 URL_NOTICIA_ANALIZAR = "https://elpais.com/politica/2019/10/20/actualidad/1571575152_143333.html"
 TEMA_NOTICIA = "ELECCIONES_GENERALES_NOV2019"
 NUM_NOTICIAS_CON_TEMA = 41
-TOP_RESULTS_1 = 603
 
 NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../creacionDataset/crawlerPeriodicos/dataset_pruebas_ficheros/dataset_pruebas_EL_PAIS.json"
 STR_FICHERO_OUT = "../dataset_pruebas_EL_PAIS_scores.txt"
@@ -190,7 +189,6 @@ def do_similitud_noVecs_franjasHorarias(obj_extractor,
 def printResult(obj_procesador, 
                 obj_extractor,
                 similitudUtilizada,
-                topResults,
                 list_atrisUtilizados,
                 executionTime):
 
@@ -199,7 +197,7 @@ def printResult(obj_procesador,
     noticiasEtiquetadas = obj_extractor.getDiccNoticiaEtiqueta()
     numNoticiasConEtiqueta_Esp = obj_extractor.getCountNoticiasConEtiqueta(TEMA_NOTICIA)
 
-    diccResults, strResultTop, arrayEtiquetasPred = obj_procesador.getTopResultados(noticiasEtiquetadas, top=topResults)
+    diccResults, strResultTop, arrayEtiquetasPred = obj_procesador.getTopResultados(noticiasEtiquetadas, top=None)
 
     # Creacion de matriz de resultados por clases
     target_names = obj_extractor.getEtiquetasTema()
@@ -315,7 +313,6 @@ if __name__ == '__main__':
                 printResult(obj_procesador,
                             obj_extractor,
                             tipoSimilitud,
-                            TOP_RESULTS_1,
                             list_atributosEstudio,
                             tiempoEjecucion)
 
