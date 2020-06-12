@@ -33,7 +33,6 @@ LISTA_SIMILITUDES_T3 = ["SIMILITUD_COSENO_SPACY_FH",
 
 URL_NOTICIA_ANALIZAR = "https://elpais.com/politica/2019/10/20/actualidad/1571575152_143333.html"
 TEMA_NOTICIA = "ELECCIONES_GENERALES_NOV2019"
-NUM_NOTICIAS_CON_TEMA = 41
 
 NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../creacionDataset/crawlerPeriodicos/dataset_pruebas_ficheros/dataset_pruebas_EL_PAIS.json"
 STR_FICHERO_OUT = "../dataset_pruebas_EL_PAIS_scores.txt"
@@ -197,24 +196,36 @@ def printResult(obj_procesador,
     noticiasEtiquetadas = obj_extractor.getDiccNoticiaEtiqueta()
     numNoticiasConEtiqueta_Esp = obj_extractor.getCountNoticiasConEtiqueta(TEMA_NOTICIA)
 
-    diccResults, strResultTop, arrayEtiquetasPred = obj_procesador.getTopResultados(noticiasEtiquetadas, top=None)
+    diccResults, strResultTop, m_pred_etiquetas = obj_procesador.getTopResultados(noticiasEtiquetadas, top=None)
 
     # Creacion de matriz de resultados por clases
+
+    # Creamos la lista de etiquetas, que contendrá todas las etiquetas de temas añadidas
+    # más una comodin que servirá para las no etiquetadas
     target_names = obj_extractor.getEtiquetasTema()
     target_names.append("OTRO")
-    aux1_m_true = [target_names.index(TEMA_NOTICIA)] * numNoticiasConEtiqueta_Esp
-    aux2_m_true = [target_names.index("OTRO")] * (len(arrayEtiquetasPred) - numNoticiasConEtiqueta_Esp)
-    m_true = aux1_m_true + aux2_m_true
-    m_pred = list(map(lambda x: target_names.index(x), arrayEtiquetasPred))
     
-    '''
-    print(target_names)
-    print(aux1_m_true)
-    print(aux2_m_true)
-    print(m_true)
-    print(m_pred)
+    # Creamos la matriz de datos verdaderos
+    # Como queremos que las noticias con la etiqueta de estudio estén en las primeras posiciones:
+    # aux1_m_true => Tendrá n etiquetas con la etiqueta de estudio siendo n el número de noticias con esa etiqueta
+    # aux2_m_true => Tendrá tantas etiquetas comodin como noticias que no estén en el top
+    # cola_m_true => Tendrá las demás etiquetas de noticias en la cola para que al pasar la función no haya problemas
+    aux1_m_true = [target_names.index(TEMA_NOTICIA)] * numNoticiasConEtiqueta_Esp
+    aux2_m_true = [target_names.index("OTRO")] * (len(m_pred_etiquetas) - numNoticiasConEtiqueta_Esp)
+    tail_m_true = []
+    for target in target_names:
+        if target != TEMA_NOTICIA and target != "OTRO":
+            tail_m_true.append(target_names.index(target))
+    m_true = aux1_m_true + aux2_m_true + tail_m_true
+
+    # Creamos la matriz de datos predichos
+    # Solo cogeremos las noticias de mayor a menor resultado y traduciremos la etiqueta al valor de etiqueta
+    # tail_m_pred => Contendrá las etiquetas en orden inverso para que fallen y darle la mayor importancia a la etiqueta de estudio
+    m_pred = list(map(lambda x: target_names.index(x), m_pred_etiquetas))
+    tail_m_pred = list(reversed(tail_m_true))
+    m_pred = m_pred + tail_m_pred
+
     classification_report(m_true, m_pred, target_names=target_names, zero_division=0)
-    '''
 
     mins = math.floor(executionTime / 60)
     segs = round((executionTime / 60 - mins) * 60)
