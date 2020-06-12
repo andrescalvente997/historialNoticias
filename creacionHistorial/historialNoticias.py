@@ -225,8 +225,6 @@ def printResult(obj_procesador,
     tail_m_pred = list(reversed(tail_m_true))
     m_pred = m_pred + tail_m_pred
 
-    classification_report(m_true, m_pred, target_names=target_names, zero_division=0)
-
     mins = math.floor(executionTime / 60)
     segs = round((executionTime / 60 - mins) * 60)
 
@@ -243,7 +241,7 @@ def printResult(obj_procesador,
                                 " + ".join(list_atrisUtilizados),
                                 obj_procesador,
                                 strResultTop,
-                                "CLASIFFICATION_REPORT",
+                                classification_report(m_true, m_pred, target_names=target_names, zero_division=0),
                                 str(mins),
                                 str(segs))
     FILE_OUT_SCORES.write(strPrint)
