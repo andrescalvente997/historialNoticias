@@ -31,18 +31,29 @@ LISTA_SIMILITUDES_T2 = ["SIMILITUD_COSENO_TF-IDF",
 LISTA_SIMILITUDES_T3 = ["SIMILITUD_COSENO_SPACY_FH",
                         "SIMILITUD_JACCARD_FH"]
 
+
+PERIODICO = "EL_PAIS"
 '''
 URL_NOTICIA_ANALIZAR = "https://elpais.com/politica/2019/10/20/actualidad/1571575152_143333.html"
 TEMA_NOTICIA = "ELECCIONES_GENERALES_NOV2019"
-'''
 URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2019/12/02/actualidad/1575268228_449028.html"
 TEMA_NOTICIA = "CUMBRE_CLIMA"
+'''
+URL_NOTICIA_ANALIZAR = "https://elpais.com/cultura/2019/04/27/actualidad/1556380153_549141.html"
+TEMA_NOTICIA = "INCENDIO_NÔTRE_DAME"
+'''
+PERIODICO = "20_MINUTOS"
+URL_NOTICIA_ANALIZAR = "https://www.20minutos.es/noticia/4180255/0/la-revuelta-feminista-toma-espana-pero-con-menor-asistencia-que-en-los-dos-ultimos-anos/"
+TEMA_NOTICIA = "8M_DIA_INTERNACIONAL_MUJER"
+URL_NOTICIA_ANALIZAR = "https://www.20minutos.es/noticia/4030716/0/sanchez-confiesa-exhumacion-franco-provoco-enorme-orgullo-emocion/"
+TEMA_NOTICIA = "EXHUMACIÓN_FRANCO"
+'''
 
-NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../creacionDataset/crawlerPeriodicos/dataset_pruebas_ficheros/dataset_pruebas_EL_PAIS.json"
-STR_FICHERO_OUT = "../dataset_pruebas_EL_PAIS_scores.txt"
+NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../creacionDataset/crawlerPeriodicos/dataset_pruebas_ficheros/dataset_pruebas_{}.json".format(PERIODICO)
+STR_FICHERO_OUT = "../dataset_pruebas_{}_scores.txt".format(PERIODICO)
 FILE_OUT_SCORES = open(STR_FICHERO_OUT, 'w')
 FILE_OUT_SCORES.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR + "\n")
-STR_FICHERO_OUT = "../dataset_pruebas_EL_PAIS_historial.txt"
+STR_FICHERO_OUT = "../dataset_pruebas_{}_historial.txt".format(PERIODICO)
 FILE_OUT_HIST = open(STR_FICHERO_OUT, 'w')
 FILE_OUT_HIST.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR + "\n")
 
