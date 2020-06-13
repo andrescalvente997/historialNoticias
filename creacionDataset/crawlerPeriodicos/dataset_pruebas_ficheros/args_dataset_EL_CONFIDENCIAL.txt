@@ -1,0 +1,79 @@
+>> datos_EL_CONFIDENCIAL/20190130_20190220_noticias.json
+>> Juicio procés
+>> JUICIO_PROCÉS
+Se han escrito 28 noticias nuevas
+
+>> datos_EL_CONFIDENCIAL/20190130_20190220_noticias.json
+>> Brexit
+>> BREXIT
+Se han escrito 39 noticias nuevas
+
+>> datos_EL_CONFIDENCIAL/20190314_20190325_noticias.json
+>> Juicio procés
+>> JUICIO_PROCÉS
+Se han escrito 31 noticias nuevas
+
+>> datos_EL_CONFIDENCIAL/20190314_20190325_noticias.json
+>> Brexit
+>> BREXIT
+Se han escrito 29 noticias nuevas
+
+>> datos_EL_CONFIDENCIAL/20190415_20190430_noticias.json
+>> Elecciones Generales 2019
+>> ELECCIONES_GENERALES_NOV2019
+Se han escrito 145 noticias nuevas
+
+>> datos_EL_CONFIDENCIAL/20191001_20191020_noticias.json
+>> Francisco Franco
+>> EXHUMACIÓN_FRANCO
+Se han escrito 26 noticias nuevas
+
+>> datos_EL_CONFIDENCIAL/20191001_20191020_noticias.json
+>> Juicio procés
+>> JUICIO_PROCÉS
+Se han escrito 38 noticias nuevas
+
+>> datos_EL_CONFIDENCIAL/20191010_20191027_noticias.json
+>> Valle de los Caídos
+>> EXHUMACIÓN_FRANCO
+Se han escrito 31 noticias nuevas
+
+>> datos_EL_CONFIDENCIAL/20191001_20191020_noticias.json
+>> Elecciones Generales 2019
+>> ELECCIONES_GENERALES_NOV2019
+Se han escrito 27 noticias nuevas
+
+>> datos_EL_CONFIDENCIAL/20191125_20191205_noticias.json
+>> Cumbre del Clima Madrid-2019
+>> CUMBRE_CLIMA
+Se han escrito 24 noticias nuevas
+
+>> datos_EL_CONFIDENCIAL/20200120_20200210_noticias.json
+>> Brexit
+>> BREXIT
+Se han escrito 26 noticias nuevas
+
+>> datos_EL_CONFIDENCIAL/20200120_20200210_noticias.json
+>> Coronavirus
+>> CORONAVIRUS
+Se han escrito 52 noticias nuevas
+
+>> datos_EL_CONFIDENCIAL/20200120_20200210_noticias.json
+>> Kobe Bryant
+>> KOBE_BRYANT
+Se han escrito 10 noticias nuevas
+
+>> datos_EL_CONFIDENCIAL/20200120_20200210_noticias.json
+>> Gobierno de Donald Trump
+>> IMPEACHMENT
+Se han escrito 10 noticias nuevas
+
+>> datos_EL_CONFIDENCIAL/20200305_20200320_noticias.json
+>> Coronavirus
+>> CORONAVIRUS
+Se han escrito 540 noticias nuevas
+
+>> datos_EL_CONFIDENCIAL/20200305_20200320_noticias.json
+>> Brexit
+>> BREXIT
+Se han escrito 8 noticias nuevas
