@@ -1,0 +1,79 @@
+>> datos_EL_MUNDO/20190314_20190325_noticias.json
+>> Brexit
+>> BREXIT
+Se han escrito 16 noticias nuevas
+
+>> datos_EL_MUNDO/20190314_20190325_noticias.json
+>> Juicio 1-O
+>> JUICIO_PROCÉS
+Se han escrito 16 noticias nuevas
+
+>> datos_EL_MUNDO/20190415_20190430_noticias.json
+>> Notre Dame
+>> INCENDIO_NÔTRE_DAME
+Se han escrito 12 noticias nuevas
+
+>> datos_EL_MUNDO/20190415_20190430_noticias.json
+>> Juicio 1-O
+>> JUICIO_PROCÉS
+Se han escrito 11 noticias nuevas
+
+>> datos_EL_MUNDO/20190415_20190430_noticias.json
+>> Elecciones Generales
+>> ELECCIONES_GENERALES_NOV2019
+Se han escrito 134 noticias nuevas
+
+>> datos_EL_MUNDO/20191001_20191020_noticias.json
+>> Brexit    
+>> BREXIT
+Se han escrito 33 noticias nuevas
+
+>> datos_EL_MUNDO/20191001_20191020_noticias.json
+>> Elecciones Generales
+>> ELECCIONES_GENERALES_NOV2019
+Se han escrito 51 noticias nuevas
+
+>> datos_EL_MUNDO/20191010_20191027_noticias.json
+>> Exhumación Franco
+>> EXHUMACIÓN_FRANCO
+Se han escrito 21 noticias nuevas
+
+>> datos_EL_MUNDO/20191010_20191027_noticias.json
+>> Juicio 1-O
+>> JUICIO_PROCÉS
+Se han escrito 43 noticias nuevas
+
+>> datos_EL_MUNDO/20191125_20191205_noticias.json
+>> Cumbre del Clima
+>> CUMBRE_CLIMA
+Se han escrito 22 noticias nuevas
+
+>> datos_EL_MUNDO/20200120_20200210_noticias.json
+>> Kobe Bryant
+>> KOBE_BRYANT
+Se han escrito 21 noticias nuevas
+
+>> datos_EL_MUNDO/20200120_20200210_noticias.json
+>> Coronavirus
+>> CORONAVIRUS
+Se han escrito 28 noticias nuevas
+
+>> datos_EL_MUNDO/20200120_20200210_noticias.json
+>> Brexit
+>> BREXIT
+Se han escrito 14 noticias nuevas
+
+>> datos_EL_MUNDO/20200305_20200320_noticias.json
+>> Coronavirus
+>> CORONAVIRUS
+Se han escrito 427 noticias nuevas
+
+>> datos_EL_MUNDO/20200305_20200320_noticias.json
+>> Día de la Mujer
+>> 8M_DIA_INTERNACIONAL_MUJER
+Se han escrito 6 noticias nuevas
+
+>> datos_EL_MUNDO/20200120_20200210_noticias.json
+>> Impeachment
+>> IMPEACHMENT
+Se han escrito 2 noticias nuevas
