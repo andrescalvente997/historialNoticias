@@ -1,0 +1,79 @@
+>> datos_20_MINUTOS/20190130_20190220_noticias.json
+>> Juicio del procés
+>> JUICIO_PROCÉS
+Se han escrito 6 noticias nuevas
+
+>> datos_20_MINUTOS/20190130_20190220_noticias.json
+>> Brexit
+>> BREXIT
+Se han escrito 5 noticias nuevas
+
+>> datos_20_MINUTOS/20190314_20190325_noticias.json
+>> Brexit
+>> BREXIT
+Se han escrito 4 noticias nuevas
+
+>> datos_20_MINUTOS/20190314_20190325_noticias.json
+>> Juicio del procés
+>> JUICIO_PROCÉS
+Se han escrito 1 noticias nuevas
+
+>> datos_20_MINUTOS/20190415_20190430_noticias.json
+>> Notre Dame
+>> INCENDIO_NÔTRE_DAME
+Se han escrito 8 noticias nuevas
+
+>> datos_20_MINUTOS/20191001_20191020_noticias.json
+>> Brexit
+>> BREXIT
+Se han escrito 2 noticias nuevas
+
+>> datos_20_MINUTOS/20191001_20191020_noticias.json
+>> Elecciones Generales
+>> >> ELECCIONES_GENERALES_NOV2019
+Se han escrito 7 noticias nuevas
+
+>> datos_20_MINUTOS/20191001_20191020_noticias.json
+>> Franco
+>> EXHUMACIÓN_FRANCO
+Se han escrito 8 noticias nuevas
+
+>> datos_20_MINUTOS/20191010_20191027_noticias.json
+>> Franco
+>> EXHUMACIÓN_FRANCO
+Se han escrito 16 noticias nuevas
+
+>> datos_20_MINUTOS/20191010_20191027_noticias.json
+>> Juicio del procés
+>> JUICIO_PROCÉS
+Se han escrito 6 noticias nuevas
+
+>> datos_20_MINUTOS/20191010_20191027_noticias.json
+>> Exhumación de Franco
+>> EXHUMACIÓN_FRANCO
+Se han escrito 11 noticias nuevas
+
+>> datos_20_MINUTOS/20191125_20191205_noticias.json
+>> Cumbre del clima
+>> CUMBRE_CLIMA
+Se han escrito 6 noticias nuevas
+
+>> datos_20_MINUTOS/20200120_20200210_noticias.json
+>> Brexit
+>> BREXIT
+Se han escrito 2 noticias nuevas
+
+>> datos_20_MINUTOS/20200120_20200210_noticias.json
+>> Coronavirus
+>> CORONAVIRUS
+Se han escrito 28 noticias nuevas
+
+>> datos_20_MINUTOS/20200305_20200320_noticias.json
+>> Coronavirus
+>> CORONAVIRUS
+Se han escrito 263 noticias nuevas
+
+>> datos_20_MINUTOS/20200305_20200320_noticias.json
+>> Día internacional de la mujer
+>> 8M_DIA_INTERNACIONAL_MUJER
+Se han escrito 21 noticias nuevas

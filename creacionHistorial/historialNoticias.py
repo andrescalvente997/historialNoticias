@@ -31,17 +31,16 @@ LISTA_SIMILITUDES_T2 = ["SIMILITUD_COSENO_TF-IDF",
 LISTA_SIMILITUDES_T3 = ["SIMILITUD_COSENO_SPACY_FH",
                         "SIMILITUD_JACCARD_FH"]
 
-
-PERIODICO = "EL_PAIS"
 '''
+PERIODICO = "EL_PAIS"
 URL_NOTICIA_ANALIZAR = "https://elpais.com/politica/2019/10/20/actualidad/1571575152_143333.html"
 TEMA_NOTICIA = "ELECCIONES_GENERALES_NOV2019"
 URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2019/12/02/actualidad/1575268228_449028.html"
 TEMA_NOTICIA = "CUMBRE_CLIMA"
-'''
+
 URL_NOTICIA_ANALIZAR = "https://elpais.com/cultura/2019/04/27/actualidad/1556380153_549141.html"
 TEMA_NOTICIA = "INCENDIO_NÔTRE_DAME"
-'''
+
 PERIODICO = "20_MINUTOS"
 URL_NOTICIA_ANALIZAR = "https://www.20minutos.es/noticia/4180255/0/la-revuelta-feminista-toma-espana-pero-con-menor-asistencia-que-en-los-dos-ultimos-anos/"
 TEMA_NOTICIA = "8M_DIA_INTERNACIONAL_MUJER"
@@ -49,13 +48,39 @@ URL_NOTICIA_ANALIZAR = "https://www.20minutos.es/noticia/4030716/0/sanchez-confi
 TEMA_NOTICIA = "EXHUMACIÓN_FRANCO"
 '''
 
-NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../creacionDataset/crawlerPeriodicos/dataset_pruebas_ficheros/dataset_pruebas_{}.json".format(PERIODICO)
-STR_FICHERO_OUT = "../dataset_pruebas_{}_scores.txt".format(PERIODICO)
-FILE_OUT_SCORES = open(STR_FICHERO_OUT, 'w')
-FILE_OUT_SCORES.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR + "\n")
-STR_FICHERO_OUT = "../dataset_pruebas_{}_historial.txt".format(PERIODICO)
-FILE_OUT_HIST = open(STR_FICHERO_OUT, 'w')
-FILE_OUT_HIST.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR + "\n")
+def createGlobalVars(args):
+
+    global PERIODICO
+    global URL_NOTICIA_ANALIZAR
+    global TEMA_NOTICIA
+    global ID_TEMA
+    
+    try:
+        PERIODICO = args[0]
+        URL_NOTICIA_ANALIZAR = args[1]
+        TEMA_NOTICIA = args[2]
+        ID_TEMA = args[3]
+    except:
+        print(  "\x1b[1;31m" + 
+                "ERROR: PARAMETROS MAL INTRODUCIDOS." +
+                "\n\tEj.:python historialNoticias.py PERIODICO URL_NOTICIA TEMA IDENTIFICADOR_TEMA" +
+                '\033[0;m')
+        sys.exit()
+
+
+def openResultFiles():
+
+    global NOTICIA_FILEPATH
+    global FILE_OUT_SCORES
+    global FILE_OUT_HIST
+
+    NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../creacionDataset/crawlerPeriodicos/dataset_pruebas_ficheros/dataset_pruebas_{}.json".format(PERIODICO)
+    STR_FICHERO_OUT = "../{}_dataset_pruebas_{}_scores.txt".format(ID_TEMA, PERIODICO)
+    FILE_OUT_SCORES = open(STR_FICHERO_OUT, 'w')
+    FILE_OUT_SCORES.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR + "\n")
+    STR_FICHERO_OUT = "../{}_dataset_pruebas_{}_historial.txt".format(ID_TEMA, PERIODICO)
+    FILE_OUT_HIST = open(STR_FICHERO_OUT, 'w')
+    FILE_OUT_HIST.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR + "\n")
 
 
 def do_similitud_noCreacionVecs(obj_extractor, 
@@ -285,6 +310,9 @@ def printResult(obj_procesador,
     
 
 if __name__ == '__main__':
+
+    createGlobalVars(sys.argv[1:])
+    openResultFiles()
     
     obj_extractor = extractor.Extractor(NOTICIA_FILEPATH, URL_NOTICIA_ANALIZAR)
 
