@@ -31,8 +31,12 @@ LISTA_SIMILITUDES_T2 = ["SIMILITUD_COSENO_TF-IDF",
 LISTA_SIMILITUDES_T3 = ["SIMILITUD_COSENO_SPACY_FH",
                         "SIMILITUD_JACCARD_FH"]
 
+'''
 URL_NOTICIA_ANALIZAR = "https://elpais.com/politica/2019/10/20/actualidad/1571575152_143333.html"
 TEMA_NOTICIA = "ELECCIONES_GENERALES_NOV2019"
+'''
+URL_NOTICIA_ANALIZAR = "https://elpais.com/sociedad/2019/12/02/actualidad/1575268228_449028.html"
+TEMA_NOTICIA = "CUMBRE_CLIMA"
 
 NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../creacionDataset/crawlerPeriodicos/dataset_pruebas_ficheros/dataset_pruebas_EL_PAIS.json"
 STR_FICHERO_OUT = "../dataset_pruebas_EL_PAIS_scores.txt"

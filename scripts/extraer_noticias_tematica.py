@@ -6,20 +6,20 @@ import json
 if __name__ == '__main__':
 
     print("Introduzca <directorioNoticia>/<archivoNoticia>:")
-    pathDirectorio = input(">> ")
+    pathDirectorio = raw_input(">> ")
     filePath = os.getcwd() + "/../creacionDataset/crawlerPeriodicos/" + pathDirectorio
     fileIn = open(filePath, 'r')
     data = json.load(fileIn)
 
     print("Introduzca el tag que han de tener las noticias:")
-    tag = input(">> ")
+    tag = raw_input(">> ")
 
     print("Introduzca la etiqueta del tema que van a tener las noticias:")
-    tema = input(">> ")
+    tema = raw_input(">> ")
 
     listNoticiasTematicas = []
     for noticia in data:
-        if tag in noticia['tagsNoticia']:
+        if tag.decode('utf-8', 'ignore') in noticia['tagsNoticia']:
             noticia['temaNoticia'] = tema
             listNoticiasTematicas.append(noticia)
 
@@ -37,7 +37,8 @@ if __name__ == '__main__':
         dataset = listNoticiasTematicas
         
     with open(datasetPathFile, 'w') as fileOut:
-        json.dump(dataset, fileOut, indent=4, ensure_ascii=False)
+        #json.dump(dataset, fileOut, indent=4, ensure_ascii=False)
+        json.dump(dataset, fileOut, indent=4)
     fileOut.close()
 
     print("Se han escrito {} noticias nuevas".format(len(listNoticiasTematicas)))
