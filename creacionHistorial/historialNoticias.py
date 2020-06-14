@@ -292,7 +292,7 @@ def printResult(obj_procesador,
     FILE_OUT_HIST.write(strPrint)
     
     diccFechas = {}
-    for linkNoticia in diccResults.keys():
+    for linkNoticia, _ in zip(diccResults.keys(), range(numNoticiasConEtiqueta_Esp)):
         dataNoticia = obj_extractor.getDataNoticia(linkNoticia)
         fechaNoticia = obj_extractor.getAtributoNoticia(dataNoticia, "fechaPublicacionNoticia", flgTratar=False)
         diccFechas[linkNoticia] = fechaNoticia
@@ -303,6 +303,7 @@ def printResult(obj_procesador,
         strPrint = strPrint.format( fechaNoticia,
                                     linkNoticia)
         FILE_OUT_HIST.write(strPrint)
+    FILE_OUT_HIST.write("\n")
 
     print("Terminado Similitud: " + similitudUtilizada + "\t para atributo: " + " + ".join(list_atrisUtilizados))
 
