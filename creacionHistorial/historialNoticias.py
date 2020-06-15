@@ -77,10 +77,10 @@ def openResultFiles():
     NOTICIA_FILEPATH = dirname(abspath(__file__)) + "/" + "../creacionDataset/crawlerPeriodicos/dataset_pruebas_ficheros/dataset_pruebas_{}.json".format(PERIODICO)
     STR_FICHERO_OUT = "../{}_dataset_pruebas_{}_scores.txt".format(ID_TEMA, PERIODICO)
     FILE_OUT_SCORES = open(STR_FICHERO_OUT, 'w')
-    FILE_OUT_SCORES.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR + "\n")
+    FILE_OUT_SCORES.write("NOTICIA DE REFERENCIA: \n\t" + URL_NOTICIA_ANALIZAR + "\n\n")
     STR_FICHERO_OUT = "../{}_dataset_pruebas_{}_historial.txt".format(ID_TEMA, PERIODICO)
     FILE_OUT_HIST = open(STR_FICHERO_OUT, 'w')
-    FILE_OUT_HIST.write("NOTICIA DE REFERENCIA: " + URL_NOTICIA_ANALIZAR + "\n")
+    FILE_OUT_HIST.write("NOTICIA DE REFERENCIA: \n\t" + URL_NOTICIA_ANALIZAR + "\n\n")
 
 
 def do_similitud_noCreacionVecs(obj_extractor, 
@@ -268,7 +268,7 @@ def printResult(obj_procesador,
     mins = math.floor(executionTime / 60)
     segs = round((executionTime / 60 - mins) * 60)
 
-    strPrint = "#########################################################\n"
+    strPrint = "#########################################################\n\n"
     strPrint += ">> Resultados: \n"
     strPrint += "Algoritmo: {}\n"
     strPrint += "Estudiando los atributos: {}\n"
@@ -286,7 +286,8 @@ def printResult(obj_procesador,
                                 str(segs))
     FILE_OUT_SCORES.write(strPrint)
 
-    strPrint = "Algoritmo: {}\t Atributos: {}\n"
+    strPrint = "#########################################################\n\n"
+    strPrint += "Algoritmo: {}\t Atributos: {}\n\n"
     strPrint = strPrint.format( similitudUtilizada,
                                 " + ".join(list_atrisUtilizados))
     FILE_OUT_HIST.write(strPrint)
