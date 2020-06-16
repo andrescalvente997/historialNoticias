@@ -1,5 +1,8 @@
-NOTICIA DE REFERENCIA: https://www.20minutos.es/noticia/4030716/0/sanchez-confiesa-exhumacion-franco-provoco-enorme-orgullo-emocion/
+NOTICIA DE REFERENCIA: 
+	https://www.20minutos.es/noticia/4030716/0/sanchez-confiesa-exhumacion-franco-provoco-enorme-orgullo-emocion/
+
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: titularNoticia
@@ -79,9 +82,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 4 segundos
+Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: titularNoticia + keywordsNoticia
@@ -161,9 +165,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: titularNoticia + resumenNoticia
@@ -243,9 +248,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.16      0.17      0.16        60
  
 
-Tiempo empleado: 0 minutos y 8 segundos
+Tiempo empleado: 0 minutos y 7 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: titularNoticia + autorNoticia
@@ -325,9 +331,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: titularNoticia + tagsNoticia
@@ -407,9 +414,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.25      0.25      0.24        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: titularNoticia + cuerpoNoticia
@@ -489,9 +497,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.11      0.12      0.11        60
  
 
-Tiempo empleado: 0 minutos y 27 segundos
+Tiempo empleado: 0 minutos y 24 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: keywordsNoticia
@@ -571,9 +580,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 4 segundos
+Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: keywordsNoticia + resumenNoticia
@@ -653,9 +663,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.11      0.12      0.11        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: keywordsNoticia + autorNoticia
@@ -735,9 +746,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: keywordsNoticia + tagsNoticia
@@ -817,9 +829,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.22      0.22      0.21        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: keywordsNoticia + cuerpoNoticia
@@ -899,9 +912,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.11      0.12      0.11        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: resumenNoticia
@@ -984,6 +998,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 4 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: resumenNoticia + autorNoticia
@@ -1063,9 +1078,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.09      0.10      0.09        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: resumenNoticia + tagsNoticia
@@ -1145,9 +1161,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: resumenNoticia + cuerpoNoticia
@@ -1227,9 +1244,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.11      0.12      0.11        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 24 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: autorNoticia
@@ -1312,6 +1330,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: autorNoticia + tagsNoticia
@@ -1394,6 +1413,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: autorNoticia + cuerpoNoticia
@@ -1473,9 +1493,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.11      0.12      0.11        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: tagsNoticia
@@ -1555,9 +1576,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.27      0.27      0.26        60
  
 
-Tiempo empleado: 0 minutos y 4 segundos
+Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: tagsNoticia + cuerpoNoticia
@@ -1637,9 +1659,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.11      0.12      0.11        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY
 Estudiando los atributos: cuerpoNoticia
@@ -1719,9 +1742,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.11      0.12      0.11        60
  
 
-Tiempo empleado: 0 minutos y 23 segundos
+Tiempo empleado: 0 minutos y 20 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: titularNoticia
@@ -1801,9 +1825,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 4 segundos
+Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: titularNoticia + keywordsNoticia
@@ -1883,9 +1908,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.22      0.22      0.21        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: titularNoticia + resumenNoticia
@@ -1965,9 +1991,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.22      0.22      0.21        60
  
 
-Tiempo empleado: 0 minutos y 8 segundos
+Tiempo empleado: 0 minutos y 7 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: titularNoticia + autorNoticia
@@ -2047,9 +2074,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: titularNoticia + tagsNoticia
@@ -2129,9 +2157,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.22      0.22      0.21        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: titularNoticia + cuerpoNoticia
@@ -2211,9 +2240,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.13      0.13      0.12        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: keywordsNoticia
@@ -2293,9 +2323,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 4 segundos
+Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: keywordsNoticia + resumenNoticia
@@ -2375,9 +2406,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: keywordsNoticia + autorNoticia
@@ -2457,9 +2489,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: keywordsNoticia + tagsNoticia
@@ -2539,9 +2572,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: keywordsNoticia + cuerpoNoticia
@@ -2621,9 +2655,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.13      0.13      0.12        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: resumenNoticia
@@ -2706,6 +2741,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 4 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: resumenNoticia + autorNoticia
@@ -2785,9 +2821,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: resumenNoticia + tagsNoticia
@@ -2867,9 +2904,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: resumenNoticia + cuerpoNoticia
@@ -2949,9 +2987,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.13      0.13      0.12        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: autorNoticia
@@ -3034,6 +3073,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: autorNoticia + tagsNoticia
@@ -3116,6 +3156,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: autorNoticia + cuerpoNoticia
@@ -3195,9 +3236,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.16      0.17      0.16        60
  
 
-Tiempo empleado: 0 minutos y 25 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: tagsNoticia
@@ -3277,9 +3319,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.22      0.22      0.21        60
  
 
-Tiempo empleado: 0 minutos y 4 segundos
+Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: tagsNoticia + cuerpoNoticia
@@ -3359,9 +3402,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.14      0.15      0.14        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD
 Estudiando los atributos: cuerpoNoticia
@@ -3441,9 +3485,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.13      0.13      0.12        60
  
 
-Tiempo empleado: 0 minutos y 23 segundos
+Tiempo empleado: 0 minutos y 20 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: titularNoticia
@@ -3523,9 +3568,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 4 segundos
+Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: titularNoticia + keywordsNoticia
@@ -3605,9 +3651,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.14      0.15      0.14        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: titularNoticia + resumenNoticia
@@ -3687,9 +3734,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.16      0.17      0.16        60
  
 
-Tiempo empleado: 0 minutos y 8 segundos
+Tiempo empleado: 0 minutos y 7 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: titularNoticia + autorNoticia
@@ -3769,9 +3817,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: titularNoticia + tagsNoticia
@@ -3851,9 +3900,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.16      0.17      0.16        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: titularNoticia + cuerpoNoticia
@@ -3933,9 +3983,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.09      0.10      0.09        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: keywordsNoticia
@@ -4015,9 +4066,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 4 segundos
+Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: keywordsNoticia + resumenNoticia
@@ -4100,6 +4152,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 7 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: keywordsNoticia + autorNoticia
@@ -4179,9 +4232,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: keywordsNoticia + tagsNoticia
@@ -4261,9 +4315,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.16      0.17      0.16        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: keywordsNoticia + cuerpoNoticia
@@ -4343,9 +4398,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.11      0.12      0.11        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: resumenNoticia
@@ -4428,6 +4484,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 4 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: resumenNoticia + autorNoticia
@@ -4507,9 +4564,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: resumenNoticia + tagsNoticia
@@ -4589,9 +4647,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: resumenNoticia + cuerpoNoticia
@@ -4671,9 +4730,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.11      0.12      0.11        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 24 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: autorNoticia
@@ -4756,6 +4816,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: autorNoticia + tagsNoticia
@@ -4838,6 +4899,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: autorNoticia + cuerpoNoticia
@@ -4917,9 +4979,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.09      0.10      0.09        60
  
 
-Tiempo empleado: 0 minutos y 25 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: tagsNoticia
@@ -4999,9 +5062,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 4 segundos
+Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: tagsNoticia + cuerpoNoticia
@@ -5081,9 +5145,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.11      0.12      0.11        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_TF-IDF
 Estudiando los atributos: cuerpoNoticia
@@ -5163,9 +5228,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.09      0.10      0.09        60
  
 
-Tiempo empleado: 0 minutos y 23 segundos
+Tiempo empleado: 0 minutos y 20 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: titularNoticia
@@ -5245,9 +5311,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 4 segundos
+Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: titularNoticia + keywordsNoticia
@@ -5327,9 +5394,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.22      0.22      0.21        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: titularNoticia + resumenNoticia
@@ -5409,9 +5477,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.23      0.23      0.23        60
  
 
-Tiempo empleado: 0 minutos y 8 segundos
+Tiempo empleado: 0 minutos y 7 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: titularNoticia + autorNoticia
@@ -5491,9 +5560,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: titularNoticia + tagsNoticia
@@ -5573,9 +5643,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.25      0.25      0.24        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: titularNoticia + cuerpoNoticia
@@ -5655,9 +5726,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 24 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: keywordsNoticia
@@ -5737,9 +5809,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 4 segundos
+Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: keywordsNoticia + resumenNoticia
@@ -5822,6 +5895,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 7 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: keywordsNoticia + autorNoticia
@@ -5901,9 +5975,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: keywordsNoticia + tagsNoticia
@@ -5983,9 +6058,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.22      0.22      0.21        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: keywordsNoticia + cuerpoNoticia
@@ -6065,9 +6141,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.16      0.17      0.16        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: resumenNoticia
@@ -6150,6 +6227,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 4 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: resumenNoticia + autorNoticia
@@ -6229,9 +6307,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: resumenNoticia + tagsNoticia
@@ -6311,9 +6390,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.23      0.23      0.23        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: resumenNoticia + cuerpoNoticia
@@ -6393,9 +6473,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 27 segundos
+Tiempo empleado: 0 minutos y 24 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: autorNoticia
@@ -6478,6 +6559,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: autorNoticia + tagsNoticia
@@ -6560,6 +6642,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: autorNoticia + cuerpoNoticia
@@ -6639,9 +6722,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: tagsNoticia
@@ -6721,9 +6805,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.23      0.23      0.23        60
  
 
-Tiempo empleado: 0 minutos y 4 segundos
+Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: tagsNoticia + cuerpoNoticia
@@ -6803,9 +6888,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_BOW
 Estudiando los atributos: cuerpoNoticia
@@ -6885,9 +6971,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 23 segundos
+Tiempo empleado: 0 minutos y 21 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: titularNoticia
@@ -6967,9 +7054,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.11      0.12      0.11        60
  
 
-Tiempo empleado: 0 minutos y 8 segundos
+Tiempo empleado: 0 minutos y 7 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: titularNoticia + keywordsNoticia
@@ -7049,9 +7137,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 15 segundos
+Tiempo empleado: 0 minutos y 13 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: titularNoticia + resumenNoticia
@@ -7131,9 +7220,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.13      0.13      0.12        60
  
 
-Tiempo empleado: 0 minutos y 16 segundos
+Tiempo empleado: 0 minutos y 14 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: titularNoticia + autorNoticia
@@ -7213,9 +7303,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.13      0.13      0.12        60
  
 
-Tiempo empleado: 0 minutos y 13 segundos
+Tiempo empleado: 0 minutos y 12 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: titularNoticia + tagsNoticia
@@ -7295,9 +7386,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 15 segundos
+Tiempo empleado: 0 minutos y 13 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: titularNoticia + cuerpoNoticia
@@ -7377,9 +7469,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.09      0.10      0.09        60
  
 
-Tiempo empleado: 1 minutos y 21 segundos
+Tiempo empleado: 1 minutos y 13 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: keywordsNoticia
@@ -7459,9 +7552,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 8 segundos
+Tiempo empleado: 0 minutos y 7 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: keywordsNoticia + resumenNoticia
@@ -7541,9 +7635,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.14      0.15      0.14        60
  
 
-Tiempo empleado: 0 minutos y 16 segundos
+Tiempo empleado: 0 minutos y 14 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: keywordsNoticia + autorNoticia
@@ -7623,9 +7718,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.16      0.17      0.16        60
  
 
-Tiempo empleado: 0 minutos y 13 segundos
+Tiempo empleado: 0 minutos y 11 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: keywordsNoticia + tagsNoticia
@@ -7705,9 +7801,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.22      0.22      0.21        60
  
 
-Tiempo empleado: 0 minutos y 14 segundos
+Tiempo empleado: 0 minutos y 13 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: keywordsNoticia + cuerpoNoticia
@@ -7787,9 +7884,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.09      0.10      0.09        60
  
 
-Tiempo empleado: 1 minutos y 21 segundos
+Tiempo empleado: 1 minutos y 12 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: resumenNoticia
@@ -7869,9 +7967,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.13      0.13      0.12        60
  
 
-Tiempo empleado: 0 minutos y 9 segundos
+Tiempo empleado: 0 minutos y 8 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: resumenNoticia + autorNoticia
@@ -7951,9 +8050,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.11      0.12      0.11        60
  
 
-Tiempo empleado: 0 minutos y 14 segundos
+Tiempo empleado: 0 minutos y 12 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: resumenNoticia + tagsNoticia
@@ -8033,9 +8133,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.16      0.17      0.16        60
  
 
-Tiempo empleado: 0 minutos y 16 segundos
+Tiempo empleado: 0 minutos y 14 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: resumenNoticia + cuerpoNoticia
@@ -8115,9 +8216,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.09      0.10      0.09        60
  
 
-Tiempo empleado: 1 minutos y 22 segundos
+Tiempo empleado: 1 minutos y 13 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: autorNoticia
@@ -8200,6 +8302,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 4 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: autorNoticia + tagsNoticia
@@ -8279,9 +8382,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 13 segundos
+Tiempo empleado: 0 minutos y 11 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: autorNoticia + cuerpoNoticia
@@ -8361,9 +8465,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.09      0.10      0.09        60
  
 
-Tiempo empleado: 1 minutos y 19 segundos
+Tiempo empleado: 1 minutos y 10 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: tagsNoticia
@@ -8443,9 +8548,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 8 segundos
+Tiempo empleado: 0 minutos y 7 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: tagsNoticia + cuerpoNoticia
@@ -8525,9 +8631,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.09      0.10      0.09        60
  
 
-Tiempo empleado: 1 minutos y 21 segundos
+Tiempo empleado: 1 minutos y 12 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_COSENO_SPACY_FH
 Estudiando los atributos: cuerpoNoticia
@@ -8607,9 +8714,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.09      0.10      0.09        60
  
 
-Tiempo empleado: 1 minutos y 13 segundos
+Tiempo empleado: 1 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: titularNoticia
@@ -8692,6 +8800,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 4 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: titularNoticia + keywordsNoticia
@@ -8771,9 +8880,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.22      0.22      0.21        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: titularNoticia + resumenNoticia
@@ -8853,9 +8963,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.22      0.22      0.21        60
  
 
-Tiempo empleado: 0 minutos y 8 segundos
+Tiempo empleado: 0 minutos y 7 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: titularNoticia + autorNoticia
@@ -8935,9 +9046,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.22      0.22      0.21        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: titularNoticia + tagsNoticia
@@ -9017,9 +9129,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.22      0.22      0.21        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: titularNoticia + cuerpoNoticia
@@ -9099,9 +9212,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.13      0.13      0.12        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: keywordsNoticia
@@ -9181,9 +9295,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.22      0.22      0.21        60
  
 
-Tiempo empleado: 0 minutos y 4 segundos
+Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: keywordsNoticia + resumenNoticia
@@ -9266,6 +9381,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 7 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: keywordsNoticia + autorNoticia
@@ -9345,9 +9461,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: keywordsNoticia + tagsNoticia
@@ -9427,9 +9544,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: keywordsNoticia + cuerpoNoticia
@@ -9509,9 +9627,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.13      0.13      0.12        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: resumenNoticia
@@ -9594,6 +9713,7 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
 Tiempo empleado: 0 minutos y 4 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: resumenNoticia + autorNoticia
@@ -9673,9 +9793,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: resumenNoticia + tagsNoticia
@@ -9755,9 +9876,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 8 segundos
+Tiempo empleado: 0 minutos y 7 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: resumenNoticia + cuerpoNoticia
@@ -9837,9 +9959,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.13      0.13      0.12        60
  
 
-Tiempo empleado: 0 minutos y 27 segundos
+Tiempo empleado: 0 minutos y 24 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: autorNoticia
@@ -9919,9 +10042,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.18      0.18      0.18        60
  
 
-Tiempo empleado: 0 minutos y 4 segundos
+Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: autorNoticia + tagsNoticia
@@ -10001,9 +10125,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 7 segundos
+Tiempo empleado: 0 minutos y 6 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: autorNoticia + cuerpoNoticia
@@ -10083,9 +10208,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.16      0.17      0.16        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: tagsNoticia
@@ -10165,9 +10291,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.20      0.20      0.19        60
  
 
-Tiempo empleado: 0 minutos y 4 segundos
+Tiempo empleado: 0 minutos y 3 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: tagsNoticia + cuerpoNoticia
@@ -10247,9 +10374,10 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.14      0.15      0.14        60
  
 
-Tiempo empleado: 0 minutos y 26 segundos
+Tiempo empleado: 0 minutos y 23 segundos
 
 #########################################################
+
 >> Resultados: 
 Algoritmo: SIMILITUD_JACCARD_FH
 Estudiando los atributos: cuerpoNoticia
@@ -10329,5 +10457,5 @@ ELECCIONES_GENERALES_NOV2019       0.12      1.00      0.22         1
                 weighted avg       0.13      0.13      0.12        60
  
 
-Tiempo empleado: 0 minutos y 23 segundos
+Tiempo empleado: 0 minutos y 20 segundos
 
