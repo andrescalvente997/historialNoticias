@@ -234,36 +234,27 @@ def printResult(obj_procesador,
     obj_procesador.sortResultados()
 
     noticiasEtiquetadas = obj_extractor.getDiccNoticiaEtiqueta()
-    numNoticiasConEtiqueta_Esp = obj_extractor.getCountNoticiasConEtiqueta(TEMA_NOTICIA)
 
-    diccResults, strResultTop, m_pred_etiquetas = obj_procesador.getTopResultados(noticiasEtiquetadas, top=None)
+    diccResults, strResultTop, m_pred_etiquetas = obj_procesador.getTopResultados(noticiasEtiquetadas, TEMA_NOTICIA, top=None)
+    numNoticiasConEtiqueta_Esp = m_pred_etiquetas.count(TEMA_NOTICIA)
 
     # Creacion de matriz de resultados por clases
 
-    # Creamos la lista de etiquetas, que contendrá todas las etiquetas de temas añadidas
-    # más una comodin que servirá para las no etiquetadas
-    target_names = obj_extractor.getEtiquetasTema()
-    target_names.append("OTRO")
+    # Creamos la lista de etiquetas, que contendrá solamente la etiqueta de la tematica de estudio
+    # y la temática "OTRO" para otras temáticas diferentes a esta
+    target_names = ["OTRO", TEMA_NOTICIA]
     
     # Creamos la matriz de datos verdaderos
     # Como queremos que las noticias con la etiqueta de estudio estén en las primeras posiciones:
     # aux1_m_true => Tendrá n etiquetas con la etiqueta de estudio siendo n el número de noticias con esa etiqueta
-    # aux2_m_true => Tendrá tantas etiquetas comodin como noticias que no estén en el top
-    # cola_m_true => Tendrá las demás etiquetas de noticias en la cola para que al pasar la función no haya problemas
+    # aux2_m_true => Tendrá tantas etiquetas "OTRO" como noticias que no estén en el top
     aux1_m_true = [target_names.index(TEMA_NOTICIA)] * numNoticiasConEtiqueta_Esp
     aux2_m_true = [target_names.index("OTRO")] * (len(m_pred_etiquetas) - numNoticiasConEtiqueta_Esp)
-    tail_m_true = []
-    for target in target_names:
-        if target != TEMA_NOTICIA and target != "OTRO":
-            tail_m_true.append(target_names.index(target))
-    m_true = aux1_m_true + aux2_m_true + tail_m_true
+    m_true = aux1_m_true + aux2_m_true
 
     # Creamos la matriz de datos predichos
     # Solo cogeremos las noticias de mayor a menor resultado y traduciremos la etiqueta al valor de etiqueta
-    # tail_m_pred => Contendrá las etiquetas en orden inverso para que fallen y darle la mayor importancia a la etiqueta de estudio
     m_pred = list(map(lambda x: target_names.index(x), m_pred_etiquetas))
-    tail_m_pred = list(reversed(tail_m_true))
-    m_pred = m_pred + tail_m_pred
 
     mins = math.floor(executionTime / 60)
     segs = round((executionTime / 60 - mins) * 60)

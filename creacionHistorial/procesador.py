@@ -23,7 +23,7 @@ class Procesador():
         self.diccResultados = {k: v for k, v in sorted(self.diccResultados.items(), key=lambda item: item[1], reverse=True)}
 
     
-    def getTopResultados(self, noticiasEtiquetadas, top=None):
+    def getTopResultados(self, noticiasEtiquetadas, tematicaEstudiada, top=None):
 
         diccRes = {}
         strPrint = ""
@@ -50,7 +50,11 @@ class Procesador():
                     if numTop <= top:
                         strPrint = strPrint[:-1] + "\t{}\n".format(etiqueta)
 
-                    m_pred.append(etiqueta)
+                    if etiqueta == tematicaEstudiada:
+                        m_pred.append(etiqueta)
+                    else:
+                        m_pred.append("OTRO")
+
                     flg_noticiaEtiquetada = True
 
                     break
